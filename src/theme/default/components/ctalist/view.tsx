@@ -1,0 +1,12 @@
+'use server'
+
+import dynamic from "next/dynamic"
+import { ViewComponentProps } from "@conversiondigital/cd-headless-data/src"
+
+const CTAListUI = dynamic(() => import("./components"), {
+  loading: () => <p>Loading...</p>,
+})
+
+export async function View(dynamicComponent: ViewComponentProps) {
+  return <CTAListUI {...dynamicComponent} />
+}

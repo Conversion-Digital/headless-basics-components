@@ -1,0 +1,55 @@
+name: GPT Review Comment
+
+on:
+  pull_request_target:
+    types:
+      - opened
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+
+  chatgpt_comment:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.11]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set OPENAI_API_KEY
+        run: |
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies 2
+        run: |
+          pip install git+https://github.com/@conversiondigital/ai/gpt-review.git@main
+          pip install langchain==0.0.339 langchain-core==0.0.13 openai==0.28.1 llama-index==0.8.20
+          
+
+      - name: Get Commit Hash
+        id: vars
+        run: echo "::set-output name=COMMIT_HASH::$(git rev-parse HEAD)"
+
+      - name: Run GPT @conversiondigital/ Review
+        run: |
+          gpt github review
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN_THOMAS }}
+          GITHUB_OWNER: @conversiondigital/ai
+          PATCH_PR: ${{ github.event.pull_request.number }}
+          PATCH_REPO: ${{ github.repository }}
+          GIT_COMMIT_HASH: ${{ steps.vars.outputs.COMMIT_HASH }}
+          LINK: "https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }}"

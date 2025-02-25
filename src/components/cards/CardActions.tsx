@@ -1,0 +1,16 @@
+/* eslint-disable react/prop-types */
+
+import React from "react"
+import { cnm as cn } from "../../utils/cnMerge";
+
+export type CardActionsProps = React.HTMLAttributes<HTMLDivElement>
+
+const CardActions = React.forwardRef<HTMLDivElement, CardActionsProps>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("card-actions", className)} {...props} />
+  )
+)
+
+CardActions.displayName = "CardActions"
+
+export default CardActions

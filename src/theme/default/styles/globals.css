@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+@import './gallery.module.css' layer(components);
+@import './phone-input.css' layer(components);
+
+/* CAUTION --- Below was breaking the page load */
+/* @import 'slick-carousel/slick/slick.css' layer(components);
+@import 'slick-carousel/slick/slick-theme.css' layer(components); */
+
+@config "../tailwind.config.js";
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+:root {
+  --charcoal: #6d6e71;
+  --charcoal-20: #d1d3d433;
+  --black-45: #9d9fa2;
+  --grey: #f6f6f6;
+  --black-20: #d1d3d4;
+  --yellow: #faa634;
+  --lighter-yellow: #fed095;
+  --white: #ffffff;
+  --black: #3d3d3e;
+  --dark-blue: #043176;
+  --dark-blue-400: rgba(4, 49, 118, 0.4);
+  --blue: #3d3d3e;
+  --ata-brown-grey: #3d3d3e;
+  --black-80: rgba(0, 0, 0, 0.8);
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+a {
+  cursor: pointer;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: start;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: start;
+}
+

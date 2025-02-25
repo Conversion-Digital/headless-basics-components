@@ -1,0 +1,35 @@
+# Workflow name
+name: 'Chromatic'
+
+# Event for the workflow
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches:
+      - develop # Run chromatic build when a PR is merged to develop.  This will keep the permalink, 'https://develop-xxx.chromatic.com' up to date with the latest stable build.
+# List of jobs
+jobs:
+  chromatic-deployment:
+    # Operating System
+    runs-on: ubuntu-latest
+    # Job steps
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 20.11.1
+          #registry-url: https://npm.pkg.github.com/
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install pnpm
+        run: npm install pnpm -g
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          onlyChanged: true

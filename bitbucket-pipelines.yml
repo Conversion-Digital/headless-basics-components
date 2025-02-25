@@ -1,0 +1,46 @@
+#  Template npm-publish
+
+#  This template allows you to publish your npm package, as defined in package.json, to npmjs.com or any other npm-like registry.
+#  The workflow allows running tests, code linting and security scans on feature branches (as well as master).
+#  The npm package will be validated and published after the code is merged to master.
+
+# Prerequisites: $NPM_TOKEN setup in the Deployment variables.
+# For advanced cases, please, follow examples from the pipe's README https://bitbucket.org/atlassian/npm-publish/src/master/README.md
+
+image: node:20
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: Build the node package
+          caches:
+            - node
+          script:
+            - npm install -g pnpm
+            - pnpm install
+            - pnpm run build
+      - step:
+          name: Lint the node package
+          script:
+            - pnpm install eslint
+            - npx eslint .
+          caches:
+            - node
+  branches:
+    develop:
+      - parallel:
+        - step:
+            name: Build and Deploy
+            caches:
+              - node
+            script:
+              - npm install -g pnpm
+              - pnpm install
+              - pnpm run build
+        - step:
+            name: Security Scan
+            script:
+              # Run a security scan for sensitive data.
+              # See more security tools at https://bitbucket.org/product/features/pipelines/integrations?&category=security
+              - pipe: atlassian/git-secrets-scan:0.5.1

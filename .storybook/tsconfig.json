@@ -1,0 +1,10 @@
+{
+    "extends": "../tsconfig.json",
+    "include": ["../src", "../.storybook"],
+    "compilerOptions": {
+      "module": "esnext",
+      "moduleResolution": "node",
+      "jsx": "react-jsx"
+    }
+  }
+  

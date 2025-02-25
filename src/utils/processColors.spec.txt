@@ -1,0 +1,41 @@
+import {
+  rgbToHex,
+  pickTextColorBasedOnBgColorSimple,
+  shouldForegroundBeDark,
+  processColors,
+  lighterGradient,
+} from "./processColors";
+
+describe("Color transformation and comparison functions", () => {
+  it("Tests processColor and processColors functions", () => {
+    expect(processColors(0.6, "#b43a3a", "#3f94b9")).toEqual("#7c7894");
+    expect(processColors(-0.6, "#7918a9")).toEqual("#4d0f6b");
+  });
+
+  it("Tests lighterGradient function", () => {
+    expect(lighterGradient("#FFFFFF", 0.6, false, true)).toEqual(
+      "linear-gradient(to top, #FFFFFF, #ffffff)",
+    );
+    expect(lighterGradient("#000000", 0.8, true, false)).toEqual(
+      "linear-gradient(to right, #000000, #e4e4e4)",
+    );
+  });
+
+  it("Converts RGB color to HEX correctly", () => {
+    expect(rgbToHex("rgb(255,255,255)")).toEqual("#ffffff");
+    expect(rgbToHex("rgb(0,0,0)")).toEqual("#000000");
+    expect(rgbToHex("rgb(173,216,230)")).toEqual("#add8e6");
+  });
+
+  it("Picks correct text color based on background color", () => {
+    expect(pickTextColorBasedOnBgColorSimple("#ffffff")).toEqual("#000000");
+    expect(pickTextColorBasedOnBgColorSimple("#000000")).toEqual("#ffffff");
+    expect(pickTextColorBasedOnBgColorSimple("#add8e6")).toEqual("#000000");
+  });
+
+  it("Determines if foreground should be dark based on background color", () => {
+    expect(shouldForegroundBeDark("#ffffff")).toBeTruthy();
+    expect(shouldForegroundBeDark("#000000")).toBeFalsy();
+    expect(shouldForegroundBeDark("#add8e6")).toBeTruthy();
+  });
+});

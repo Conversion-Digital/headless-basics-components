@@ -1,0 +1,73 @@
+import {
+  IndividualComponentProps,
+  ViewComponentProps,
+  getLogger,
+  logPrefix,
+} from "@conversiondigital/cd-headless-data/src"
+import {
+  DefaultHero,
+  FadedInformationHero,
+  HeroCTAButtons,
+  ImageHighlightHero,
+  RightImageHero,
+  SlimBackgroundHero,
+  TitleOnlyHero,
+} from "./variants";
+
+const log = getLogger("theme.components.hero.components.index")
+
+export default function HeroUI(dynamicComponent: ViewComponentProps) {
+  const componentInformation = dynamicComponent.componentInformation
+  const blueprint = dynamicComponent.blueprint
+
+  if (!componentInformation) {
+    log.error("Invalid componentInformation.metaData passed to HeroUI", componentInformation);
+    return <div>Error rendering HeroUI: Missing data</div>;
+  } else if (!componentInformation.metaData) {
+    log.error("Invalid componentInformation.metaData passed to HeroUI", (componentInformation as any).componentInformation.metaData);
+    return <div>Error rendering HeroUI: Missing Meta data</div>;
+  }
+
+  populateMetaData(componentInformation)
+  const matchingData = componentInformation.data;
+
+  const variant = componentInformation?.metaData?.variant || ""
+
+  log.trace("Rendering Hero with variant: ", variant)
+
+  if(!blueprint)  {
+    return <DefaultHero />
+  }
+
+  switch (variant) {
+    case "Hero - Image Highlight":
+      return <ImageHighlightHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+    case "Hero - Hero CTA Buttons":
+      return <HeroCTAButtons blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+    case "Hero - Right Image Hero":
+      return <RightImageHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+    case "Hero - Faded Information Hero":
+      return <FadedInformationHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+    case "Hero - Title Only":
+      return <TitleOnlyHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+    case "Hero - Slim Background":
+      return <SlimBackgroundHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+    default:
+      return <DefaultHero />
+  }
+}
+
+function populateMetaData(componentDetails: IndividualComponentProps) {
+
+  if(typeof(componentDetails) === "undefined") {
+    log.trace(`${logPrefix()} No componentMetaData found`, (typeof(componentDetails)))
+    return;
+  }
+
+  if (componentDetails.metaData) {
+      // Get the relative path of the current file
+      componentDetails.metaData.rendering = "theme/components/hero/components/index.tsx"
+      // Get the name of the current function
+      componentDetails.metaData.renderingExportFunction = "HeroUI"
+  }
+}
