@@ -1,4 +1,4 @@
-import { getLogger, PageAndSingleComponentDetails, processRawUrlsOnServer } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, PageAndSingleComponentDetails, processRawUrlsOnServer } from "@conversiondigital/headless-basics-data/src";
 
 
 const log = getLogger("theme.components.productlist.mapping")

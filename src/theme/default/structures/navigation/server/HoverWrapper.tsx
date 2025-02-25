@@ -1,5 +1,5 @@
 'use client';
-import { cn } from "@conversiondigital/cd-headless-data";
+import { cn } from "@conversiondigital/headless-basics-data";
 import { Suspense, useState } from "react";
 
 // import styles from "@/sites/default/styles/megamenu.module.css";

@@ -1,4 +1,4 @@
-import { getLogger, PageAndSingleComponentDetails, getMatchingResultBySortOrder } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, PageAndSingleComponentDetails, getMatchingResultBySortOrder } from "@conversiondigital/headless-basics-data/src";
 
 const log = getLogger("theme.components.featurethreeimagessection.mapping");
 

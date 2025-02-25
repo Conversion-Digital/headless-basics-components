@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react"
 
-import { cn } from "@conversiondigital/cd-headless-data/src"
+import { cn } from "@conversiondigital/headless-basics-data/src"
 import styles from "./dropdown.module.css"
 
 export interface DropDownOptionRendererProps {

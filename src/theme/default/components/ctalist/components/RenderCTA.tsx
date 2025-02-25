@@ -1,4 +1,4 @@
-import { checkPrefetchAvailability, cn } from "@conversiondigital/cd-headless-data/src";
+import { checkPrefetchAvailability, cn } from "@conversiondigital/headless-basics-data/src";
 import Link from "next/link";
 
 export const renderCTA = (linkObj: { name: any; url: string | undefined; }, languageSite: any, className = "") => {

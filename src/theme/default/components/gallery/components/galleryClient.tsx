@@ -1,5 +1,5 @@
 "use client"
-import { getLogger } from "@conversiondigital/cd-headless-data/src"
+import { getLogger } from "@conversiondigital/headless-basics-data/src"
 
 import CenterModeCarousel from "../../../components/common/carousel/centered-carousel"
 

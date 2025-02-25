@@ -2,7 +2,7 @@ import { ISitemapItem } from '../../../../interfaces/sitemap';
 import Breadcrumbs from '../../../../components/breadcrumbs/Breadcrumbs';
 import Sitemap from '../../../../components/sitemap/Sitemap';
 
-import { PageBlueprint, IndividualComponentProps } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { PageBlueprint, IndividualComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 interface SitemapPageProps<T> {
   blueprint: PageBlueprint;

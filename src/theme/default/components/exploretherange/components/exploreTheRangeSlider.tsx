@@ -2,7 +2,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons"
 import React, { useRef } from "react"
 import Slider from "react-slick"
-import { getLogger } from "@conversiondigital/cd-headless-data/src"
+import { getLogger } from "@conversiondigital/headless-basics-data/src"
 
 const log = getLogger("ui-base.cms.heartcore.content.exploreTheRangeSlider")
 

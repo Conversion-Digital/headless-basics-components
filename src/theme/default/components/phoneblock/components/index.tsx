@@ -1,6 +1,6 @@
 
 import DevButton from "../../../../../components/developer/devButton";
-import { filterAndUpdateClass, getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/cd-headless-data/src";
+import { filterAndUpdateClass, getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src";
 import { Suspense } from "react";
 
 const log = getLogger("theme.components.phoneblock.components.index");

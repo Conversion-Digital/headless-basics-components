@@ -4,8 +4,8 @@ import React, { Fragment, Key, Suspense } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-import { checkPrefetchAvailability, LanguageSite } from "@conversiondigital/cd-headless-data/src";
-import { cn } from "@conversiondigital/cd-headless-data"
+import { checkPrefetchAvailability, LanguageSite } from "@conversiondigital/headless-basics-data/src";
+import { cn } from "@conversiondigital/headless-basics-data"
 
 
 

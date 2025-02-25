@@ -1,5 +1,5 @@
-import { PageAndSingleComponentDetails } from "@conversiondigital/cd-headless-data/src";
-import { log, logPrefix } from "@conversiondigital/cd-headless-data";
+import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
+import { log, logPrefix } from "@conversiondigital/headless-basics-data";
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] query `);

@@ -1,5 +1,5 @@
 
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces";
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces";
 
 export function stripSiteLanguagePrefix(url: string, languageSite: LanguageSite | undefined) {
   if (!languageSite || !url) {

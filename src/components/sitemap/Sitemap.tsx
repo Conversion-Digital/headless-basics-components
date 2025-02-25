@@ -2,7 +2,7 @@ import React from "react";
 import { Accordion } from "../accordion";
 import { ISitemapItem } from "../../interfaces/sitemap";
 import SitemapItem from "./SitemapItem";
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 export interface SitemapProps {
   sitemapList: ISitemapItem[];

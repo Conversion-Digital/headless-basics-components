@@ -1,4 +1,4 @@
-import { LanguageSite, PageAndSingleComponentDetails, processURLForNavigationServer, QueryResult } from "@conversiondigital/cd-headless-data/src"
+import { LanguageSite, PageAndSingleComponentDetails, processURLForNavigationServer, QueryResult } from "@conversiondigital/headless-basics-data/src"
 import { Content } from "../../../interfaces/advancedSpecificationTable.interface";
 
 export interface BreadcrumbLink {

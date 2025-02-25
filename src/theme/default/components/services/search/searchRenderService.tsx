@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { SetStateAction, useEffect, useMemo, useState } from "react"
 import { BallTriangle as Loader } from "react-loading-icons"
 
-import { GetCMS, getLogger, LanguageSite, processURLForNavigation } from "@conversiondigital/cd-headless-data/src"
+import { GetCMS, getLogger, LanguageSite, processURLForNavigation } from "@conversiondigital/headless-basics-data/src"
 
 const log = getLogger("ui-base.services.search.searchRenderService")
 

@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 
 import ProductComponent from "../../../components/common/ecommerce/Product";
-import { IndividualComponentProps, PageBlueprint, ProductI } from "@conversiondigital/cd-headless-data/src";
+import { IndividualComponentProps, PageBlueprint, ProductI } from "@conversiondigital/headless-basics-data/src";
 import DevButton from "../../../../../components/developer/devButton";
 
 export function detectAndRenderProductDetails(

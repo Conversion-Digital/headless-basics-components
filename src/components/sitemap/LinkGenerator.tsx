@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Link from "next/link";
 import { ISitemapItem } from "../../interfaces/sitemap";
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 import { processURLForNavigation } from "../../utils/url";
 import { levelMarginClasses } from "../../utils/constants";
 

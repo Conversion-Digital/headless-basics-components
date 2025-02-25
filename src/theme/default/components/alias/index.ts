@@ -1,4 +1,4 @@
-import { getLogger, getThemeConfig, ThemeConfig } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, getThemeConfig, ThemeConfig } from "@conversiondigital/headless-basics-data/src";
 
 getLogger("theme.components.alias");
 

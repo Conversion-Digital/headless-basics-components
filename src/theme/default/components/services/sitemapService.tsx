@@ -1,4 +1,4 @@
-import { getLogger, PageBlueprint } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, PageBlueprint } from "@conversiondigital/headless-basics-data/src";
 import dynamic from "next/dynamic";
 
 const DynamicATAPage_Sitemap = dynamic(() => import('../../structures/pages/Sitemap').then((module) => module.SitemapPage as unknown as React.ComponentType<PageBlueprint>), { ssr: true });

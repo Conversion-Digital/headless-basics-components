@@ -1,4 +1,4 @@
-import { filterAndUpdateClassServer, getLogger, getMatchingResultBySortOrder, LanguageSite, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/cd-headless-data/src";
+import { filterAndUpdateClassServer, getLogger, getMatchingResultBySortOrder, LanguageSite, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 const log = getLogger("theme.components.richtext.mapping");
 

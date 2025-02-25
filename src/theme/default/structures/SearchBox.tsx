@@ -3,9 +3,9 @@
 import { SetStateAction, useEffect, useRef, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 
-import { processURLForNavigation, cn } from "@conversiondigital/cd-headless-data"
+import { processURLForNavigation, cn } from "@conversiondigital/headless-basics-data"
 import { SearchIcon } from "./Icon"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 interface SearchBoxProps extends React.HTMLAttributes<HTMLInputElement> {
   showSearch: boolean

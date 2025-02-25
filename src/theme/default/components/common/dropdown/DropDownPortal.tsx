@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react"
 import { createPortal } from "react-dom"
 
-import { cn } from "@conversiondigital/cd-headless-data/src"
+import { cn } from "@conversiondigital/headless-basics-data/src"
 import DropDownOption, {
   DropDownOptionProps,
   DropDownOptionRendererProps,

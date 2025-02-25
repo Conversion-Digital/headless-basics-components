@@ -3,9 +3,9 @@
 import React, { Fragment, Key, Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { checkPrefetchAvailability } from "@conversiondigital/cd-headless-data";
-import { PageBlueprint, LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces";
-import { cn } from "@conversiondigital/cd-headless-data";
+import { checkPrefetchAvailability } from "@conversiondigital/headless-basics-data";
+import { PageBlueprint, LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces";
+import { cn } from "@conversiondigital/headless-basics-data";
 import MobileCTA from "./mobileCta";
 import SitePickerLoader from "./sitePickerLoader";
 import DevButton from "../../../../../components/developer/devButton";

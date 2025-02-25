@@ -1,7 +1,7 @@
 "use client"
 
 import { MinusIcon, PlusIcon } from "lucide-react"
-import { getLogger } from "@conversiondigital/cd-headless-data/src"
+import { getLogger } from "@conversiondigital/headless-basics-data/src"
 import {
   Accordion,
   AccordionContent,

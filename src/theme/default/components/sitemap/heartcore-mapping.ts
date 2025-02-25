@@ -1,4 +1,4 @@
-import { GetLanguageSiteByURL, log, logPrefix, PageAndSingleComponentDetails, processURLForNavigation } from "@conversiondigital/cd-headless-data/src";
+import { GetLanguageSiteByURL, log, logPrefix, PageAndSingleComponentDetails, processURLForNavigation } from "@conversiondigital/headless-basics-data/src";
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   try {

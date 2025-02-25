@@ -1,4 +1,4 @@
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src";
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src";
 
 export interface ProductMedia {
   name?: string;

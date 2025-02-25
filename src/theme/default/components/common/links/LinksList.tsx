@@ -1,9 +1,9 @@
 import React from "react"
 
-import { cn } from "@conversiondigital/cd-headless-data/src"
+import { cn } from "@conversiondigital/headless-basics-data/src"
 import ButtonLinksList from "./ButtonLinksList"
 import DownloadLinks from "./DownloadLinks"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src";
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src";
 
 export interface LinksListChildrenProps {
   links: LinksListLinkProps[]

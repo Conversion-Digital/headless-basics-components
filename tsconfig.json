@@ -22,6 +22,6 @@
     ],
     "typeRoots": ["node_modules/@types", "src/theme/utils"]
   },
-  "include": ["**/*.css", "**/*.ts", "**/*.tsx", "**/*.js", "src/theme/utils/**/*.d.ts", "node_modules/@conversiondigital/cd-headless-data/**/*"],
+  "include": ["**/*.css", "**/*.ts", "**/*.tsx", "**/*.js", "src/theme/utils/**/*.d.ts", "node_modules/@conversiondigital/headless-basics-data/**/*"],
   "exclude": ["node_modules", "./dist/**/*", "**/*.stories.*"]
 }

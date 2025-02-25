@@ -7,7 +7,7 @@ import {
   loadSingleComponentGraphQLData,
   logPrefix,
   stripSiteLanguagePrefixAsync,
-} from "@conversiondigital/cd-headless-data/src"
+} from "@conversiondigital/headless-basics-data/src"
 
 const log = getLogger("theme.components.gridcontent.mapping");
 

@@ -1,4 +1,4 @@
-import { alignmentClasses, cn, filterAndUpdateClass, LanguageSite } from "@conversiondigital/cd-headless-data/src"
+import { alignmentClasses, cn, filterAndUpdateClass, LanguageSite } from "@conversiondigital/headless-basics-data/src"
 import { FeatureCard } from "./FeatureCard"
 import FeatureSection from "../../../../../components/sections/feature-section"
 import Carousel from "../../common/carousel/carousel"

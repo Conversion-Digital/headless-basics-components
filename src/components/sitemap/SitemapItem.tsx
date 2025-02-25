@@ -3,7 +3,7 @@ import { PlusIcon, MinusIcon } from "lucide-react";
 import { AccordionContent, AccordionItem, AccordionTrigger } from "../accordion";
 import LinkGenerator from "./LinkGenerator";
 import { IEdgeNestedSitemapItem, INodeNestedSitemapItem, ISitemapItem, SitemapChildren } from "../../interfaces/sitemap";
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 interface SitemapItemProps {
   item: ISitemapItem;

@@ -1,7 +1,7 @@
 import React, { lazy } from "react"
-import { getLogger, logPrefix } from "@conversiondigital/cd-headless-data"
+import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data"
 
-import { PageBlueprint } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { PageBlueprint } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 import dynamic from "next/dynamic";
 import { FooterProps } from "../navigation/footer/footer";
@@ -44,13 +44,13 @@ export function HeadlessLayout({
   const siteTheme = process.env.SITE_THEME || 'default';
   
   const SiteHeader = dynamic<SiteHeaderProps>(() =>
-    import(`@conversiondigital/cd-headless-component-lib/src/theme/${siteTheme}/structures/site-header`).then(
+    import(`@conversiondigital/headless-basics-components/src/theme/${siteTheme}/structures/site-header`).then(
       (mod) => mod.SiteHeader || mod.default
     )
   );
 
   const SiteFooter = dynamic<FooterProps>(() =>
-    import(`@conversiondigital/cd-headless-component-lib/src/theme/${siteTheme}/structures/navigation/footer/footer`).then(
+    import(`@conversiondigital/headless-basics-components/src/theme/${siteTheme}/structures/navigation/footer/footer`).then(
       (mod) => mod.SiteFooter || mod.default
     )
   );

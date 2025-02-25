@@ -1,7 +1,7 @@
 import { Key, Suspense } from "react"
 
 import DevButton from "../../../../../components/developer/devButton"
-import { getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/cd-headless-data/src"
+import { getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src"
 import { getSectionBackgroundColour } from "../../../../utils/getSectionBackgroundColour"
 
 

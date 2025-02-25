@@ -1,7 +1,7 @@
 import { GlobalTailwindNavigationMenu } from "../../../components/global-navigation";
 import Logo from "../../../components/media/logo";
 import { ImageInputProps } from "../../../interfaces/Images";
-import { getLogger, logPrefix, PageBlueprint, processURLForNavigation } from "@conversiondigital/cd-headless-data";
+import { getLogger, logPrefix, PageBlueprint, processURLForNavigation } from "@conversiondigital/headless-basics-data";
 import Link from "next/link";
 import { SiteHeaderProps } from "../../../interfaces/siteHeaderProps";
 

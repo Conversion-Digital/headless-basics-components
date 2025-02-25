@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { getLogger, logPrefix, PageBlueprint, processURLForNavigation } from "@conversiondigital/cd-headless-data";
+import { getLogger, logPrefix, PageBlueprint, processURLForNavigation } from "@conversiondigital/headless-basics-data";
 import { SiteHeaderProps } from "../../../interfaces/siteHeaderProps";
 
 const log = getLogger("theme.deep-purple.structures.site-header");

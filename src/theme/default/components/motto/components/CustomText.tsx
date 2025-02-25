@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import { alignmentClasses } from "@conversiondigital/cd-headless-data/src"
+import { alignmentClasses } from "@conversiondigital/headless-basics-data/src"
 
 interface CustomTextProps {
   text: string;

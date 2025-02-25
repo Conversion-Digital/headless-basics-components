@@ -1,9 +1,9 @@
 
 
 import DevButton from "../../../../../components/developer/devButton";
-import { getLogger } from "@conversiondigital/cd-headless-data/src";
+import { getLogger } from "@conversiondigital/headless-basics-data/src";
 import { Suspense } from 'react';
-import { ViewComponentProps, IndividualComponentProps } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { ViewComponentProps, IndividualComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 const log = getLogger("ui-base.cms.heartcore.content.googlemaps");
 

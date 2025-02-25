@@ -1,8 +1,8 @@
 
 import cheerio from "cheerio";
 import { filterAndUpdateTags, removeHeadBodyTag } from "./filterAndUpdateClass";
-import { processURLForNavigationServer } from "@conversiondigital/cd-headless-data"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { processURLForNavigationServer } from "@conversiondigital/headless-basics-data"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 export async function filterAndUpdateClassServer(html: string, languageSite: LanguageSite):Promise<string> {
   const passOne = filterAndUpdateTags(html, languageSite);

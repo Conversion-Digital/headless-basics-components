@@ -1,4 +1,4 @@
-import { cn, filterAndUpdateClass, formatHeading, IndividualComponentProps, PageBlueprint } from "@conversiondigital/cd-headless-data/src"
+import { cn, filterAndUpdateClass, formatHeading, IndividualComponentProps, PageBlueprint } from "@conversiondigital/headless-basics-data/src"
 import Image from "next/image"
 import React, { Suspense } from "react"
 import Hero from "../Hero"

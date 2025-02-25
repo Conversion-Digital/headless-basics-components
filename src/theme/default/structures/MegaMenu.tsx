@@ -1,9 +1,9 @@
 
 import StickyNavigation from "./StickyNavigation"
 import MobileMegaMenuLoader from "./mobileMegaMenuLoader"
-import { getLogger, logPrefix } from "@conversiondigital/cd-headless-data"
+import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data"
 import { NavMegaMenuV1 } from "./navigation/navMegaMenuV1"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 const log = getLogger("page.MegaMenu")
 

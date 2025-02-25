@@ -6,7 +6,7 @@ import {
   cn,
   filterAndUpdateClass,
   formatHeading,
-} from "@conversiondigital/cd-headless-data/src"
+} from "@conversiondigital/headless-basics-data/src"
 import React, { Suspense } from "react";
 import Hero from "../Hero";
 import DevButton from "../../../../../../components/developer/devButton";

@@ -1,4 +1,4 @@
-import { cn } from "@conversiondigital/cd-headless-data"
+import { cn } from "@conversiondigital/headless-basics-data"
 import { filterNavItem } from "../navMegaMenuV1"
 import { NavItemInterface } from "./NavItemInterface";
 import HoverWrapper from "./HoverWrapper"

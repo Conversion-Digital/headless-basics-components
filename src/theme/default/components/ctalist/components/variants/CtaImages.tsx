@@ -1,6 +1,6 @@
 import { renderCTA } from "../../../../components/ctalist/components/RenderCTA"
 import FeatureSection from "../../../../../../components/sections/feature-section"
-import { alignmentClasses, LanguageSite, parseText } from "@conversiondigital/cd-headless-data/src"
+import { alignmentClasses, LanguageSite, parseText } from "@conversiondigital/headless-basics-data/src"
 import { getSectionBackgroundColour } from "../../../../../utils/getSectionBackgroundColour";
 
 interface CtaImagesProps {

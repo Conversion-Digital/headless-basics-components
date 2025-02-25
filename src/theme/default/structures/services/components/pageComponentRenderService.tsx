@@ -1,6 +1,6 @@
-import { getLogger } from "@conversiondigital/cd-headless-data";
+import { getLogger } from "@conversiondigital/headless-basics-data";
 import { detectAndRenderProductDetails } from "../ecommerce/ecommerceRenderService";
-import { PageBlueprint } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { PageBlueprint } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 const log = getLogger("headless.services.components.pageComponentRenderService");
 export function renderComponentContent(bluePrint:PageBlueprint) {

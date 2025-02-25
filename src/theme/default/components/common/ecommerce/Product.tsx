@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
-import { ProductI } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
+import { ProductI } from "@conversiondigital/headless-basics-data/src/interfaces"
 import ProductAccordion from "./ProductAccordion"
 import { GalleryComp } from "../../gallery/components"
 

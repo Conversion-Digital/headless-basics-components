@@ -5,7 +5,7 @@ import React, { useState } from "react"
 import Image from "next/image"
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons"
 
-import { cn } from "@conversiondigital/cd-headless-data"
+import { cn } from "@conversiondigital/headless-basics-data"
 
 const slides = [
   {

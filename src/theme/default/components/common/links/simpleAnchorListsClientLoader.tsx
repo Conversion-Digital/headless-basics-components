@@ -1,6 +1,6 @@
 "use client"
 
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src";
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src";
 import dynamic from "next/dynamic"
 
 const SimpleAnchorLists = dynamic(() => import("./SimpleAnchorLists"))

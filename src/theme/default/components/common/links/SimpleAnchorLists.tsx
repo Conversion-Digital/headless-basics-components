@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useMediaQuery } from "usehooks-ts"
 
-import { cn } from "@conversiondigital/cd-headless-data/src"
+import { cn } from "@conversiondigital/headless-basics-data/src"
 import { LinksListChildrenProps, LinksListLinkProps } from "./LinksList"
 import { MouseEvent } from "react"
 

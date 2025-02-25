@@ -1,4 +1,4 @@
-import { cn } from "@conversiondigital/cd-headless-data";
+import { cn } from "@conversiondigital/headless-basics-data";
 import { NavItem } from "./NavItemServer";
 import { NavItemInterface } from "./NavItemInterface";
 

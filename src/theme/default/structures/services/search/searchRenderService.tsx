@@ -5,9 +5,9 @@ import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
 import { AwaitedReactNode, JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, SetStateAction, useEffect, useMemo, useState } from "react"
 import { BallTriangle as Loader } from "react-loading-icons"
-import { PageBlueprint, IndividualComponentProps, LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { PageBlueprint, IndividualComponentProps, LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
-import { GetCMS, getLogger, processURLForNavigation } from "@conversiondigital/cd-headless-data"
+import { GetCMS, getLogger, processURLForNavigation } from "@conversiondigital/headless-basics-data"
 
 const log = getLogger("ui-base.services.search.searchRenderService")
 

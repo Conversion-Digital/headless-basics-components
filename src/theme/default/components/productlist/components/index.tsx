@@ -6,7 +6,7 @@ import {
   IndividualComponentProps,
   ViewComponentProps,
   getLogger,
-} from "@conversiondigital/cd-headless-data/src"
+} from "@conversiondigital/headless-basics-data/src"
 import { StaticImport } from "next/dist/shared/lib/get-img-props"
 import { UrlObject } from "url"
 

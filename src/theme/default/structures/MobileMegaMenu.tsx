@@ -8,12 +8,12 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "lucide-react"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 import { CloseIcon, HamburgerIcon, SearchIcon } from "./Icon"
 import SearchBox from "./SearchBox"
 import { StickyNavDataI } from "./StickyNavigation"
-import { processURLForNavigation, cn } from "@conversiondigital/cd-headless-data"
+import { processURLForNavigation, cn } from "@conversiondigital/headless-basics-data"
 import { NavItemInterface } from "./navigation/NavItem"
 import { filterNavItem } from "./navigation/navMegaMenuV1"
 interface MobileMegaMenuProps {

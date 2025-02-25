@@ -1,7 +1,7 @@
-import { PageAndSingleComponentDetails, processNavItem } from "@conversiondigital/cd-headless-data/src";
-import { getLogger, logPrefix } from "@conversiondigital/cd-headless-data/src";
+import { PageAndSingleComponentDetails, processNavItem } from "@conversiondigital/headless-basics-data/src";
+import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src";
 
-const log = getLogger("headless-component-lib.theme.default.components.navigationchildren.mappings");
+const log = getLogger("headless-basics-components.theme.default.components.navigationchildren.mappings");
 
 export function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
 

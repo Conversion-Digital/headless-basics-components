@@ -1,4 +1,4 @@
-import { getLogger, PageBlueprint } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, PageBlueprint } from "@conversiondigital/headless-basics-data/src";
 import { detectAndRenderProductDetails } from "../ecommerce/ecommerceRenderService";
 
 

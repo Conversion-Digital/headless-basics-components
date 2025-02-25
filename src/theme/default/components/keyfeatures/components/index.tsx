@@ -1,5 +1,5 @@
 import DevButton from "../../../../../components/developer/devButton";
-import { getLogger, IndividualComponentProps, LanguageSite, ViewComponentProps } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, IndividualComponentProps, LanguageSite, ViewComponentProps } from "@conversiondigital/headless-basics-data/src";
 import { Suspense } from "react";
 import { KeyFeatures } from "./KeyFeatures";
 

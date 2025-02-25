@@ -7,8 +7,8 @@ import { usePathname, useRouter } from "next/navigation"
 import { ChevronDownIcon } from "@radix-ui/react-icons"
 
 import DevButton from "../../../components/developer/devButton"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
-import { processURLForNavigation, cn, checkPrefetchAvailability } from "@conversiondigital/cd-headless-data"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
+import { processURLForNavigation, cn, checkPrefetchAvailability } from "@conversiondigital/headless-basics-data"
 import SearchBox from "./SearchBox"
 import Dropdown from "../components/common/dropdown/DropDown"
 

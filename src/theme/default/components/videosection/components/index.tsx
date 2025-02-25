@@ -1,5 +1,5 @@
 import DevButton from "../../../../../components/developer/devButton"
-import { alignmentClasses, getLogger, IndividualComponentProps, replaceString, ViewComponentProps } from "@conversiondigital/cd-headless-data/src"
+import { alignmentClasses, getLogger, IndividualComponentProps, replaceString, ViewComponentProps } from "@conversiondigital/headless-basics-data/src"
 import { Key, Suspense } from "react"
 import { getSectionBackgroundColour } from "../../../../utils/getSectionBackgroundColour"
 

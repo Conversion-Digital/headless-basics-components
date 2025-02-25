@@ -1,5 +1,5 @@
 import DevButton from "../../../../../components/developer/devButton";
-import { getGridColour, getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/cd-headless-data/src";
+import { getGridColour, getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src";
 import { Suspense } from "react";
 import UmbracoFlexGrid, { SectionProps } from "../../common/umbraco-heartcore-grid";
 

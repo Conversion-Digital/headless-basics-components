@@ -3,7 +3,7 @@ import {
   ViewComponentProps,
   getLogger,
   logPrefix,
-} from "@conversiondigital/cd-headless-data/src"
+} from "@conversiondigital/headless-basics-data/src"
 import {
   DefaultHero,
   FadedInformationHero,

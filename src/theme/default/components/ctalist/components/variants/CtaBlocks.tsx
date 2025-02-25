@@ -1,6 +1,6 @@
 import { getSectionBackgroundColour } from '../../../../../utils/getSectionBackgroundColour';
 import { renderCTA } from '../../../../components/ctalist/components/RenderCTA';
-import { alignmentClasses, cn } from '@conversiondigital/cd-headless-data';
+import { alignmentClasses, cn } from '@conversiondigital/headless-basics-data';
 import { CtaBlocksProps } from './CtaBlocksProps';
 
 export const CtaBlocks = ({ data, heading, text, languageSite }: CtaBlocksProps) => {

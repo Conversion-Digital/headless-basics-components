@@ -1,6 +1,6 @@
-import { PageAndSingleComponentDetails, getLogger, logPrefix } from "@conversiondigital/cd-headless-data/src";
+import { PageAndSingleComponentDetails, getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src";
 
-const log = getLogger("headless-component-lib.theme.default.components.footer.query");
+const log = getLogger("headless-basics-components.theme.default.components.footer.query");
 
 export function query(IndividualComponentProps: PageAndSingleComponentDetails) {
   log.trace(`[${logPrefix()}][${IndividualComponentProps?.component.identifier}] footer query`);

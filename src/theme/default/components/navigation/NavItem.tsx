@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { cn } from "@conversiondigital/cd-headless-data/src"
+import { cn } from "@conversiondigital/headless-basics-data/src"
 import { ChevronDownIcon } from "@radix-ui/react-icons"
 
 import { filterNavItem } from "./navMegaMenuV1"

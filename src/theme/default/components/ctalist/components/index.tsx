@@ -5,7 +5,7 @@ import {
   CtaImages,
 } from "../../../components/ctalist/components/variants"
 import DevButton from "../../../../../components/developer/devButton"
-import { getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/cd-headless-data/src"
+import { getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src"
 import { Suspense } from "react"
 
 const log = getLogger("theme.components.ctalist.components.index")

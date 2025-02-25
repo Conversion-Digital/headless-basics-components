@@ -1,7 +1,7 @@
-import { getLogger, getThemeConfig } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, getThemeConfig } from "@conversiondigital/headless-basics-data/src";
 import { View } from "./view";
 
-import { ThemeConfig } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 getLogger("theme.components.gridcontent");
 

@@ -1,4 +1,4 @@
-import { PageAndSingleComponentDetails, processRawUrlsOnServer } from "@conversiondigital/cd-headless-data/src";
+import { PageAndSingleComponentDetails, processRawUrlsOnServer } from "@conversiondigital/headless-basics-data/src";
 
 export async function mapIdentifierData(IndividualComponentProps: PageAndSingleComponentDetails) {
   const responseData = IndividualComponentProps?.component?.data?.content;

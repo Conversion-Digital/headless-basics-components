@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronDownIcon } from "@radix-ui/react-icons"
 
-import { cn } from "@conversiondigital/cd-headless-data/src"
+import { cn } from "@conversiondigital/headless-basics-data/src"
 import { renderChildOf } from "./renderChildOf";
 import NavChildrenIndicator from "./NavChildrenIndicator";
 

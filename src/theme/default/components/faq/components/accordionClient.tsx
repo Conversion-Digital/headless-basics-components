@@ -9,7 +9,7 @@ import {
   AccordionTrigger,
 } from "../../../../../components//accordion"
 import { Faqs } from "../../../../interfaces/fag.interface";
-import { filterAndUpdateClass, LanguageSite } from "@conversiondigital/cd-headless-data/src";
+import { filterAndUpdateClass, LanguageSite } from "@conversiondigital/headless-basics-data/src";
 
 export interface AccordionFaqClientProps {
   faqList: Faqs;

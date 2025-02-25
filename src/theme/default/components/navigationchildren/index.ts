@@ -1,5 +1,5 @@
-import { getLogger, getThemeConfig, ThemeConfig } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, getThemeConfig, ThemeConfig } from "@conversiondigital/headless-basics-data/src";
 
-const log = getLogger("headless-component-lib.theme.default.components.navigationchildren.index");
+const log = getLogger("headless-basics-components.theme.default.components.navigationchildren.index");
 
 export default getThemeConfig('navigationchildren');

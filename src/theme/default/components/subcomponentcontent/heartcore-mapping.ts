@@ -1,4 +1,4 @@
-import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/cd-headless-data/src";
+import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started`);

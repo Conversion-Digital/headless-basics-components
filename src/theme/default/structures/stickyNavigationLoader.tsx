@@ -1,7 +1,7 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 const StickyNavigation = dynamic(() => import("./StickyNavigation"))
 

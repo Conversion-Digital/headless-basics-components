@@ -1,4 +1,4 @@
-import { filterSubComponentData, getLogger, PageAndSingleComponentDetails } from "@conversiondigital/cd-headless-data/src";
+import { filterSubComponentData, getLogger, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 const log = getLogger("theme.components.phoneblock.mapping");
 

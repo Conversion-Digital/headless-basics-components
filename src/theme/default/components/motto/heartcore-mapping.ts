@@ -1,4 +1,4 @@
-import { getMatchingResultBySortOrder, log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/cd-headless-data/src";
+import { getMatchingResultBySortOrder, log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   const content = pageAndComponentCombo?.component?.data?.content as any;

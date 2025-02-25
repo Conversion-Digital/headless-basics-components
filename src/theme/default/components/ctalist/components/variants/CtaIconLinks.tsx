@@ -1,7 +1,7 @@
 import React from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { alignmentClasses, checkPrefetchAvailability, cn, LanguageSite } from '@conversiondigital/cd-headless-data/src';
+import { alignmentClasses, checkPrefetchAvailability, cn, LanguageSite } from '@conversiondigital/headless-basics-data/src';
 import { getSectionBackgroundColour } from "../../../../../utils/getSectionBackgroundColour";
 import InlineSVG from "../../../../../../components/sections/InlineSVG";
 

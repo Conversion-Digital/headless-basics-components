@@ -1,6 +1,6 @@
 import React, { Suspense } from "react"
 import dynamic from "next/dynamic"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src"
 import LinksList, { LinksListLinkProps } from "../../../common/links/LinksList";
 
 interface SimpleLinkListProps {

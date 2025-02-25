@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 
 import DevButton from "../../../../../components/developer/devButton"
-import { getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/cd-headless-data/src"
+import { getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src"
 import { CustomText } from "./CustomText"
 
 const log = getLogger("theme.components.motto.components.index")

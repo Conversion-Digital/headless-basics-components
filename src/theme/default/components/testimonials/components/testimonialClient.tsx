@@ -1,6 +1,6 @@
 "use client"
 
-import { cn, getLogger } from "@conversiondigital/cd-headless-data";
+import { cn, getLogger } from "@conversiondigital/headless-basics-data";
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons";
 import React, { useRef } from "react";
 import Slider from 'react-slick';

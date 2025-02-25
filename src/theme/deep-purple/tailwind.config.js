@@ -6,9 +6,9 @@ module.exports = {
     "pages/**/*.{ts,tsx}",
     "theme/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    "./node_modules/@conversiondigital/cd-headless-component-lib/src/theme/deep-purple/**/*.{ts,tsx}",
-    "./../headless-component-lib/src/theme/deep-purple/**/*.{ts,tsx}",
-    "./../../../headless-component-lib/src/theme/deep-purple/**/*.{ts,tsx}",
+    "./node_modules/@conversiondigital/headless-basics-components/src/theme/deep-purple/**/*.{ts,tsx}",
+    "./../headless-basics-components/src/theme/deep-purple/**/*.{ts,tsx}",
+    "./../../../headless-basics-components/src/theme/deep-purple/**/*.{ts,tsx}",
     './src/**/*.{js,jsx,ts,tsx}'
   ],
   colors: {

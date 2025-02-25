@@ -1,6 +1,6 @@
-import { PageAndSingleComponentDetails, getLogger, logPrefix } from "@conversiondigital/cd-headless-data/src";
+import { PageAndSingleComponentDetails, getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src";
 
-const log = getLogger("headless-component-lib.theme.default.components.navigationchildren.query");
+const log = getLogger("headless-basics-components.theme.default.components.navigationchildren.query");
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`[${logPrefix()}][${pageAndComponentCombo?.component.identifier}] page nagiagtion children query`);

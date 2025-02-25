@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import { alignmentClasses, cn } from '@conversiondigital/cd-headless-data';
+import { alignmentClasses, cn } from '@conversiondigital/headless-basics-data';
 import { getSectionBackgroundColour } from "../../../../../utils/getSectionBackgroundColour"
 import { renderCTA } from "../../../../components/ctalist/components/RenderCTA"
 import { CtaButtonsProps } from "./CtaBlocksProps";

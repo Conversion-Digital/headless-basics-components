@@ -1,4 +1,4 @@
-import { getLogger, isGuid, logPrefix, PageAndSingleComponentDetails, variablesById, variablesMultiSiteSlug } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, isGuid, logPrefix, PageAndSingleComponentDetails, variablesById, variablesMultiSiteSlug } from "@conversiondigital/headless-basics-data/src";
 
 const log = getLogger("theme.components.model.variables");
 

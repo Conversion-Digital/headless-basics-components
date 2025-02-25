@@ -1,6 +1,6 @@
 import DevButton from "../../../../../components/developer/devButton";
-import { getLogger } from "@conversiondigital/cd-headless-data";
-import { IndividualComponentProps, ViewComponentProps } from "@conversiondigital/cd-headless-data/src";
+import { getLogger } from "@conversiondigital/headless-basics-data";
+import { IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src";
 import { Suspense } from "react";
 import { IconDownloadCTA } from "../../ctalist/components/variants";
 import { getSectionBackgroundColour } from "../../../../utils/getSectionBackgroundColour";

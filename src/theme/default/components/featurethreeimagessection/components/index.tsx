@@ -1,5 +1,5 @@
 import DevButton from "../../../../../components/developer/devButton";
-import { alignmentClasses, cn, getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/cd-headless-data/src";
+import { alignmentClasses, cn, getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import { Key, Suspense } from "react";

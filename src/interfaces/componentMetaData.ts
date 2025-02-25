@@ -1,4 +1,4 @@
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 export interface ComponentMetaData {
   url: string;

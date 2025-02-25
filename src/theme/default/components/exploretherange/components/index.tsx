@@ -10,7 +10,7 @@ import {
   alignmentClasses,
   cn,
   getLogger
-} from "@conversiondigital/cd-headless-data/src"
+} from "@conversiondigital/headless-basics-data/src"
 import { getSectionBackgroundColour } from "../../../../utils/getSectionBackgroundColour"
 import { renderCTA } from "../../ctalist/components/RenderCTA"
 

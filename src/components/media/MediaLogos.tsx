@@ -1,6 +1,6 @@
 import React from "react"
 import Image from "next/image"
-import { cn } from "@conversiondigital/cd-headless-data/src"
+import { cn } from "@conversiondigital/headless-basics-data/src"
 
 interface MediaLogosProps {
   className?: string

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { PageBlueprint, IndividualComponentProps, ProductI } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { PageBlueprint, IndividualComponentProps, ProductI } from "@conversiondigital/headless-basics-data/src/interfaces"
 import ProductComponent from "../../../components/common/ecommerce/Product";
 import DevButton from "../../../../../components/developer/devButton";
 

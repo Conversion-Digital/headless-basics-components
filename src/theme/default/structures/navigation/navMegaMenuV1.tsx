@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import { PageBlueprint, IndividualComponentProps, LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { PageBlueprint, IndividualComponentProps, LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
-import { getLogger, logPrefix, processURLForNavigation } from "@conversiondigital/cd-headless-data";
+import { getLogger, logPrefix, processURLForNavigation } from "@conversiondigital/headless-basics-data";
 import NavItem, { NavItemInterface } from "./NavItem";
 
 const log = getLogger("page.navMegaMenuV1");

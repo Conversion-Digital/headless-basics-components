@@ -1,5 +1,5 @@
-import { getLogger } from "@conversiondigital/cd-headless-data/src"
-import { IndividualComponentProps, ViewComponentProps } from "@conversiondigital/cd-headless-data/src"
+import { getLogger } from "@conversiondigital/headless-basics-data/src"
+import { IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src"
 import {
   ButtonLinks,
   DownloadLinks,

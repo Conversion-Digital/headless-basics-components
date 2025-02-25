@@ -1,4 +1,4 @@
-import { IndividualComponentProps, LanguageSite } from "@conversiondigital/cd-headless-data/src"
+import { IndividualComponentProps, LanguageSite } from "@conversiondigital/headless-basics-data/src"
 import { Suspense } from "react"
 import DevButton from "../../../../../../components/developer/devButton"
 import { getSectionBackgroundColour } from "../../../../../utils/getSectionBackgroundColour"

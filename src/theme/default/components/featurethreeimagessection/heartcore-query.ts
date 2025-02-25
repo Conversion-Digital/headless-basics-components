@@ -1,4 +1,4 @@
-import { PageAndSingleComponentDetails } from "@conversiondigital/cd-headless-data/src";
+import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 export function query(pageAndSingleComponentDetails: PageAndSingleComponentDetails) {
   return `query FeatureThreeImagesComponentsBySlug($slug: String!) {

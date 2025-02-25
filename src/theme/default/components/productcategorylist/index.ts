@@ -1,7 +1,7 @@
-import { getLogger, getThemeConfig } from "@conversiondigital/cd-headless-data";
+import { getLogger, getThemeConfig } from "@conversiondigital/headless-basics-data";
 import { View } from "./view";
 getLogger("theme.components.productcategorylist");
-import { ThemeConfig } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 // const config: ThemeConfig = {
 //   identifier: "productcategorylist",

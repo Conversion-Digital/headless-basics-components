@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { cn } from "@conversiondigital/cd-headless-data/src"
+import { cn } from "@conversiondigital/headless-basics-data/src"
 import { LinksListChildrenProps } from "./LinksList"
 
 const ButtonLinksList = ({

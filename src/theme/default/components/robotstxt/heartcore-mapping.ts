@@ -1,4 +1,4 @@
-import { PageAndSingleComponentDetails } from "@conversiondigital/cd-headless-data/src";
+import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   const allSnippet = pageAndComponentCombo?.component?.data?.allSnippet as any;

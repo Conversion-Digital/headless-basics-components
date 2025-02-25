@@ -1,5 +1,5 @@
 
-import { PageBlueprint, IndividualComponentProps, LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { PageBlueprint, IndividualComponentProps, LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 export interface SiteHeaderProps {
   blueprint: PageBlueprint;

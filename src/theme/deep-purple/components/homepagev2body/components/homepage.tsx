@@ -1,7 +1,7 @@
 import React, { Suspense } from "react"
 import Image from "next/image"
 
-import { cn, getLogger, parseText } from "@conversiondigital/cd-headless-data"
+import { cn, getLogger, parseText } from "@conversiondigital/headless-basics-data"
 
 import { StandardComponentProps } from "../../../../../interfaces/standardComponentProps"
 import { parseBulletPoints, parseHeadingWithHighlights, parseWithHighlight } from "../utils"

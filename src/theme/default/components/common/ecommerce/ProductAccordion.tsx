@@ -11,7 +11,7 @@ import { AccordionTrigger } from "../../../../../components/accordion/AccordionT
 import { AccordionContent } from "../../../../../components/accordion/AccordionContent"
 import { AdvancedSpecificationTable } from "../../advancedspecificationtable/components/AdvancedSpecificationTable"
 import { TableRow } from "../../../../interfaces/advancedSpecificationTable.interface"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 interface Product {
   turnOnAdvancedProductSpecificationTable?: boolean;

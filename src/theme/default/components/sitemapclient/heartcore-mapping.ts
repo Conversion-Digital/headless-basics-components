@@ -1,4 +1,4 @@
-import { GetLanguageSiteByURL, getLogger, PageAndSingleComponentDetails, processURLForNavigation } from '@conversiondigital/cd-headless-data/src';
+import { GetLanguageSiteByURL, getLogger, PageAndSingleComponentDetails, processURLForNavigation } from '@conversiondigital/headless-basics-data/src';
 
 const log = getLogger("theme.components.sitemapclient.mapping");
 

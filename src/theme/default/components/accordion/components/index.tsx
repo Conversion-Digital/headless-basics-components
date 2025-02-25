@@ -1,5 +1,5 @@
 
-import { FallbackComponent, getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/cd-headless-data/src"
+import { FallbackComponent, getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src"
 
 import { Suspense } from "react"
 import AccordionClientLoader from "./accordionClientLoader"

@@ -1,4 +1,4 @@
-import { getMatchingResultBySortOrder, log, PageAndSingleComponentDetails, processRawUrlsOnServer } from "@conversiondigital/cd-headless-data/src";
+import { getMatchingResultBySortOrder, log, PageAndSingleComponentDetails, processRawUrlsOnServer } from "@conversiondigital/headless-basics-data/src";
 
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {

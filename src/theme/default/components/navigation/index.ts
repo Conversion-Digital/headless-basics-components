@@ -1,5 +1,5 @@
-import { getLogger, getThemeConfig } from "@conversiondigital/cd-headless-data/src";
-import { ThemeConfig } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { getLogger, getThemeConfig } from "@conversiondigital/headless-basics-data/src";
+import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 getLogger("theme.components.navigation");
 

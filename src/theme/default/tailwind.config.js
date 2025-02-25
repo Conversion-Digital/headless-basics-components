@@ -1,6 +1,6 @@
 const { fontFamily } = require("tailwindcss/defaultTheme")
 
-// const extendConfig = require(`@conversiondigital/cd-headless-component-lib/src/theme/${process.env.SITE_THEME || "default"}/tailwind.extend`);
+// const extendConfig = require(`@conversiondigital/headless-basics-components/src/theme/${process.env.SITE_THEME || "default"}/tailwind.extend`);
 
 // console.log("Using theme: ", process.env.SITE_THEME || "default");
 // console.log("Using theme config: ", extendConfig);

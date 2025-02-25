@@ -4,7 +4,7 @@ import {
   getMatchingResultBySortOrder,
   logPrefix,
   processRawUrlsOnServer,
-} from "@conversiondigital/cd-headless-data/src"
+} from "@conversiondigital/headless-basics-data/src"
 
 const log = getLogger("theme.components.accordion.mapping")
 

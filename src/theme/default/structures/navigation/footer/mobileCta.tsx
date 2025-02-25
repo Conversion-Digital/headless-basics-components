@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import GeoAlertPopup from '../../../../../components/geo-alert/geoAlertContainer';
 
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces";
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces";
 
 export interface StickyFooterProps {
   button: any

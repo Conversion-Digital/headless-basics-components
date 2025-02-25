@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import React from "react";
-import { getLogger } from "@conversiondigital/cd-headless-data";
-import { PageBlueprint } from "@conversiondigital/cd-headless-data/src/interfaces";
+import { getLogger } from "@conversiondigital/headless-basics-data";
+import { PageBlueprint } from "@conversiondigital/headless-basics-data/src/interfaces";
 
 const log = getLogger("headless.services.sitemapService");
 

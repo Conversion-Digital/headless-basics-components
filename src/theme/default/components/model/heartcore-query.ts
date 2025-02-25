@@ -1,4 +1,4 @@
-import { isGuid, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/cd-headless-data/src";
+import { isGuid, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 export function query(individualComponentProps: PageAndSingleComponentDetails) {
   if (typeof individualComponentProps?.component?.variableForQuery === 'undefined') {

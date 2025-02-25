@@ -1,4 +1,4 @@
-import { alignmentClasses, cn, filterAndUpdateClass, formatHeading, IndividualComponentProps, PageBlueprint } from "@conversiondigital/cd-headless-data/src"
+import { alignmentClasses, cn, filterAndUpdateClass, formatHeading, IndividualComponentProps, PageBlueprint } from "@conversiondigital/headless-basics-data/src"
 import React, { Suspense } from "react"
 import Hero from "../Hero"
 import DevButton from "../../../../../../components/developer/devButton"

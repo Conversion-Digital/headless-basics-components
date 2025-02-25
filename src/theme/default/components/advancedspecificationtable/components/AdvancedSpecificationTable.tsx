@@ -1,4 +1,4 @@
-import { replacePTagWithDivTag } from "@conversiondigital/cd-headless-data"
+import { replacePTagWithDivTag } from "@conversiondigital/headless-basics-data"
 import { AdvancedSpecificationTableProps } from "../../../../interfaces/advancedSpecificationTable.interface"
 
 

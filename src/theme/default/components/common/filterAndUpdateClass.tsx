@@ -1,7 +1,7 @@
 import React from "react"
 import { AnyNode, load } from "cheerio"
-import { processURLForNavigation } from "@conversiondigital/cd-headless-data/src"
-import { LanguageSite } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { processURLForNavigation } from "@conversiondigital/headless-basics-data/src"
+import { LanguageSite } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 export function filterAndUpdateClass(html: string, languageSite: LanguageSite) {
   const passOne = filterAndUpdateTags(html, languageSite)

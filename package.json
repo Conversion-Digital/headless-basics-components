@@ -1,5 +1,5 @@
 {
-  "name": "@conversiondigital/cd-headless-component-lib",
+  "name": "@conversiondigital/headless-basics-components",
   "type": "module",
   "main": "index.js",
   "types": "index.d.ts",

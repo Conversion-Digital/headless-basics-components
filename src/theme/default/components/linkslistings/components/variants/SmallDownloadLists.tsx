@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import { IndividualComponentProps, LanguageSite } from "@conversiondigital/cd-headless-data/src"
+import { IndividualComponentProps, LanguageSite } from "@conversiondigital/headless-basics-data/src"
 import { getSectionBackgroundColour } from "../../../../../utils/getSectionBackgroundColour"
 import LinksList from "../../../common/links/LinksList"
 import DevButton from "../../../../../../components/developer/devButton"

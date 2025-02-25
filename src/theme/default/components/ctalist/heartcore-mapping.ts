@@ -7,7 +7,7 @@ import {
   log,
   logPrefix,
   processRawUrlsOnServer,
-} from "@conversiondigital/cd-headless-data/src"
+} from "@conversiondigital/headless-basics-data/src"
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   const content = pageAndComponentCombo?.component?.data?.content as any;

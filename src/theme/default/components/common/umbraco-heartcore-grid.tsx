@@ -1,8 +1,8 @@
-import { extractUmbracoGuid, FallbackComponent, getLogger } from "@conversiondigital/cd-headless-data"
+import { extractUmbracoGuid, FallbackComponent, getLogger } from "@conversiondigital/headless-basics-data"
 import Image from "next/image"
 import React, { Fragment } from "react"
 import { filterAndUpdateClass } from "./filterAndUpdateClass"
-import { LanguageSite, ViewComponentProps } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { LanguageSite, ViewComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 const log = getLogger(
   "headless.graphql.heartcore.components.umbraco-heartcore-grid"

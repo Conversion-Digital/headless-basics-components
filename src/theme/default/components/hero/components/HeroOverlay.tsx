@@ -1,5 +1,5 @@
 import React from "react"
-import { cn } from "@conversiondigital/cd-headless-data/src";
+import { cn } from "@conversiondigital/headless-basics-data/src";
 
 export type HeroOverlayProps = React.HTMLAttributes<HTMLDivElement>
 

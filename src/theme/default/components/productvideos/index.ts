@@ -1,6 +1,6 @@
-import { getLogger, getThemeConfig } from "@conversiondigital/cd-headless-data";
+import { getLogger, getThemeConfig } from "@conversiondigital/headless-basics-data";
 import { View } from "./view";
-import { ThemeConfig } from "@conversiondigital/cd-headless-data/src/interfaces"
+import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 getLogger("theme.components.productvideos");
 

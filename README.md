@@ -1,4 +1,4 @@
-# @conversiondigital/cd-headless-component-lib
+# @conversiondigital/headless-basics-components
 
 > **Headless UI + React + Tailwind** component library for building custom user interfaces.
 
@@ -72,13 +72,13 @@ Some highlights:
 ### Using npm
 
 ```
-npm install @conversiondigital/cd-headless-component-lib
+npm install @conversiondigital/headless-basics-components
 ```
 
 ### Using Yarn
 
 ```
-yarn add @conversiondigital/cd-headless-component-lib
+yarn add @conversiondigital/headless-basics-components
 ```
 
 ---
@@ -88,7 +88,7 @@ yarn add @conversiondigital/cd-headless-component-lib
 Import and use a component in your React project:
 
 ```jsx
-import { Button } from "@conversiondigital/cd-headless-component-lib";
+import { Button } from "@conversiondigital/headless-basics-components";
 
 function App() {
   return <Button color="primary">Click me</Button>;
@@ -103,7 +103,7 @@ Ensure you have Tailwind CSS configured in your project. Add the following to yo
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@conversiondigital/cd-headless-component-lib/dist/**/*.js"
+    "./node_modules/@conversiondigital/headless-basics-components/dist/**/*.js"
   ],
   theme: {
     extend: {},
@@ -119,7 +119,7 @@ module.exports = {
 ### Button
 
 ```jsx
-import { Button } from "@conversiondigital/cd-headless-component-lib";
+import { Button } from "@conversiondigital/headless-basics-components";
 
 <Button color="primary">Click me</Button>;
 ```
@@ -127,7 +127,7 @@ import { Button } from "@conversiondigital/cd-headless-component-lib";
 ### Input
 
 ```jsx
-import { Input } from "@conversiondigital/cd-headless-component-lib";
+import { Input } from "@conversiondigital/headless-basics-components";
 
 <Input placeholder="Enter text" />;
 ```
@@ -135,7 +135,7 @@ import { Input } from "@conversiondigital/cd-headless-component-lib";
 ### Accordion
 
 ```jsx
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@conversiondigital/cd-headless-component-lib";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@conversiondigital/headless-basics-components";
 
 <Accordion type="single" collapsible>
   <AccordionItem value="item-1">

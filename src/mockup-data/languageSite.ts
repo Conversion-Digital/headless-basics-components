@@ -1,4 +1,4 @@
-import { CountryCode } from "@conversiondigital/cd-headless-data/src";
+import { CountryCode } from "@conversiondigital/headless-basics-data/src";
 
 export const languageSite = {
   countryCode: "us" as CountryCode,

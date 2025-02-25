@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
-import { getLogger, logPrefix, processURLForNavigation, LanguageSite } from "@conversiondigital/cd-headless-data/src";
+import { getLogger, logPrefix, processURLForNavigation, LanguageSite } from "@conversiondigital/headless-basics-data/src";
 import NavItem, { NavItemInterface } from "./NavItem";
 
 const log = getLogger("page.navMegaMenuV1");

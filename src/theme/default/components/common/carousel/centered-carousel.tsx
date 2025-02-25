@@ -5,7 +5,7 @@ import Image from "next/image"
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons"
 import Slider from "react-slick"
 
-import { cn } from "@conversiondigital/cd-headless-data/src"
+import { cn } from "@conversiondigital/headless-basics-data/src"
 
 interface SlideProps {
   imgSrc: string;

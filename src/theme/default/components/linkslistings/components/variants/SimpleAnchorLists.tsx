@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import { IndividualComponentProps, LanguageSite } from "@conversiondigital/cd-headless-data/src"
+import { IndividualComponentProps, LanguageSite } from "@conversiondigital/headless-basics-data/src"
 import dynamic from "next/dynamic"
 import DevButton from "../../../../../../components/developer/devButton";
 import LinksList from "../../../common/links/LinksList";
