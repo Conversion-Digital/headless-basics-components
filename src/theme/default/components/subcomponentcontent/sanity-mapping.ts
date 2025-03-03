@@ -1,21 +1,26 @@
 import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.info(`${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component)}`);
-  const childNodes: ChildNode[] = [];
-  const content = pageAndComponentCombo?.component?.data?.content as any;
-  log.info(`${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapSubComponentContentData > `);
-  if (content?.children?.edges?.length > 0) {
-    content?.children?.edges?.forEach((edge: { node: any; }) => {
-      const { node } = edge;
+  log.info(
+    `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
+  );
+  const childNodes: any[] = [];
+  const content = pageAndComponentCombo?.component?.data as any;
 
-      console.log(`${logPrefix()} mapSubComponentContentData > node > `, node);
+  log.info(
+    `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapSubComponentContentData > `
+  );
 
-      if (node?.contentTypeAlias === 'dataFolder') {
-        node.children.edges.forEach((childEdge: { node: any; }) => {
-          const { node: childNode } = childEdge;
-          log.info(`${logPrefix()} mapSubComponentContentData > childNode > `, childNode.name, childNode.id, childNode.url, childNode.__typename);
-          childNodes.push(childNode);
+  if (content?.allPage?.length > 0) {
+    log.info(`${logPrefix()} Processing allPage items`);
+    content.allPage.forEach((page: any) => {
+      if (page.components?.length > 0) {
+        log.info(
+          `${logPrefix()} Processing page "${page.title}" with ${page.components.length} component(s)`
+        );
+        page.components.forEach((component: any) => {
+          log.info(`${logPrefix()} Component details: `, component);
+          childNodes.push(component);
         });
       }
     });
@@ -23,4 +28,3 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
 
   return childNodes;
 }
-
