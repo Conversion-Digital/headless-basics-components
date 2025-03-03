@@ -27,6 +27,7 @@ query GetData($slug: String!) {
 																id
 																name
 																__typename
+																sortOrder
 																... on Toggle {
                                                                         aRIALabel
                                                                         className

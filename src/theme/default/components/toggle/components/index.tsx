@@ -31,7 +31,7 @@ export default function ToggleUI(dynamicComponent: ViewComponentProps) {
       </Suspense>
       
       <Toggle
-        ariaLabel={typeof matchingData?.ariaLabel === 'string' ? matchingData.ariaLabel : undefined}
+        ariaLabel={typeof matchingData?.aRIALabel === 'string' ? matchingData.aRIALabel : undefined}
         className={typeof matchingData?.className === 'string' ? matchingData.className : undefined}
         variant={variant.toLowerCase() as "default" | "primary" | "secondary"}
         showIcon={typeof matchingData?.showIcon === 'boolean' ? matchingData.showIcon : undefined}
