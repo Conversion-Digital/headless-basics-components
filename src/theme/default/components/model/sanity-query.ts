@@ -2,7 +2,7 @@ import { isGuid, logPrefix, PageAndSingleComponentDetails } from "@conversiondig
 import { log } from "@conversiondigital/headless-basics-data";
 
 export function query(individualComponentProps: PageAndSingleComponentDetails) {
-  log.info(`${logPrefix()}[${individualComponentProps.component.identifier}][${individualComponentProps.page.source}][${individualComponentProps.page.preliminarySlug}] query `);
+  log.trace(`${logPrefix()}[${individualComponentProps.component.identifier}][${individualComponentProps.page.source}][${individualComponentProps.page.preliminarySlug}] query `);
   if (typeof individualComponentProps?.component?.variableForQuery === 'undefined') {
     throw new Error(`${logPrefix()}[model][query][${individualComponentProps?.page?.source}] IndividualComponentProps?.variableForQuery is undefined`);
   }

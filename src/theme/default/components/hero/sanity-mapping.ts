@@ -1,19 +1,19 @@
 import { log, logPrefix, PageAndSingleComponentDetails, processRawUrlsOnServer } from "@conversiondigital/headless-basics-data/src";
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.info(
+  log.trace(
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
   );
   
   const heroComponents: any[] = [];
   const content = pageAndComponentCombo?.component?.data as any;
 
-  log.info(
+  log.trace(
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapSubComponentContentData > `
   );
 
   if (content?.allPage?.length > 0) {
-    log.info(`${logPrefix()} Processing allPage items`);
+    log.trace(`${logPrefix()} Processing allPage items`);
     content.allPage.forEach((page: any) => {
       if (page.components?.length > 0) {
         log.trace(
@@ -33,33 +33,20 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
     });
   }
 
-  return heroComponents;
+  // Filter hero components by the desired sortOrder and return the single matching object
+  const desiredSortOrder = pageAndComponentCombo?.component?.sortOrder;
+  log.info(`${logPrefix()} desiredSortOrder > `, desiredSortOrder);
+  let matchingData: any;
+  if (typeof desiredSortOrder !== "number" || desiredSortOrder < 0 || desiredSortOrder >= heroComponents.length) {
+    log.warn(`${logPrefix()} desiredSortOrder (${desiredSortOrder}) is out of bounds. heroComponents length: ${heroComponents.length}`);
+    matchingData = {};
+  } else {
+    matchingData = heroComponents[desiredSortOrder];
+  }
+
+  return matchingData;
 }
 
-// export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
-//   const content = pageAndComponentCombo?.component?.data as any;
-//   const edges = content?.allPage?.components;
-//   log.info("variables sanity mapHeroData > ", JSON.stringify(content));
-//   log.info("data.content.children.edges > ", edges);
-
-//   let matchingData:any = getMatchingResultBySortOrder(edges, "Hero", pageAndComponentCombo?.component?.sortOrder);
-
-//   if (!matchingData) {
-//     matchingData = {}
-//   }
-
-//   matchingData.componentDocumentation = getComponentDocumentation();
-//   matchingData.youtubeVideo = getYoutubeDocumentation();
-//   const languageSite = pageAndComponentCombo?.page?.languageSite; 
-//   if (!languageSite) {
-//     return null;
-//   }
-//   if (matchingData) {
-//     await processRawUrlsOnServer(matchingData, languageSite, 'url');
-//   }
-
-//   return matchingData;
-// }
 
 function getComponentDocumentation() {
   return "/library/3-hero-component";

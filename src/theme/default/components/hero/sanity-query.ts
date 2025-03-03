@@ -2,39 +2,40 @@ import { getLogger, PageAndSingleComponentDetails } from "@conversiondigital/hea
 export const log = getLogger("default.components.sanity.hero.query");
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.info("variables query > ", JSON.stringify(pageAndComponentCombo?.component?.data));
+  log.trace("variables query > ", JSON.stringify(pageAndComponentCombo?.component?.data));
   return `
-query GetHeroBySlug($slug: String!) {
-  allPage(where: { slug: { current: { eq: $slug } } }) {
-    components{
-        __typename
-        ... on Hero{
+    query GetHeroBySlug($slug: String!) {
+      allPage(where: { slug: { current: { eq: $slug } } }) {
+        components{
             __typename
-            _key
-            _type
-            button{
+            ... on Hero{
                 __typename
                 _key
-                _type
-                label
-                link
-            }
-            sortOrder
-            subtitle
-            title
-            image{
-                __typename
-                _key
-                _type
-                asset
-                {
-                    url
+                _type            
+                selectableVariant
+                button{
+                    __typename
+                    _key
+                    _type
+                    label
+                    link
+                }
+                sortOrder
+                heading
+                title
+                image{
+                    __typename
+                    _key
+                    _type
+                    asset
+                    {
+                        url
+                    }
                 }
             }
         }
+      }  
     }
-  }  
-}
   `
 }
 
