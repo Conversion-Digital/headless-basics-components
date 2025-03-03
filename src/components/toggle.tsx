@@ -28,7 +28,7 @@ const Toggle = forwardRef<
       <div className="flex flex-col items-center">
         <TogglePrimative.Root
           className={cn(
-            "flex size-[35px] items-center justify-center rounded leading-4 border-2 border-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
+            "flex w-[35px] h-[35px] items-center justify-center rounded leading-4 border-2 border-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
             variantClasses[variant],
             className
           )}
