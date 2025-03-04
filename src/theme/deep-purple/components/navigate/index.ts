@@ -3,19 +3,10 @@ import { View } from "./view";
 import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 
-getLogger("theme.components.hero")
-
-// const config: ThemeConfig = {
-//   identifier: "hero",
-//   mapIdentifierData,
-//   getQuery,
-//   query,
-//   variables,
-//   view: View,
-// }
+getLogger("theme.components.navigate")
 
 async function getConfig(): Promise<ThemeConfig> {
-    const config = await getThemeConfig('hero');
+    const config = await getThemeConfig('navigate');
     config.view = View;
     return config;
 }
