@@ -35,20 +35,6 @@ query GetData($slug: String!) {
                                                                         showIcon
 																		text
 																}
-																... on TogglePrimary {
-																		aRIALabel
-																		className
-																		variant
-																		showIcon
-																		text
-																}
-																... on ToggleSecondary {
-																aRIALabel
-																className
-																variant
-																showIcon
-																text
-																}
                                                     }
 												}
 										}
