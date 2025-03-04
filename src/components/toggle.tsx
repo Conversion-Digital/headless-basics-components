@@ -10,6 +10,7 @@ export interface ToggleProps {
   children?: React.ReactNode;
   ariaLabel?: string;
   variant?: "default" | "primary" | "secondary";
+  text?: string;
 }
 
 const Toggle = forwardRef<
@@ -17,7 +18,7 @@ const Toggle = forwardRef<
   React.ComponentPropsWithoutRef<typeof TogglePrimative.Root> & ToggleProps
     
   >(
-  ({ className, showIcon = false, children, ariaLabel = 'Toggle Button', variant = "default", ...props }, ref) => {
+  ({ className, showIcon = false, text = "Toggle", children, ariaLabel = 'Toggle Button', variant = "default", ...props }, ref) => {
     const variantClasses = {
       default: "bg-white text-mauve11 hover:bg-violet3 data-[state=on]:bg-slate-500 data-[state=on]:text-white",
       primary: "bg-white text-mauve11 hover:bg-violet3 data-[state=on]:bg-blue-500 data-[state=on]:text-white",
@@ -25,10 +26,11 @@ const Toggle = forwardRef<
     };
 
     return (
-      <div className="flex flex-col items-center">
+      <div className="flex items-center gap-4">
+        {text}
         <TogglePrimative.Root
           className={cn(
-            "flex size-[35px] items-center justify-center rounded leading-4 border-2 border-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
+            "flex w-[35px] h-[35px] items-center justify-center rounded leading-4 border-2 border-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500",
             variantClasses[variant],
             className
           )}

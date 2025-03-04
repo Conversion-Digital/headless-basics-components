@@ -27,12 +27,28 @@ query GetData($slug: String!) {
 																id
 																name
 																__typename
+																sortOrder
 																... on Toggle {
                                                                         aRIALabel
                                                                         className
                                                                         variant
                                                                         showIcon
-                                                            }
+																		text
+																}
+																... on TogglePrimary {
+																		aRIALabel
+																		className
+																		variant
+																		showIcon
+																		text
+																}
+																... on ToggleSecondary {
+																aRIALabel
+																className
+																variant
+																showIcon
+																text
+																}
                                                     }
 												}
 										}

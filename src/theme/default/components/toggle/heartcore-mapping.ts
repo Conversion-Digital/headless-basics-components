@@ -2,25 +2,25 @@ import { getMatchingResultBySortOrder, log, logPrefix, PageAndSingleComponentDet
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   const content = pageAndComponentCombo?.component?.data?.content as any;
-  log.trace(`${logPrefix()}[mapMottoData][1][${pageAndComponentCombo?.page?.preliminarySlug}] > `)
-  log.trace("data.content.children.edges > ", content?.children?.edges);
+  log.trace(`${logPrefix()}[mapIdentifierData][1][${pageAndComponentCombo?.page?.preliminarySlug}] > `)
+  log.trace("data.content.children.edges > ", JSON.stringify(content?.children?.edges));
 
   if(!content?.children?.edges){
-    log.error(`${logPrefix()}[mapMottoData][last][${pageAndComponentCombo?.page?.preliminarySlug}] Could not find a data query location for Motto`);
+    log.error(`${logPrefix()}[mapIdentifierData][last][${pageAndComponentCombo?.page?.preliminarySlug}] Could not find a data query location for Toggle`);
     return {};
   }
 
-  let matchingData:any = getMatchingResultBySortOrder(content?.children?.edges, "Motto", pageAndComponentCombo?.component?.sortOrder);
+  let matchingData:any = getMatchingResultBySortOrder(content?.children?.edges, "Toggle", pageAndComponentCombo?.component?.sortOrder);
 
   if (!matchingData) {
     matchingData = {}
-    log.error(`${logPrefix()}[mapMottoData][last][${pageAndComponentCombo?.page?.preliminarySlug}] Could not find a data query location for Motto`);
+    log.error(`${logPrefix()}[mapIdentifierData][last][${pageAndComponentCombo?.page?.preliminarySlug}] Could not find a data query location for Toggle`);
   }
 
   matchingData.componentDocumentation = getComponentDocumentation();
   matchingData.youtubeVideo = getYoutubeDocumentation();
 
-  log.trace(`${logPrefix()}[mapMottoData][last][${pageAndComponentCombo?.page?.preliminarySlug}] found component for Motto`);
+  log.trace(`${logPrefix()}[mapIdentifierData][last][${pageAndComponentCombo?.page?.preliminarySlug}] found component for Toggle`);
   return matchingData;
 }
 
