@@ -3,12 +3,4 @@ import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfa
 
 getLogger("theme.components.sitemap");
 
-// const config: ThemeConfig = {
-//   identifier: "sitemap",
-//   mapIdentifierData,
-//   getQuery,
-//   query,
-//   variables,
-// };
-
 export default getThemeConfig('sitemap');

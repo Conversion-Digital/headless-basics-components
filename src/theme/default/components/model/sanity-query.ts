@@ -9,25 +9,22 @@ export function query(individualComponentProps: PageAndSingleComponentDetails) {
 
   if (individualComponentProps?.component?.udi && isGuid(individualComponentProps?.component?.udi)) {
     return `
-    query PageTypeById($id: ID!) {
-      content(id: $id) {
-         url
-         contentTypeAlias
-         name
-         __typename
-         updateDate
+    query GetPageType($id: ID!) {
+      allPage(where: { _id: { eq: $id } }) {
+        _id
+        title
+        __typename
       }
-    }`
+    }
+  `
   }
 
   return `
-  query PageTypeBySlug($slug: String!) {
-    content(url: $slug) {
-       url
-       contentTypeAlias
-       name
-       __typename
-       updateDate
+    query GetPageTypeBySlug($slug: String!) {
+    allPage(where: { slug: { current: { eq: $slug } } }) {
+      _id
+      title
+      __typename
     }
   }`
 }
