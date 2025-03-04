@@ -1,4 +1,4 @@
-import { alignmentClasses, ComponentMetaData, formatHeading, IndividualComponentProps, PageBlueprint } from "@conversiondigital/headless-basics-data/src"
+import { alignmentClasses, ComponentMetaData, formatHeading, IndividualComponentProps, PageBlueprint, getCmsImage } from "@conversiondigital/headless-basics-data/src"
 import Image from "next/image"
 import React, { Suspense } from "react"
 import Hero from "../Hero"
@@ -15,25 +15,21 @@ interface ImageHighlightHeroProps {
 const ImageHighlightHero: React.FC<ImageHighlightHeroProps> = ({ blueprint, componentDetails, matchingData }) => {
   const { textAlignClass, justifyClass } = alignmentClasses(matchingData)
 
+  const { hasImage, imageLocation, altText } = getCmsImage(matchingData)
+
   return (
     <div className="relative z-10 w-full">
       <Suspense>
         <DevButton metaData={componentDetails.metaData as ComponentMetaData} />
       </Suspense>
       <Hero className="relative z-10 h-[calc(100vh-75px)] overflow-hidden bg-charcoal bg-blend-multiply md:h-[calc(100vh-175px)]">
-        {matchingData?.image?.url && (
+        {hasImage && (
           <div className="absolute h-full w-full object-scale-down">
             <Image
-              src={matchingData.image.url}
+              src={imageLocation}
               sizes="(max-width: 600px) 90vw, (min-width: 601px) 100vw"
               loading="eager"
-              alt={
-                matchingData?.image?.media?.altText !== ""
-                  ? matchingData?.image?.media?.altText
-                  : matchingData?.image?.media?.name !== ""
-                  ? matchingData?.image?.media?.name
-                  : matchingData?.name
-              }
+              alt={altText}
               fill={true}
               quality={75}
               style={{ objectFit: "cover", objectPosition: "center" }}
