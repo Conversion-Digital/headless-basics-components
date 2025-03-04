@@ -27,9 +27,9 @@ export const MultipleVariants: Story = {
   args: {},
   render: (args) => (
     <div className="flex gap-20">
-      <Toggle {...args} ariaLabel="Default toggle button">Default</Toggle>
-      <Toggle {...args} variant="primary" ariaLabel="Primary toggle button">Primary Variant</Toggle>
-      <Toggle {...args} variant="secondary" ariaLabel="Secondary toggle button">Secondary Variant</Toggle>
+      <Toggle {...args} ariaLabel="Default toggle button" text="Default"></Toggle>
+      <Toggle {...args} variant="primary" ariaLabel="Primary toggle button" text="Primary Variant"></Toggle>
+      <Toggle {...args} variant="secondary" ariaLabel="Secondary toggle button" text="Secondary Variant"></Toggle>
     </div>
   ),
 };
