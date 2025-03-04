@@ -20,7 +20,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
                     label
                     link
                 }
-                sortOrder
                 heading
                 title
                 image{
