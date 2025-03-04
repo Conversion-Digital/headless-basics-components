@@ -6,5 +6,9 @@ import dynamic from "next/dynamic"
 const ToggleUI = dynamic(() => import("./components"), { loading: () => (<p>Loading...</p>) })
 
 export async function View(dynamicComponent: ViewComponentProps) {
-  return <ToggleUI {...dynamicComponent} />
+  return (
+  <div className="flex p-6 pl-48 pr-48 flex-col items-center">
+    <ToggleUI {...dynamicComponent} />
+  </div>
+  )
 }

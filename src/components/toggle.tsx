@@ -26,7 +26,7 @@ const Toggle = forwardRef<
     };
 
     return (
-      <div className="flex items-center gap-4">
+      <div className="flex flex-col items-center gap-4">
         {text}
         <TogglePrimative.Root
           className={cn(

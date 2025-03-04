@@ -12,10 +12,7 @@ export default function ToggleUI(dynamicComponent: ViewComponentProps) {
     log.error("Invalid ComponentDataProps passed to ToggleComponent", componentDetails);
     return <div>Error rendering ToggleComponent: Missing data</div>;
   }
-   // Add logging
-  console.log("Toggle Component Details:", componentDetails);
-  console.log("Toggle Data:", componentDetails?.data);
-  
+
   populateMetaData(componentDetails)
   const data = componentDetails;
   let matchingData = componentDetails.data;
@@ -28,7 +25,7 @@ export default function ToggleUI(dynamicComponent: ViewComponentProps) {
   const variant = validVariants.includes(matchingData?.variant as string) ? matchingData.variant as string : "Default";
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex items-center">
       <Suspense>
         <DevButton metaData={componentDetails.metaData} />
       </Suspense>
