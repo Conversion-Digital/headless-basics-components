@@ -12,37 +12,31 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapSubComponentContentData > `
   );
 
-  if (content?.allPage?.length > 0) {
-    log.trace(`${logPrefix()} Processing allPage items`);
-    content.allPage.forEach((page: any) => {
-      if (page.components?.length > 0) {
-        log.trace(
-          `${logPrefix()} Processing page ${page.components.length} component(s)`
-        );
-        page.components.forEach((component: any) => {
-          log.trace(`${logPrefix()} Component details: `, component);
-          // Only add components with __typename equal to "Hero"
-          if (component.__typename === "Hero") {
-            log.trace(
-              `${logPrefix()} Add a hero component(s) to the page`
-            );
-            heroComponents.push(component);
-          }
-        });
-      }
+  function extractHeroComponents(pages: any[], source: string) {
+    if (!pages?.length) return;
+    log.trace(`${logPrefix()} Processing ${source} items`);
+    pages.forEach((page: any) => {
+      if (!page.components?.length) return;
+      log.trace(`${logPrefix()} Processing ${source} ${page.components.length} component(s)`);
+      page.components.forEach((component: any) => {
+        log.trace(`${logPrefix()} Component details: `, component);
+        if (component.__typename === "Hero") {
+          log.trace(`${logPrefix()} Add a hero component(s) to ${source}`);
+          heroComponents.push(component);
+        }
+      });
     });
   }
 
-  // Filter hero components by the desired sortOrder and return the single matching object
+  extractHeroComponents(content?.allPage, "allPage");
+  extractHeroComponents(content?.allHomepage, "allHomepage");
+
   const desiredSortOrder = pageAndComponentCombo?.component?.sortOrder;
   log.trace(`${logPrefix()} desiredSortOrder > `, desiredSortOrder);
-  let matchingData: any;
-  if (typeof desiredSortOrder !== "number" || desiredSortOrder < 0 || desiredSortOrder >= heroComponents.length) {
-    log.warn(`${logPrefix()} desiredSortOrder (${desiredSortOrder}) is out of bounds. heroComponents length: ${heroComponents.length}`);
-    matchingData = {};
-  } else {
-    matchingData = heroComponents[desiredSortOrder];
-  }
+  
+  const matchingData = (typeof desiredSortOrder !== "number" || desiredSortOrder < 0 || desiredSortOrder >= heroComponents.length)
+    ? (log.warn(`${logPrefix()} desiredSortOrder (${desiredSortOrder}) is out of bounds. heroComponents length: ${heroComponents.length}`), {})
+    : heroComponents[desiredSortOrder];
 
   return matchingData;
 }

@@ -4,6 +4,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   log.trace(
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
   );
+  
   const childNodes: any[] = [];
   const content = pageAndComponentCombo?.component?.data as any;
 
@@ -11,22 +12,22 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapSubComponentContentData > `
   );
 
-  if (content?.allPage?.length > 0) {
-    log.trace(`${logPrefix()} Processing allPage items`);
-    content.allPage.forEach((page: any) => {
-      if (page.components?.length > 0) {
-        log.trace(
-          `${logPrefix()} Processing page "${page.title}" with ${page.components.length} component(s)`
-        );
-        page.components.forEach((component: any, index: number) => {
-          // Set sortOrder field based on the index
-          component.sortOrder = index;
-          log.trace(`${logPrefix()} Component details (with sortOrder): `, component);
-          childNodes.push(component);
-        });
-      }
+  function extractComponents(pages: any[], source: string) {
+    if (!pages?.length) return;
+    log.trace(`${logPrefix()} Processing ${source} items`);
+    pages.forEach((page: any) => {
+      if (!page.components?.length) return;
+      log.trace(`${logPrefix()} Processing ${source} page "${page.title}" with ${page.components.length} component(s)`);
+      page.components.forEach((component: any, index: number) => {
+        component.sortOrder = index;
+        log.trace(`${logPrefix()} Component details (with sortOrder): `, component);
+        childNodes.push(component);
+      });
     });
   }
+
+  extractComponents(content?.allPage, "allPage");
+  extractComponents(content?.allHomepage, "allHomepage");
 
   return childNodes;
 }

@@ -3,30 +3,32 @@ import { log, logPrefix } from "@conversiondigital/headless-basics-data";
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] SANITY SUB COMPONENT QUERY `);
-  return `query GetPageBySlug($slug: String!) {
-  allPage(where: { slug: { current: { eq: $slug } } }) {
+  
+  const commonFields = `
     _id
+    _type
+    _createdAt
+    _updatedAt
+    _rev
+    _key
     title
     description
-    seo {
-      metaTitle
-      metaDescription
-      metaImage {
-        asset {
-          url
-        }
-      }
-    }
-    meta {
-      keywords
-    }
-    components{
+    level
+    sortOrder
+    showInNavigation
+    components {
         __typename
     }
-  }
-}
-
-  `
+  `;
+  
+  return `query GetPageOrHomepageBySlug($slug: String!) {
+    allPage(where: { slug: { current: { eq: $slug } } }) {
+        ${commonFields}
+    }
+    allHomepage {
+        ${commonFields}
+    }
+  }`;
 }
 
 export function getQuery() {
