@@ -5,7 +5,7 @@ import {
   getLogger,
   logPrefix,
 } from "@conversiondigital/headless-basics-data/src"
-import NavigateUI from "/home/ben/headless_project_git/headless-basics-workspace/packages/headless-basics-components/src/theme/deep-purple/components/navigate/components/index"
+
 
 const log = getLogger("theme.deep-purple.components.navigate.components")
 
@@ -32,6 +32,6 @@ export default function CtaNavigate(dynamicComponent: ViewComponentProps) {
   }
 
   return (
-      <div>cta Navigate <NavigateUI {...dynamicComponent} /></div>
+      <div>cta Navigate {JSON.stringify(matchingData)}</div>
   )
 }

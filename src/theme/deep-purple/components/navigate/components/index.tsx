@@ -22,7 +22,6 @@ export default function NavigateUI(dynamicComponent: ViewComponentProps) {
   }
 
   return (
-    
     <div className="flex items-center">
       <Suspense>
         <DevButton metaData={componentDetails.metaData} />
@@ -32,8 +31,8 @@ export default function NavigateUI(dynamicComponent: ViewComponentProps) {
         title={typeof matchingData?.cTA === 'string' ? matchingData.cTA : ''}
         text={typeof matchingData?.cTAText === 'string' ? matchingData.cTAText : ''}
         variant={typeof matchingData?.cTAVariant === 'string' ? matchingData.cTAVariant as 'default' | 'light' : 'default'}
-        onClick={() => alert('CTA clicked')}
-      />
+        onClick={() => { }}
+        />
     </div>
   )
 }
