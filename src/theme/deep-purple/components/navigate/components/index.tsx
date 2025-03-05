@@ -1,7 +1,7 @@
 import React, { Suspense } from "react"
 import DevButton from "../../../../../components/developer/devButton"
 import { getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src"
-import CTA from "../../../../../components/CTA"
+import ClientWrapper from "./clientWrapper";
 
 const log = getLogger("theme.deep-purple.components.navigate.components.index")
 
@@ -27,12 +27,12 @@ export default function NavigateUI(dynamicComponent: ViewComponentProps) {
         <DevButton metaData={componentDetails.metaData} />
       </Suspense>
 
-      <CTA
-        title={typeof matchingData?.cTA === 'string' ? matchingData.cTA : ''}
-        text={typeof matchingData?.cTAText === 'string' ? matchingData.cTAText : ''}
-        variant={typeof matchingData?.cTAVariant === 'string' ? matchingData.cTAVariant as 'default' | 'light' : 'default'}
-        onClick={() => { }}
-        />
+      {/* Use ClientWrapper instead of directly passing onClick */}
+      <ClientWrapper
+        title={typeof matchingData?.cTA === "string" ? matchingData.cTA : ""}
+        text={typeof matchingData?.cTAText === "string" ? matchingData.cTAText : ""}
+        variant={typeof matchingData?.cTAVariant === "string" ? (matchingData.cTAVariant as "default" | "light") : "default"}
+      />
     </div>
   )
 }
