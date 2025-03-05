@@ -4,17 +4,23 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[seo][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
 
   return `
-    query Page {
-      allPage {
+    query GetPageBySlug($slug: String!) {
+      allPage(where: { slug: { current: { eq: $slug } } }) {
         _id
-        _type
-        _createdAt
-        _updatedAt
-        _rev
-        _key
         title
         description
-        // minimal placeholder
+        seo {
+          metaTitle
+          metaDescription
+          metaImage {
+            asset {
+              url
+            }
+          }
+        }
+        meta {
+          keywords
+        }
       }
     }
   `

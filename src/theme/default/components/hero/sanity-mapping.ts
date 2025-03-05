@@ -23,7 +23,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
           log.trace(`${logPrefix()} Component details: `, component);
           // Only add components with __typename equal to "Hero"
           if (component.__typename === "Hero") {
-            log.info(
+            log.trace(
               `${logPrefix()} Add a hero component(s) to the page`
             );
             heroComponents.push(component);
@@ -35,7 +35,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
 
   // Filter hero components by the desired sortOrder and return the single matching object
   const desiredSortOrder = pageAndComponentCombo?.component?.sortOrder;
-  log.info(`${logPrefix()} desiredSortOrder > `, desiredSortOrder);
+  log.trace(`${logPrefix()} desiredSortOrder > `, desiredSortOrder);
   let matchingData: any;
   if (typeof desiredSortOrder !== "number" || desiredSortOrder < 0 || desiredSortOrder >= heroComponents.length) {
     log.warn(`${logPrefix()} desiredSortOrder (${desiredSortOrder}) is out of bounds. heroComponents length: ${heroComponents.length}`);

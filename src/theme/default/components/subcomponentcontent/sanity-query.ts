@@ -2,7 +2,7 @@ import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basic
 import { log, logPrefix } from "@conversiondigital/headless-basics-data";
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.info(`${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] SANITY SUB COMPONENT QUERY `);
+  log.trace(`${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] SANITY SUB COMPONENT QUERY `);
   return `query GetPageBySlug($slug: String!) {
   allPage(where: { slug: { current: { eq: $slug } } }) {
     _id
