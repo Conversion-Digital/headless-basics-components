@@ -1,7 +1,7 @@
-import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
+import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()}[faq][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
+  log.trace(`${logPrefix()}[faq][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`);
   return `
     query GetFaqBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
@@ -12,25 +12,32 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on Faq {
             _key
             _type
-            title
+            heading
+            text
           }
         }
-      }
-      allHomepage {
-        _id
-        _type
-        components {
+        parent{
           __typename
-          ... on Faq {
-            _key
-            _type
+          ... on Homepage {
             title
+          }
+          ... on Page {
+            title
+            level
+            parent{
+              __typename
+              ... on Page {
+                title
+                level
+              }
+            }
           }
         }
       }
     }
-  `
+  `;
 }
+
 export function getQuery() {
   return query;
 }

@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity"
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "faq",
@@ -6,9 +6,14 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
-      name: "title",
-      title: "Title",
+      name: "heading",
+      title: "Heading",
       type: "string",
     }),
+    defineField({
+      name: "text",
+      title: "Text",
+      type: "text",
+    }),
   ],
-})
+});

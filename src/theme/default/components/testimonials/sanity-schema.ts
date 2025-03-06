@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity"
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "testimonials",
@@ -10,5 +10,15 @@ export default defineType({
       title: "Testimonial Title",
       type: "string",
     }),
+    defineField({
+      name: "testimonialDescription",
+      title: "Testimonial Description",
+      type: "text",
+    }),
+    defineField({
+      name: "authorName",
+      title: "Author Name",
+      type: "string",
+    }),
   ],
-})
+});

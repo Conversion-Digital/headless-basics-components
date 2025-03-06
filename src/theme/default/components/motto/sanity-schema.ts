@@ -3,12 +3,38 @@ import { defineField, defineType } from "sanity"
 export default defineType({
   name: "motto",
   title: "Motto",
-  type: "document",
+  type: "object",
   fields: [
     defineField({
       name: "words",
       title: "Words",
       type: "string",
+      description: "Main text for the motto."
     }),
+    defineField({
+      name: "align",
+      title: "Alignment",
+      type: "string",
+      description: "Text alignment e.g. left, center, right",
+      options: {
+        list: ["left", "center", "right"]
+      }
+    }),
+    defineField({
+      name: "selectableVariant",
+      title: "Variant",
+      type: "string",
+      options: {
+        list: [
+          { title: "Default", value: "Default" },
+          { title: "Another Variation", value: "someVariation" }
+        ]
+      }
+    })
   ],
+  preview: {
+    select: {
+      title: "words"
+    }
+  }
 })

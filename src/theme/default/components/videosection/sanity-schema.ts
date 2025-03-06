@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity"
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "videoSection",
@@ -10,5 +10,27 @@ export default defineType({
       title: "Title",
       type: "string",
     }),
+    defineField({
+      name: "description",
+      title: "Description",
+      type: "text",
+    }),
+    defineField({
+      name: "videoLink",
+      title: "Video Link",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "url",
+              title: "URL",
+              type: "string",
+            }),
+          ],
+        },
+      ],
+    }),
   ],
-})
+});
