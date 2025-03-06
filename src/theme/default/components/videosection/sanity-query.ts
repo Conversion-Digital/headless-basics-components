@@ -1,7 +1,7 @@
-import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
+import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()}[videoSection][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`);
+  log.trace(`${logPrefix()}[videoSection][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
   return `
     query GetVideoSectionBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
@@ -12,7 +12,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on VideoSection {
             _key
             _type
-            // Add videoSection fields here
+            title
           }
         }
       }
@@ -24,14 +24,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on VideoSection {
             _key
             _type
-            // Add videoSection fields here
+            title
           }
         }
       }
     }
   `
 }
-
 export function getQuery() {
   return query;
 }

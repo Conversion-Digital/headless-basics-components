@@ -12,7 +12,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on ProductVideos {
             _key
             _type
-            // Add productVideos fields here
+            title
           }
         }
       }
@@ -24,14 +24,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on ProductVideos {
             _key
             _type
-            // Add productVideos fields here
+            title
           }
         }
       }
     }
   `
 }
-
 export function getQuery() {
   return query;
 }

@@ -1,4 +1,5 @@
 import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
+
 export const log = getLogger("default.components.sanity.motto.query")
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
@@ -13,8 +14,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on Motto {
             _key
             _type
-            selectableVariant
-            align
             words
           }
         }
@@ -27,8 +26,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on Motto {
             _key
             _type
-            selectableVariant
-            align
             words
           }
         }
@@ -36,7 +33,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
     }
   `
 }
-
 export function getQuery() {
   return query
 }

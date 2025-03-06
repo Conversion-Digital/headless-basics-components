@@ -24,11 +24,18 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
             source
           }
         }
+        components {
+          __typename
+          ... on Navigation {
+            _key
+            _type
+            title
+          }
+        }
       }
     }
   `
 }
-
 export function getQuery() {
   return query
 }

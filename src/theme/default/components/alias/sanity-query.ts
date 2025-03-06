@@ -12,7 +12,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on Alias {
             _key
             _type
-            // Add Alias fields here
+            title
           }
         }
       }
@@ -24,14 +24,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on Alias {
             _key
             _type
-            // Add Alias fields here
+            title
           }
         }
       }
     }
   `
 }
-
 export function getQuery() {
   return query;
 }

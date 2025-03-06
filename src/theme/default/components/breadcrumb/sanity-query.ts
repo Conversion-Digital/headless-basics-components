@@ -2,7 +2,6 @@ import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigita
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[breadcrumb][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
-
   return `
     query GetPageBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
@@ -16,6 +15,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
             description
             components {
                 __typename
+                ... on Breadcrumb {
+                  _key
+                  _type
+                  heading
+                }
             }
             parent{
                 __typename
@@ -38,7 +42,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
     }
   `
 }
-
 export function getQuery() {
   return query
 }

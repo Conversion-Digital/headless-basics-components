@@ -2,7 +2,6 @@ import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigita
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[footer][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
-  // Minimal placeholder
   return `
     query Page {
       allPage {
@@ -10,11 +9,18 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         _type
         title
         description
+        components {
+          __typename
+          ... on Footer {
+            _key
+            _type
+            title
+          }
+        }
       }
     }
   `
 }
-
 export function getQuery() {
   return query
 }

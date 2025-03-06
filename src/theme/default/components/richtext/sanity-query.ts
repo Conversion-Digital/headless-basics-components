@@ -12,7 +12,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on RichText {
             _key
             _type
-            // Add richText fields here
+            body
           }
         }
       }
@@ -24,7 +24,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           ... on RichText {
             _key
             _type
-            // Add richText fields here
+            body
           }
         }
       }
