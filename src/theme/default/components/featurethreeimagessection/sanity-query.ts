@@ -1,18 +1,18 @@
 import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()}[model][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
+  log.trace(`${logPrefix()}[featureThreeImagesSection][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
   return `
-    query GetModelBySlug($slug: String!) {
+    query GetFeatureThreeImagesSectionBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
         _id
         _type
         components {
           __typename
-          ... on Model {
+          ... on FeatureThreeImagesSection {
             _key
             _type
-            // Add Model fields here
+            // Add FeatureThreeImagesSection fields here
           }
         }
       }
@@ -21,10 +21,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         _type
         components {
           __typename
-          ... on Model {
+          ... on FeatureThreeImagesSection {
             _key
             _type
-            // Add Model fields here
+            // Add FeatureThreeImagesSection fields here
           }
         }
       }

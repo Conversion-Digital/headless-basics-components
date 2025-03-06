@@ -1,18 +1,18 @@
 import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()}[stickyNavigation][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`);
+  log.trace(`${logPrefix()}[toggle][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`);
   return `
-    query GetStickyNavigationBySlug($slug: String!) {
+    query GetToggleBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
         _id
         _type
         components {
           __typename
-          ... on StickyNavigation {
+          ... on Toggle {
             _key
             _type
-            // Add stickyNavigation fields here
+            // Add toggle fields here
           }
         }
       }
@@ -21,10 +21,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         _type
         components {
           __typename
-          ... on StickyNavigation {
+          ... on Toggle {
             _key
             _type
-            // Add stickyNavigation fields here
+            // Add toggle fields here
           }
         }
       }

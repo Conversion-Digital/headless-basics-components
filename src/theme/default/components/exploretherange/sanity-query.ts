@@ -1,18 +1,18 @@
-import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
+import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()}[stickyNavigation][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`);
+  log.trace(`${logPrefix()}[exploreTheRange][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
   return `
-    query GetStickyNavigationBySlug($slug: String!) {
+    query GetExploreTheRangeBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
         _id
         _type
         components {
           __typename
-          ... on StickyNavigation {
+          ... on ExploreTheRange {
             _key
             _type
-            // Add stickyNavigation fields here
+            // Add exploreTheRange fields here
           }
         }
       }
@@ -21,10 +21,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         _type
         components {
           __typename
-          ... on StickyNavigation {
+          ... on ExploreTheRange {
             _key
             _type
-            // Add stickyNavigation fields here
+            // Add exploreTheRange fields here
           }
         }
       }

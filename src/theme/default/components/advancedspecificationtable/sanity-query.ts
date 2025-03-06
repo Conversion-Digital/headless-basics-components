@@ -1,18 +1,18 @@
 import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()}[model][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
+  log.trace(`${logPrefix()}[advancedSpecificationTable][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
   return `
-    query GetModelBySlug($slug: String!) {
+    query GetAdvancedSpecificationTableBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
         _id
         _type
         components {
           __typename
-          ... on Model {
+          ... on AdvancedSpecificationTable {
             _key
             _type
-            // Add Model fields here
+            // Add AdvancedSpecificationTable fields here
           }
         }
       }
@@ -21,10 +21,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         _type
         components {
           __typename
-          ... on Model {
+          ... on AdvancedSpecificationTable {
             _key
             _type
-            // Add Model fields here
+            // Add AdvancedSpecificationTable fields here
           }
         }
       }
