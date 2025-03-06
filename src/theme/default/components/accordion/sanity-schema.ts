@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity"
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "accordion",
@@ -10,6 +10,27 @@ export default defineType({
       title: "Title",
       type: "string",
     }),
-    // Add more fields as needed
+    defineField({
+      name: "items",
+      title: "Accordion Items",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({
+              name: "heading",
+              title: "Item Heading",
+              type: "string",
+            }),
+            defineField({
+              name: "content",
+              title: "Item Content",
+              type: "text",
+            }),
+          ],
+        },
+      ],
+    }),
   ],
-})
+});
