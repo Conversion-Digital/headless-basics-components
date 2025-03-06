@@ -26,7 +26,8 @@ export default defineType({
             defineField({
               name: "content",
               title: "Item Content",
-              type: "text",
+              type: 'array', 
+              of: [{type: 'block'}]
             }),
           ],
         },
