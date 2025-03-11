@@ -8,6 +8,9 @@ const meta: Meta<typeof ProgressBar> = {
   argTypes: {
     duration: { control: "number" },
     type: { control: "radio", options: ["linear", "circular"] },
+    radius: { control: "number" },
+    gradientColors: { control: "object" },
+    strokeWidth: { control: "number" },
   },
 };
 
@@ -26,5 +29,8 @@ export const Circular: Story = {
   args: {
     duration: 5000,
     type: "circular",
+    radius: 50,
+    gradientColors: ["blue", "purple"],
+    strokeWidth: 10,
   },
 };
