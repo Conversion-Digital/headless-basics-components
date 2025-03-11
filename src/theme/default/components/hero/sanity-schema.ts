@@ -1,60 +1,53 @@
-import { defineField, defineType } from "sanity";
+import { defineField, defineType } from 'sanity'
+import heroButton from './schema/sanity-hero-button'
 
 export default defineType({
-  name: "hero",
-  title: "Hero",
-  type: "document",
+  name: 'hero',
+  title: 'Hero',
+  type: 'object',
   fields: [
     defineField({
-      name: "heading",
-      title: "Heading",
-      type: "string",
+      name: 'title',
+      title: 'Title',
+      type: 'string'
     }),
     defineField({
-      name: "title",
-      title: "Title",
-      type: "string",
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string'
     }),
     defineField({
-      name: "selectableVariant",
-      title: "Selectable Variant",
-      type: "string",
+      name: 'backgroundImage',
+      title: 'Background Image',
+      type: 'image',
+      options: {
+        hotspot: true
+      }
     }),
     defineField({
-      name: "button",
-      title: "Button",
-      type: "object",
-      fields: [
-        defineField({
-          name: "label",
-          title: "Label",
-          type: "string",
-        }),
-        defineField({
-          name: "link",
-          title: "Link",
-          type: "string",
-        }),
-      ],
+      name: 'button',
+      title: 'Button',
+      type: 'heroButton'
     }),
     defineField({
-      name: "image",
-      title: "Image",
-      type: "object",
-      fields: [
-        defineField({
-          name: "asset",
-          title: "Asset",
-          type: "object",
-          fields: [
-            defineField({
-              name: "url",
-              title: "URL",
-              type: "string",
-            }),
-          ],
-        }),
-      ],
+      name: 'sortOrder',
+      title: 'Sort Order',
+      type: 'number'
     }),
+    defineField({
+      name: 'selectableVariant',
+      title: 'Selectable Variant',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Default', value: 'default' }
+        ]
+      }
+    })
   ],
-});
+  preview: {
+    select: {
+      title: 'title'
+    }
+  }
+})

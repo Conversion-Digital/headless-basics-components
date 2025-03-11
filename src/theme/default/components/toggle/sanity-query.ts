@@ -4,31 +4,37 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[toggle][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
   return `
     query GetToggleBySlug($slug: String!) {
-      allPage(where: { slug: { current: { eq: $slug } } }) {
-        _id
-        _type
-        components {
-          __typename
-          ... on Toggle {
+  allPage(where: { slug: { current: { eq: $slug } } }) {
+    components{
+        __typename
+        ... on Toggle{
+            __typename
             _key
-            _type
-            label
-          }
+            _type            
+            aRIALabel
+            className
+            showIcon
+            text
+            variant
         }
-      }
-      allHomepage {
-        _id
-        _type
-        components {
-          __typename
-          ... on Toggle {
-            _key
-            _type
-            label
-          }
-        }
-      }
     }
+  }  
+  allHomepage{
+    components{
+        __typename       
+        ... on Toggle{
+            __typename
+            _key
+            _type            
+            aRIALabel
+            className
+            showIcon
+            text
+            variant
+        }
+    }
+  }
+}
   `
 }
 export function getQuery() {

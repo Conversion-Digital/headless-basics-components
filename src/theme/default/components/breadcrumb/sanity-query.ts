@@ -3,43 +3,66 @@ import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigita
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[breadcrumb][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
   return `
-    query GetPageBySlug($slug: String!) {
-      allPage(where: { slug: { current: { eq: $slug } } }) {
-            _id
-            _type
-            _createdAt
-            _updatedAt
-            _rev
+query GetHeroBySlug($slug: String!) {
+  allPage(where: { slug: { current: { eq: $slug } } }) {
+    components{
+        __typename
+        ... on Hero{
+            __typename
             _key
-            title
-            description
-            components {
+            _type            
+            selectableVariant
+            button{
                 __typename
-                ... on Breadcrumb {
-                  _key
-                  _type
-                  heading
-                }
+                _key
+                _type
+                label
+                link
             }
-            parent{
+            title
+            backgroundImage{
                 __typename
-                ... on Homepage {
-                    title
-                }
-                ... on Page {
-                    title
-                    level
-                    parent{
-                        __typename
-                        ... on Page {
-                            title
-                            level
-                        }
-                    }
+                _key
+                _type
+                asset
+                {
+                    url
                 }
             }
         }
     }
+  }  
+  allHomepage{
+    components{
+        __typename
+        ... on Hero{
+            __typename
+            _key
+            _type            
+            selectableVariant
+            button{
+                __typename
+                _key
+                _type
+                label
+                link
+            }
+            subtitle
+            title
+            backgroundImage{
+                __typename
+                _key
+                _type
+                asset
+                {
+                    url
+                }
+            }
+        }
+    }
+  }
+}
+
   `
 }
 export function getQuery() {

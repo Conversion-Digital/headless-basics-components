@@ -11,11 +11,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         description
         components {
           __typename
-          ... on Footer {
-            _key
-            _type
-            title
-          }
         }
       }
     }

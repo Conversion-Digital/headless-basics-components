@@ -16,9 +16,9 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         label
         link
     }
-    heading
+    subtitle
     title
-    image{
+    backgroundImage{
         __typename
         _key
         _type
@@ -34,7 +34,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
             __typename
             ... on Hero {
               ${heroQueryFragment}
-              heading
             }
         }
       }
@@ -43,7 +42,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
             __typename
             ... on Hero {
               ${heroQueryFragment}
-              heading
             }
         }
       }
