@@ -23,7 +23,7 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix --ignore-pattern \"**/*.stories.*\"",
     "build:js": "babel src --out-dir dist --extensions \".js,.jsx,.ts,.tsx\"",
     "build:types": "tsc",
-    "build:css": "postcss src/theme/default/styles/global-styles.css -o dist/styles.css && cpy \"src/**/*.css\" dist --parents",
+    "build:css": "postcss src/theme/default/styles/globals.css -o dist/styles.css && cpy \"src/**/*.css\" dist --parents",
     "build:assets": "npx cpy \"./assets/**/*\" \"./dist/assets\"",
     "build:package": "npx cpy \"./package.json\" \"./dist\"",
     "build": "npm run build:js && npm run build:types && npm run build:css && npm run build:assets && npm run build:package && npm run postbuild",
