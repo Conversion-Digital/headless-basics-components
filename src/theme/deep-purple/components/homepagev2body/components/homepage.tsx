@@ -1,10 +1,9 @@
-import React, { Suspense } from "react"
+
 import Image from "next/image"
-
 import { cn, getLogger, parseText } from "@conversiondigital/headless-basics-data"
-
 import { StandardComponentProps } from "../../../../../interfaces/standardComponentProps"
 import { parseBulletPoints, parseHeadingWithHighlights, parseWithHighlight } from "../utils"
+
 
 const log = getLogger("theme.components.accordion.components.Homepage")
 
@@ -161,7 +160,7 @@ export const Homepage: React.FC<StandardComponentProps> = ({ blueprint, componen
               <div className="w-full max-w-md">
                 <h2 className="text-center text-4xl font-bold sm:text-right sm:text-6xl md:text-[90px]">
                   Meet the <br />
-                  <span className="text-yellow">team.</span>
+                  <span className="text-yellow">team!</span>
                 </h2>
               </div>
             </div>
