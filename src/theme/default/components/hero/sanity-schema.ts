@@ -1,10 +1,12 @@
 import { defineField, defineType } from 'sanity'
 import heroButton from './schema/sanity-hero-button'
+import {EyeOpenIcon} from '@sanity/icons'
 
 export default defineType({
   name: 'hero',
   title: 'Hero',
   type: 'object',
+  icon: EyeOpenIcon,
   fields: [
     defineField({
       name: 'title',
