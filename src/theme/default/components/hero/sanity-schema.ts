@@ -10,6 +10,11 @@ export const heroFields = [
     type: 'string'
   }),
   defineField({
+    name: 'heading',
+    title: 'Heading',
+    type: 'string'
+  }),
+  defineField({
     name: 'subtitle',
     title: 'Subtitle',
     type: 'string'

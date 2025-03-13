@@ -44,6 +44,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
             link
           }
           title
+          heading
           backgroundImage {
             __typename
             _key
