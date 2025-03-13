@@ -41,5 +41,12 @@ export default defineType({
       type: 'string',
       description: 'Text label for the toggle',
     }),
+    defineField({
+      name: 'globalComponentSource',
+      title: 'Global Component Source',
+      type: 'reference',
+      to: [{type: 'toggle'}],
+      description: 'Select a component toggle that is a global reusable source.'
+    })
   ],
 });

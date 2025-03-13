@@ -30,6 +30,13 @@ export default defineType({
           { title: "Another Variation", value: "someVariation" }
         ]
       }
+    }),
+    defineField({
+      name: 'globalComponentSource',
+      title: 'Global Component Source',
+      type: 'reference',
+      to: [{type: 'motto'}],
+      description: 'Select a component motto that is a global reusable source.'
     })
   ],
   preview: {
