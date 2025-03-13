@@ -38,7 +38,13 @@ export const heroFields = [
     type: 'string',
     options: {
       list: [
-        { title: 'Default', value: 'default' }
+        { title: 'Default', value: 'Default' },
+        { title: 'Hero - Image Highlight', value: 'Hero - Image Highlight' },
+        { title: 'Hero - Hero CTA Buttons', value: 'Hero - Hero CTA Buttons' },
+        { title: 'Hero - Right Image Hero', value: 'Hero - Right Image Hero' },
+        { title: 'Hero - Faded Information Hero', value: 'Hero - Faded Information Hero' },
+        { title: 'Hero - Title Only', value: 'Hero - Title Only' },
+        { title: 'Hero - Slim Background', value: 'Hero - Slim Background' }
       ]
     }
   }),
