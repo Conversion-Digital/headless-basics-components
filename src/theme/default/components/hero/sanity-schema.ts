@@ -63,9 +63,9 @@ export default defineType({
   }
 })
 
-export const heroDocument = defineType({
-  name: 'heroDocument',
-  title: 'Hero Document',
+export const heroComponentGlobal = defineType({
+  name: 'heroComponentGlobal',
+  title: 'Hero Component - Global',
   type: 'document',
   fields: heroFields,
   preview: {
