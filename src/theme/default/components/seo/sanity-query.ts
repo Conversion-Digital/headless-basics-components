@@ -2,7 +2,6 @@ import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigita
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[seo][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
-
   return `
     query GetPageBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
@@ -21,11 +20,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         meta {
           keywords
         }
+        components {
+          __typename
+        }
       }
     }
   `
 }
-
 export function getQuery() {
   return query
 }

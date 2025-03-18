@@ -1,0 +1,41 @@
+import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
+
+export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
+  log.trace(`${logPrefix()}[testimonials][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`);
+  return `
+    query GetTestimonialsBySlug($slug: String!) {
+      allPage(where: { slug: { current: { eq: $slug } } }) {
+        _id
+        _type
+        components {
+          __typename
+          ... on Testimonials {
+            _key
+            _type
+            testimonialTitle
+            testimonialDescription
+            authorName
+          }
+        }
+      }
+      allHomepage {
+        _id
+        _type
+        components {
+          __typename
+          ... on Testimonials {
+            _key
+            _type
+            testimonialTitle
+            testimonialDescription
+            authorName
+          }
+        }
+      }
+    }
+  `;
+}
+
+export function getQuery() {
+  return query;
+}

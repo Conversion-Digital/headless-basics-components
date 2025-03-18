@@ -1,9 +1,12 @@
-import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
+import { log, logPrefix, PageAndSingleComponentDetails, extractComponentsFromSanityData } from "@conversiondigital/headless-basics-data/src";
 
-const logger = log
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  logger.trace(`${logPrefix()}[stickynavigation][sanity-mapping][mapIdentifierData] started for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
-
-  // Provide a minimal placeholder returning empty data
-  return {}
+  log.trace(`${logPrefix()}[stickyNavigation][sanity-mapping][mapIdentifierData] started for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`);
+  const data = pageAndComponentCombo?.component?.data;
+  const matchingComponent = extractComponentsFromSanityData(data, "StickyNavigation", log);
+  return {
+    ...matchingComponent,
+    componentDocumentation: "/library/stickynavigation",
+    youtubeVideo: "https://www.youtube.com/watch?v=ZVJFeeKO3RQ"
+  }
 }

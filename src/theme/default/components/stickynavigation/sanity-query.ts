@@ -1,20 +1,26 @@
 import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()}[stickynavigation][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
-
+  log.trace(`${logPrefix()}[stickyNavigation][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
   return `
-    query Page {
-      allPage {
+    query GetStickyNavigationBySlug($slug: String!) {
+      allPage(where: { slug: { current: { eq: $slug } } }) {
         _id
         _type
-        title
-        description
+        components {
+          __typename
+        }
+      }
+      allHomepage {
+        _id
+        _type
+        components {
+          __typename
+        }
       }
     }
   `
 }
-
 export function getQuery() {
-  return query
+  return query;
 }

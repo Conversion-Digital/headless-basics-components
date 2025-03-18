@@ -24,11 +24,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
             source
           }
         }
+        components {
+          __typename
+        }
       }
     }
   `
 }
-
 export function getQuery() {
   return query
 }

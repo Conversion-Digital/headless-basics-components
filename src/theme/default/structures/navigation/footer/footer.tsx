@@ -52,19 +52,22 @@ const SiteFooter = React.forwardRef<HTMLDivElement, FooterProps>(
 
     if (data && variant === "twoLogoHorizontalLinksPlusCopyright") {
       return (
-        <GetTwoLogoFooter
-          {...props}
-          ref={ref}
-          data={data}
-          isLive={isLive}
-          languageSite={languageSite}
-        />
+        <>
+        GetTwoLogoFooter {JSON.stringify(data)}
+          <GetTwoLogoFooter
+            {...props}
+            ref={ref}
+            data={data}
+            isLive={isLive}
+            languageSite={languageSite}
+          />
+        </>
       );
     } else if (data?.length) {
       return getStandardFooter(props, classes, ref, data);
     }
 
-    return <div role="contentinfo" {...props} className={classes} ref={ref} />;
+    return <div role="contentinfo" {...props} className={classes} ref={ref} >Default Footer</div>;
   }
 );
 SiteFooter.displayName = "Footer";
@@ -82,6 +85,7 @@ function getStandardFooter(
 ) {
   return (
     <div role="contentinfo" {...props} className={classes} ref={ref}>
+      Get Standard Footer
       {data.map((item, index: Key) => (
         <div key={index}>
           <FooterTitle>{item.title}</FooterTitle>

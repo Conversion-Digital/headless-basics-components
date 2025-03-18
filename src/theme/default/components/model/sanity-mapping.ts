@@ -1,11 +1,12 @@
-import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
+import { log, logPrefix, PageAndSingleComponentDetails, extractComponentsFromSanityData } from "@conversiondigital/headless-basics-data/src"
 
-const log = getLogger("theme.components.model.mapping");
-
-export function mapIdentifierData(individualComponentProps: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()}[model][mapIdentifierData][${individualComponentProps.page.source}][${individualComponentProps.page.preliminarySlug}] variables heartcore mapIdentifierData > `, JSON.stringify(individualComponentProps?.component?.data));
-
-  const result = individualComponentProps?.component?.data?.content;
-  log.trace(`${logPrefix()}[mapIdentifierData][result][${individualComponentProps.page.preliminarySlug}] > `, JSON.stringify(individualComponentProps?.component?.data));
-  return result;
+export function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
+  log.trace(`${logPrefix()}[model][sanity-mapping][mapIdentifierData] started for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
+  const data = pageAndComponentCombo?.component?.data
+  const matchingComponent = extractComponentsFromSanityData(data, "Model", log)
+  return {
+    ...matchingComponent,
+    componentDocumentation: "/library/model",
+    youtubeVideo: "https://www.youtube.com/watch?v=ZVJFeeKO3RQ"
+  }
 }

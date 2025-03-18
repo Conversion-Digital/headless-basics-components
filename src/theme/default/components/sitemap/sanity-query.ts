@@ -1,7 +1,7 @@
-import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
+import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()} query`);
+  log.trace(`${logPrefix()}[sitemap][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
   return `
     query Page {
       allPage {
@@ -24,11 +24,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
                   source
               }
           }
+          components {
+            __typename
+          }
       }
-  }
-  `;
+    }
+  `
 }
-
 export function getQuery() {
   return query;
 }

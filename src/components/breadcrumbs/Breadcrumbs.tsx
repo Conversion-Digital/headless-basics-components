@@ -17,7 +17,7 @@ const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
     if (exludedPaths.includes(slug)) return <></>;
 
     // Map the breadcrumb items.
-    const breadcrumbItems: React.ReactNode[] = data?.links?.map((item, idx: Key) => (
+    const breadcrumbItems: React.ReactNode[] = (data?.links ?? []).map((item, idx: Key) => (
       <BreadcrumbsItem
         key={idx}
         href={item.href}
@@ -26,7 +26,7 @@ const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
         className={itemClassName}
         seperatorIcon = {(<DefaultSeperatorIcon></DefaultSeperatorIcon>)}
       >
-        {item.icon && <>{data.iconObject?.[item.icon]}</>}
+        {item.icon && data?.iconObject && <>{data.iconObject[item.icon]}</>}
         {item.text || null}
       </BreadcrumbsItem>
     ));

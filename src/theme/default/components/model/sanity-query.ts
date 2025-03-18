@@ -1,34 +1,28 @@
-import { isGuid, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
-import { log } from "@conversiondigital/headless-basics-data";
+import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
-export function query(individualComponentProps: PageAndSingleComponentDetails) {
-  log.trace(`${logPrefix()}[${individualComponentProps.component.identifier}][${individualComponentProps.page.source}][${individualComponentProps.page.preliminarySlug}] query `);
-  if (typeof individualComponentProps?.component?.variableForQuery === 'undefined') {
-    throw new Error(`${logPrefix()}[model][query][${individualComponentProps?.page?.source}] IndividualComponentProps?.variableForQuery is undefined`);
-  }
-
-  if (individualComponentProps?.component?.udi && isGuid(individualComponentProps?.component?.udi)) {
-    return `
-    query GetPageType($id: ID!) {
-      allPage(where: { _id: { eq: $id } }) {
+export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
+  log.trace(`${logPrefix()}[model][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
+  return `
+    query GetModelBySlug($slug: String!) {
+      allPage(where: { slug: { current: { eq: $slug } } }) {
         _id
-        title
-        __typename
+        _type
+        components {
+          __typename
+
+        }
+      }
+      allHomepage {
+        _id
+        _type
+        components {
+          __typename
+
+        }
       }
     }
   `
-  }
-
-  return `
-    query GetPageTypeBySlug($slug: String!) {
-    allPage(where: { slug: { current: { eq: $slug } } }) {
-      _id
-      title
-      __typename
-    }
-  }`
 }
-
 export function getQuery() {
   return query;
 }
