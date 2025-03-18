@@ -8,7 +8,6 @@ const meta: Meta<typeof LogoCarousel> = {
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
 };
 
 export default meta;
@@ -23,7 +22,7 @@ const Logo = ({ text }: { text: string }) => (
 export const Default: Story = {
   decorators: [
     (Story) => (
-      <div className="w-[800px] scroll">
+      <div className="w-[800px] overflow-hidden">
         <Story />
       </div>
     ),
@@ -35,6 +34,63 @@ export const Default: Story = {
       <Logo key="3" text="Logo 3" />,
     ],
     speed: 30,
+    pauseOnHover: true,
+  },
+};
+
+export const FastSpeed: Story = {
+  decorators: [
+    (Story) => (
+      <div className="w-[800px] overflow-hidden">
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    items: [
+      <Logo key="1" text="Logo 1" />,
+      <Logo key="2" text="Logo 2" />,
+      <Logo key="3" text="Logo 3" />,
+    ],
+    speed: 10, 
+    pauseOnHover: true,
+  },
+};
+
+export const NoPauseOnHover: Story = {
+  decorators: [
+    (Story) => (
+      <div className="w-[800px] overflow-hidden">
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    items: [
+      <Logo key="1" text="Logo 1" />,
+      <Logo key="2" text="Logo 2" />,
+      <Logo key="3" text="Logo 3" />,
+    ],
+    speed: 30,
+    pauseOnHover: false, 
+  },
+};
+
+export const WithImages: Story = {
+  decorators: [
+    (Story) => (
+      <div className="w-[800px] overflow-hidden">
+        <Story />
+      </div>
+    ),
+  ],
+  args: {
+    items: [
+      <img key="1" src="https://placehold.co/600x400" alt="Image 1" className="h-20 w-auto" />,
+      <img key="2" src="https://placehold.co/600x400" alt="Image 2" className="h-20 w-auto" />,
+      <img key="3" src="https://placehold.co/600x400" alt="Image 3" className="h-20 w-auto" />,
+    ],
+    speed: 20,
     pauseOnHover: true,
   },
 };

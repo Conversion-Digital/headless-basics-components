@@ -11,16 +11,7 @@ export default {
     /**
      * Default tailwind values converted from rem to px:
      * */
-    keyframes: {
-      scroll: {
-        '0%': { transform: 'translateX(0)' },
-        '100%': { transform: 'translateX(-50%)' }
-      }
-    },
-    animation: {
-      scroll: 'scroll var(--scroll-speed) linear infinite',
-      pause: 'none'
-    },
+
 
     borderRadius: {
       none: "0px",

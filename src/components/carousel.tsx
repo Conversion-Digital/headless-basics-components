@@ -23,7 +23,7 @@ export const LogoCarousel = React.forwardRef<HTMLDivElement, LogoCarouselProps>(
         >
           <div 
             className={cn(
-              "inline-flex items-center gap-8",
+              "inline-flex items-center gap-0 animate-scroll",
               isPaused ? "animate-pause" : "animate-scroll"
             )}
             style={{
@@ -31,7 +31,7 @@ export const LogoCarousel = React.forwardRef<HTMLDivElement, LogoCarouselProps>(
               width: 'max-content'
             } as React.CSSProperties}
           >
-            {[...items, ...items].map((item, index) => (
+            {[...items, ...items, ...items, ...items].map((item, index) => (
               <div
                 key={index} 
                 className="flex-shrink-0 min-w-[200px]"
