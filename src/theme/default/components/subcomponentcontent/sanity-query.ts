@@ -24,22 +24,14 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         ${commonFields}
         components {
           __typename
-          ... on SubComponentContent {
-            _key
-            _type
-            title
-          }
+
         }
     }
     allHomepage {
         ${commonFields}
         components {
           __typename
-          ... on SubComponentContent {
-            _key
-            _type
-            title
-          }
+
         }
     }
   }`

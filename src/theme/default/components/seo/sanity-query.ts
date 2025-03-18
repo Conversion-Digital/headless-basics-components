@@ -22,11 +22,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         }
         components {
           __typename
-          ... on Seo {
-            _key
-            _type
-            title
-          }
         }
       }
     }

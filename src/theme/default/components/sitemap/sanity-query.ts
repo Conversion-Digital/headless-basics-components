@@ -26,11 +26,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           }
           components {
             __typename
-            ... on Sitemap {
-              _key
-              _type
-              title
-            }
           }
       }
     }

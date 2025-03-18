@@ -9,11 +9,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         _type
         components {
           __typename
-          ... on SitemapClient {
-            _key
-            _type
-            title
-          }
         }
       }
       allHomepage {
@@ -21,11 +16,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
         _type
         components {
           __typename
-          ... on SitemapClient {
-            _key
-            _type
-            title
-          }
         }
       }
     }

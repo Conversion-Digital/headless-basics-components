@@ -9,6 +9,10 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   const content = pageAndComponentCombo?.component?.data
   const matchingData = extractComponentsFromSanityData(content, "Hero", log)
 
+  if (!(matchingData?.image && matchingData.backgroundImage)) {
+    matchingData.image = matchingData.backgroundImage;
+  }
+
   return matchingData
 }
 
