@@ -3,7 +3,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import NumberParticleEffects from './NumberParticleEffects';
 
 export default {
-  title: 'Components/Animations/NumberParticleEffects',
+  title: 'Components/Animations/NumberParticleEffects（legacy）',
   component: NumberParticleEffects,
   argTypes: {
     fromNum: { control: 'number' },

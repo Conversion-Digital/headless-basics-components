@@ -101,8 +101,10 @@ export interface Particle {
   function buildParticles(
     fromPositions: { x: number; y: number }[],
     toPositions: { x: number; y: number }[],
-    totalCount = 1200, // total # of particles you want
-    scatterRadius = 80 // how far out they “bounce”
+    totalCount = 2000, // total # of particles you want
+    scatterRadius = 80, // how far out they “bounce”
+    centerX: number,
+    centerY: number
   ): Particle[] {
     // Step 1: Make sure each array has at least totalCount pixels by duplicating
     while (fromPositions.length < totalCount) {
@@ -125,9 +127,9 @@ export interface Particle {
   
       // Generate a random midpoint around the "from" position
       const angle = Math.random() * Math.PI * 2;
-      const r = Math.random() * scatterRadius;
-      const mx = fx + Math.cos(angle) * r;
-      const my = fy + Math.sin(angle) * r;
+      const r =  scatterRadius;
+      const mx = centerX + Math.cos(angle) * r;
+      const my = centerY + Math.sin(angle) * r;
   
       particles.push({
         fromX: fx,
@@ -159,7 +161,7 @@ export interface Particle {
     const toPositions = getPixelPositions(ctx, toNum, centerX, centerY);
   
     // 2) Build the particle array with random "mid" positions
-    const particles = buildParticles(fromPositions, toPositions, 1200, 80);
+    const particles = buildParticles(fromPositions, toPositions, 2000, 80,centerX, centerY);
   
     let startTime: number | null = null;
   
