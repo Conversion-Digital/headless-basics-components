@@ -4,4 +4,5 @@ export interface StandardComponentProps {
   blueprint: PageBlueprint
   componentInformation: IndividualComponentProps
   matchingData: any
+  variant?: string
 }
