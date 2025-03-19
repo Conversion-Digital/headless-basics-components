@@ -1,6 +1,7 @@
 import {
   IndividualComponentProps,
   ViewComponentProps,
+  componentBoilerPlate,
   getLogger,
   logPrefix,
 } from "@conversiondigital/headless-basics-data/src"
@@ -17,21 +18,10 @@ import {
 const log = getLogger("theme.components.hero.components.index")
 
 export default function HeroUI(dynamicComponent: ViewComponentProps) {
-  const componentInformation = dynamicComponent.componentDetails
-  const blueprint = dynamicComponent.blueprint
 
-  if (!componentInformation) {
-    log.error("Invalid componentInformation.metaData passed to HeroUI", componentInformation);
-    return <div>Error rendering HeroUI: Missing data</div>;
-  } else if (!componentInformation.metaData) {
-    log.error("Invalid componentInformation.metaData passed to HeroUI", (componentInformation as any).componentInformation.metaData);
-    return <div>Error rendering HeroUI: Missing Meta data</div>;
-  }
+  const {variant, blueprint, componentInformation, matchingData} = componentBoilerPlate(dynamicComponent)
 
   populateMetaData(componentInformation)
-  const matchingData = componentInformation.data;
-
-  const variant = componentInformation?.metaData?.variant || ""
 
   log.trace("Rendering Hero with variant: ", variant)
 
