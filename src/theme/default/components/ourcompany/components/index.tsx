@@ -10,5 +10,5 @@ export function OurCompanyIndex(props: StandardComponentProps) {
   if (variant === "demo") {
     return <><DemoVariant {...props} /> </>;
   }
-  return <><DefaultVariant {...props} />Ourcompany Variant:: {variant} <br/><br/> props?.componentInformation:: {JSON.stringify(props)}</>;
+  return <><DefaultVariant {...props} /></>;
 }

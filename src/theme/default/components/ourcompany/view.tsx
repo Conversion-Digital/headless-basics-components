@@ -7,11 +7,14 @@ export function View(dynamicComponent: ViewComponentProps) {
     componentBoilerPlate(dynamicComponent);
   
   return (
-    <OurCompanyIndex
-      blueprint={blueprint}
-      componentInformation={componentInformation}
-      matchingData={matchingData}
-      variant={variant}
+    <>
+      {/* dynamicComponent :: {JSON.stringify(dynamicComponent)} */}
+      <OurCompanyIndex
+        blueprint={blueprint}
+        componentInformation={componentInformation}
+        matchingData={matchingData}
+        variant={variant}
     />
+    </>
   );
 }
