@@ -54,7 +54,7 @@ function populateMetaData(componentDetails: IndividualComponentProps) {
     return;
   }
 
-  if (componentDetails.metaData) {
+  if (componentDetails?.metaData) {
       // Get the relative path of the current file
       componentDetails.metaData.rendering = "theme/components/hero/components/index.tsx"
       // Get the name of the current function

@@ -1,76 +1,75 @@
-import { defineField, defineType } from 'sanity';
+import { defineField, defineType } from "sanity";
 
-export default defineType({
-  name: 'ourcompany',
-  title: 'Our Company',
-  type: 'object',
+export const companyStats = defineType({
+  name: "companyStats",
+  title: "Company Stats",
+  type: "object",
   fields: [
     defineField({
-      name: 'title',
-      title: 'Section Title',
-      type: 'string',
+      name: "label",
+      title: "Label",
+      type: "string",
     }),
     defineField({
-      name: 'subTitle',
-      title: 'Subtitle',
-      type: 'string',
+      name: "value",
+      title: "Value",
+      type: "string",
     }),
+  ],
+});
+
+export default defineType({
+  name: "ourcompany",
+  title: "Our Company",
+  type: "object",
+  fields: [
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-    }),
-    defineField({
-      name: 'facts',
-      title: 'Facts List',
-      type: 'array',
-      of: [{ type: 'string' }],
-      description: 'List of key facts or bullet points'
-    }),
-    defineField({
-      name: 'learnMoreUrl',
-      title: 'Learn More URL',
-      type: 'url',
-    }),
-    defineField({
-      name: 'learnMoreLabel',
-      title: 'Learn More Label',
-      type: 'string',
-      initialValue: 'LEARN more',
-    }),
-    defineField({
-      name: 'media',
-      title: 'Media',
-      type: 'image',
-      options: { hotspot: true },
-    }),
-    defineField({
-      name: 'selectableVariant',
-      title: 'Selectable Variant',
-      type: 'string',
+      name: "selectableVariant",
+      title: "Selectable Variant",
+      type: "string",
       options: {
         list: [
-          { title: 'Default', value: 'default' }
-        ]
-      }
+          { title: "Default", value: "default" },
+          { title: "Demo", value: "demo" },
+        ],
+      },
+      initialValue: "default",
     }),
     defineField({
-      name: 'sortOrder',
-      title: 'Sort Order',
-      type: 'number'
+      name: "title",
+      title: "Title",
+      type: "string",
+      description: "Main heading text",
     }),
     defineField({
-      name: 'globalComponentSource',
-      title: 'Global Reference (Optional)',
-      type: 'reference',
-      to: [{ type: 'ourcompany' }],
-      description: 'Select a global reference if you want this repeated in multiple places.'
-    })
+      name: "description",
+      title: "Description",
+      type: "text",
+      description: "Main body text for the Our Company section",
+    }),
+    defineField({
+      name: "stats",
+      title: "Stats",
+      type: "array",
+      of: [{ type: "companyStats" }],
+      description: "List of stats about the company",
+    }),
+    defineField({
+      name: "buttonLabel",
+      title: "Button Label",
+      type: "string",
+    }),
+    defineField({
+      name: "sortOrder",
+      title: "Sort Order",
+      type: "number",
+    }),
+    defineField({
+      name: "globalComponentSource",
+      title: "Global Component Source",
+      type: "reference",
+      to: [{ type: "ourcompany" }],
+      description: "Optionally reference a global Our Company document if needed",
+    }),
   ],
-  preview: {
-    select: {
-      title: 'title',
-      subtitle: 'selectableVariant'
-    }
-  }
 });

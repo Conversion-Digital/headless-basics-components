@@ -1,94 +1,73 @@
-import type { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src/interfaces/PageDefinition";
+import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src";
+import type { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src/interfaces";
 
-export function getQuery(_pageAndComponentCombo: PageAndSingleComponentDetails) {
-  return query;
-}
+export const log = getLogger("default.components.sanity.ourcompany.query");
 
-export function query(pageAndComponentCombo: PageAndSingleComponentDetails): string {
-  // We can customize fields for the ourcompany schema
-  // Using typical textBlock / hero pattern as reference
-  return `
-    query OurCompanyComponent($slug: String!) {
-      allPage(where: { slug: { current: { eq: $slug } } }) {
+export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
+  log.info(`${logPrefix()}[ourcompany][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
+  // This query retrieves 'ourcompany' from page or homepage
+  return `#graphql
+    query allOurCompany($slug: String) {
+      allPage(where: {slug: {current: {eq: $slug}}}) {
         title
         components {
+          __typename
           ... on Ourcompany {
             _type
-            title
-            subTitle
-            description
-            facts
-            learnMoreUrl
-            learnMoreLabel
-            sortOrder
             selectableVariant
-            media {
-              asset {
-                url
-                altText
-                name
-              }
+            title
+            description
+            buttonLabel
+            sortOrder
+            stats {
+              label
+              value
             }
             globalComponentSource {
               title
-              subTitle
               description
-              facts
-              learnMoreUrl
-              learnMoreLabel
-              sortOrder
-              selectableVariant
-              media {
-                asset {
-                  url
-                  altText
-                  name
-                }
+              buttonLabel
+              stats {
+                label
+                value
               }
+              selectableVariant
             }
           }
         }
       }
-      allHomepage(where: { slug: { current: { eq: $slug } } }) {
+      allHomepage {
         title
         components {
+          __typename
           ... on Ourcompany {
             _type
-            title
-            subTitle
-            description
-            facts
-            learnMoreUrl
-            learnMoreLabel
-            sortOrder
             selectableVariant
-            media {
-              asset {
-                url
-                altText
-                name
-              }
+            title
+            description
+            buttonLabel
+            sortOrder
+            stats {
+              label
+              value
             }
             globalComponentSource {
               title
-              subTitle
               description
-              facts
-              learnMoreUrl
-              learnMoreLabel
-              sortOrder
-              selectableVariant
-              media {
-                asset {
-                  url
-                  altText
-                  name
-                }
+              buttonLabel
+              stats {
+                label
+                value
               }
+              selectableVariant
             }
           }
         }
       }
     }
   `;
+}
+
+export function getQuery() {
+  return query
 }

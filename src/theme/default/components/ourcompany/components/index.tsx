@@ -1,12 +1,14 @@
 import React from "react";
-import type { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
-import DefaultOurCompany from "./variants/DefaultOurCompany";
+import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
+import DefaultVariant from "./variants/default";
+import DemoVariant from "./variants/demoVariant";
 
-export default function OurCompanyIndex(props: StandardComponentProps) {
-  const { variant } = props.componentInformation.metaData || {};
+export function OurCompanyIndex(props: StandardComponentProps) {
+  const variant =
+    props?.componentInformation?.metaData?.variant?.toLowerCase() || "default";
 
-  switch (variant) {
-    default:
-      return <DefaultOurCompany {...props} />;
+  if (variant === "demo") {
+    return <DemoVariant {...props} />;
   }
+  return <DefaultVariant {...props} />;
 }

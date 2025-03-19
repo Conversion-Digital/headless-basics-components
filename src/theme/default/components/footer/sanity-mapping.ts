@@ -2,7 +2,7 @@ import { extractComponentsFromSanityData, log, logPrefix, PageAndSingleComponent
 
 const logger = log
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.info(
+  log.trace(
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
   );
 
@@ -13,7 +13,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   //   matchingData.image = matchingData.backgroundImage;
   // }
 
-  log.info(
+  log.trace(
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData completed, ${JSON.stringify(matchingData)}`
   );
 
