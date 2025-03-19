@@ -1,9 +1,9 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import NumberParticleEffects from './NumberParticleEffects';
+import NumberParticleEffects from './numberParticleEffects_v2';
 
 export default {
-  title: 'Components/Animations/NumberParticleEffects',
+  title: 'Components/Animations/NumberParticleEffects_v2',
   component: NumberParticleEffects,
   argTypes: {
     fromNum: { control: 'number' },
