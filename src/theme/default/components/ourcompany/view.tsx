@@ -5,7 +5,7 @@ import { OurCompanyIndex } from "./components";
 export function View(dynamicComponent: ViewComponentProps) {
   const { variant, blueprint, componentInformation, matchingData } =
     componentBoilerPlate(dynamicComponent);
-
+  
   return (
     <OurCompanyIndex
       blueprint={blueprint}

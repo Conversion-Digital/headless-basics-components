@@ -8,7 +8,7 @@ export function OurCompanyIndex(props: StandardComponentProps) {
     props?.componentInformation?.metaData?.variant?.toLowerCase() || "default";
 
   if (variant === "demo") {
-    return <DemoVariant {...props} />;
+    return <><DemoVariant {...props} /> </>;
   }
-  return <DefaultVariant {...props} />;
+  return <><DefaultVariant {...props} />Ourcompany Variant:: {variant} <br/><br/> props?.componentInformation:: {JSON.stringify(props)}</>;
 }
