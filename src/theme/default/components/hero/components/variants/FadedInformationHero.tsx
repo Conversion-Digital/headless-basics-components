@@ -12,20 +12,15 @@ import Hero from "../Hero";
 import DevButton from "../../../../../../components/developer/devButton";
 import Breadcrumbs from "../../../../../../components/breadcrumbs/Breadcrumbs";
 import BackToTopAndChatLoader from "../../../../structures/backToTopAndChatLoader";
+import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps";
 
-interface FadedInformationHeroProps {
-  blueprint: PageBlueprint
-  componentDetails: IndividualComponentProps
-  matchingData: any
-}
-
-const FadedInformationHero: React.FC<FadedInformationHeroProps> = ({ blueprint, componentDetails, matchingData }) => {
+const FadedInformationHero: React.FC<StandardComponentProps> = ({ blueprint, componentInformation, matchingData }) => {
   const { textAlignClass, justifyClass } = alignmentClasses(matchingData)
 
   return (
     <div className="relative z-10 w-full">
       <Suspense>
-        {componentDetails.metaData && <DevButton metaData={componentDetails.metaData} />}
+        {componentInformation.metaData && <DevButton metaData={componentInformation.metaData} />}
       </Suspense>
       <Hero
         className="relative overflow-hidden bg-blend-multiply"
@@ -49,7 +44,7 @@ const FadedInformationHero: React.FC<FadedInformationHeroProps> = ({ blueprint, 
                 className: "float-left mb-8 sm:mb-12 w-full text-xs",
               }}
               itemClassName="font-urbanist text-xs font-500 uppercase tracking-0.1em text-my-blue"
-              slug={componentDetails?.pageDefinition?.preliminarySlug || ''}
+              slug={componentInformation?.pageDefinition?.preliminarySlug || ''}
             />
             <div className={cn("relative flex h-full w-full", justifyClass)}>
               <div className="w-full md:w-3/4">

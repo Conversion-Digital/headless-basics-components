@@ -5,17 +5,12 @@ import Hero from "../Hero";
 import DevButton from "../../../../../../components/developer/devButton";
 import Breadcrumbs from "../../../../../../components/breadcrumbs/Breadcrumbs";
 import BackToTopAndChatLoader from "../../../../structures/backToTopAndChatLoader";
+import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps";
 
-interface HeroCTAButtonsProps {
-  blueprint: PageBlueprint
-  componentDetails: IndividualComponentProps
-  matchingData: any
-}
+const HeroCTAButtons: React.FC<StandardComponentProps> = ({ blueprint, componentInformation, matchingData }) => {
+  const { textAlignClass, justifyClass } = alignmentClasses(componentInformation.data as { align: string })
 
-const HeroCTAButtons: React.FC<HeroCTAButtonsProps> = ({ blueprint, componentDetails, matchingData }) => {
-  const { textAlignClass, justifyClass } = alignmentClasses(componentDetails.data as { align: string })
-
-  const languageSite = componentDetails.pageDefinition?.languageSite;
+  const languageSite = componentInformation.pageDefinition?.languageSite;
 
   if (!languageSite) {
     return (<></>);
@@ -24,7 +19,7 @@ const HeroCTAButtons: React.FC<HeroCTAButtonsProps> = ({ blueprint, componentDet
   return (
     <div className="relative z-10 w-full">
       <Suspense>
-        {componentDetails.metaData && <DevButton metaData={componentDetails.metaData} />}
+        {componentInformation.metaData && <DevButton metaData={componentInformation.metaData} />}
       </Suspense>
       <Hero className="relative overflow-hidden bg-[#D1D3D433] font-urbanist sm:min-h-96">
         <Breadcrumbs
@@ -32,7 +27,7 @@ const HeroCTAButtons: React.FC<HeroCTAButtonsProps> = ({ blueprint, componentDet
           data={blueprint.breadcrumbItems}
           seperatorIcon={<span>/</span>}
           itemClassName="font-urbanist text-xs font-500 uppercase tracking-0.1em text-my-blue"
-          slug={componentDetails.pageDefinition?.preliminarySlug || ''}
+          slug={componentInformation.pageDefinition?.preliminarySlug || ''}
         />
         <Hero.Content
           className={cn("container! row-start-2 mb-12 self-start md:mb-20")}

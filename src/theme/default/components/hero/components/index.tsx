@@ -17,7 +17,7 @@ import {
 const log = getLogger("theme.components.hero.components.index")
 
 export default function HeroUI(dynamicComponent: ViewComponentProps) {
-  const componentInformation = dynamicComponent.componentInformation
+  const componentInformation = dynamicComponent.componentDetails
   const blueprint = dynamicComponent.blueprint
 
   if (!componentInformation) {
@@ -41,17 +41,17 @@ export default function HeroUI(dynamicComponent: ViewComponentProps) {
 
   switch (variant) {
     case "Hero - Image Highlight":
-      return <ImageHighlightHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <ImageHighlightHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Hero CTA Buttons":
-      return <HeroCTAButtons blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <HeroCTAButtons blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Right Image Hero":
-      return <RightImageHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <RightImageHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Faded Information Hero":
-      return <FadedInformationHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <FadedInformationHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Title Only":
-      return <TitleOnlyHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <TitleOnlyHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Slim Background":
-      return <SlimBackgroundHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <SlimBackgroundHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     default:
       return <DefaultHero />
   }

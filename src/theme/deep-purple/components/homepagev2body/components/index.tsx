@@ -9,7 +9,7 @@ import { Homepage } from "./homepage"
 const log = getLogger("theme.deep-purple.components.homepagev2body.components.index")
 
 export default function HompageUI(dynamicComponent: ViewComponentProps) {
-  const componentInformation = dynamicComponent.componentInformation
+  const componentInformation = dynamicComponent.componentDetails
   const blueprint = dynamicComponent.blueprint
 
   if (!componentInformation) {
@@ -31,7 +31,7 @@ export default function HompageUI(dynamicComponent: ViewComponentProps) {
     return (<div>homepagev2body</div>)
   }
 
-  return <Homepage blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+  return <Homepage blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
 
 }
 

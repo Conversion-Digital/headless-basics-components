@@ -6,14 +6,10 @@ import SimpleLinkList from "./SimpleLinkList"
 import DevButton from "../../../../../../components/developer/devButton"
 import Breadcrumbs from "../../../../../../components/breadcrumbs/Breadcrumbs"
 import BackToTopAndChatLoader from "../../../../structures/backToTopAndChatLoader"
+import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps"
 
-interface RightImageHeroProps {
-  blueprint: PageBlueprint
-  componentDetails: IndividualComponentProps
-  matchingData: any
-}
 
-const RightImageHero: React.FC<RightImageHeroProps> = ({ blueprint, componentDetails, matchingData }) => {
+const RightImageHero: React.FC<StandardComponentProps> = ({ blueprint, componentInformation, matchingData }) => {
   const linksListData = { links: [] }
   linksListData.links = matchingData?.pageSectionListing?.map(
     ({ content: { pageSectionTitle, pageSectionURL } }: { content: { pageSectionTitle: string, pageSectionURL: string } }) => {
@@ -27,7 +23,7 @@ const RightImageHero: React.FC<RightImageHeroProps> = ({ blueprint, componentDet
   return (
     <div className="relative z-10 w-full">
       <Suspense>
-        {componentDetails.metaData && <DevButton metaData={componentDetails.metaData} />}
+        {componentInformation.metaData && <DevButton metaData={componentInformation.metaData} />}
       </Suspense>
       <Hero className="relative overflow-hidden bg-charcoal20 font-urbanist sm:min-h-96">
         <Breadcrumbs
@@ -35,7 +31,7 @@ const RightImageHero: React.FC<RightImageHeroProps> = ({ blueprint, componentDet
           data={blueprint.breadcrumbItems}
           seperatorIcon={<span className="mx-1.5">/</span>}
           itemClassName="font-urbanist text-xs font-500 uppercase tracking-0.1em text-my-blue before:hidden! last:invisible [&>a]:visible"
-          slug={componentDetails.pageDefinition?.preliminarySlug || ""}
+          slug={componentInformation.pageDefinition?.preliminarySlug || ""}
         />
         <Hero.Content className="container! relative row-start-2 mb-4 self-start sm:my-14 md:mb-14">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">

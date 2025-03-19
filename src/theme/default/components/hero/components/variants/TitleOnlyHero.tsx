@@ -4,17 +4,12 @@ import Hero from "../Hero"
 import DevButton from "../../../../../../components/developer/devButton"
 import Breadcrumbs from "../../../../../../components/breadcrumbs/Breadcrumbs"
 import BackToTopAndChatLoader from "../../../../structures/backToTopAndChatLoader"
+import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps"
 
-interface TitleOnlyHeroProps {
-  blueprint: PageBlueprint
-  componentDetails: IndividualComponentProps
-  matchingData: any
-}
-
-const TitleOnlyHero: React.FC<TitleOnlyHeroProps> = ({ blueprint, componentDetails, matchingData }) => {
+const TitleOnlyHero: React.FC<StandardComponentProps> = ({ blueprint, componentInformation, matchingData }) => {
   const { textAlignClass, justifyClass, alignItemsClass } = alignmentClasses(matchingData)
 
-  const languageSite = componentDetails.pageDefinition?.languageSite;
+  const languageSite = componentInformation.pageDefinition?.languageSite;
 
   if (!languageSite) {
     return (<></>);
@@ -23,16 +18,16 @@ const TitleOnlyHero: React.FC<TitleOnlyHeroProps> = ({ blueprint, componentDetai
   return (
     <div className="relative z-10 w-full">
       <Suspense>
-        {componentDetails.metaData && <DevButton metaData={componentDetails.metaData} />}
+        {componentInformation.metaData && <DevButton metaData={componentInformation.metaData} />}
       </Suspense>
       <Hero className="relative overflow-hidden bg-[#D1D3D433] font-urbanist sm:min-h-81">
-        {componentDetails.pageDefinition && (
+        {componentInformation.pageDefinition && (
           <Breadcrumbs
             className="container! row-start-1 my-8 w-full self-baseline"
             data={blueprint.breadcrumbItems}
             seperatorIcon={<span>/</span>}
             itemClassName="font-urbanist text-xs font-500 uppercase tracking-0.1em text-my-blue"
-            slug={componentDetails.pageDefinition.preliminarySlug || ''}
+            slug={componentInformation.pageDefinition.preliminarySlug || ''}
           />
         )}
         <Hero.Content className="container! row-start-2 self-start">

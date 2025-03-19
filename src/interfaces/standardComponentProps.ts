@@ -2,6 +2,6 @@ import { PageBlueprint, IndividualComponentProps } from "@conversiondigital/head
 
 export interface StandardComponentProps {
   blueprint: PageBlueprint
-  componentDetails: IndividualComponentProps
+  componentInformation: IndividualComponentProps
   matchingData: any
 }
