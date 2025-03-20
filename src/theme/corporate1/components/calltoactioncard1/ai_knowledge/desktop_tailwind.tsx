@@ -1,4 +1,4 @@
-export function mobileTailwind(){
+export function desktopTailwind(){
     // This remains the same content, verifying tailwind v4 class usage.
     return (
       <div className="w-[1920px] h-[819px] relative">
