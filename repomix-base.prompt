@@ -62,12 +62,11 @@ __XML HERE__
 This is a Next.js project template.
 
 ## Tech Stack
-- Framework: Next.js 14+
-- Language: TypeScript
+- Framework: Next.js 15+
+- Language: TypeScript, React 19
 - State Management: React Context / Redux Toolkit
 - API Layer: Next.js API Routes
-- Database: Prisma ORM with PostgreSQL
-- Styling: Tailwind CSS
+- Styling: Tailwind CSS V4
 - Testing: Jest and React Testing Library
 - Package Manager: pnpm
 
@@ -82,9 +81,7 @@ Follow these rules when building the project.
 - Aim for roughly 30 lines of code per component/function
 - Keep logic and operators simple and pleasant to read
 - Use TypeScript types/interfaces for all components, functions, and methods
-- Use Zod for data validation and serialization
 - Use Next.js API routes for building APIs
-- Use Prisma for database operations
 
 ### Directory Structure
 Follow the next.js app directory 
@@ -103,4 +100,3 @@ Follow these rules when working with types:
 - All shared types should go in `src/types`
 - Make sure to export types in `src/types/index.ts`
 - Prefer interfaces for object shapes and type for unions/intersections
-- Use Zod schemas for data validation and serialization
