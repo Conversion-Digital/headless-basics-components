@@ -11,7 +11,7 @@ const log = getLogger("theme.deep-purple.components.navigate.components")
 
 export default function CtaNavigate(dynamicComponent: ViewComponentProps) {
 
-  const componentInformation = dynamicComponent.componentInformation;
+  const componentInformation = dynamicComponent.componentDetails;
   const blueprint = dynamicComponent.blueprint;
 
   if (!componentInformation) {
