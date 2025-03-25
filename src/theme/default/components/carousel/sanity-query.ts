@@ -23,6 +23,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
         components {
           ... on Carousel {
             _type
+            selectableVariant
             images {
               asset {
                 url
