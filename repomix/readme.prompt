@@ -1,0 +1,23 @@
+## THIS TASK
+
+Update the readme file.   Respond in markdown format only.  
+
+For all characters ` HTML encode that character so that your output does not get formatted. 
+
+HTML encode the following characters:
+- `<` to `&lt;`
+- `>` to `&gt;`
+- `"` to `&quot;`
+- `'` to `&apos;`
+- '`'' to '%'
+
+
+respond all within a code block.  The outer code block should be character encoded.  The inner markup should.
+
+Include an architecture run through of this project. 
+
+Include an overview about components and how components are used. 
+
+## END THIS TASK
+
+

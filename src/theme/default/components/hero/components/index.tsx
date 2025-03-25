@@ -1,6 +1,7 @@
 import {
   IndividualComponentProps,
   ViewComponentProps,
+  componentBoilerPlate,
   getLogger,
   logPrefix,
 } from "@conversiondigital/headless-basics-data/src"
@@ -17,21 +18,10 @@ import {
 const log = getLogger("theme.components.hero.components.index")
 
 export default function HeroUI(dynamicComponent: ViewComponentProps) {
-  const componentInformation = dynamicComponent.componentInformation
-  const blueprint = dynamicComponent.blueprint
 
-  if (!componentInformation) {
-    log.error("Invalid componentInformation.metaData passed to HeroUI", componentInformation);
-    return <div>Error rendering HeroUI: Missing data</div>;
-  } else if (!componentInformation.metaData) {
-    log.error("Invalid componentInformation.metaData passed to HeroUI", (componentInformation as any).componentInformation.metaData);
-    return <div>Error rendering HeroUI: Missing Meta data</div>;
-  }
+  const {variant, blueprint, componentInformation, matchingData} = componentBoilerPlate(dynamicComponent)
 
   populateMetaData(componentInformation)
-  const matchingData = componentInformation.data;
-
-  const variant = componentInformation?.metaData?.variant || ""
 
   log.trace("Rendering Hero with variant: ", variant)
 
@@ -41,17 +31,17 @@ export default function HeroUI(dynamicComponent: ViewComponentProps) {
 
   switch (variant) {
     case "Hero - Image Highlight":
-      return <ImageHighlightHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <ImageHighlightHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Hero CTA Buttons":
-      return <HeroCTAButtons blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <HeroCTAButtons blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Right Image Hero":
-      return <RightImageHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <RightImageHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Faded Information Hero":
-      return <FadedInformationHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <FadedInformationHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Title Only":
-      return <TitleOnlyHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <TitleOnlyHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     case "Hero - Slim Background":
-      return <SlimBackgroundHero blueprint={blueprint} componentDetails={componentInformation} matchingData={matchingData} />
+      return <SlimBackgroundHero blueprint={blueprint} componentInformation={componentInformation} matchingData={matchingData} />
     default:
       return <DefaultHero />
   }
@@ -64,7 +54,7 @@ function populateMetaData(componentDetails: IndividualComponentProps) {
     return;
   }
 
-  if (componentDetails.metaData) {
+  if (componentDetails?.metaData) {
       // Get the relative path of the current file
       componentDetails.metaData.rendering = "theme/components/hero/components/index.tsx"
       // Get the name of the current function

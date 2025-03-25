@@ -1,4 +1,4 @@
-import { getLogger, IndividualComponentProps, ViewComponentProps } from "@conversiondigital/headless-basics-data/src"
+import { getLogger, IndividualComponentProps, logPrefix, ViewComponentProps } from "@conversiondigital/headless-basics-data/src"
 import React, { Suspense } from "react"
 import AccordionClientLoader from "./accordionClientLoader"
 import DevButton from "../../../../../components/developer/devButton"
@@ -39,7 +39,7 @@ export default function AccordionUI(dynamicComponent: ViewComponentProps) {
       Component = componentInformation?.componentInformation?.componentInformation.view;
       } else {
         // Log an error and provide a fallback if no valid component type is found
-      log.trace('No Component Type Found: ', subComponentOutline);
+        log.trace(`${logPrefix()} ::: No Component Type Found: ${subComponentOutline}`);
         /* eslint-disable react/display-name */
         Component = () => (
           <FallbackComponent typename={subComponentOutline?.__typename || "Unknown"} />

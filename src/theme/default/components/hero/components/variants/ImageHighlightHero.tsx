@@ -5,14 +5,9 @@ import Hero from "../Hero"
 import DevButton from "../../../../../../components/developer/devButton"
 import Breadcrumbs from "../../../../../../components/breadcrumbs/Breadcrumbs"
 import BackToTopAndChatLoader from "../../../../structures/backToTopAndChatLoader"
+import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps"
 
-interface ImageHighlightHeroProps {
-  blueprint: PageBlueprint
-  componentDetails: IndividualComponentProps
-  matchingData: any
-}
-
-const ImageHighlightHero: React.FC<ImageHighlightHeroProps> = ({ blueprint, componentDetails, matchingData }) => {
+const ImageHighlightHero: React.FC<StandardComponentProps> = ({ blueprint, componentInformation, matchingData }) => {
   const { textAlignClass, justifyClass } = alignmentClasses(matchingData)
 
   const { hasImage, imageLocation, altText } = getCmsImage(matchingData)
@@ -20,7 +15,7 @@ const ImageHighlightHero: React.FC<ImageHighlightHeroProps> = ({ blueprint, comp
   return (
     <div className="relative z-10 w-full">
       <Suspense>
-        <DevButton metaData={componentDetails.metaData as ComponentMetaData} />
+        <DevButton metaData={componentInformation.metaData as ComponentMetaData} />
       </Suspense>
       <Hero className="relative z-10 h-[calc(100vh-75px)] overflow-hidden bg-charcoal bg-blend-multiply md:h-[calc(100vh-175px)]">
         {hasImage && (
@@ -46,7 +41,7 @@ const ImageHighlightHero: React.FC<ImageHighlightHeroProps> = ({ blueprint, comp
           data={blueprint.breadcrumbItems}
           seperatorIcon={<span>/</span>}
           itemClassName="font-urbanist text-xs font-500 uppercase tracking-0.1em text-my-white"
-          slug={componentDetails.pageDefinition?.preliminarySlug || ''}
+          slug={componentInformation.pageDefinition?.preliminarySlug || ''}
         />
         <Hero.Content className={`container! row-start-2 self-start`}>
           <div className="absolute inset-y-[-3vh] left-0 z-50 aspect-1/1 -translate-x-1/2 opacity-80 mix-blend-normal md:inset-y-[-5vh] md:translate-x-[-8vw]">

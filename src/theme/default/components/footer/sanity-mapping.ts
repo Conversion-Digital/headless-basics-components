@@ -1,9 +1,21 @@
-import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
+import { extractComponentsFromSanityData, log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
 const logger = log
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  logger.trace(`${logPrefix()}[footer][sanity-mapping][mapIdentifierData] started for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
+  log.trace(
+    `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
+  );
 
-  // Provide a minimal placeholder returning empty data
-  return {}
+  const content = pageAndComponentCombo?.component?.data
+  const matchingData = extractComponentsFromSanityData(content, "FooterStructure", log, false, "allFooterStructure")
+
+  // if (!(matchingData?.image && matchingData.backgroundImage)) {
+  //   matchingData.image = matchingData.backgroundImage;
+  // }
+
+  log.trace(
+    `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData completed, ${JSON.stringify(matchingData)}`
+  );
+
+  return matchingData
 }

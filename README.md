@@ -1,165 +1,76 @@
-# @conversiondigital/headless-basics-components
+# <@conversiondigital/headless-basics-components>
 
-> **Headless UI + React + Tailwind** component library for building custom user interfaces.
+## <Overview>
 
-This repository contains a collection of React (and Next.js–compatible) components, styles, utilities, and example stories. You can integrate these components into your Next.js projects—or any React-based workflow—to accelerate your UI development.
+The <@conversiondigital/headless-basics-components> project is a comprehensive UI component library built using React, Next.js, and Tailwind CSS. It offers a modular and customizable set of components that empower developers to rapidly build accessible, themeable, and high-performance web applications.
 
-## Table of Contents
+## <Architecture Overview>
 
-1. [Overview](#overview)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Local Development](#local-development)
-6. [Storybook](#storybook)
-7. [Environment Details](#environment-details)
-8. [Scripts](#scripts)
-9. [Project Structure](#project-structure)
-10. [Contributing](#contributing)
-11. [License](#license)
+This project is structured in a modular way to separate concerns and enhance scalability. The repository is organized into several key directories:
 
----
+- **src/**: Contains the core codebase including components, themes, interfaces, and utilities.
+- **src/theme/default/**: The default theme providing base styling, layouts, and component variations.
+- **src/components/**: Reusable UI components such as buttons, forms, accordions, modals, and more.
+- **src/interfaces/**: TypeScript interfaces defining data structures for components and configuration.
+- **src/utils/**: Utility functions for string manipulation, theming, URL processing, and reCAPTCHA integration.
+- **custom.d.ts**: Type declarations for assets like SVG, PNG, JPG, etc.
+- **postcss.config.cjs** and **tailwind.config.mjs**: Configuration files for PostCSS and Tailwind CSS respectively.
+- **package.json**: Defines project dependencies, scripts, and build configurations.
 
-## Overview
+This modular structure allows for easy customization, theming, and integration of components into any React or Next.js project. Each component has its own set of associated files for styling (CSS), logic (TypeScript/JavaScript), and schema (for CMS integration with Sanity).
 
-This library includes various UI primitives and components built with **React**, **TypeScript**, and **Tailwind CSS**. Many components are wrapped around [Radix UI](https://www.radix-ui.com/) primitives (e.g., `Dropdown`, `Popover`, `Dialog`, etc.) and integrated with **daisyUI** plus standard Tailwind classes.
+## <Components Overview>
 
-Some highlights:
+Components in this project are designed as self-contained, reusable pieces of UI that can be combined to build complex interfaces. Key points include:
 
-- Multiple reusable UI elements: **Accordion**, **Alert Dialog**, **Badges**, **Buttons**, **Checkboxes**, **Dropdowns**, **Menus**, **Navigation** bars, **Modals**, **Tables**, **Tabs**, **Tooltips**, etc.
-- Utility hooks and functions for working with cookies, color processing, string parsing, dynamic style injection, and more.
-- Opinionated color tokens & theming approach with `tailwind.config.cjs`.
-- Example usage in `.stories.tsx` files for each component (via **Storybook**).
+- **Atomic Design Principles**: Components are built from simple atoms (like buttons, icons, inputs) up to complex organisms (like navigation menus, grids, and layouts).
+- **Theming and Customization**: Themes are defined to allow easy switching of visual styles. The default theme is found in the <src/theme/default> directory.
+- **CMS Integration**: Sanity is used for content management. Each component includes Sanity schema, mapping, and query files to integrate with dynamic content.
+- **TypeScript Interfaces**: Strict typing via interfaces ensures reliable component usage and simplifies development and maintenance.
 
----
+## <How Components Are Used>
 
-## Features
+Components are utilized by importing them into your project and configuring them via props. They are designed to be highly customizable and work seamlessly with Next.js for server-side rendering (SSR) and static site generation (SSG). For example, to use a Button component:
 
-- **React 18/19+** support (peers listed in `package.json`).
-- **Tailwind CSS** for styling and utility classes (plus daisyUI).
-- **TypeScript** for type definitions and a consistent developer experience.
-- **Radix UI** for accessible, composable UI primitives.
-- **Storybook** for local component development and visual documentation.
-- **ESLint** + **Prettier** (with recommended configs) to maintain a clean, consistent code style.
-
----
-
-## Installation
-
-1. **Clone** the repository or add it as a submodule in your own project:
-
-   ```bash
-   git clone https://github.com/your-org-or-username/this-repository.git
-
-
-## 2. Features
-
-- ✅ **Pre-built UI Components** – Ready-to-use, customizable components for faster development.
-- 🎨 **Tailwind CSS** – Utility-first CSS framework for styling.
-- 🔧 **Headless UI** – Components without styles, making it easy to integrate into any design system.
-- ⚛ **React + Next.js** – Optimized for server-side rendering (SSR) and static site generation (SSG).
-- 🌙 **Dark Mode Support** – Built-in theme switching.
-- 🔄 **Storybook Integration** – Preview, test, and document UI components.
-- 🛠 **Utilities & Hooks** – Common utilities for formatting, state management, and data handling.
-- 🌐 **Internationalization Ready** – Components designed to support multiple languages.
-
----
-
----
-
-## 3. Installation
-
-### Using npm
-
-```
-npm install @conversiondigital/headless-basics-components
-```
-
-### Using Yarn
-
-```
-yarn add @conversiondigital/headless-basics-components
-```
-
----
-
-## 4. Usage
-
-Import and use a component in your React project:
-
-```jsx
-import { Button } from "@conversiondigital/headless-basics-components";
+``` tsx
+import { Button } from &quot;@conversiondigital/headless-basics-components&quot;;
 
 function App() {
-  return <Button color="primary">Click me</Button>;
+  return <Button color=&quot;primary&quot;>Click me</Button>;
 }
 
 export default App;
 ```
 
-Ensure you have Tailwind CSS configured in your project. Add the following to your `tailwind.config.cjs`:
+The component library also supports theming and responsive design. Global styles are managed via Tailwind CSS, and components can be easily themed using configuration files. Components often have associated developer tools such as DevButton for debugging and dynamic content renderers for integration with headless CMS systems.
 
-```js
-module.exports = {
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/@conversiondigital/headless-basics-components/dist/**/*.js"
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-```
+## <Installation>
 
----
+### <Using pnpm>
+`
+pnpm install https://github.com/Conversion-Digital/headless-basics-components
+`
 
-## 5. Components
+## <Project Structure>
 
-### Button
+The repository is organized to separate concerns and support modular development. The key directories include:
 
-```jsx
-import { Button } from "@conversiondigital/headless-basics-components";
+- **src/**: Core source code.
+- **src/theme/**: Themes available for styling components.
+- **src/components/**: Reusable UI components.
+- **src/interfaces/**: Type definitions.
+- **src/utils/**: Utility functions and helpers.
 
-<Button color="primary">Click me</Button>;
-```
+## <Contributing>
 
-### Input
-
-```jsx
-import { Input } from "@conversiondigital/headless-basics-components";
-
-<Input placeholder="Enter text" />;
-```
-
-### Accordion
-
-```jsx
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@conversiondigital/headless-basics-components";
-
-<Accordion type="single" collapsible>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Accordion 1</AccordionTrigger>
-    <AccordionContent>
-      This is the content of the first item.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>;
-```
-
----
-
-## 6. Contributing
-
-We welcome contributions! Please follow these steps:
+Contributions are welcome! Follow these steps to contribute:
 
 1. Fork the repository.
-2. Create a new branch for your feature/fix.
-3. Make your changes and commit them.
-4. Push to your fork and create a pull request.
+2. Create a new branch for your feature or fix.
+3. Commit your changes with clear messages.
+4. Push your branch and create a pull request.
+5. Ensure your code adheres to the project&apos;s linting and formatting guidelines.
 
----
+## <License>
 
-## 7. License
-
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the LICENSE file for more details.

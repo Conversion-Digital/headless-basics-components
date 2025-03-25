@@ -1,5 +1,7 @@
-import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
+import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 import { extractComponentsFromSanityData } from "@conversiondigital/headless-basics-data/src/cms/sanity/sanityMappingUtils"
+
+export const log = getLogger("default.components.sanity.hero.mapping")
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(
@@ -8,6 +10,10 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
 
   const content = pageAndComponentCombo?.component?.data
   const matchingData = extractComponentsFromSanityData(content, "Hero", log)
+
+  if (!(matchingData?.image && matchingData.backgroundImage)) {
+    matchingData.image = matchingData.backgroundImage;
+  }
 
   return matchingData
 }

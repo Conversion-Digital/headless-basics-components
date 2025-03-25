@@ -7,7 +7,7 @@ import { getSectionBackgroundColour } from "../../../../utils/getSectionBackgrou
 const log = getLogger("ui-base.cms.heartcore.content.richtextComponent");
 
 export default function RichTextUI(dynamicComponent: ViewComponentProps) {
-  const componentInformation = dynamicComponent.componentInformation
+  const componentInformation = dynamicComponent.componentDetails
 
   if (!componentInformation || !componentInformation.metaData) {
     log.error("Invalid ComponentDataProps passed to richtextComponent", componentInformation);
