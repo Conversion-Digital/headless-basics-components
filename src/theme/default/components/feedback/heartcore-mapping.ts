@@ -7,7 +7,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   log.trace("variables heartcore mapHeroData > ", JSON.stringify(pageAndComponentCombo?.component?.data));
   log.trace("data.content.children.edges > ", edges);
 
-  let matchingData:any = getMatchingResultBySortOrder(edges, "CTAExtraInfo", pageAndComponentCombo?.component?.sortOrder);
+  let matchingData:any = getMatchingResultBySortOrder(edges, "feedback", pageAndComponentCombo?.component?.sortOrder);
 
   if (!matchingData) {
     matchingData = {}

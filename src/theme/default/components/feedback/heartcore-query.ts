@@ -31,7 +31,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
                                                     url
                                                     sortOrder
                                                     updateDate
-                                                    ... on CTAExtraInfo {
+                                                    ... on Feedback {
                                                         heading
                                                         text
                                                     }
