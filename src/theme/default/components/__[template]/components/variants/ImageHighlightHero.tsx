@@ -1,7 +1,7 @@
 import { alignmentClasses, ComponentMetaData, formatHeading, IndividualComponentProps, PageBlueprint, getCmsImage } from "@conversiondigital/headless-basics-data/src"
 import Image from "next/image"
 import React, { Suspense } from "react"
-import Hero from "../Hero"
+import Template from "../Template"
 import DevButton from "../../../../../../components/developer/devButton"
 import Breadcrumbs from "../../../../../../components/breadcrumbs/Breadcrumbs"
 import BackToTopAndChatLoader from "../../../../structures/backToTopAndChatLoader"
@@ -17,7 +17,7 @@ const ImageHighlightHero: React.FC<StandardComponentProps> = ({ blueprint, compo
       <Suspense>
         <DevButton metaData={componentInformation?.metaData as ComponentMetaData} />
       </Suspense>
-      <Hero className="relative z-10 h-[calc(100vh-75px)] overflow-hidden bg-charcoal bg-blend-multiply md:h-[calc(100vh-175px)]">
+      <Template className="relative z-10 h-[calc(100vh-75px)] overflow-hidden bg-charcoal bg-blend-multiply md:h-[calc(100vh-175px)]">
         {hasImage && (
           <div className="absolute h-full w-full object-scale-down">
             <Image
@@ -43,7 +43,7 @@ const ImageHighlightHero: React.FC<StandardComponentProps> = ({ blueprint, compo
           itemClassName="font-urbanist text-xs font-500 uppercase tracking-0.1em text-my-white"
           slug={componentInformation?.pageDefinition?.preliminarySlug || ''}
         />
-        <Hero.Content className={`container! row-start-2 self-start`}>
+        <Template.Content className={`container! row-start-2 self-start`}>
           <div className="absolute inset-y-[-3vh] left-0 z-50 aspect-1/1 -translate-x-1/2 opacity-80 mix-blend-normal md:inset-y-[-5vh] md:translate-x-[-8vw]">
             <svg
               className="h-full w-full"
@@ -71,8 +71,8 @@ const ImageHighlightHero: React.FC<StandardComponentProps> = ({ blueprint, compo
           <Suspense>
             <BackToTopAndChatLoader />
           </Suspense>
-        </Hero.Content>
-      </Hero>
+        </Template.Content>
+      </Template>
     </div>
   )
 }
