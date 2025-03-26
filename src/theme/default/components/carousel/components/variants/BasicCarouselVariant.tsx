@@ -9,7 +9,7 @@ export function BasicCarouselVariant(props: StandardComponentProps) {
   const images = matchingData?.images || [];
 
   return (
-    <section className="w-full flex flex-col">
+    <section className="w-full flex flex-col p-6">
       {title && <h2 className="text-xl font-bold mb-4">{title}</h2>}
       <CarouselScroller speed={40}>
         {images.map((img: any, idx: number) => (
