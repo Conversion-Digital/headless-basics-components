@@ -1,9 +1,9 @@
-import { getLogger, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
+import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
 export const log = getLogger("default.components.sanity.hero.query");
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
-  log.trace("variables query > ", JSON.stringify(pageAndComponentCombo?.component?.data));
+  log.trace(`${logPrefix} variables query > `, JSON.stringify(pageAndComponentCombo?.component?.data));
   return `
         query GetHeroBySlug($slug: String!) {
           allPage(where: { slug: { current: { eq: $slug } } }) {

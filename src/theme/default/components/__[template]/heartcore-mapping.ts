@@ -1,13 +1,14 @@
-import { getMatchingResultBySortOrder, log, PageAndSingleComponentDetails, processRawUrlsOnServer } from "@conversiondigital/headless-basics-data/src";
+import { getLogger, getMatchingResultBySortOrder, logPrefix, PageAndSingleComponentDetails, processRawUrlsOnServer } from "@conversiondigital/headless-basics-data/src";
 
+export const log = getLogger("default.components.heartcore.template.mapping");
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   const content = pageAndComponentCombo?.component?.data?.content as any;
   const edges = content?.children?.edges;
-  log.trace("variables heartcore mapHeroData > ", JSON.stringify(pageAndComponentCombo?.component?.data));
-  log.trace("data.content.children.edges > ", edges);
+  log.trace(`${logPrefix} variables heartcore mapHeroData > `, JSON.stringify(pageAndComponentCombo?.component?.data));
+  log.trace(`${logPrefix} data.content.children.edges > `, edges);
 
-  let matchingData:any = getMatchingResultBySortOrder(edges, "Hero", pageAndComponentCombo?.component?.sortOrder);
+  let matchingData:any = getMatchingResultBySortOrder(edges, "template", pageAndComponentCombo?.component?.sortOrder);
 
   if (!matchingData) {
     matchingData = {}

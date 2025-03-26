@@ -1,8 +1,10 @@
-import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
+import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
+export const log = getLogger("default.components.heartcore.template.query");
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
+  log.trace(`${logPrefix} variables query > `, JSON.stringify(pageAndComponentCombo?.component?.data));
   return `
-  query GetHeroComponent($slug: String!) {
+  query GetTemplateComponent($slug: String!) {
     content(url: $slug) {
       url
       contentTypeAlias

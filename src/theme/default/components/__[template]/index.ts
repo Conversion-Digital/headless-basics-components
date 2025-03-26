@@ -3,7 +3,7 @@ import { View } from "./view";
 import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfaces"
 
 
-getLogger("theme.components.hero")
+getLogger("theme.components.template")
 
 async function getConfig(): Promise<ThemeConfig> {
     const config = await getThemeConfig('template');

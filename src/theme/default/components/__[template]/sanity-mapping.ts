@@ -1,7 +1,7 @@
 import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 import { extractComponentsFromSanityData } from "@conversiondigital/headless-basics-data/src/cms/sanity/sanityMappingUtils"
 
-export const log = getLogger("default.components.sanity.hero.mapping")
+export const log = getLogger("default.components.sanity.template.mapping")
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(
