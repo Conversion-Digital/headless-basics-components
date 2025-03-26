@@ -15,16 +15,24 @@ export function BasicCarouselVariant(props: StandardComponentProps) {
         {images.map((img: any, idx: number) => (
           <div
             key={`${img?.asset?.url}-${idx}`}
-            className="flex-none relative w-[300px] h-[300px] border-red-500"
+            className="relative w-[100px] h-[100px] overflow-hidden"
           >
-            <Image
-              src={img?.asset?.url || ""}
-              alt={img?.asset?.altText || "img"}
-              fill
-              style={{ objectFit: "cover" }}
-              priority={idx < images.length}
-              unoptimized
-            />
+            {img?.asset?.url && (
+              <Image
+                src={img.asset.url}
+                sizes="(max-width: 300px) 90vw, (min-width: 601px) 100vw"
+                loading="eager"
+                alt={
+                  img?.asset?.altText && img.asset.altText !== ""
+                    ? img.asset.altText
+                    : img?.asset?.originalFilename || "Image"
+                }
+                fill
+                quality={75}
+                style={{ objectFit: "cover", objectPosition: "center" }}
+                priority={idx === 0} 
+              />
+            )}
           </div>
         ))}
       </CarouselScroller>
