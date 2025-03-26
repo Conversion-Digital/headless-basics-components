@@ -3,8 +3,8 @@
 import { ViewComponentProps } from "@conversiondigital/headless-basics-data/src";
 import dynamic from "next/dynamic"
 
-const HeroUI = dynamic(() => import("./components"), { loading: () => (<p>Loading...</p>) })
+const TemplateUI = dynamic(() => import("./components"), { loading: () => (<p>Loading...</p>) })
 
 export async function View(dynamicComponent: ViewComponentProps) {
-  return <HeroUI {...dynamicComponent} />
+  return <TemplateUI {...dynamicComponent} />
 }

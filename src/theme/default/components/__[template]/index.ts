@@ -6,7 +6,7 @@ import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfa
 getLogger("theme.components.hero")
 
 async function getConfig(): Promise<ThemeConfig> {
-    const config = await getThemeConfig('hero');
+    const config = await getThemeConfig('template');
     config.view = View;
     return config;
 }

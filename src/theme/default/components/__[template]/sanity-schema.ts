@@ -1,5 +1,4 @@
 import { defineField, defineType } from 'sanity'
-import heroButton from './schema/sanity-hero-button'
 import {EyeOpenIcon} from '@sanity/icons'
 
 
