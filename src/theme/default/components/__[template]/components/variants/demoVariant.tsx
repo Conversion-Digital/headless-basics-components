@@ -1,7 +1,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { demoVariantData } from "./demoVariantData";
+import { demoVariantData } from "./data/demoVariantData";
 import type { ViewComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces/ThemeConfig.interface";
 import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps";
 
