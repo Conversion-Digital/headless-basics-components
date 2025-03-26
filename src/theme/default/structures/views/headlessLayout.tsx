@@ -76,7 +76,7 @@ export function HeadlessLayout({
       {bluePrint?.footerItems && (
          <> 
           <SiteFooter
-            variant="twoLogoHorizontalLinksPlusCopyright"
+            variant="sanitySiteFooter"
             className="bg-primary p-10 text-secondary-content"
             center={false}
             data={bluePrint.footerItems}
