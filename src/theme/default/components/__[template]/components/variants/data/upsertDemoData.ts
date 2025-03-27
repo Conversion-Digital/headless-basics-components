@@ -54,23 +54,13 @@ export async function upsertDemoDataIfBlank() {
     // Generate unique document IDs for both documents.
     const componentDocId = uuidv4();
     const pageDocId = uuidv4();
+    // const componentKey = uuidv4()
 
     // Build the mutation payload with two operations:
     // 1) Create the component (using the demo data).
     // 2) Create the page with its title set to the component name and a reference to the new component.
     const mutationPayload = {
       mutations: [
-        {
-          create: {
-            _id: componentDocId,
-            _type: componentName,
-            selectableVariant: demoVariantData.variant || "",
-            title: demoVariantData.title || "",
-            heading: demoVariantData.heading || "",
-            subtitle: demoVariantData.subtitle || "",
-            sortOrder: demoVariantData.sortOrder || 0,
-          },
-        },
         {
           create: {
             _id: pageDocId,
@@ -89,8 +79,14 @@ export async function upsertDemoDataIfBlank() {
             },
             components: [
               {
-                _type: "reference",
-                _ref: componentDocId,
+                _id: componentDocId,
+                _key: componentDocId,
+                _type: componentName,
+                selectableVariant: demoVariantData.variant || "",
+                title: demoVariantData.title || "",
+                heading: demoVariantData.heading || "",
+                subtitle: demoVariantData.subtitle || "",
+                sortOrder: demoVariantData.sortOrder || 0,
               },
             ],
           },
