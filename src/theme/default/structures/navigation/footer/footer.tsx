@@ -9,6 +9,7 @@ import { cn } from "@conversiondigital/headless-basics-data";
 import MobileCTA from "./mobileCta";
 import SitePickerLoader from "./sitePickerLoader";
 import DevButton from "../../../../../components/developer/devButton";
+import { GetSanitySiteFooter } from "./sanitySiteFooter";
 
 interface LinkItem {
   url?: string;
@@ -53,8 +54,19 @@ const SiteFooter = React.forwardRef<HTMLDivElement, FooterProps>(
     if (data && variant === "twoLogoHorizontalLinksPlusCopyright") {
       return (
         <>
-        GetTwoLogoFooter {JSON.stringify(data)}
           <GetTwoLogoFooter
+            {...props}
+            ref={ref}
+            data={data}
+            isLive={isLive}
+            languageSite={languageSite}
+          />
+        </>
+      );
+    } else if (data && variant === "sanitySiteFooter") {
+      return (
+        <>
+          <GetSanitySiteFooter
             {...props}
             ref={ref}
             data={data}
