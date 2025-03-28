@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./tabs";
 
 const meta = {
-  title: "Components/Tabs",
+  title: "Components/Data Display/Tabs",
   component: Tabs,
   parameters: {
     layout: "centered",

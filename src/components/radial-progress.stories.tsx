@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import RadialProgress from "./radial-progress";
 
 const meta = {
-  title: "Components/RadialProgress",
+  title: "Components/Feedback/RadialProgress",
   component: RadialProgress,
   parameters: {
     layout: "centered",

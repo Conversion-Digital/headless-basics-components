@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { AspectRatio } from "./aspect-ratio";
 
 const meta = {
-  title: "Components/AspectRatio",
+  title: "Components/Data Display/AspectRatio",
   component: AspectRatio,
   parameters: {
     layout: "centered",

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { GlobalTailwindNavigationMenu } from "./global-navigation";
 
 const meta = {
-  title: "Components/GlobalNavigation",
+  title: "Components/Navigation/GlobalNavigation",
   component: GlobalTailwindNavigationMenu,
   parameters: {
     layout: "fullscreen",

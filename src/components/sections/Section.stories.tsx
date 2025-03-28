@@ -10,7 +10,7 @@ import ImageSectionThreeColumn from "./imageSectionThreeColumn";
 import DynamicThreeColumn, { DynamicColumn } from "./dynamicThreeColumn";
 
 const meta: Meta<typeof SectionOneColumn> = {
-  title: "Components/Sections",
+  title: "Components/Layout/Sections",
   parameters: {
     layout: "centered",
   },

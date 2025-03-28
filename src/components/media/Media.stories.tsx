@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ImageWithOverlay from "./ImageWithOverlay";
 
 const meta = {
-  title: "Components/Media",
+  title: "Components/Data Display/Media",
   parameters: {
     layout: "centered",
   },
