@@ -9,7 +9,7 @@ export default function DemoVariant(props: StandardComponentProps) {
   return (
     <section className="p-5 bg-white text-center">
       <h2 className="text-2xl font-bold mb-3">{demoVariantData.title}</h2>
-      <p className="mb-5">{demoVariantData.description}</p>
+      <p className="mb-5">{demoVariantData?.heading}</p>
       <div className="flex justify-center">
         <Image
           src={demoVariantData.imageUrl}

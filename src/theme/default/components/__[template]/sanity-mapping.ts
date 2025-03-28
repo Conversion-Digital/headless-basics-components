@@ -9,7 +9,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   );
 
   const content = pageAndComponentCombo?.component?.data
-  const matchingData = extractComponentsFromSanityData(content, "Hero", log)
+  const matchingData = extractComponentsFromSanityData(content, "Template", log)
 
   if (!(matchingData?.image && matchingData.backgroundImage)) {
     matchingData.image = matchingData.backgroundImage;
@@ -19,7 +19,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
 }
 
 function getComponentDocumentation() {
-  return "/library/3-hero-component";
+  return "/library/3-template-component";
 }
 
 function getYoutubeDocumentation() {

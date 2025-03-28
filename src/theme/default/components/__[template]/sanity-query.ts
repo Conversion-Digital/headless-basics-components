@@ -1,37 +1,37 @@
 import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
-export const log = getLogger("default.components.sanity.hero.query");
+export const log = getLogger("default.components.sanity.Template.query");
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix} variables query > `, JSON.stringify(pageAndComponentCombo?.component?.data));
   return `
-        query GetHeroBySlug($slug: String!) {
+        query GetTemplateBySlug($slug: String!) {
           allPage(where: { slug: { current: { eq: $slug } } }) {
             components {
               __typename
-              ... on Hero {
-                ...HeroBase
+              ... on Template {
+                ...TemplateBase
               }
             }
           }
           allHomepage {
             components {
               __typename
-              ... on Hero {
-                ...HeroBase
+              ... on Template {
+                ...TemplateBase
                 subtitle
                 globalComponentSource {
                   __typename
                   _key
                   _type
-                  ...HeroBase
+                  ...TemplateBase
                 }
               }
             }
           }
         }
 
-        fragment HeroBase on Hero {
+        fragment TemplateBase on Template {
           __typename
           _key
           _type

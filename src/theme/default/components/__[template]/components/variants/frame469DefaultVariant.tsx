@@ -1,6 +1,5 @@
 
 import React from "react";
-import type { ViewComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces/ThemeConfig.interface";
 import { getCmsImage } from "@conversiondigital/headless-basics-data/src/cms/tools/multiCmsImageTools";
 import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps";
 
