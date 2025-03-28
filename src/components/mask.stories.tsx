@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Mask from "./mask";
 
 const meta = {
-  title: "Components/Mask",
+  title: "Components/Data Display/Mask",
   component: Mask,
   parameters: {
     layout: "centered",

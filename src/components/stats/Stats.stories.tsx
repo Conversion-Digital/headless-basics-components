@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Stats from "./Stats";
 
 const meta = {
-  title: "Components/Stats",
+  title: "Components/Feedback/Stats",
   component: Stats,
   parameters: {
     layout: "centered",

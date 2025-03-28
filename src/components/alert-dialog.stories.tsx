@@ -13,7 +13,7 @@ import {
 } from "./alert-dialog";
 
 const meta = {
-  title: "Components/AlertDialog",
+  title: "Components/Feedback/Modal/AlertDialog",
   component: AlertDialog,
   parameters: {
     layout: "centered",
