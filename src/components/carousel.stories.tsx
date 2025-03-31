@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LogoCarousel } from './carousel';
 
 const meta: Meta<typeof LogoCarousel> = {
-  title: 'Components/LogoCarousel',
+  title: 'Components/Data Display/LogoCarousel',
   component: LogoCarousel,
   parameters: {
     layout: 'centered',
