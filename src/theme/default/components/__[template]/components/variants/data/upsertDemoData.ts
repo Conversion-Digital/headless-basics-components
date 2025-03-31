@@ -87,7 +87,7 @@ export async function upsertDemoDataIfBlank() {
           slug: {
             __typename: 'Slug',
             _key: null,
-            current: `${componentName}`,
+            current: `/library/${componentName}`,
             source: null,
           },
           components: [
