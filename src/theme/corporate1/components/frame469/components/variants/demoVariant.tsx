@@ -1,0 +1,24 @@
+
+import React from "react";
+import Image from "next/image";
+import { demoVariantData } from "./data/demoVariantData";
+import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps";
+
+export default function DemoVariant(props: StandardComponentProps) {
+  return (
+    <section className="p-4 bg-gray-50">
+      <h2 className="text-xl font-bold mb-2">{demoVariantData.title}</h2>
+      <p className="mb-2 font-semibold">{demoVariantData.heading}</p>
+      <p className="mb-2">{demoVariantData.subtitle}</p>
+      <p className="mb-4">{demoVariantData.description}</p>
+      <div className="flex justify-center">
+        <Image
+          src={demoVariantData.imageUrl}
+          alt={demoVariantData.altText}
+          width={600}
+          height={400}
+        />
+      </div>
+    </section>
+  );
+}

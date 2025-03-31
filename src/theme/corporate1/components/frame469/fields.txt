@@ -1,0 +1,9 @@
+
+title (string)
+heading (string)
+subtitle (string)
+description (text)
+image (image)
+selectableVariant (string)
+sortOrder (number)
+globalComponentSource (reference)
