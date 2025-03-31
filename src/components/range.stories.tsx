@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Range from "./range";
 
 const meta = {
-  title: "Components/Range",
+  title: "Components/Feedback/Range",
   component: Range,
   parameters: {
     layout: "centered",

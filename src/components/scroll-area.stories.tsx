@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ScrollArea } from "./scroll-area";
 
 const meta = {
-  title: "Components/ScrollArea",
+  title: "Components/Feedback/ScrollArea",
   component: ScrollArea,
   parameters: {
     layout: "centered",

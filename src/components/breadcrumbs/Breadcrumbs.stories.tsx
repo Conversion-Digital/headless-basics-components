@@ -4,7 +4,7 @@ import Breadcrumbs from "./Breadcrumbs";
 import { breadcrumbs } from "../../mockup-data/breadcrumbs";
 
 export default {
-  title: "Components/Breadcrumbs",
+  title: "Components/Navigation/Breadcrumbs",
   component: Breadcrumbs,
 };
 type Story = StoryObj<typeof Breadcrumbs>;
