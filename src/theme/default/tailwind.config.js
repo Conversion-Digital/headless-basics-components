@@ -117,8 +117,14 @@ module.exports = {
             from: { height: "var(--radix-accordion-content-height)" },
             to: { height: 0 },
           },
+          scroll: {
+            '0%': { transform: 'translateX(0)' },
+            '100%': { transform: 'translateX(-25%)' }, // Adjust percentage based on number of duplicate sets
+          },
         },
         animation: {
+          'scroll': 'scroll var(--scroll-speed) linear infinite',
+          'pause': 'none',
           "accordion-down": "accordion-down 0.2s ease-out",
           "accordion-up": "accordion-up 0.2s ease-out",
         },

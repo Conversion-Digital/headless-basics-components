@@ -60,3 +60,19 @@ input[type="date"]::-webkit-date-and-time-value {
   text-align: start;
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--scroll-speed) linear infinite;
+}
+
+.animate-pause {
+  animation-play-state: paused;
+}
