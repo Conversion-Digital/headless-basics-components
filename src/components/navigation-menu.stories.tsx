@@ -14,7 +14,7 @@ import {
 } from "./navigation-menu";
 
 const meta = {
-  title: "Components/NavigationMenu",
+  title: "Components/Navigation/NavigationMenu",
   component: NavigationMenu,
   parameters: {
     layout: "centered",

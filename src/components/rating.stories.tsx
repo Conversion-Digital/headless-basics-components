@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Rating from "./rating";
 
 const meta = {
-  title: "Components/Rating",
+  title: "Components/Data Entry/Rating",
   component: Rating,
   parameters: {
     layout: "centered",

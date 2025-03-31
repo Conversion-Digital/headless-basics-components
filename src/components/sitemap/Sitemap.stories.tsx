@@ -5,7 +5,7 @@ import { languageSite } from "../../mockup-data/languageSite";
 import { ISitemapItem } from "../../interfaces/sitemap";
 
 export default {
-  title: "Components/Sitemap",
+  title: "Components/Layout/Sitemap",
   component: Sitemap,
 };
 type Story = StoryObj<typeof Sitemap>;

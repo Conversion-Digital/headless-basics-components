@@ -4,7 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { Button } from "./button";
 
 const meta = {
-  title: "Components/Popover",
+  title: "Components/Feedback/Popover",
   component: Popover,
   parameters: {
     layout: "centered",

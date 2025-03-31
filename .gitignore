@@ -28,3 +28,5 @@ yarn-error.log*
 .npmrc
 repomix-output.xml
 build-storybook.log
+
+**/node_modules

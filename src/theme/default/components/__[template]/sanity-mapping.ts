@@ -1,7 +1,9 @@
 import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 import { extractComponentsFromSanityData } from "@conversiondigital/headless-basics-data/src/cms/sanity/sanityMappingUtils"
 
-export const log = getLogger("default.components.sanity.hero.mapping")
+
+export const log = getLogger("default.components.sanity.template.mapping")
+
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(
@@ -9,7 +11,8 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   );
 
   const content = pageAndComponentCombo?.component?.data
-  const matchingData = extractComponentsFromSanityData(content, "Hero", log)
+
+  const matchingData = extractComponentsFromSanityData(content, "Template", log)
 
   if (!(matchingData?.image && matchingData.backgroundImage)) {
     matchingData.image = matchingData.backgroundImage;
@@ -19,7 +22,8 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
 }
 
 function getComponentDocumentation() {
-  return "/library/3-hero-component";
+  return "/library/3-template-component";
+
 }
 
 function getYoutubeDocumentation() {

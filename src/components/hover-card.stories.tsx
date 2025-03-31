@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./hover-card";
 
 const meta = {
-  title: "Components/HoverCard",
+  title: "Components/Data Display/HoverCard",
   component: HoverCard,
   parameters: {
     layout: "centered",

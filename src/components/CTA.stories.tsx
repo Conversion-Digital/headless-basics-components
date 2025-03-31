@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import CTA from './CTA';
 
 const meta = {
-  title: 'Components/CTA',
+  title: 'Components/CTA/BasicCTA',
   component: CTA,
   parameters: {
     layout: 'centered',

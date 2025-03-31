@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 import {EyeOpenIcon} from '@sanity/icons'
 
+export const templateFields = [
 
-export const heroFields = [
   defineField({
     name: 'title',
     title: 'Title',
@@ -29,7 +29,7 @@ export const heroFields = [
   defineField({
     name: 'button',
     title: 'Button',
-    type: 'heroButton'
+    type: 'templateButton'
   }),
   defineField({
     name: 'sortOrder',
@@ -43,12 +43,8 @@ export const heroFields = [
     options: {
       list: [
         { title: 'Default', value: 'Default' },
-        { title: 'Hero - Image Highlight', value: 'Hero - Image Highlight' },
-        { title: 'Hero - Hero CTA Buttons', value: 'Hero - Hero CTA Buttons' },
-        { title: 'Hero - Right Image Hero', value: 'Hero - Right Image Hero' },
-        { title: 'Hero - Faded Information Hero', value: 'Hero - Faded Information Hero' },
-        { title: 'Hero - Title Only', value: 'Hero - Title Only' },
-        { title: 'Hero - Slim Background', value: 'Hero - Slim Background' }
+        { title: 'Template - Image Highlight', value: 'Template - Image Highlight' },
+        { title: 'Demo', value: 'demo' },
       ]
     }
   }),
@@ -56,16 +52,16 @@ export const heroFields = [
     name: 'globalComponentSource',
     title: 'Global Component Source',
     type: 'reference',
-    to: [{type: 'hero'}],
-    description: 'Select a component hero that is a global reusable source.'
+    to: [{type: 'template'}],
+    description: 'Select a component template that is a global reusable source.'
   })
 ]
 export default defineType({
-  name: 'hero',
-  title: 'Hero',
+  name: 'template',
+  title: 'Template',
   type: 'object',
   icon: EyeOpenIcon,
-  fields: heroFields,
+  fields: templateFields,
   preview: {
     select: {
       title: 'title'
@@ -73,11 +69,12 @@ export default defineType({
   }
 })
 
-export const heroComponentGlobal = defineType({
-  name: 'heroComponentGlobal',
-  title: 'Hero Component - Global',
+
+export const templateComponentGlobal = defineType({
+  name: 'templateComponentGlobal',
+  title: 'template Component - Global',
   type: 'document',
-  fields: heroFields,
+  fields: templateFields,
   preview: {
     select: {
       title: 'title',
