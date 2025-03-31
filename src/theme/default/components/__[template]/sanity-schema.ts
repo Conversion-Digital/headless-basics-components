@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 import {EyeOpenIcon} from '@sanity/icons'
 
-
 export const templateFields = [
+
   defineField({
     name: 'title',
     title: 'Title',
@@ -68,6 +68,7 @@ export default defineType({
     }
   }
 })
+
 
 export const templateComponentGlobal = defineType({
   name: 'templateComponentGlobal',
