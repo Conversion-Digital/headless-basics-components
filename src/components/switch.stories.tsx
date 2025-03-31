@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Switch } from "./switch";
 
 const meta = {
-  title: "Components/Switch",
+  title: "Components/Data Entry/Switch",
   component: Switch,
   parameters: {
     layout: "centered",

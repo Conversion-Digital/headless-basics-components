@@ -4,7 +4,7 @@ import Table from "./Table";
 import { TableData } from "../../mockup-data/table";
 
 const meta = {
-  title: "Components/Table",
+  title: "Components/Data Display/Table",
   component: Table,
   parameters: {
     layout: "centered",

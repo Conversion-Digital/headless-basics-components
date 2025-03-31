@@ -12,7 +12,7 @@ import {
 } from "./select";
 
 const meta = {
-  title: "Components/Select",
+  title: "Components/Data Entry/Select",
   component: Select,
   parameters: {
     layout: "centered",

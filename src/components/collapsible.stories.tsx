@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./collapsible";
 
 const meta = {
-  title: "Components/Collapsible",
+  title: "Components/Data Display/Collapsible",
   component: Collapsible,
   parameters: {
     layout: "centered",

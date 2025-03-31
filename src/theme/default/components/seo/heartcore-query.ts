@@ -1,9 +1,15 @@
 import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
+  
+  let gPageType = "homepage";
+  if(pageAndComponentCombo?.page?.pageIdentifier?.cmsType === "dynamic") {
+    gPageType = "subComponentsPage";
+  }
+  
   return `
   query PageBySlug($slug: String!) {
-    ${pageAndComponentCombo?.page?.pageIdentifier?.cmsType}(url: $slug) {
+    ${gPageType}(url: $slug) {
       name
       id
       slug: url

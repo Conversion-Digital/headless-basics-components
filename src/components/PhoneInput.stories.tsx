@@ -4,7 +4,7 @@ import PhoneInput from "./PhoneInput";
 import "react-phone-input-2/lib/style.css";
 
 const meta = {
-  title: "Components/PhoneInput",
+  title: "Components/Data Entry/PhoneInput",
   component: PhoneInput,
   parameters: {
     layout: "centered",

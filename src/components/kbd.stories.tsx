@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Kbd from "./kbd";
 
 const meta = {
-  title: "Components/Kbd",
+  title: "Components/Data Display/Kbd",
   component: Kbd,
   parameters: {
     layout: "centered",

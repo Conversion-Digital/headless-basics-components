@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Countdown from "./countdown";
 
 const meta = {
-  title: "Components/Countdown",
+  title: "Components/Data Display/Countdown",
   component: Countdown,
   parameters: {
     layout: "centered",

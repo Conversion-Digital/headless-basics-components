@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ExampleCode, { ExampleCodeJSON } from "./code";
 
 const meta = {
-  title: "Components/Code",
+  title: "Components/Data Display/Code",
   component: ExampleCode,
   parameters: {
     layout: "centered",

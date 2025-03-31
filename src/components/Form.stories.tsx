@@ -12,7 +12,7 @@ import {
 } from './alert-dialog';
 
 const meta = {
-  title: 'Components/Form',
+  title: 'Components/Data Entry/Form',
   component: Form,
   parameters: {
     layout: 'centered',
