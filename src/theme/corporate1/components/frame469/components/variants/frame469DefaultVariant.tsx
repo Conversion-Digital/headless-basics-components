@@ -18,7 +18,7 @@ const Frame469DefaultVariant: React.FC<StandardComponentProps> = ({ matchingData
   } = matchingData || {};
 
   return (
-    <section className="max-w-5xl mx-auto p-6 bg-white text-gray-800 border border-gray-200 shadow-sm rounded-md">
+    <section id="frame469" className="max-w-5xl mx-auto p-6 bg-white text-gray-800 border border-gray-200 shadow-sm rounded-md">
       <div className="flex flex-col gap-4 md:flex-row md:justify-between">
         <div className="md:w-2/3">
           {heading && <h2 className="text-2xl font-bold mb-2">{heading}</h2>}

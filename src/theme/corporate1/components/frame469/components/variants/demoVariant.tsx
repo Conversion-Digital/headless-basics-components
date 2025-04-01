@@ -4,7 +4,7 @@ import { demoVariantData } from "./data/demoVariantData"
 
 export default function DemoVariant(props) {
   return (
-    <section className="p-5 bg-white text-center">
+    <section id="frame469" className="p-5 bg-white text-center">
       <h2 className="text-2xl font-bold mb-3">{demoVariantData.title}</h2>
       <p className="mb-5">{demoVariantData.subtitle}</p>
       <div className="flex flex-col items-center justify-center space-y-2">
