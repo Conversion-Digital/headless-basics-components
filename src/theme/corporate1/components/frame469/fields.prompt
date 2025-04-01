@@ -1,0 +1,12 @@
+
+title (string)
+subtitle (string)
+phone (string)
+fax (string)
+email (string)
+officeLocation (string)
+bookButtonLabel (string)
+bookButtonLink (url)
+sortOrder (number)
+selectableVariant (string)
+globalComponentSource (reference)
