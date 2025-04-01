@@ -3,7 +3,7 @@ import { StoryFn, Meta } from '@storybook/react';
 import ImageGalleryMask from './imageGalleryMask';
 
 export default {
-  title: 'Components/ImageGalleryMask',
+  title: ' Components/Images/ImageGalleryMask',
   component: ImageGalleryMask,
 } as Meta<typeof ImageGalleryMask>;
 
