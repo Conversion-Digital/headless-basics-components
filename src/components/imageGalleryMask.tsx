@@ -17,10 +17,8 @@ const ImageGalleryMask: React.FC<ImageGalleryMaskProps> = ({ leftImage, rightIma
         onMouseLeave={() => setHoverSide(null)}
       >
         <div
-          className="image-gallery-left h-full overflow-hidden transition-all duration-500 z-1 absolute"
+          className="image-gallery-left h-full  w-[90%] overflow-hidden transition-all duration-500 z-1 absolute"
           style={{
-            width: '90%',
-            height: '500px',
             clipPath: 'polygon(0 0, 100% 0, 60% 100%, 0 100%)',
             left: hoverSide === 'left' ? '-20%' : '-25%',
           }}
@@ -37,10 +35,8 @@ const ImageGalleryMask: React.FC<ImageGalleryMaskProps> = ({ leftImage, rightIma
           )}
         </div>
         <div
-          className="image-gallery-right h-full overflow-hidden transition-all duration-500  z-0 absolute"
+          className="image-gallery-right h-full  w-[90%] overflow-hidden transition-all duration-500  z-0 absolute"
           style={{
-            width: '90%',
-            height: '500px',
             clipPath: 'polygon(40% 0, 100% 0, 100% 100%, 0 100%)',
             right: hoverSide === 'right' ? '-20%' : '-25%',
           }}
