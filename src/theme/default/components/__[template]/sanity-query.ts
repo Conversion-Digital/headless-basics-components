@@ -11,6 +11,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
               __typename
               ... on Template {
                 ...TemplateBase
+
               }
             }
           }
@@ -24,6 +25,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
                   __typename
                   _key
                   _type
+
                   ...TemplateBase
                 }
               }
