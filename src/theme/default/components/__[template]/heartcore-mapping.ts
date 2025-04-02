@@ -4,10 +4,10 @@ import { getMatchingResultBySortOrder, log, PageAndSingleComponentDetails, proce
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   const content = pageAndComponentCombo?.component?.data?.content as any;
   const edges = content?.children?.edges;
-  log.trace("variables heartcore mapHeroData > ", JSON.stringify(pageAndComponentCombo?.component?.data));
+  log.trace("variables heartcore mapTemplateData > ", JSON.stringify(pageAndComponentCombo?.component?.data));
   log.trace("data.content.children.edges > ", edges);
 
-  let matchingData:any = getMatchingResultBySortOrder(edges, "Hero", pageAndComponentCombo?.component?.sortOrder);
+  let matchingData:any = getMatchingResultBySortOrder(edges, "Template", pageAndComponentCombo?.component?.sortOrder);
 
   if (!matchingData) {
     matchingData = {}
@@ -27,7 +27,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
 }
 
 function getComponentDocumentation() {
-  return "/library/3-hero-component";
+  return "/library/3-template-component";
 }
 
 function getYoutubeDocumentation() {

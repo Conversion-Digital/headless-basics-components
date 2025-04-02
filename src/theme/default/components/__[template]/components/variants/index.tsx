@@ -1,3 +1,2 @@
-export { default as DefaultHero } from "./DefaultHero"
-export { default as ImageHighlightHero } from "./ImageHighlightHero"
+export { default as Default } from "./default"
 
