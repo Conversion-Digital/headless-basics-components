@@ -1,0 +1,233 @@
+IMPORTANT TASK: Follow the instructions below exactly.
+
+Please reference the example code in:
+
+    "packages/headless-basics-components/src/theme/default/components/__[template]/"
+    "packages/headless-basics-components/src/theme/default/components/hero/" when implementing the steps. 
+    These folders illustrate the recommended file structure, coding standards, naming conventions, 
+    and how the CMS queries/mappings are typically handled.
+
+    Ignore files starting with 'heartcore', not needed.
+
+    Review your work carefully and follow best practices.
+
+    Don't be lazy, don't be random. Follow the examples closely.
+
+    Follow the structure carefully.
+
+    Do not copy the fields from the examples or the data structures. New fields for the new component come from referenced images.
+
+    Customize the fields and look and feel with deep thought.
+
+settings: "CMS": "Sanity", "THEME": "corporate1", "COMPONENT": "x"
+
+STEP 1: Obtain reference knowledge as a guide.
+    Source: Use the following components as a guide:
+        "packages/headless-basics-components/src/theme/default/components/__[template]/"
+        "packages/headless-basics-components/src/theme/default/components/hero/"
+    Destination: Create the new component and files in:
+        "packages/headless-basics-components/src/theme/{THEME}/components/{COMPONENT}"
+    Replace {COMPONENT} with the setting in lowercase and remove underscores and dashes.
+
+STEP 2: Create Component Folder & Structure
+    Create a folder named '{COMPONENT}' (lowercase) with a subfolder 'components/variants'.
+
+STEP 3: Edit File: {COMPONENT}/components/variants/*.tsx
+
+    Description: All variant files using StandardComponentProps.
+
+    Instruction: Ensure signature contains:  import React from "react"; import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
+
+    const XVariant: React.FC<StandardComponentProps> = ({ blueprint, componentInformation, matchingData }) => { // ...function body here
+
+    return <div id="{COMPONENT}">...</div>; // Return your JSX };
+
+    export default XVariant; 
+
+    This example includes function signature, prop usage, imports, and return value.
+
+STEP 4: Edit File: {COMPONENT}/components/variants/data/demoVariantData.ts
+    Description: Contains example data obtained from the context files / images.
+    Instructions:
+        Provide an example object or array with data fields that reflect your new component's data fields.
+        Include typed fields (e.g., title: string; description: string; ) that match the component context
+
+STEP 5: Edit File: {COMPONENT}/components/variants/data/upsertDemoData.ts
+
+    Description: Query to upsert CMS data when fields are blank.   references context and fields obtains from images.
+
+    Instructions:
+        - Runnable self contained node module, that inserts a new page and example component.
+        - `const componentName = '{COMPONENT}'`  replace {COMPONENT}.  No extas, underscores of dashes.
+        - Provide an example function like upsertDemoDataIfBlank.
+        - Create a page via mutation using fetchMutationAPI().
+        - Insert new {COMPONENT} into page components via mutation using fetchMutationAPI().
+        - Create Page parent field should always be:::   parent: {         _type: 'reference',  _ref: '5bbfcbb4-84f3-4301-bc56-8345160d0cb9',  }
+
+STEP 6: Edit File: {COMPONENT}/components/index.tsx
+
+    Description: Uses the variant field to render all variants.
+
+    Example:
+        ``` tsx
+        import React from "react";
+        import { componentBoilerPlate } from "@conversiondigital/headless-basics-data/src/component-tools/componentBoilerPlate";
+        import type { ViewComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces/ThemeConfig.interface";
+        import DemoVariant from "./variants/demoVariant";
+        import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src";
+        import {COMPONENT}DefaultVariant from "./variants/{COMPONENT}DefaultVariant";
+
+        export const log = getLogger("default.components.heartcore.template.variants");
+
+        export default function {COMPONENT}UI(dynamicComponent: ViewComponentProps) {
+          const { variant, matchingData } = componentBoilerPlate(dynamicComponent);
+          if (!matchingData) return null;
+          log.trace(`${logPrefix} {COMPONENT}UI started, matchingData: ${JSON.stringify(matchingData)}`);
+          switch (variant) {
+            case "xDemo":
+              return <DemoVariant matchingData={matchingData} {...dynamicComponent} />;
+            default:
+              return <{COMPONENT}DefaultVariant matchingData={matchingData} {...dynamicComponent} />;
+          }
+        }
+
+STEP 7: Edit File: {COMPONENT}/components/variants/demoVariant.tsx
+
+    Description: Renders an example variant using data from demoVariantData.ts.
+
+    Example:  
+      ``` tsx
+      import React from "react"; import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps"; import { demoVariantData } from "./data/demoVariantData";
+
+      const DemoVariant: React.FC<StandardComponentProps> = ({ blueprint, componentInformation, matchingData }) => { return ( <section id="{COMPONENT}"> <h2>{matchingData?.title || demoVariantData.title}</h2> <p>{matchingData?.subtitle || demoVariantData.subtitle}</p> </section> ); };
+
+      export default DemoVariant;
+
+STEP 9: Edit File: index.ts
+
+    Description: Index file with the component name changed. Must contain the signature:  async function getConfig(): Promise<ThemeConfig> { const config = await getThemeConfig('template'); config.view = View; // Import or define 'View' from your local "view.tsx" return config; } export default getConfig(); 
+
+    Must handle the correct import statements for getThemeConfig and ThemeConfig.
+
+    Exact Format Expected - With {COMPONENT} token swapped out for the component name: 
+      ``` ts
+      import { getLogger, getThemeConfig } from "@conversiondigital/headless-basics-data/src";
+      import { View } from "./view";
+      import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfaces"
+
+      getLogger("theme.components.{COMPONENT}")
+
+      async function getConfig(): Promise<ThemeConfig> {
+          const config = await getThemeConfig('{COMPONENT}');
+          config.view = View;
+          return config;
+      }
+      export default getConfig();
+
+
+STEP 10: Edit File: {COMPONENT}/sanity-schema.ts
+    Description: Top-level CMS schema mapping fields from demoVariantData.ts.
+    Instructions:
+        - Add fields selectableVariant, sortOrder, and any unique fields referencing your new component's design images.
+        - Make sure to have import statements from the Sanity library, for example:  import { defineField, defineType } from "sanity"; // Define your schema with fields such as: export default defineType({ name: "xComponent", title: "X Component", type: "object", fields: [ defineField({ name: "selectableVariant", title: "Selectable Variant", type: "string", options: { list: [{ title: "Default", value: "default" }, { title: "xDemo", value: "xDemo" }] } }), defineField({ name: "sortOrder", title: "Sort Order", type: "number" }), // additional fields... ] }); 
+        - don't guess the icons to use, just use > use import {EyeOpenIcon} from '@sanity/icons'  (if needed)
+        - Replace all reference to 'Template' and define schema type as '{COMPONENT}'.
+        - Use the correct type for each field, e.g., string, number, image, etc.
+        - Use the correct title for each field, e.g., "Title", "Subtitle", etc.
+        - Use the correct name for each field, e.g., "title", "subtitle", etc.
+        - Use the correct description for each field, e.g., "The title of the component", "The subtitle of the component", etc.
+
+STEP 11: Edit File: {COMPONENT}/sanity-query.ts
+          
+    Description: GraphQL query using fragments. Must gather fields from mobile.png/desktop.png.
+    Instructions:  
+        - Requires a single function only: export function getQuery(pageAndComponentCombo: PageAndSingleComponentDetails): string 
+
+    Example:  import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src/interfaces";
+
+    export function getQuery(pageAndComponentCombo: PageAndSingleComponentDetails): string { return /* GraphQL */ ` query AllPage($slug: String!) { allPage(where: { slug_current: { eq: $slug } }) { title ... components { ...componentFields } } }
+
+    fragment componentFields on XComponent {
+      selectableVariant
+      sortOrder
+      // additional fields...
+    }
+    `; } 
+
+STEP 12: Edit File: {COMPONENT}/sanity-mapping.ts
+    Example:
+        ``` ts
+        import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
+        import { extractComponentsFromSanityData } from "@conversiondigital/headless-basics-data/src/cms/sanity/sanityMappingUtils"
+
+        export const log = getLogger("default.components.sanity.{COMPONENT}.mapping")
+
+        export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
+          log.trace(
+            `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
+          );
+
+          const content = pageAndComponentCombo?.component?.data
+          const matchingData = extractComponentsFromSanityData(content, "{COMPONENT}", log)
+
+          if (!(matchingData?.image && matchingData.backgroundImage)) {
+            matchingData.image = matchingData.backgroundImage;
+          }
+
+          return matchingData
+        }
+
+
+
+
+STEP 13: Edit File: {COMPONENT}/view.tsx
+    Description: Dynamically load components/index.ts in a "use server" approach.
+    Example: 
+        ``` tsx
+        'use server'
+
+        import { ViewComponentProps } from "@conversiondigital/headless-basics-data/src";
+        import dynamic from "next/dynamic"
+
+        const {COMPONENT}UI = dynamic(() => import("./components"), { loading: () => (<p>Loading...</p>) })
+
+        export async function View(dynamicComponent: ViewComponentProps) {
+          return <{COMPONENT}UI {...dynamicComponent} />
+        }
+
+STEP 14: Edit File: {COMPONENT}/classification.ts
+    Description: Exports a JSON array of component tags or classification data.
+
+STEP 15: Apply Additional Edits & Rules
+    - Retrieve image data using:  import { getCmsImage } from "@conversiondigital/headless-basics-data"; const { hasImage, imageLocation, altText } = getCmsImage(matchingData); 
+    - Add a Figma example content file with variant 'xDemo'.
+    - Use type safety (e.g., matchingData?.title).
+
+STEP 17: Styling & Responsiveness
+    - Use Tailwind CSS v4 classes to match your design references.
+    - Prefer flexbox or grid classes over absolute positioning.
+    - Refer to "packages/headless-basics-components/src/theme/default/components/hero" for typical styling examples.
+
+STEP 18: Register the Component
+    Instruction: Add the component to "packages/headless-basics-components/src/theme/{THEME}/index.ts".
+
+STEP 19: Add to :  "packages/headless-basics-sanity-cms/schemaTypes/index.ts"
+    Instruction: Add the new component to export const schemaTypes = [{COMPONENT}] array.
+        - Do not remove other components, only add this component.
+        - Add a new import for the new component. 
+        - Do not touch other imports other than this component.
+
+STEP 20: Add sanity component to allowed components:  "packages/headless-basics-sanity-cms/schemaTypes/page.ts"
+    Instruction: Add '{COMPONENT}' under 'components'.
+        - only change the allowed types under Components of: property. Change nothing else.
+
+STEP 21: Double-check that all instructions have been followed exactly.
+    Confirm that each file's code references, function signatures, prop usage, import statements, and return values align with the provided examples.
+
+STEP 22: Add a readme.prompt file with notes on anything that doesn't make sense about this component's creation.
+
+STEP 23: Add a fields.prompt file that has a list of the fields, fields types and notes about how each field was identified.
+
+STEP 24: Ensure inner upsert package.json, tsconfig.json are present.
+    Instruction:  verify {COMPONENT}/components/variants/data/package.json and {COMPONENT}/components/variants/data/tsconfig.json exist
+        - If not existing copy from packages/headless-basics-components/src/theme/default/components/__[template]/components/variants/data/

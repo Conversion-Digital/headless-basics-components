@@ -1,0 +1,13 @@
+
+# Fields for Frame 469 (Sanity)
+heading (string)
+subtitle (text)
+ctaLabel (string)
+ctaLink (url)
+phone (string)
+fax (string)
+email (string)
+officeLocation (string)
+sortOrder (number)
+selectableVariant (string)
+globalComponentSource (reference)

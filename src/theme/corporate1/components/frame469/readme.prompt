@@ -1,0 +1,23 @@
+
+**Frame469 Component README**
+
+This component is designed according to instructions for a new "frame469" block in the "corporate1" theme, referencing the example code in `__[template]` and `hero` from the `default` theme. It is integrated with Sanity, following the naming conventions and structure guidelines.
+
+Details:
+- We have 2 possible variants: "default" and "xDemo".
+- We fetch content via the `frame469/sanity-query.ts`.
+- We map content with `frame469/sanity-mapping.ts`.
+- We define the schema in `frame469/sanity-schema.ts`.
+- The index file references `view.tsx` for server usage.
+
+Installation:
+1. Ensure "frame469" is added to the schema in `packages/headless-basics-sanity-cms/schemaTypes/index.ts`.
+2. Add the new type in `page.ts` under the `components` array.
+3. Rebuild the application for the changes to appear.
+
+Usage:
+- The user can pick between "xDemo" and "default" in Sanity for the variant.
+- The fields for this block (title, description, image) appear in the Redwood page builder or whichever UI is used.
+- The upsert script can run from the command line to create a demo page "frame469" if it doesn't exist.
+
+Enjoy your new "frame469" block!
