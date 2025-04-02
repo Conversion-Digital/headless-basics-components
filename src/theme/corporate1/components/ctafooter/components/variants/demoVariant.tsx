@@ -2,14 +2,14 @@ import React from "react";
 import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
 import { demoVariantData } from "./data/demoVariantData";
 
-const DemoVariant: React.FC<StandardComponentProps> = ({ matchingData }) => {
-  const heading = matchingData?.heading || demoVariantData.heading;
-  const description = matchingData?.description || demoVariantData.description;
-  const email = matchingData?.email || demoVariantData.email;
-  const phone = matchingData?.phone || demoVariantData.phone;
-  const address = matchingData?.address || demoVariantData.address;
-  const ctaLabel = matchingData?.ctaLabel || demoVariantData.ctaLabel;
-  const ctaLink = matchingData?.ctaLink || demoVariantData.ctaLink;
+export default function DemoVariant(props: StandardComponentProps) {
+  const heading = props?.matchingData?.heading || demoVariantData.heading;
+  const description = props?.matchingData?.description || demoVariantData.description;
+  const email = props?.matchingData?.email || demoVariantData.email;
+  const phone = props?.matchingData?.phone || demoVariantData.phone;
+  const address = props?.matchingData?.address || demoVariantData.address;
+  const ctaLabel = props?.matchingData?.ctaLabel || demoVariantData.ctaLabel;
+  const ctaLink = props?.matchingData?.ctaLink || demoVariantData.ctaLink;
 
   return (
     <section className="bg-gray-200 p-6">
@@ -27,5 +27,3 @@ const DemoVariant: React.FC<StandardComponentProps> = ({ matchingData }) => {
     </section>
   );
 };
-
-export default DemoVariant;
