@@ -12,7 +12,13 @@ console.log('Script start: Running upsertDemoDataIfBlank...')
 const projectId = process.env.PROJECT_ID || ''
 const sanityApiToken = process.env.SANITY_API_TOKEN || ''
 const isUpsertEnabled = process.env.ENABLE_SANITY_UPSERTS === 'true'
-const componentName = 'frame_469'
+const componentName = '{COMPONENT}'
+
+// The component name should be replaced by AI. If not fail this script
+if(componentName.startsWith('{')){
+  console.error('Component name was not set.')
+  process.exit(1)
+}
 
 async function pageExists(title: string): Promise<boolean> {
   console.log(`pageExists: Checking for page with title "${title}"`)
