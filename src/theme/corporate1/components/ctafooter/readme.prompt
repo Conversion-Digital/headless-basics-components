@@ -1,0 +1,3 @@
+This ctafooter component is a custom CTA-like footer section for corporate1 theme. 
+It provides fields for heading, description, contact info (email, phone, address), and a CTA label/link.
+We have both default and demo variants, each referencing shared fields.

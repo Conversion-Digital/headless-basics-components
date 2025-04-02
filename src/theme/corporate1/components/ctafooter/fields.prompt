@@ -1,0 +1,12 @@
+# ctafooter Fields
+
+1. heading (string) - The main heading text
+2. description (text) - Brief paragraph for the CTA
+3. email (string) - Contact email address
+4. phone (string) - Contact phone number
+5. address (string) - Physical address
+6. ctaLabel (string) - Label for the CTA button
+7. ctaLink (url) - Link for the CTA button
+8. selectableVariant (string) - The variant (default or xDemo)
+9. sortOrder (number) - Placement order among components
+10. globalComponentSource (reference) - Optional reference to a global ctafooter
