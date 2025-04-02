@@ -1,14 +1,14 @@
 import React from "react";
 import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
 
-const CtafooterDefaultVariant: React.FC<StandardComponentProps> = ({ blueprint, componentInformation, matchingData }) => {
-  const heading = matchingData?.heading || "Let's Talk";
-  const description = matchingData?.description || "Every project starts with a chat. We'll be happy to discuss your project.";
-  const email = matchingData?.email || "hello@buuuk.com";
-  const phone = matchingData?.phone || "+65 98735984";
-  const address = matchingData?.address || "1 Example Street";
-  const ctaLabel = matchingData?.ctaLabel || "Tell us about your project";
-  const ctaLink = matchingData?.ctaLink || "#";
+export default function CtafooterDefaultVariant(props: StandardComponentProps) {
+  const heading = props?.matchingData?.heading || "Let's Talk";
+  const description = props?.matchingData?.description || "Every project starts with a chat. We'll be happy to discuss your project.";
+  const email = props?.matchingData?.email || "hello@buuuk.com";
+  const phone = props?.matchingData?.phone || "+65 98735984";
+  const address = props?.matchingData?.address || "1 Example Street";
+  const ctaLabel = props?.matchingData?.ctaLabel || "Tell us about your project";
+  const ctaLink = props?.matchingData?.ctaLink || "#";
 
   return (
     <section className="w-full bg-gray-900 text-white p-8">
@@ -47,5 +47,3 @@ const CtafooterDefaultVariant: React.FC<StandardComponentProps> = ({ blueprint, 
     </section>
   );
 };
-
-export default CtafooterDefaultVariant;
