@@ -3,9 +3,9 @@ import React from "react";
 import { getCmsImage } from "@conversiondigital/headless-basics-data/src/cms/tools/multiCmsImageTools";
 import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps";
 
-export default function Frame469DefaultVariant(props: StandardComponentProps) {
+export default function DefaultVariant(props: StandardComponentProps) {
   const { matchingData } = props || {};
-  const title = matchingData?.title || "Frame469 Default Title";
+  const title = matchingData?.title || "Default Title";
   const description = matchingData?.description || "Default description text.";
   const { hasImage, imageLocation, altText } = getCmsImage(matchingData);
 

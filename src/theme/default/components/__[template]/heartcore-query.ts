@@ -2,7 +2,7 @@ import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basic
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
   return `
-  query GetHeroComponent($slug: String!) {
+  query GetTemplateComponent($slug: String!) {
     content(url: $slug) {
       url
       contentTypeAlias
@@ -66,9 +66,4 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
     }
 }
   `
-}
-
-
-export function getQuery() {
-  return query
 }
