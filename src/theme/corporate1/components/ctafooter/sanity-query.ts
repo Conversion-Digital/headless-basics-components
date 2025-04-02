@@ -1,6 +1,6 @@
 import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src/interfaces";
 
-export function query(pageAndComponentCombo: PageAndSingleComponentDetails): string {
+export function getQuery(pageAndComponentCombo: PageAndSingleComponentDetails): string {
   return `
     query GetCtafooterBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
