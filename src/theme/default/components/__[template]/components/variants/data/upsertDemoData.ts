@@ -139,10 +139,16 @@ export async function upsertDemoDataIfBlank() {
   }
 }
 
-try{
-  upsertDemoDataIfBlank()
+try {
+  upsertDemoDataIfBlank();
 } catch (error) {
-  console.error('Error in upsertDemoDataIfBlank:', error)
+  // Check if error is an instance of Error
+  if (error instanceof Error) {
+    console.error('Error message:', error.message);
+    console.error('Stack trace:', error.stack);
+  } else {
+    console.error('Unexpected error type:', error);
+  }
 }
 
 console.log('Script end: Finished running upsertDemoDataIfBlank.')
