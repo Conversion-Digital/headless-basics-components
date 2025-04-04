@@ -1,0 +1,2 @@
+# readme.prompt
+This new 'herobanner' component demonstrates a banner hero with an optional image, title, and subtitle. The "demoVariant" illustrates how we can show a placeholder or sample data. Use "upsertDemoData.ts" to insert a sample page in your Sanity environment.
