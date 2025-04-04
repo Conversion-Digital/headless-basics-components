@@ -1,10 +1,11 @@
 # fields.prompt
 
-**Fields for herobanner**
-1. selectableVariant (string) - used for choosing a variant (default or xDemo).
-2. title (string) - main heading text.
-3. subtitle (string) - secondary heading text.
-4. imageUrl (url) - optional background or hero image link.
-5. altText (string) - alt text for the hero image.
-6. sortOrder (number) - to determine the order of this component on the page.
-7. globalComponentSource (reference) - references a global herobanner if needed.
+**Fields for herobanner**:
+1. `selectableVariant` (string) - "default" or "xDemo"
+2. `title` (string)
+3. `subtitle` (string)
+4. `image` (image) - local file upload
+5. `altText` (string)
+6. `button` (heroButton) - link & label
+7. `sortOrder` (number)
+8. `globalComponentSource` (reference) - optional global reusability

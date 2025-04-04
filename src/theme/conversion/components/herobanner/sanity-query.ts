@@ -23,6 +23,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
               }
             }
             altText
+            button {
+              label
+              link
+            }
             sortOrder
             globalComponentSource {
               __typename
@@ -36,6 +40,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
                 }
               }
               altText
+              button {
+                label
+                link
+              }
             }
           }
         }
@@ -56,6 +64,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
               }
             }
             altText
+            button {
+              label
+              link
+            }
             sortOrder
             globalComponentSource {
               __typename
@@ -69,6 +81,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
                 }
               }
               altText
+              button {
+                label
+                link
+              }
             }
           }
         }

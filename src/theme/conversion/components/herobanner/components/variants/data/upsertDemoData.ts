@@ -77,8 +77,7 @@ export async function upsertDemoDataIfBlank() {
   console.log('upsertDemoDataIfBlank: Generated componentDocId:', componentDocId)
   console.log('upsertDemoDataIfBlank: Generated pageDocId:', pageDocId)
 
-  // Just leaving an empty image field for user to upload
-  // in the future they can set the image in Sanity UI
+  // no image or button in this auto-creation, so user can set them in the Studio
   const mutationPayload = {
     mutations: [
       {

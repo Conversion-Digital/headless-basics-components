@@ -1,12 +1,16 @@
 import React from "react"
 import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps"
 import { demoVariantData } from "./data/demoVariantData"
+import Link from "next/link"
 
 const DemoVariant: React.FC<StandardComponentProps> = ({ blueprint, componentInformation, matchingData }) => {
   const fallbackTitle = matchingData?.title || demoVariantData.title
   const fallbackSubtitle = matchingData?.subtitle || demoVariantData.subtitle
   const fallbackAlt = matchingData?.altText || demoVariantData.altText
   const dynamicImageUrl = matchingData?.image?.asset?.url
+
+  const buttonLabel = matchingData?.button?.label || "Demo Button"
+  const buttonLink = matchingData?.button?.link || "#"
 
   return (
     <section
@@ -23,9 +27,15 @@ const DemoVariant: React.FC<StandardComponentProps> = ({ blueprint, componentInf
         <img
           src={dynamicImageUrl}
           alt={fallbackAlt}
-          className="mx-auto w-auto h-auto"
+          className="mx-auto w-auto h-auto mb-5"
         />
       )}
+      <Link
+        href={buttonLink}
+        className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md"
+      >
+        {buttonLabel}
+      </Link>
     </section>
   )
 }
