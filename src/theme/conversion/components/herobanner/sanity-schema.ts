@@ -28,7 +28,6 @@ export default defineType({
       title: 'Subtitle',
       type: 'string',
     }),
-    // -------------- Key: this "image" field allows local file uploads --------------
     defineField({
       name: 'image',
       title: 'Image',
@@ -41,6 +40,11 @@ export default defineType({
       name: 'altText',
       title: 'Alt Text',
       type: 'string',
+    }),
+    defineField({
+      name: 'button',
+      title: 'Button',
+      type: 'heroButton'
     }),
     defineField({
       name: 'sortOrder',
