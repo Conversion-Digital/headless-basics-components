@@ -1,25 +1,38 @@
-import { defineType, defineField } from 'sanity'
+import Link from "next/link"
+import { getLogger, logPrefix, PageBlueprint, processURLForNavigation } from "@conversiondigital/headless-basics-data";
+import { SiteHeaderProps } from "../../../interfaces/siteHeaderProps";
 
-export default defineType({
-  name: 'siteHeader',
-  title: 'Site Header',
-  type: 'document',
-  fields: [
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string'
-    }),
-    defineField({
-      name: 'logo',
-      title: 'Logo',
-      type: 'image'
-    }),
-    defineField({
-      name: 'navigation',
-      title: 'Navigation',
-      type: 'array',
-      of: [{ type: 'targetedLink' }]
-    })
-  ]
-}) 
+const log = getLogger("theme.deep-purple.structures.site-header");
+
+export function SiteHeader({ blueprint, isMegamenu = false, megaMenuMenu }: SiteHeaderProps) {
+  return (
+    <header className="container flex items-center justify-between p-4 sm:p-8">
+      <Link href="/">
+        <svg
+          width="105"
+          height="59"
+          viewBox="0 0 105 59"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-20 sm:w-auto"
+        >
+          <path d="m47 25.5 53.5 8" stroke="#FF6B00" strokeWidth="51" />
+          <path
+            d="M8.517 25.412q-1.913 0-2.624 1.621-.37.858-.37 2.189V37H1.78V22.656h3.625v2.096q.725-1.107 1.371-1.595 1.161-.87 2.94-.87 2.229 0 3.639 1.173 1.425 1.16 1.424 3.863V37h-3.85v-8.74q0-1.135-.303-1.741-.554-1.107-2.11-1.107m20.916-.963q1.82 2.28 1.82 5.392 0 3.165-1.82 5.419-1.82 2.241-5.524 2.241t-5.524-2.241q-1.82-2.255-1.819-5.419 0-3.11 1.82-5.392 1.818-2.28 5.523-2.28t5.524 2.28m-5.537.897q-1.649 0-2.544 1.173-.885 1.16-.884 3.322 0 2.162.884 3.336.896 1.173 2.544 1.173t2.531-1.173q.884-1.173.884-3.336t-.884-3.322q-.883-1.173-2.53-1.173m16.474.751q-2.268 0-3.046 1.477-.435.83-.435 2.557V37h-3.783V22.63h3.585v2.505q.87-1.437 1.517-1.965 1.054-.883 2.742-.883.105 0 .171.013.08 0 .33.014v3.85a10 10 0 0 0-1.081-.067m6.546 13.421q.607.514 2.044.514 2.03 0 2.715-1.358.45-.87.449-2.926v-.923q-.54.922-1.16 1.384-1.121.857-2.914.857-2.769 0-4.43-1.938-1.647-1.951-1.648-5.273 0-3.204 1.596-5.38 1.594-2.187 4.522-2.188 1.08 0 1.885.33 1.37.567 2.215 2.083v-2.07h3.652v13.632q0 2.782-.937 4.192-1.608 2.426-6.17 2.426-2.754 0-4.495-1.081-1.74-1.08-1.925-3.23h4.087q.158.66.514.95m-.633-7.422q.765 1.82 2.743 1.819 1.317 0 2.228-.989.91-1.002.91-3.177 0-2.044-.87-3.111-.858-1.068-2.308-1.068-1.977 0-2.729 1.859-.396.989-.395 2.439 0 1.252.421 2.228"
+            fill="#323232"
+          />
+          <path
+            d="M58.486 33.071h3.994V37h-3.994zm7.31-8.885q1.49-1.899 5.116-1.899 2.36 0 4.192.936t1.833 3.533v6.592q0 .685.026 1.661.04.738.224 1.002.185.264.554.435V37h-4.087a4 4 0 0 1-.237-.817 10 10 0 0 1-.106-.87 7.7 7.7 0 0 1-1.793 1.436q-1.212.7-2.742.7-1.95 0-3.23-1.108-1.266-1.12-1.265-3.164 0-2.65 2.043-3.837 1.12-.646 3.296-.922l1.279-.159q1.04-.132 1.49-.33.804-.342.804-1.067 0-.884-.62-1.213-.606-.343-1.793-.343-1.332 0-1.885.66-.396.487-.527 1.318h-3.626q.119-1.886 1.055-3.098m2.796 10.098q.527.435 1.292.435 1.212 0 2.228-.712 1.027-.711 1.068-2.597v-1.397q-.357.224-.726.369a6.3 6.3 0 0 1-.988.25l-.844.159q-1.187.21-1.7.514-.87.514-.87 1.595 0 .963.54 1.384M83.338 22.63V37h-3.81V22.63zm0-5.181v3.467h-3.81v-3.467z"
+            fill="#F5F5F5"
+          />
+        </svg>
+      </Link>
+      <Link
+        href="/contact-us"
+        className="border-2 border-dark-gray-2 bg-white px-3 py-2 text-xs underline transition-colors hover:bg-dark-gray-2 hover:text-white sm:border-3 sm:px-6 sm:py-3 sm:text-sm"
+      >
+        Get in touch
+      </Link>
+    </header>
+  )
+}

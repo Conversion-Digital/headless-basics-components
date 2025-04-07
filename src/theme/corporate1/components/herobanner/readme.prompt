@@ -1,0 +1,10 @@
+# readme.prompt
+
+This `herobanner` component includes:
+- Title, subtitle
+- Image (upload from local)
+- Alt text
+- Button reference (via `heroButton` schema)
+- Variation logic (default, demo)
+
+Use `upsertDemoData.ts` to auto-create a sample page if missing in Sanity.
