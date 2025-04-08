@@ -50,11 +50,103 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
           __typename
           componentsGrid{
               __typename
+              ... on TextBlock {
+                  _key
+                  _type
+                  title
+                  subtitle
+                  text
+                  sortOrder
+                  selectableVariant
+              }
+              ... on Toggle {
+                  _key
+                  _type
+                  aRIALabel
+                  text
+                  showIcon
+                  variant
+                  className
+              }
+              ... on Hero {
+                  _key
+                  _type
+                  title
+                  heading
+                  subtitle
+                  backgroundImage {
+                    asset {
+                      url
+                      _id
+                    }
+                  }
+                  button {
+                    label
+                  }
+                  sortOrder
+                  selectableVariant
+              }
+              ... on Motto {
+                  _key
+                  _type
+                  words
+                  align
+                  selectableVariant
+                  globalComponentSource {
+                    _key
+                  }
+              }
           }
           globalComponentSource{
               __typename
               componentsGrid{
                   __typename
+                  ... on TextBlock {
+                      _key
+                      _type
+                      title
+                      subtitle
+                      text
+                      sortOrder
+                      selectableVariant
+                  }
+                  ... on Toggle {
+                      _key
+                      _type
+                      aRIALabel
+                      text
+                      showIcon
+                      variant
+                      className
+                  }
+                  ... on Hero {
+                      _key
+                      _type
+                      title
+                      heading
+                      subtitle
+                      backgroundImage {
+                        asset {
+                          url
+                          _id
+                        }
+                      }
+                      button {
+                        label
+                      }
+                      sortOrder
+                      selectableVariant
+                  }
+                  ... on Motto {
+                      _key
+                      _type
+                      words
+                      align
+                      selectableVariant
+                      globalComponentSource {
+                        _key
+                      }
+                  }
               }
           }
           selectableVariant
