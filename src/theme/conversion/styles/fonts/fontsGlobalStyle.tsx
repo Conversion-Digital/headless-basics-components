@@ -1,9 +1,9 @@
 'use client';
 
-import { Inter as FontSans, Urbanist } from "next/font/google"
+import { Inter as FontSans, Urbanist, Staatliches } from "next/font/google"
 const fontSans = FontSans({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-sans", 
   display: "swap",
 })
 
@@ -13,6 +13,14 @@ const fontUrbanist = Urbanist({
   display: "swap",
 })
 
+const fontStaatliches = Staatliches({
+  subsets: ["latin"],
+  variable: "--font-staatliches",
+  display: "swap",
+  weight: "400"
+})
+
+
 const FontsGlobalStyle = () => {
   return (
     <>
@@ -20,6 +28,8 @@ const FontsGlobalStyle = () => {
               :root {
                 --font-sans: ${fontSans.style.fontFamily};
                 --font-urbanist: ${fontUrbanist.style.fontFamily};
+                --font-euclid: 'Euclid Circular A';
+                --font-staatliches: 'Staatliches';
               }
             }`}</style>
     </>
