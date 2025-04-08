@@ -9,3 +9,25 @@ html.dark {
   background-color: #05021f;
   color: white;
 }
+
+:root {
+  --scroll-speed: 10s;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--scroll-speed) linear infinite;
+  animation-play-state: running; 
+}
+
+.animate-pause {
+  animation-play-state: paused; 
+}

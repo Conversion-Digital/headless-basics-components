@@ -1,5 +1,7 @@
 
-export * from "./components/calltoactioncard1";
-export * from "./components/calltoactiontwoimagebtn";
-export * from "./components/funds_management";
-export * from "./structures/site-header";
+import { getLogger, getThemeConfig } from "@conversiondigital/headless-basics-data/src";
+
+
+const log = getLogger("theme.corporate1.index");
+
+// any other exports or theme logic...
