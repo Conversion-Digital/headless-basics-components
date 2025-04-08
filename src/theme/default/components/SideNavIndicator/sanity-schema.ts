@@ -1,65 +1,44 @@
-import { defineField, defineType } from "sanity";
-import { EyeOpenIcon } from '@sanity/icons';
+import { defineField, defineType } from "sanity"
 
-export default defineType({
-  name: "xComponent",
-  title: "X Component",
-  type: "object",
-  icon: EyeOpenIcon,
+const gridContent = defineType({
+  name: "gridContent",
+  title: "Grid Content",
+  type: "document",
   fields: [
-    defineField({
-      name: "selectableVariant",
-      title: "Selectable Variant",
-      type: "string",
-      options: {
-        list: [
-          { title: "Default", value: "default" },
-          { title: "xDemo", value: "xDemo" }
-        ]
-      }
-    }),
-    defineField({
-      name: "sortOrder",
-      title: "Sort Order",
-      type: "number"
-    }),
     defineField({
       name: "title",
       title: "Title",
-      type: "string"
+      type: "string",
     }),
     defineField({
-      name: "subtitle",
-      title: "Subtitle",
-      type: "string"
+      name: "sectionId",
+      title: "Section ID",
+      type: "string",
+      description: "Unique identifier for this grid section",
     }),
-    defineField({
-      name: "navItems",
-      title: "Navigation Items",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            defineField({
-              name: "label",
-              title: "Label",
-              type: "string"
-            }),
-            defineField({
-              name: "active",
-              title: "Active",
-              type: "boolean"
-            })
-          ]
-        }
-      ]
-    })
+    // Additional grid content fields can be added here
   ],
-  preview: {
-    select: {
-      title: "title",
-      subtitle: "selectableVariant"
-    }
-  }
-});
+})
+
+const sideNavIndicator = defineType({
+  name: "sideNavIndicator",
+  title: "Side Navigation Indicator",
+  type: "document",
+  fields: [
+    defineField({
+      name: "title",
+      title: "Title",
+      type: "string",
+      description: "Name of this navigation indicator",
+    }),
+    defineField({
+      name: "gridSections",
+      title: "Grid Sections",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "gridContent" }] }],
+      description: "Add the grid sections to be included in this navigation indicator",
+    }),
+  ],
+})
+
+export default [gridContent, sideNavIndicator]

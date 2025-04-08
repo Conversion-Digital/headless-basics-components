@@ -1,9 +1,0 @@
-selectableVariant: string  // Determines the variant; options: "default", "xDemo"
-sortOrder: number          // Determines the display order of the component
-title: string              // Title for the side navigation visualiser
-subtitle: string           // Subtitle or description for the side navigation
-navItems: Array<{         // Array of navigation items
-  label: string;           // Navigation label
-  active: boolean;         // Indicates if the nav item is active
-}>
-// Fields identified from design images for the side navigation visualiser.

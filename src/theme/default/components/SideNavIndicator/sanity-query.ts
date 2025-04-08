@@ -1,22 +1,36 @@
-import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src/interfaces";
+import { log, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 
-export function getQuery(pageAndComponentCombo: PageAndSingleComponentDetails): string {
-  return /* GraphQL */ `
-    query XComponentQuery($slug: String!) {
-      allPage(where: { slug_current: { eq: $slug } }) {
+export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
+  log.trace(`${logPrefix()}[gridContent][sanity-query][query] called for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
+  return `
+    query GetGridContentBySlug($slug: String!) {
+      allPage(where: { slug: { current: { eq: $slug } } }) {
+        _id
+        _type
         components {
-          ... on xComponent {
-            selectableVariant
-            sortOrder
+          __typename
+          ... on GridContent {
+            _key
+            _type
             title
-            subtitle
-            navItems {
-              label
-              active
-            }
+          }
+        }
+      }
+      allHomepage {
+        _id
+        _type
+        components {
+          __typename
+          ... on GridContent {
+            _key
+            _type
+            title
           }
         }
       }
     }
-  `;
+  `
+}
+export function getQuery() {
+  return query;
 }
