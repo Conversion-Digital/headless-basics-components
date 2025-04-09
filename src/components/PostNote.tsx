@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import clsx from 'clsx';
 
 interface PostNoteProps {
   title: string;
@@ -8,6 +9,7 @@ interface PostNoteProps {
   fadeInTime?: number; // Time for fadeIn animation in seconds
   animationDelay?: number; // Delay before animations start in seconds
   size?: number; // Size of the root container (width and height)
+  variant?: 'default' | 'MouseEffest'; // Styling variants
 }
 
 const PostNote: React.FC<PostNoteProps> = ({
@@ -18,13 +20,35 @@ const PostNote: React.FC<PostNoteProps> = ({
   fadeInTime = 5,
   animationDelay = 3,
   size = 500,
+  variant = 'default',
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const variantClasses = {
+    default: '',
+    MouseEffest: ''
+  };
+
   return (
     <div
       id="root"
-      className="relative mx-auto my-[50px]"
+      className={clsx(
+        'relative mx-auto my-[50px] border transition-all duration-300',
+        variantClasses[variant]
+      )}
       style={{ width: `${size}px`, height: `${size}px` }}
+      onMouseEnter={() => variant === 'MouseEffest' && setIsHovered(true)}
     >
+      {/* Tooltip */}
+      {isHovered && variant === 'MouseEffest' && (
+        <div
+          className="absolute top-1/2 right-[-150px] transform -translate-y-1/2 bg-gray-800 text-white text-sm p-2 rounded shadow-lg"
+          style={{ width: '120px' }}
+        >
+          Tooltip Content
+        </div>
+      )}
+
       {/* SVG for outline animation */}
       <svg
         className="absolute top-0 left-0"

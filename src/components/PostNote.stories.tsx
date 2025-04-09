@@ -18,4 +18,11 @@ Default.args = {
   fadeInTime: 5,
   animationDelay: 3,
   size: 500,
+  variant: 'default',
+};
+
+export const Light = Template.bind({});
+Light.args = {
+  ...Default.args,
+  variant: 'MouseEffest',
 };
