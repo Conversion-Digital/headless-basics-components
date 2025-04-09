@@ -21,7 +21,7 @@ const gridContent = defineType({
 })
 
 const sideNavIndicator = defineType({
-  name: "sideNavIndicator",
+  name: "SideNavIndicator",
   title: "Side Navigation Indicator",
   type: "document",
   fields: [
