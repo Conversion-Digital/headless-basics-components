@@ -1,0 +1,10 @@
+# fields.prompt
+
+**Fields for cdfooter**:
+1. `selectableVariant` (string) - "default" or "xDemo"
+2. `title` (string) - Footer Title
+3. `subtitle` (string) - Optional subtitle
+4. `logo` (image) - The footer logo
+5. `links` (array of objects) - link label and URL
+6. `sortOrder` (number)
+7. `globalComponentSource` (reference) - optional global reusability
