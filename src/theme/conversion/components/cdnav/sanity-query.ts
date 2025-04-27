@@ -23,6 +23,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               label
               url
             }
+            dropdownMenus {
+              label
+              dropdownLinks {
+                label
+                url
+              }
+            }
             sortOrder
             globalComponentSource {
               __typename
@@ -40,7 +47,16 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 label
                 url
               }
+              dropdownMenus {
+                label
+                dropdownLinks {
+                  label
+                  url
+                }
+              }
             }
+            buttonText
+            buttonUrl
           }
         }
       }
@@ -64,6 +80,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               label
               url
             }
+            dropdownMenus {
+              label
+              dropdownLinks {
+                label
+                url
+              }
+            }
             sortOrder
             globalComponentSource {
               __typename
@@ -81,7 +104,16 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 label
                 url
               }
+              dropdownMenus {
+                label
+                dropdownLinks {
+                  label
+                  url
+                }
+              }
             }
+            buttonText
+            buttonUrl
           }
         }
       }

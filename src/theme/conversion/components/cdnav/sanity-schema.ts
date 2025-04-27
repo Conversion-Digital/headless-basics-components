@@ -3,7 +3,7 @@ import { EyeOpenIcon } from '@sanity/icons'
 
 export default defineType({
   name: 'cdnav',
-  title: 'Navigation (CD)',
+  title: 'Navigation (CD)', 
   type: 'object',
   icon: EyeOpenIcon,
   fields: [
@@ -25,7 +25,7 @@ export default defineType({
     }),
     defineField({
       name: 'subtitle',
-      title: 'Subtitle',
+      title: 'Subtitle', 
       type: 'string',
     }),
     defineField({
@@ -49,6 +49,12 @@ export default defineType({
       of: [{ type: 'linkItem' }]
     }),
     defineField({
+      name: 'dropdownMenus',
+      title: 'Dropdown Menus',
+      type: 'array',
+      of: [{ type: 'dropdownMenu' }]
+    }),
+    defineField({
       name: 'sortOrder',
       title: 'Sort Order',
       type: 'number'
@@ -59,6 +65,17 @@ export default defineType({
       type: 'reference',
       to: [{ type: 'cdnav' }],
       description: 'Select a global re-usable cdnav.'
+    }),
+    defineField({
+      name: 'buttonText',
+      title: 'Button Text',
+      type: 'string',
+      initialValue: 'Contact Us'
+    }),
+    defineField({
+      name: 'buttonUrl',
+      title: 'Button URL',
+      type: 'url'
     })
   ],
   preview: {
