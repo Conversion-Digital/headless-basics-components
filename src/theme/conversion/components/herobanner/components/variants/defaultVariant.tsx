@@ -32,7 +32,7 @@ export default function DefaultVariant(props: StandardComponentProps) {
         )}
       </div>
       {imageUrl && (
-        <div className="flex items-end justify-center">
+        <div className="w-full md:w-1/2 flex items-center justify-center">
           <img 
             src={imageUrl}
             alt={altText}

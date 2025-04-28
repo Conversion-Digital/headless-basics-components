@@ -30,17 +30,35 @@ export default defineType({
     }),
     defineField({
       name: 'logo',
-      title: 'Logo',
+      title: 'Primary Logo',
       type: 'image',
       options: {
         hotspot: true,
       },
     }),
     defineField({
-      name: 'links',
-      title: 'Links',
+      name: 'secondaryLogo',
+      title: 'Secondary Logo',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'backgroundImage',
+      title: 'Background Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'linkGroups',
+      title: 'Link Groups',
       type: 'array',
-      of: [{ type: 'linkItem' }]
+      of: [{ 
+        type: 'linkGroup',
+      }]
     }),
     defineField({
       name: 'sortOrder',

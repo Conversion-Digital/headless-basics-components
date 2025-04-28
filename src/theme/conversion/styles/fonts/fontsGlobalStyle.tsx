@@ -29,7 +29,7 @@ const FontsGlobalStyle = () => {
                 --font-sans: ${fontSans.style.fontFamily};
                 --font-urbanist: ${fontUrbanist.style.fontFamily};
                 --font-euclid: 'Euclid Circular A';
-                --font-staatliches: 'Staatliches';
+                --font-staatliches: ${fontStaatliches.style.fontFamily};
               }
             }`}</style>
     </>

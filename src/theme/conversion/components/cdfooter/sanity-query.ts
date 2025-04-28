@@ -18,9 +18,22 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 url
               }
             }
-            links {
-              label
-              url
+            secondaryLogo {
+              asset {
+                url
+              }
+            }
+            backgroundImage {
+              asset {
+                url
+              }
+            }
+            linkGroups {
+              groupTitle
+              links {
+                label
+                url
+              }
             }
             sortOrder
             globalComponentSource {
@@ -34,9 +47,22 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                   url
                 }
               }
-              links {
-                label
-                url
+              secondaryLogo {
+                asset {
+                  url
+                }
+              }
+              backgroundImage {
+                asset {
+                  url
+                }
+              }
+              linkGroups {
+                groupTitle
+                links {
+                  label
+                  url
+                }
               }
             }
           }
@@ -57,9 +83,22 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 url
               }
             }
-            links {
-              label
-              url
+            secondaryLogo {
+              asset {
+                url
+              }
+            }
+            backgroundImage {
+              asset {
+                url
+              }
+            }
+            linkGroups {
+              groupTitle
+              links {
+                label
+                url
+              }
             }
             sortOrder
             globalComponentSource {
@@ -73,9 +112,22 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                   url
                 }
               }
-              links {
-                label
-                url
+              secondaryLogo {
+                asset {
+                  url
+                }
+              }
+              backgroundImage {
+                asset {
+                  url
+                }
+              }
+              linkGroups {
+                groupTitle
+                links {
+                  label
+                  url
+                }
               }
             }
           }
