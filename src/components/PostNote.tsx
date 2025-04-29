@@ -5,11 +5,12 @@ interface PostNoteProps {
   title: string;
   date: string;
   description: string;
-  drawOutlineTime?: number; // Time for drawOutline animation in seconds
-  fadeInTime?: number; // Time for fadeIn animation in seconds
-  animationDelay?: number; // Delay before animations start in seconds
-  size?: number; // Size of the root container (width and height)
-  variant?: 'default' | 'MouseEffest'; // Styling variants
+  drawOutlineTime?: number; // 描边动画的时间（秒）
+  fadeInTime?: number; // 淡入动画的时间（秒）
+  animationDelay?: number; // 动画延迟时间（秒）
+  width?: number; // 容器宽度
+  height?: number; // 容器高度
+  variant?: 'default' ; // 样式变体
 }
 
 const PostNote: React.FC<PostNoteProps> = ({
@@ -19,60 +20,43 @@ const PostNote: React.FC<PostNoteProps> = ({
   drawOutlineTime = 5,
   fadeInTime = 5,
   animationDelay = 3,
-  size = 500,
-  variant = 'default',
-}) => {
-  const [isHovered, setIsHovered] = useState(false);
+  width = 300,
+  height = width*1.4,
 
-  const variantClasses = {
-    default: '',
-    MouseEffest: ''
-  };
+}) => {
 
   return (
     <div
       id="root"
       className={clsx(
-        'relative mx-auto my-[50px] border transition-all duration-300',
-        variantClasses[variant]
+        'relative flex items-center justify-center mx-auto', // 添加居中样式
       )}
-      style={{ width: `${size}px`, height: `${size}px` }}
-      onMouseEnter={() => variant === 'MouseEffest' && setIsHovered(true)}
+      style={{ width: `${width}px`, height: `${height}px`,transform: 'translate(8%, 0%)' }}
     >
-      {/* Tooltip */}
-      {isHovered && variant === 'MouseEffest' && (
-        <div
-          className="absolute top-1/2 right-[-150px] transform -translate-y-1/2 bg-gray-800 text-white text-sm p-2 rounded shadow-lg"
-          style={{ width: '120px' }}
-        >
-          Tooltip Content
-        </div>
-      )}
-
-      {/* SVG for outline animation */}
+      {/* 描边动画的 SVG */}
       <svg
-        className="absolute top-0 left-0"
+        className="absolute"
         width="100%"
         height="100%"
-        viewBox="0 0 64 64"
+        viewBox="0 0 60 84"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Precise shadow path */}
+        {/* 精确阴影路径 */}
         <path
           className="shadow"
-          d="M48 8v36c0 4.4-3.6 8-8 8H20c-1.1 0-2-.9-2-2v2c0 2.2 1.8 4 4 4h24c4.4 0 8-3.6 8-8V8z"
+          d="M52 6 v64 a4 4 0 0 1-4 4 H6 c-1.1 0-2-.9-2-2 v3 c0 2.2 1.8 4 4 4 h42 c4.4 0 8-3.6 8-8 V6 z"
           fill="#6b7280"
           style={{
             opacity: 0,
             animation: `fadeIn ${fadeInTime}s ease forwards`,
-            animationDelay: `${animationDelay}s`,
+            animationDelay: `${animationDelay}s`, 
           }}
         />
 
-        {/* Paper outline animation */}
+        {/* 纸张轮廓 */}
         <path
           className="paper-outline"
-          d="M16 4h28a4 4 0 0 1 4 4v40a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"
+          d="M6 2h42 a4 4 0 0 1 4 4 v64 a4 4 0 0 1-4 4 H6 a4 4 0 0 1-4-4 V6 a4 4 0 0 1 4-4z"
           fill="none"
           stroke="#4b5563"
           strokeWidth="2"
@@ -83,9 +67,9 @@ const PostNote: React.FC<PostNoteProps> = ({
           }}
         />
 
-        {/* Folded corner effect */}
+        {/* 折角效果 */}
         <path
-          d="M44 52c2.2 0 4-1.8 4-4v-8l-12 12h8z"
+          d="M48 74c2.2 0 4-1.8 4-4v-8l-12 12h8z"
           fill="#9ca3af"
           style={{
             opacity: 0,
@@ -94,11 +78,11 @@ const PostNote: React.FC<PostNoteProps> = ({
           }}
         />
 
-        {/* Top-right pin */}
+        {/* 右上角钉子 */}
         <circle
           className="pin"
-          cx="46"
-          cy="6"
+          cx="50"
+          cy="4"
           r="1.5"
           fill="#1f2937"
           style={{
@@ -109,27 +93,32 @@ const PostNote: React.FC<PostNoteProps> = ({
         />
       </svg>
 
-      {/* Centered text content */}
+      {/* 中心文字内容 */}
       <div
         id="post-note-text"
-        className="absolute inset-0 m-auto flex flex-col items-center justify-center text-center border border-green-500"
+        className="relative text-center border border-green-500"
         style={{
-          width: '50%',
-          height: '60%',
-          transform: 'translate(-5%, -15%)',
+          width: '75%',
+          height: '70%',
+          transform: 'translate(-7%, -5%)',
+          overflow: 'hidden', // 添加此行以隐藏超出部分
           opacity: 0,
           animation: `fadeIn ${fadeInTime}s ease forwards`,
           animationDelay: `${animationDelay}s`,
         }}
       >
-        <p className="text-sm text-gray-800 mb-4 text-left w-full" style={{ transform: 'translateY(-150%)' }}>
+        <p className="text-sm text-gray-800 mb-20 text-left">
           {date}
         </p>
-        <p className="text-lg font-bold text-gray-900 mb-4">{title}</p>
-        <p className="text-sm text-gray-800">{description}</p>
+        <p className="text-lg font-bold text-gray-900 mb-10">
+          {title}
+        </p>
+        <p className="text-sm text-gray-800">
+          {description}
+        </p>
       </div>
 
-      {/* Animation definitions */}
+      {/* 动画定义 */}
       <style>
         {`
           @keyframes drawOutline {

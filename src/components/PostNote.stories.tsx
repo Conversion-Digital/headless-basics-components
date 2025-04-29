@@ -17,12 +17,7 @@ Default.args = {
   drawOutlineTime: 5,
   fadeInTime: 5,
   animationDelay: 3,
-  size: 500,
+  width: 300,
   variant: 'default',
 };
 
-export const Light = Template.bind({});
-Light.args = {
-  ...Default.args,
-  variant: 'MouseEffest',
-};
