@@ -1,0 +1,8 @@
+# readme.prompt
+
+This new "cdfooter" is designed for the "conversion" theme. 
+It includes a default variant and a demo variant. 
+The default variant shows a title, subtitle, logo, and links array, 
+while the xDemo variant is a simpler layout primarily for demonstration.
+
+Implementation steps done according to the instructions.
