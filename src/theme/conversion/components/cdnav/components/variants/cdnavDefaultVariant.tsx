@@ -32,11 +32,12 @@ export default function cdnavDefaultVariant(props: StandardComponentProps) {
           <div className="inline-flex justify-end items-center gap-14">
             {dropdownMenus.length > 0 && (
               <div className="relative group">
-                <button className="text-centertext-Color-Navy text-xltracking-wide hover:underline hover:decoration-[#800928] hover:underline-offset-8 pt-[6px] pb-[5px]">
+                <button className="text-centertext-Color-Navy text-xltracking-wide hover:underline hover:decoration-[#800928] hover:underline-offset-8 pt-[6px] pb-[5px] flex items-center gap-1">
                   {dropdownMenus[0].label}
+                  <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-gray-400 group-hover:border-t-[#0D0E47] transition-transform duration-300 group-hover:rotate-180" />
                 </button>
                 <div className="w-2 bg-Color-Navy rounded-[0.40px] " />
-                <ul className="absolute hidden group-hover:block top-full left-0 bg-white shadow-md rounded-md p-2 min-w-[200px] z-10">
+                <ul className="absolute hidden group-hover:block top-full left-0 bg-white shadow-md rounded-md p-2 min-w-[200px] z-10 before:content-[''] before:absolute before:-top-2 before:left-1 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-b-white">
                   {dropdownMenus[0].dropdownLinks?.map((link: any, linkIdx: number) => (
                     <li key={linkIdx} className="py-1">
                       <a href={link.url ?? "#"} className="hover:underline hover:decoration-[#800928] hover:underline-offset-8 block">
@@ -46,10 +47,11 @@ export default function cdnavDefaultVariant(props: StandardComponentProps) {
                   ))}
                   {dropdownMenus.length > 1 && (
                     <li className="relative group/nested py-1">
-                      <button className="hover:underline hover:decoration-[#800928] hover:underline-offset-8 block w-full text-left">
+                      <button className="hover:underline hover:decoration-[#800928] hover:underline-offset-8 block w-full text-left flex items-center justify-between">
                         {dropdownMenus[1].label}
+                        <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-gray-400 group-hover/nested:border-l-[#0D0E47]" />
                       </button>
-                      <ul className="absolute hidden group-hover/nested:block left-full top-0 bg-white shadow-md rounded-md p-2 min-w-[200px] z-20">
+                      <ul className="absolute hidden group-hover/nested:block left-full top-0 bg-white shadow-md rounded-md p-2 min-w-[200px] z-20 before:content-[''] before:absolute before:top-3 before:-left-2 before:border-8 before:border-transparent before:border-r-white before:rotate-180">
                         {dropdownMenus[1].dropdownLinks?.map((link: any, linkIdx: number) => (
                           <li key={linkIdx} className="py-1">
                             <a href={link.url ?? "#"} className="hover:underline hover:decoration-[#800928] hover:underline-offset-8 block">

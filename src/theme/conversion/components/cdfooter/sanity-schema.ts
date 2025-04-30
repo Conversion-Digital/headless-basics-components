@@ -29,6 +29,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'additionalInformation',
+      title: 'Additional Information',
+      type: 'additionalInformation'
+    }),
+    defineField({
       name: 'logo',
       title: 'Primary Logo',
       type: 'image',
@@ -53,12 +58,24 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'socialLinks',
+      title: 'Social Media Links',
+      type: 'array',
+      of: [{ type: 'socialLink' }]
+    }),
+    defineField({
       name: 'linkGroups',
       title: 'Link Groups',
       type: 'array',
       of: [{ 
         type: 'linkGroup',
       }]
+    }),
+    defineField({
+      name: 'copyrightMessage',
+      title: 'Copyright Message',
+      type: 'string',
+      description: 'Enter the copyright message to display in the footer'
     }),
     defineField({
       name: 'sortOrder',

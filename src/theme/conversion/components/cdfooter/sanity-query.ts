@@ -13,6 +13,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             selectableVariant
             title
             subtitle
+            additionalInformation {
+              phoneNumber
+              email
+              address
+            }
+            copyrightMessage
             logo {
               asset {
                 url
@@ -26,6 +32,15 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             backgroundImage {
               asset {
                 url
+              }
+            }
+            socialLinks {
+              platform
+              url
+              logo {
+                asset {
+                  url
+                }
               }
             }
             linkGroups {
@@ -42,6 +57,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               _type
               title
               subtitle
+              additionalInformation {
+                phoneNumber
+                email
+                address
+              }
+              copyrightMessage
               logo {
                 asset {
                   url
@@ -55,6 +76,15 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               backgroundImage {
                 asset {
                   url
+                }
+              }
+              socialLinks {
+                platform
+                url
+                logo {
+                  asset {
+                    url
+                  }
                 }
               }
               linkGroups {
@@ -78,6 +108,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             selectableVariant
             title
             subtitle
+            additionalInformation {
+              phoneNumber
+              email
+              address
+            }
+            copyrightMessage
             logo {
               asset {
                 url
@@ -91,6 +127,15 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             backgroundImage {
               asset {
                 url
+              }
+            }
+            socialLinks {
+              platform
+              url
+              logo {
+                asset {
+                  url
+                }
               }
             }
             linkGroups {
@@ -107,6 +152,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               _type
               title
               subtitle
+              additionalInformation {
+                phoneNumber
+                email
+                address
+              }
+              copyrightMessage
               logo {
                 asset {
                   url
@@ -120,6 +171,15 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               backgroundImage {
                 asset {
                   url
+                }
+              }
+              socialLinks {
+                platform
+                url
+                logo {
+                  asset {
+                    url
+                  }
                 }
               }
               linkGroups {

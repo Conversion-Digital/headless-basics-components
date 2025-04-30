@@ -36,6 +36,11 @@
 }
 
 :root {
+  --color-primary-bg: #0D0E47;
+  --color-primary-text: white;
+  --color-secondary-bg: #FFFFFF;
+  --color-accent: #800928;
+  --color-text: #000;
 
   --ata-brown-grey: #3d3d3e;
   --black-80: rgba(0, 0, 0, 0.8);
@@ -66,7 +71,6 @@
   --border-gray-700: #374151;
   --br-white: #DEDEDE;
   --border-purple: #6C2BD9;
-
 }
 
 body {
@@ -139,10 +143,6 @@ input[type="date"]::-webkit-date-and-time-value {
   text-align: start;
 }
 
-
-
-
-
 .TabsList {
   flex-shrink: 0;
   display: flex;
@@ -184,7 +184,6 @@ input[type="date"]::-webkit-date-and-time-value {
   box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor;
 }
 
-
 .TabsContent {
   flex-grow: 1;
   padding: 20px;
@@ -197,7 +196,6 @@ input[type="date"]::-webkit-date-and-time-value {
 .selected-flag {
   display: none;
 }
-
 
 .contact-form #typeOfEnquiry {
   position: relative;
@@ -229,4 +227,103 @@ input[type="date"]::-webkit-date-and-time-value {
 .product-slider .slick-slide>div {
   margin: 10px;
   height: 100%;
+}
+
+/* Footer Styles */
+footer {
+  min-height: fit-content;
+  padding: 3rem 2rem;
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary-text);
+  position: relative;
+}
+
+.footer-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  max-width: 112rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-flex {
+  display: flex;
+}
+
+.footer-gap {
+  gap: 1.5rem;
+}
+
+.footer-uppercase {
+  text-transform: uppercase;
+}
+
+.footer-bold {
+  font-weight: bold;
+}
+
+.footer-margin-top {
+  margin-top: 3rem;
+}
+
+.footer-padding-top {
+  padding-top: 1.5rem;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: var(--color-secondary-bg);
+  color: var(--color-text);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-container {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-flex {
+  display: flex;
+}
+
+.nav-gap {
+  gap: 3.5rem;
+}
+
+.nav-text-center {
+  text-align: center;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 8px;
+}
+
+.nav-button {
+  background-color: var(--color-accent);
+  border-radius: 9999px;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: rgba(128, 9, 40, 0.8);
 }
