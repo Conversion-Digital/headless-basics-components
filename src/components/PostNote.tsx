@@ -5,12 +5,12 @@ interface PostNoteProps {
   title: string;
   date: string;
   description: string;
-  drawOutlineTime?: number; // 描边动画的时间（秒）
-  fadeInTime?: number; // 淡入动画的时间（秒）
-  animationDelay?: number; // 动画延迟时间（秒）
-  width?: number; // 容器宽度
-  height?: number; // 容器高度
-  variant?: 'default' ; // 样式变体
+  drawOutlineTime?: number; // Time for outline animation (seconds)
+  fadeInTime?: number; // Time for fade-in animation (seconds)
+  animationDelay?: number; // Animation delay time (seconds)
+  width?: number; // Container width
+  height?: number; // Container height
+  variant?: 'default'; // Style variant
 }
 
 const PostNote: React.FC<PostNoteProps> = ({
@@ -21,19 +21,17 @@ const PostNote: React.FC<PostNoteProps> = ({
   fadeInTime = 5,
   animationDelay = 3,
   width = 300,
-  height = width*1.4,
-
+  height = width * 1.4,
 }) => {
-
   return (
     <div
       id="root"
       className={clsx(
-        'relative flex items-center justify-center mx-auto', // 添加居中样式
+        'relative flex items-center justify-center mx-auto', // Add centering styles
       )}
-      style={{ width: `${width}px`, height: `${height}px`,transform: 'translate(8%, 0%)' }}
+      style={{ width: `${width}px`, height: `${height}px`, transform: 'translate(8%, 0%)' }}
     >
-      {/* 描边动画的 SVG */}
+      {/* SVG for outline animation */}
       <svg
         className="absolute"
         width="100%"
@@ -41,7 +39,7 @@ const PostNote: React.FC<PostNoteProps> = ({
         viewBox="0 0 60 84"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* 精确阴影路径 */}
+        {/* Precise shadow path */}
         <path
           className="shadow"
           d="M52 6 v64 a4 4 0 0 1-4 4 H6 c-1.1 0-2-.9-2-2 v3 c0 2.2 1.8 4 4 4 h42 c4.4 0 8-3.6 8-8 V6 z"
@@ -49,11 +47,13 @@ const PostNote: React.FC<PostNoteProps> = ({
           style={{
             opacity: 0,
             animation: `fadeIn ${fadeInTime}s ease forwards`,
-            animationDelay: `${animationDelay}s`, 
+            animationDelay: `${animationDelay}s`,
           }}
         />
 
-        {/* 纸张轮廓 */}
+        {/* Paper outline */}
+        <path
+          className="paper-outline"
         <path
           className="paper-outline"
           d="M6 2h42 a4 4 0 0 1 4 4 v64 a4 4 0 0 1-4 4 H6 a4 4 0 0 1-4-4 V6 a4 4 0 0 1 4-4z"
