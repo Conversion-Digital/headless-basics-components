@@ -6,13 +6,10 @@ export default {
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.stories.{js,ts,jsx,tsx,mdx}",
+    "../headless-basics-components/src/**/*.{js,ts,jsx,tsx}", // 添加组件路径
   ],
   theme: {
-    /**
-     * Default tailwind values converted from rem to px:
-     * */
-
-
+    extend: {},
     borderRadius: {
       none: "0px",
       sm: "2px",
@@ -159,6 +156,6 @@ export default {
           return `.cl-dark .${e(`cl-dark${separator}${className}`)}`;
         });
       });
-    })
+    }),
   ],
 };
