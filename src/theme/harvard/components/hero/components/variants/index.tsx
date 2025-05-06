@@ -1,0 +1,7 @@
+export { default as DefaultHero } from "./DefaultHero"
+export { default as FadedInformationHero } from "./FadedInformationHero"
+export { default as HeroCTAButtons } from "./HeroCTAButtons"
+export { default as ImageHighlightHero } from "./ImageHighlightHero"
+export { default as RightImageHero } from "./RightImageHero"
+export { default as SlimBackgroundHero } from "./SlimBackgroundHero"
+export { default as TitleOnlyHero } from "./TitleOnlyHero"
