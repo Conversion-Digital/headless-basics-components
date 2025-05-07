@@ -5,9 +5,9 @@ interface PostNoteProps {
   title: string;
   date: string;
   description: string;
-  drawOutlineTime?: number; // Time for outline animation (seconds)
-  fadeInTime?: number; // Time for fade-in animation (seconds)
-  animationDelay?: number; // Animation delay time (seconds)
+  drawOutlineTime?: number; // Time in seconds for the outline animation to complete
+  fadeInTime?: number; // Time in seconds for the fade-in animation to complete
+  animationDelay?: number; // Delay in seconds before animations start
   width?: number; // Container width
   height?: number; // Container height
   variant?: 'default'; // Style variant
@@ -53,9 +53,7 @@ const PostNote: React.FC<PostNoteProps> = ({
 
         {/* Paper outline */}
         <path
-          className="paper-outline"
-        <path
-          className="paper-outline"
+          className="paper-outline"     
           d="M6 2h42 a4 4 0 0 1 4 4 v64 a4 4 0 0 1-4 4 H6 a4 4 0 0 1-4-4 V6 a4 4 0 0 1 4-4z"
           fill="none"
           stroke="#4b5563"
@@ -63,22 +61,22 @@ const PostNote: React.FC<PostNoteProps> = ({
           strokeDasharray="240"
           strokeDashoffset="240"
           style={{
-            animation: `drawOutline ${drawOutlineTime}s ease forwards`,
+            animation: `drawOutline ${drawOutlineTime}s ease forwards`, // Animation duration controlled by drawOutlineTime
           }}
         />
 
-        {/* 折角效果 */}
+        {/* Corner effect */}
         <path
           d="M48 74c2.2 0 4-1.8 4-4v-8l-12 12h8z"
           fill="#9ca3af"
           style={{
             opacity: 0,
-            animation: `fadeIn ${fadeInTime}s ease forwards`,
-            animationDelay: `${animationDelay}s`,
+            animation: `fadeIn ${fadeInTime}s ease forwards`, // Animation duration controlled by fadeInTime
+            animationDelay: `${animationDelay}s`, // Animation delay controlled by animationDelay
           }}
         />
 
-        {/* 右上角钉子 */}
+        {/* Top-right pin */}
         <circle
           className="pin"
           cx="50"
@@ -87,13 +85,13 @@ const PostNote: React.FC<PostNoteProps> = ({
           fill="#1f2937"
           style={{
             opacity: 0,
-            animation: `fadeIn ${fadeInTime}s ease forwards`,
-            animationDelay: `${animationDelay}s`,
+            animation: `fadeIn ${fadeInTime}s ease forwards`, // Animation duration controlled by fadeInTime
+            animationDelay: `${animationDelay}s`, // Animation delay controlled by animationDelay
           }}
         />
       </svg>
 
-      {/* 中心文字内容 */}
+      {/* Center text content */}
       <div
         id="post-note-text"
         className="relative text-center border border-green-500"
@@ -101,24 +99,51 @@ const PostNote: React.FC<PostNoteProps> = ({
           width: '75%',
           height: '70%',
           transform: 'translate(-7%, -5%)',
-          overflow: 'hidden', // 添加此行以隐藏超出部分
+          overflow: 'hidden', // Hide overflow content
           opacity: 0,
           animation: `fadeIn ${fadeInTime}s ease forwards`,
           animationDelay: `${animationDelay}s`,
         }}
       >
-        <p className="text-sm text-gray-800 mb-20 text-left">
+        <p
+          id="post-note-date"
+          className="text-sm text-gray-800 mb-20 text-left"
+          style={{
+            display: '-webkit-box',
+            WebkitLineClamp: 1, // Limit to 1 line
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
           {date}
         </p>
-        <p className="text-lg font-bold text-gray-900 mb-10">
+        <p
+          id="post-note-title"
+          className="text-lg font-bold text-gray-900 mb-10"
+          style={{
+            display: '-webkit-box',
+            WebkitLineClamp: 2, // Limit to 2 lines
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
           {title}
         </p>
-        <p className="text-sm text-gray-800">
+        <p
+          id="post-note-description"
+          className="text-sm text-gray-800 "
+          style={{
+            display: '-webkit-box',
+            WebkitLineClamp: 4, // Limit to 4 lines
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+          }}
+        >
           {description}
         </p>
       </div>
 
-      {/* 动画定义 */}
+      {/* Animation definitions */}
       <style>
         {`
           @keyframes drawOutline {

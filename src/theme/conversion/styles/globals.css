@@ -1,0 +1,329 @@
+@import 'tailwindcss';
+
+@config '../tailwind.config.js';
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility no-scrollbar {
+  /* Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+@utility bg-off-white {
+  background-color: var(--off-white);
+}
+
+:root {
+  --color-primary-bg: #0D0E47;
+  --color-primary-text: white;
+  --color-secondary-bg: #FFFFFF;
+  --color-accent: #800928;
+  --color-text: #000;
+
+  --ata-brown-grey: #3d3d3e;
+  --black-80: rgba(0, 0, 0, 0.8);
+  --dark-blue: #043176;
+  --dark-blue-400: rgba(4, 49, 118, 0.4);
+  --yellow: #faa634;
+  --lighter-yellow: #fed095;
+
+  --charcoal: #1F2A37;
+  --purple: #6C2BD9;
+  --grey: #9CA3AF;
+  --grey2: #4F4F4F;
+  --grey3: #6B7280;
+  --grey4: #CBD2DC;
+  --indigo: #5850ec;
+  --green-500: #0E9F6E;
+  --lighter-indigo: #9479FA;
+  --darker-indigo: #8F73F9;
+  --white: #ffffff;
+  --white2: #F2F2F2;
+  --white3: #F4F3F3;
+  --black: #000000;
+  --black-33: #333333;
+  --blue: #111928;
+  --btntext: #1F2A37;
+  --gray-700: #374151;
+  --border-gray-600: #4B5563;
+  --border-gray-700: #374151;
+  --br-white: #DEDEDE;
+  --border-purple: #6C2BD9;
+}
+
+body {
+  @apply bg-off-white;
+}
+
+a {
+  cursor: pointer;
+}
+
+.rich-text h2 {
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+
+.rich-text h3 {
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+
+.rich-text h4 {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.rich-text h5 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16x;
+  margin-bottom: 10px;
+}
+
+.rich-text p {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  margin-bottom: 20px;
+}
+
+.rich-text .list-none {
+  margin-bottom: 20px;
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.rich-text .list-none li {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  margin-bottom: 10px;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: start;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: start;
+}
+
+.TabsList {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-evenly;
+  column-gap: 1rem;
+  border-bottom: 1px solid var(--mauve-6);
+}
+
+.TabsTrigger {
+  font-family: inherit;
+  background-color: white;
+  padding: 20px 40px;
+  height: 45px;
+  flex: 1;
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--grey);
+  user-select: none;
+}
+
+.TabsTrigger:first-child {
+  border-top-left-radius: 6px;
+}
+
+.TabsTrigger:last-child {
+  border-top-right-radius: 6px;
+}
+
+.TabsTrigger:hover {
+  color: var(--darker-indigo);
+}
+
+.TabsTrigger[data-state='active'] {
+  color: var(--darker-indigo);
+  box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor;
+}
+
+.TabsContent {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: white;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  outline: none;
+}
+
+.selected-flag {
+  display: none;
+}
+
+.contact-form #typeOfEnquiry {
+  position: relative;
+  /*-webkit-appearance: none;
+  appearance: none;*/
+}
+
+.contact-form #typeOfEnquiry::after {
+  content: "▼";
+  font-size: 1rem;
+  top: 6px;
+  right: 10px;
+  position: absolute;
+}
+
+.product-slider .slick-list {
+  padding-left: 0px !important;
+  margin-left: -10px !important;
+}
+
+.product-slider .slick-track {
+  display: flex !important;
+}
+
+.product-slider .slick-slide {
+  height: inherit !important;
+}
+
+.product-slider .slick-slide>div {
+  margin: 10px;
+  height: 100%;
+}
+
+/* Footer Styles */
+footer {
+  min-height: fit-content;
+  padding: 3rem 2rem;
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary-text);
+  position: relative;
+}
+
+.footer-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  max-width: 112rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-flex {
+  display: flex;
+}
+
+.footer-gap {
+  gap: 1.5rem;
+}
+
+.footer-uppercase {
+  text-transform: uppercase;
+}
+
+.footer-bold {
+  font-weight: bold;
+}
+
+.footer-margin-top {
+  margin-top: 3rem;
+}
+
+.footer-padding-top {
+  padding-top: 1.5rem;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: var(--color-secondary-bg);
+  color: var(--color-text);
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.nav-container {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-flex {
+  display: flex;
+}
+
+.nav-gap {
+  gap: 3.5rem;
+}
+
+.nav-text-center {
+  text-align: center;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 8px;
+}
+
+.nav-button {
+  background-color: var(--color-accent);
+  border-radius: 9999px;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: rgba(128, 9, 40, 0.8);
+}
