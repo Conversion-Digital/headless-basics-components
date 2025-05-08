@@ -8,8 +8,8 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
   );
   
-  const content = pageAndComponentCombo?.component?.data;
   
+  const content = { ...pageAndComponentCombo?.component?.data, sortOrder: pageAndComponentCombo.component.sortOrder }
   let matchingData = extractComponentsFromSanityData(content, "Gridblock", log);
   
   if (matchingData) {

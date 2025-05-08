@@ -8,7 +8,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
   );
 
-  const content = pageAndComponentCombo?.component?.data
+  const content = { ...pageAndComponentCombo?.component?.data, sortOrder: pageAndComponentCombo.component.sortOrder }
   const matchingData = extractComponentsFromSanityData(content, "Hero", log)
 
   if (!(matchingData?.image && matchingData.backgroundImage)) {
