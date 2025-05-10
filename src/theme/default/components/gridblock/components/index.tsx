@@ -13,12 +13,6 @@ export const componentTypes = {
   textBlock: "textblock",
 };
 
-export const componentPaths = {
-  [componentTypes.hero]: "../../../../components/hero/Hero", 
-  [componentTypes.toggle]: "../../../../components/toggle",
-  [componentTypes.motto]: "../../motto/components",
-  [componentTypes.textBlock]: "../subcomponents/TextBlockComponent"
-};
 
 const serializeData = (data: any): any => {
   try {

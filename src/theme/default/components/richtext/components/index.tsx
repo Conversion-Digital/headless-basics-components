@@ -7,11 +7,11 @@ import { getSectionBackgroundColour } from "../../../../utils/getSectionBackgrou
 const log = getLogger("ui-base.cms.heartcore.content.richtextComponent");
 
 export default function RichTextUI(dynamicComponent: ViewComponentProps) {
-  const componentInformation = dynamicComponent.componentDetails
+  const componentInformation = dynamicComponent.componentInformation
 
   if (!componentInformation || !componentInformation.metaData) {
     log.error("Invalid ComponentDataProps passed to richtextComponent", componentInformation);
-    return <div>Error rendering heroComponent: Missing data</div>;
+    return <div>Error rendering richTextComponent: Missing data</div>;
   }
   const data = componentInformation;
 

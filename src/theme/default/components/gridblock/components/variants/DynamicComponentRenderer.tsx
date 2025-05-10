@@ -4,7 +4,6 @@ import { getLogger } from "@conversiondigital/headless-basics-data/src";
 import dynamic from "next/dynamic";
 import { componentTypes } from "../index";
 
-import { TextBlockComponent } from "../subcomponents/TextBlockComponent";
 
 const HeroComponent = dynamic(() => import("../../../hero/components"), { 
   loading: () => <div>Loading Hero Component...</div>
@@ -13,8 +12,13 @@ const HeroComponent = dynamic(() => import("../../../hero/components"), {
 const MottoComponent = dynamic(() => import("../../../motto/components"), { 
   loading: () => <div>Loading Motto Component...</div>
 });
+
 const ToggleComponent = dynamic(() => import("../../../toggle/components"), { 
   loading: () => <div>Loading Toggle Component...</div>
+});
+
+const TextBlockComponent = dynamic(() => import("../../../richtext/components"), { 
+  loading: () => <div>Loading Text Block Component...</div>
 });
 
 interface DynamicComponentRendererProps {
@@ -33,16 +37,29 @@ const LocalComponentRegistry = {
 };
 
 const mapComponentProps = (componentType: string, data: any) => {
-  console.log("data", data);
+  const commonMetaData = {
+    id: data._id || data.id || `${componentType}-${Math.random().toString(36).substr(2, 9)}`,
+    variant: data.variant || data.selectableVariant || "",
+    url: "",
+    typeName: componentType.toLowerCase(),
+    rendering: `theme/default/components/${componentType.toLowerCase()}/components/index.tsx`,
+    name: data.title || data.heading || `${componentType} Component`,
+    renderingExportFunction: `${componentType}UI`,
+    queryFileLocation: "",
+    query: "",
+    liveDocumentation: "",
+    youtubeVideo: "",
+    blueprintComponent: "",
+    isInsideGrid: true,
+    isClientSide: false
+  };
+  
+  const commonBlueprint = {};
+  
   switch (componentType.toLowerCase()) {
     case 'hero':
       return {
-        variant: data.selectableVariant || "",
-        blueprint: {
-          id: data._id || data.id,
-          name: data.title || data.heading,
-          description: data.description || data.subtitle
-        },
+        blueprint: commonBlueprint,
         componentInformation: {
           data: {
             title: data.title,
@@ -58,20 +75,15 @@ const mapComponentProps = (componentType: string, data: any) => {
             buttons: data.buttons,
             variant: data.selectableVariant || ""
           },
-          metaData: {
-            id: data._id || data.id || "hero-component",
-            variant: data.selectableVariant || ""
-          }
+          metaData: commonMetaData,
+          identifier: data._id || data.id || `hero-${Math.random().toString(36).substr(2, 9)}`,
+          sortOrder: data.sortOrder || 0
         },
         matchingData: data
       };
     case 'toggle':
       return {
-        blueprint: {
-          id: data._id || data.id,
-          name: data.title || "Toggle Component",
-          description: data.description || ""
-        },
+        blueprint: commonBlueprint,
         componentInformation: {
           data: {
             text: data.text || "Toggle",
@@ -80,41 +92,57 @@ const mapComponentProps = (componentType: string, data: any) => {
             variant: data.variant || "Default",
             className: data.className
           },
-          metaData: {
-            id: data._id || data.id || "toggle-component"
-          }
+          metaData: commonMetaData,
+          identifier: data._id || data.id || `toggle-${Math.random().toString(36).substr(2, 9)}`,
+          sortOrder: data.sortOrder || 0
         },
         matchingData: data
       };
     case 'motto':
       return {
-        blueprint: {
-          id: data._id || data.id,
-          name: data.title || "Motto Component",
-          description: data.description || ""
-        },
+        blueprint: commonBlueprint,
         componentInformation: {
           data: {
             words: data.words || data.quote || "",
             align: data.align || "center",
             variant: data.variant || ""
           },
-          metaData: {
-            id: data._id || data.id || "motto-component"
-          }
+          metaData: commonMetaData,
+          identifier: data._id || data.id || `motto-${Math.random().toString(36).substr(2, 9)}`,
+          sortOrder: data.sortOrder || 0
         },
         matchingData: data
       };
     case 'textblock':
       return {
-        item: {
-          title: data.title,
-          subtitle: data.subtitle,
-          text: data.text || data.content,
-        }
+        blueprint: commonBlueprint,
+        componentInformation: {  
+          data: {
+            title: data.title,
+            subtitle: data.subtitle,
+            backgroundColour: data.backgroundColour || "white",
+            processedBody: data.text || data.content || "",
+            text: data.text || data.content || "",
+            variant: data.variant || ""
+          },
+          metaData: commonMetaData,
+          identifier: data._id || data.id || `textblock-${Math.random().toString(36).substr(2, 9)}`,
+          sortOrder: data.sortOrder || 0
+        },
+        matchingData: data
       };
     default:
-      return { ...data };
+      // For unknown component types, create a basic ViewComponentProps structure
+      return {
+        blueprint: commonBlueprint,
+        componentInformation: {
+          data: data,
+          metaData: commonMetaData,
+          identifier: data._id || data.id || `unknown-${Math.random().toString(36).substr(2, 9)}`,
+          sortOrder: data.sortOrder || 0
+        },
+        matchingData: data
+      };
   }
 };
 
@@ -158,13 +186,10 @@ export default function DynamicComponentRenderer({
     }
   }, [item]);
   
-  // Combine data from all sources, prioritizing specific fields
   const data = useMemo(() => {
     const baseData = componentData || loadedComponent?.data || safeItem;
     
-    // Ensure variant information is preserved
-    if (!baseData.variant) {
-      // Look for variant in other sources
+      if (!baseData.variant) {
       if (item?.variant) baseData.variant = item.variant;
       if (loadedComponent?.data?.variant) baseData.variant = loadedComponent.data.variant;
     }
@@ -190,7 +215,6 @@ export default function DynamicComponentRenderer({
   
   const componentTypeRaw = item._type?.toLowerCase() || '';
   
-  // Map the component type to one of our registered types
   let componentType = componentTypeRaw;
   if (componentTypeRaw === 'textblock' || componentTypeRaw === 'textBlock') {
     componentType = componentTypes.textBlock;
@@ -202,15 +226,12 @@ export default function DynamicComponentRenderer({
     componentType = componentTypes.motto;
   }
   
-  // Determine if we have a registered component for this type
   const DynamicComponent = componentType ? LocalComponentRegistry[componentType as keyof typeof LocalComponentRegistry] : null;
   
   if (DynamicComponent) {
     try {
-      // Map the props specific to this component type
       const componentProps = mapComponentProps(componentType, data);
       
-      // Log detailed component rendering information
       log.info(`Rendering ${componentType} component with variant: ${data.variant || 'default'}`, { 
         componentType,
         hasVariant: !!data.variant,
@@ -218,12 +239,10 @@ export default function DynamicComponentRenderer({
         dataKeys: Object.keys(data)
       });
       
-      // Render the dynamically loaded component with mapped props
       return <DynamicComponent {...componentProps} />;
     } catch (error) {
       console.error(`Error rendering ${componentType} component:`, error);
       
-      // Fallback to default rendering on error
       return (
         <div className="p-4 border border-red-300 bg-red-50 rounded">
           <p className="text-red-700 font-medium">Error rendering {componentType} component</p>
@@ -233,7 +252,6 @@ export default function DynamicComponentRenderer({
     }
   }
   
-  // Fallback UI for unregistered component types
   return (
     <div className="component-default">
       <div className="flex items-center justify-between mb-3">
