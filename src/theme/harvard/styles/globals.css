@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+
+@config '../tailwind.config.js';
+
+/* Base styles for compatibility with Tailwind v4 */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+:root {
+  /* Harvard specific colors */
+  --harvard-crimson: #A51C30;
+  --harvard-black: #000000;
+  --harvard-white: #FFFFFF;
+  --harvard-gray: #8C8179;
+  --harvard-gold: #C8AA76;
+
+  /* Existing colors */
+  --charcoal: #6d6e71;
+  --charcoal-20: #d1d3d433;
+  /* ...other color definitions... */
+}
+
+body {
+  @apply bg-white;
+  font-family: var(--font-sans);
+}
+
+/* Additional Harvard-specific styles can go here */

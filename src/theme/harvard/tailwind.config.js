@@ -1,4 +1,4 @@
-const { fontFamily } = require("tailwindcss/harvardTheme")
+const { fontFamily } = require("tailwindcss/defaultTheme")  // Fixed import path
 
 // const extendConfig = require(`@conversiondigital/headless-basics-components/src/theme/${process.env.SITE_THEME || "harvard"}/tailwind.extend`);
 
@@ -63,6 +63,13 @@ module.exports = {
           "my-dark-blue": "var(--dark-blue)",
           "my-dark-blue-400": "var(--dark-blue-400)",
   
+          // Harvard specific colors
+          "harvard-crimson": "#A51C30",
+          "harvard-black": "#000000",
+          "harvard-white": "#FFFFFF",
+          "harvard-gray": "#8C8179",
+          "harvard-gold": "#C8AA76",
+          
           // need to be updated
           primary: "#570df8",
           primaryText: "#fff",
