@@ -1,8 +1,24 @@
 import { defineField, defineType } from 'sanity'
-import heroButton from './schema/sanity-hero-button'
 import {EyeOpenIcon} from '@sanity/icons'
 
 
+const heroButton = defineType({
+  name: 'heroButton',
+  title: 'Hero Button',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'label',
+      title: 'Label',
+      type: 'string',
+    }),
+    defineField({
+      name: 'link',
+      title: 'Link',
+      type: 'url',
+    }),
+  ],
+})
 export const heroFields = [
   defineField({
     name: 'title',
