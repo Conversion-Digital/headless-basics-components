@@ -1,6 +1,6 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import PostNote from "./PostNote";
+import PostNote from "./postnote";
 
 const meta: Meta<typeof PostNote> = {
   title: "Components/Data Display/PostNote",

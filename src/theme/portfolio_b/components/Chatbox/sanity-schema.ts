@@ -1,33 +1,33 @@
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'chatBox',
-  title: 'Chat Box',
+  name: 'chatBoxComponent',
+  title: 'ChatBox',
   type: 'object',
   fields: [
     defineField({
       name: 'message',
       title: 'Message',
       type: 'string',
-      description: 'The message displayed in the chat box.',
+      description: 'The message to display inside the chatbox',
     }),
     defineField({
       name: 'width',
       title: 'Width',
       type: 'number',
-      description: 'Width of the chat box.',
+      description: 'The width of the chatbox in pixels',
     }),
     defineField({
       name: 'height',
       title: 'Height',
       type: 'number',
-      description: 'Height of the chat box.',
+      description: 'The height of the chatbox in pixels',
     }),
     defineField({
       name: 'animationDuration',
       title: 'Animation Duration',
       type: 'number',
-      description: 'Duration of the animation in seconds.',
+      description: 'The duration of the animation in seconds',
     }),
     defineField({
       name: 'variant',
@@ -39,7 +39,7 @@ export default defineType({
           { title: 'Flip', value: 'flip' },
         ],
       },
-      description: 'Style variant of the chat box.',
+      description: 'The variant of the chatbox (default or flip)',
     }),
     defineField({
       name: 'contentAlignment',
@@ -48,11 +48,11 @@ export default defineType({
       options: {
         list: [
           { title: 'Left', value: 'left' },
-          { title: 'Right', value: 'right' },
           { title: 'Center', value: 'center' },
+          { title: 'Right', value: 'right' },
         ],
       },
-      description: 'Alignment of the content inside the chat box.',
+      description: 'The alignment of the content inside the chatbox',
     }),
   ],
 });

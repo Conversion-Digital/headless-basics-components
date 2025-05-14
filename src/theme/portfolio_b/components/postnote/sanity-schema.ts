@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'postNote',
+  name: 'postnote',
   title: 'Post Note',
   type: 'object',
   fields: [
@@ -52,6 +52,28 @@ export default defineType({
       title: 'Height',
       type: 'number',
       description: 'Height of the note container.',
+    }),
+    defineField({
+      name: 'globalComponentSource',
+      title: 'Global Component Source',
+      type: 'reference',
+      to: [{type: 'hero'}],
+      description: 'Select a component hero that is a global reusable source.'
+    }),
+    defineField({
+      name: 'sortOrder',
+      title: 'Sort Order',
+      type: 'number'
+    }),
+    defineField({
+      name: 'selectableVariant',
+      title: 'Selectable Variant',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Default', value: 'Default' },
+        ]
+      }
     }),
   ],
 });

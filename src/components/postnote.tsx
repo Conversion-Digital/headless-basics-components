@@ -13,7 +13,7 @@ interface PostNoteProps {
   variant?: 'default'; // Style variant
 }
 
-const PostNote: React.FC<PostNoteProps> = ({
+const postnote: React.FC<PostNoteProps> = ({
   title,
   date,
   description,
@@ -163,4 +163,4 @@ const PostNote: React.FC<PostNoteProps> = ({
   );
 };
 
-export default PostNote;
+export default postnote;

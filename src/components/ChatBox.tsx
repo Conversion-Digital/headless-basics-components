@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ChatBoxProps {
+export interface ChatBoxProps { // Explicitly export the interface
   message: string;
   width?: number;
   height?: number;
