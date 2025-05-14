@@ -38,6 +38,13 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
 
   if (globalDataResult) {
     logger.trace(`${logPrefix()}[mapGridBlockData][6][${pageAndComponentCombo?.page.preliminarySlug}] globalDataResult :::: `);
+    
+    if (globalDataResult && typeof globalDataResult === 'object' && 
+        'componentsGrid' in globalDataResult && 
+        Array.isArray(globalDataResult.componentsGrid)) {
+      await retrieveSubComponents(globalDataResult, pageAndComponentCombo);
+    }
+    
     return globalDataResult;
   }
 
@@ -45,6 +52,8 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
     if (matchingResult.componentsGrid && Array.isArray(matchingResult.componentsGrid)) {
       logger.trace(`${logPrefix()} Found ${matchingResult.componentsGrid.length} components in the grid`);
       matchingResult.componentsGrid = matchingResult.componentsGrid.filter(Boolean);
+      
+      await retrieveSubComponents(matchingResult, pageAndComponentCombo);
     } else {
       logger.trace(`${logPrefix()} No components grid data found`);
       matchingResult.componentsGrid = [];
@@ -160,4 +169,88 @@ async function urlToFriendly(matchingDataArray: unknown, languageSite: LanguageS
     await processRawUrlsOnServer(matchingDataArray, languageSite, "url");
   }
   return matchingDataArray;
+}
+
+/**
+ * Retrieves additional data for sub-components within a grid block
+ * Similar to how it's implemented in the accordion component
+ */
+export async function retrieveSubComponents(
+  matchingResult: any,
+  pageAndComponentCombo: PageAndSingleComponentDetails
+) {
+  if (matchingResult && Array.isArray(matchingResult.componentsGrid)) {
+    logger.trace(`${logPrefix()} Starting retrieveSubComponents for ${matchingResult.componentsGrid.length} grid items`);
+    
+    // Process each component in the grid
+    const promises = matchingResult.componentsGrid.map(
+      async (item: any, index: number) => {
+        // Skip if item is already processed or doesn't have a type
+        if (!item || !(item.contentTypeAlias || item._type)) {
+          logger.warn(`${logPrefix()} Grid item ${index} has no type property, skipping`);
+          return;
+        }
+        
+        const itemType = item.contentTypeAlias || item._type;
+        
+        // Create a unique ID for tracking
+        const itemId = item.id || item._id || `grid-item-${index}-${Math.random().toString(36).substring(2, 9)}`;
+        
+        try {
+          logger.trace(`${logPrefix()} Processing grid item ${index} of type ${itemType} with ID ${itemId}`);
+          
+          // If the item has a URL or reference ID that needs to be resolved
+          if (item.url || item.datasource?.url) {
+            const slug = item.url || item.datasource?.url;
+            logger.trace(`${logPrefix()} Item has reference: ${slug}`);
+            
+            pageAndComponentCombo.page.source += `> mapIdentifierData() > retrieveSubComponents(${slug})`;
+            
+            // Create a data item for the component lookup
+            const dataItem = {
+              id: item.id || item.datasource?.id || itemId,
+              name: item.name || item.title || `${itemType} component`,
+              url: slug,
+              __typename: itemType.toLowerCase(),
+              order: item.order || index,
+              sortOrder: item.sortOrder || index,
+              baseComponentDefinition: {} as DynamicDataCmsProperties,
+            };
+            
+            // Load additional data for this component
+            const component = await loadSingleComponentGraphQLData(
+              dataItem,
+              pageAndComponentCombo.page,
+              slug
+            );
+            
+            // Merge the fetched data with the original item
+            if (component && component.data) {
+              logger.trace(`${logPrefix()} Successfully loaded additional data for component ${itemId}`);
+              // Copy all properties except specific ones we want to preserve
+              Object.keys(component.data as Record<string, any>).forEach((key) => {
+                if (!["contentTypeAlias", "_type", "_key", "_id", "id"].includes(key)) {
+                  item[key] = (component.data as Record<string, any>)[key];
+                }
+              });
+              
+              // Mark the item as loaded
+              item._loaded = true;
+            } else {
+              logger.warn(`${logPrefix()} Failed to load additional data for component ${itemId}`);
+            }
+          } else {
+            logger.trace(`${logPrefix()} Item has no reference URL, using as-is: ${itemId}`);
+          }
+        } catch (error) {
+          logger.error(`${logPrefix()} Error processing grid item ${index}: ${error}`);
+        }
+      }
+    );
+    
+    await Promise.all(promises);
+    logger.trace(`${logPrefix()} Completed retrieveSubComponents for all grid items`);
+  } else {
+    logger.trace(`${logPrefix()} No componentsGrid array found or it's empty`);
+  }
 } 

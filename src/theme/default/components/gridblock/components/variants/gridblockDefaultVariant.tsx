@@ -115,7 +115,7 @@ export default function GridblockDefaultVariant(props: StandardComponentProps) {
                 <div className="h-full bg-white rounded-lg shadow-sm p-6 flex flex-col">
                   <DynamicComponentRenderer 
                     item={item}
-                    loadedComponent={null} 
+                    loadedComponent={item._loaded ? item : null} 
                     blueprint={blueprint ? { ...blueprint } : null}
                   />
                 </div>
