@@ -10,6 +10,7 @@ export function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentD
     log.warn(`${logPrefix()}[carousel][mapIdentifierData] no data found`)
     return null
   }
+  console.log(`${logPrefix()}[carousel][mapIdentifierData] data: ${JSON.stringify(data)}`)
   const item = extractComponentsFromSanityData(data, "carousel", log)
   return item
 }

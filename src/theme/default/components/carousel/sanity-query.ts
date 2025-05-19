@@ -10,6 +10,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
         ... on Carousel {
             _type
             selectableVariant
+            sortOrder
             images {
               asset {
                 url
@@ -23,7 +24,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
         components {
           ... on Carousel {
             _type
-            selectableVariant
+            sortOrder
             images {
               asset {
                 url

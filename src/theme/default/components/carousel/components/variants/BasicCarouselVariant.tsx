@@ -10,6 +10,8 @@ export function BasicCarouselVariant(props: StandardComponentProps) {
 
   return (
     <section className="w-full flex flex-col p-6">
+      carousel
+      {JSON.stringify(matchingData)}
       {title && <h2 className="text-xl font-bold mb-4">{title}</h2>}
       <CarouselScroller speed={40}>
         {images.map((img: any, idx: number) => (
