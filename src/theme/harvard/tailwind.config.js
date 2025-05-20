@@ -18,10 +18,12 @@ module.exports = {
       "./../headless-basics-components/src/theme/default/**/*.{ts,tsx}",
       "../../node_modules/@conversiondigital/headless-basics-components/src/theme/default/**/*.{ts,tsx}",
       "./../../../headless-basics-components/src/theme/default/**/*.{ts,tsx}",
+
       "./node_modules/@conversiondigital/headless-basics-components/src/theme/harvard/**/*.{ts,tsx}",
       "./../headless-basics-components/src/theme/harvard/**/*.{ts,tsx}",
-      "../../node_modules/@conversiondigital/headless-basics-components/src/harvard/default/**/*.{ts,tsx}",
+      "../../node_modules/@conversiondigital/headless-basics-components/src/theme/harvard/**/*.{ts,tsx}",
       "./../../../headless-basics-components/src/theme/harvard/**/*.{ts,tsx}",
+      
       "./node_modules/@conversiondigital/headless-basics-components/src/components/**/*.{ts,tsx}",
       "../../node_modules/@conversiondigital/headless-basics-components/src/components/**/*.{ts,tsx}",
       "./../headless-basics-components/src/components/**/*.{ts,tsx}",
