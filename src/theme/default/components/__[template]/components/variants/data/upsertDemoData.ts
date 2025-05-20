@@ -27,10 +27,10 @@ try {
       _key: componentDocId,
       _type: componentName,
       selectableVariant: demoVariantData.variant || "",
-      title: demoVariantData.title || "",
-      heading: demoVariantData.heading || "",
-      subtitle: demoVariantData.subtitle || "",
-      sortOrder: demoVariantData.sortOrder || 0,
+      title: (demoVariantData as any)?.title || "",
+      heading: (demoVariantData as any)?.heading || "",
+      subtitle: (demoVariantData as any)?.subtitle || "",
+      sortOrder: (demoVariantData as any)?.sortOrder || 0,
     },
   ];
   upsertDemoDataIfBlank(componentName, componentDocId, pageDocId, components);

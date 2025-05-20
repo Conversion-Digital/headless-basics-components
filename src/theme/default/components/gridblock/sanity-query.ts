@@ -53,9 +53,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
           }
           globalComponentSource{
               __typename
-              componentsGrid{
-                  __typename
-              }
           }
           selectableVariant
           sortOrder
