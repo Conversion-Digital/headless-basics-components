@@ -2,11 +2,19 @@ import React from "react";
 import Image from "next/image";
 import { StandardComponentProps } from "../../../../../../interfaces/standardComponentProps";
 import { CarouselScroller } from "../CarouselScroller";
+import { getLogger } from "@conversiondigital/headless-basics-data/src";
 
 export function BasicCarouselVariant(props: StandardComponentProps) {
   const { matchingData } = props;
   const title = matchingData?.title;
   const images = matchingData?.images || [];
+  const log = getLogger("ata.headless.components.carousel.default")
+  
+  log.trace(
+    `BasicCarouselVariant component: variant: default matchingData: ${JSON.stringify(
+      matchingData
+    )}`
+  );
 
   return (
     <section className="w-full flex flex-col p-6">

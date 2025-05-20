@@ -9,6 +9,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
         __typename
         ... on Carousel {
             _type
+            __typename
             selectableVariant
             sortOrder
             images {
@@ -24,6 +25,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails){
         components {
           ... on Carousel {
             _type
+            __typename
             sortOrder
             images {
               asset {
