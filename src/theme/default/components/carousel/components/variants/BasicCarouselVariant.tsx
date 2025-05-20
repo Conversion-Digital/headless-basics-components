@@ -18,7 +18,7 @@ export function BasicCarouselVariant(props: StandardComponentProps) {
 
   return (
     <section className="w-full flex flex-col p-6">
-      carousel
+      carousel v2
       {JSON.stringify(matchingData)}
       {title && <h2 className="text-xl font-bold mb-4">{title}</h2>}
       <CarouselScroller speed={40}>
