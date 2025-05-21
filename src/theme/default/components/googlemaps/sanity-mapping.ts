@@ -2,8 +2,10 @@ import { log, logPrefix, PageAndSingleComponentDetails, extractComponentsFromSan
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[googlemaps][sanity-mapping][mapIdentifierData] started for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
-  const data = pageAndComponentCombo?.component?.data
-  const matchingComponent = extractComponentsFromSanityData(data, "GoogleMaps", log)
+  const data = pageAndComponentCombo?.component?.data;
+  const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
+  log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
+  const matchingComponent = extractComponentsFromSanityData(data, "GoogleMaps", log , true, '', thisComponentsOrder);
   return {
     ...matchingComponent,
     componentDocumentation: "/library/googlemaps",

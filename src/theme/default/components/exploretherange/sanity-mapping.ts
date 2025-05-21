@@ -2,8 +2,10 @@ import { log, logPrefix, PageAndSingleComponentDetails, extractComponentsFromSan
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[exploreTheRange][sanity-mapping][mapIdentifierData] started for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
-  const data = pageAndComponentCombo?.component?.data
-  const matchingComponent = extractComponentsFromSanityData(data, "ExploreTheRange", log)
+  const data = pageAndComponentCombo?.component?.data;
+  const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
+  log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
+  const matchingComponent = extractComponentsFromSanityData(data, "ExploreTheRange", log, true, '', thisComponentsOrder);
   return {
     ...matchingComponent,
     componentDocumentation: "/library/exploreTheRange",
