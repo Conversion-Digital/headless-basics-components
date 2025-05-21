@@ -9,8 +9,10 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   );
   
   const content = pageAndComponentCombo?.component?.data;
+  const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
+  log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
   
-  let matchingData = extractComponentsFromSanityData(content, "Gridblock", log);
+  let matchingData = extractComponentsFromSanityData(content, "Gridblock", log, true, '', thisComponentsOrder);
   
   if (matchingData) {
     if (matchingData.componentsGrid && Array.isArray(matchingData.componentsGrid)) {

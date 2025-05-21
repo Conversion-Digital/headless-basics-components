@@ -2,8 +2,10 @@ import { log, logPrefix, PageAndSingleComponentDetails, extractComponentsFromSan
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[phoneBlock][sanity-mapping][mapIdentifierData] started for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
-  const data = pageAndComponentCombo?.component?.data
-  const matchingComponent = extractComponentsFromSanityData(data, "PhoneBlock", log)
+  const data = pageAndComponentCombo?.component?.data;
+  const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
+  log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
+  const matchingComponent = extractComponentsFromSanityData(data, "PhoneBlock", log, true, '', thisComponentsOrder);
   return {
     ...matchingComponent,
     componentDocumentation: "/library/phoneblock",
