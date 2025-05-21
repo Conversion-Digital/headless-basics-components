@@ -27,7 +27,7 @@ const postnote: React.FC<PostNoteProps> = ({
     <div
       id="root"
       className={clsx(
-        'relative flex items-center justify-center mx-auto', // Add centering styles
+        'relative flex items-center justify-center mx-auto ' , 
       )}
       style={{ width: `${width}px`, height: `${height}px`, transform: 'translate(8%, 0%)' }}
     >
@@ -96,7 +96,7 @@ const postnote: React.FC<PostNoteProps> = ({
         id="post-note-text"
         className="relative text-center border border-green-500"
         style={{
-          width: '75%',
+          width: '38%',
           height: '70%',
           transform: 'translate(-7%, -5%)',
           overflow: 'hidden', // Hide overflow content
