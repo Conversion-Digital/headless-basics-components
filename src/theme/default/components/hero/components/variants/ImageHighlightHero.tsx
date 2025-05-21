@@ -15,7 +15,7 @@ const ImageHighlightHero: React.FC<StandardComponentProps> = ({ blueprint, compo
   return (
     <div className="relative z-10 w-full">
       <Suspense>
-        <DevButton metaData={componentInformation.metaData as ComponentMetaData} />
+        <DevButton metaData={componentInformation?.metaData as ComponentMetaData} />
       </Suspense>
       <Hero className="relative z-10 h-[calc(100vh-75px)] overflow-hidden bg-charcoal bg-blend-multiply md:h-[calc(100vh-175px)]">
         {hasImage && (
