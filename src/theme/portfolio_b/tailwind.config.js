@@ -6,15 +6,21 @@ module.exports = {
     "pages/**/*.{ts,tsx}",
     "theme/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
+
     "./node_modules/@conversiondigital/headless-basics-components/src/components/**/*.{ts,tsx}",
     "./../headless-basics-components/src/components/**/*.{ts,tsx}",
+    "../../node_modules/@conversiondigital/headless-basics-components/src/components/**/*.{ts,tsx}",
     "./../../../headless-basics-components/src/components/**/*.{ts,tsx}",
+    
     "./node_modules/@conversiondigital/headless-basics-components/src/theme/default/**/*.{ts,tsx}",
     "./../headless-basics-components/src/theme/default/**/*.{ts,tsx}",
+    "../../node_modules/@conversiondigital/headless-basics-components/src/theme/default/**/*.{ts,tsx}",
     "./../../../headless-basics-components/src/theme/default/**/*.{ts,tsx}",
-    "./node_modules/@conversiondigital/headless-basics-components/src/theme/corporate1/**/*.{ts,tsx}",
-    "./../headless-basics-components/src/theme/corporate1/**/*.{ts,tsx}",
-    "./../../../headless-basics-components/src/theme/corporate1/**/*.{ts,tsx}",
+    
+    "./node_modules/@conversiondigital/headless-basics-components/src/theme/portfolio_b/**/*.{ts,tsx}",
+    "./../headless-basics-components/src/theme/portfolio_b/**/*.{ts,tsx}",
+    "../../node_modules/@conversiondigital/headless-basics-components/src/theme/portfolio_b/**/*.{ts,tsx}",
+    "./../../../headless-basics-components/src/theme/portfolio_b/**/*.{ts,tsx}",
     './src/**/*.{js,jsx,ts,tsx}'
   ],
   colors: {
