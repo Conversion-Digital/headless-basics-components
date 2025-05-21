@@ -10,6 +10,8 @@ export function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentD
     log.warn(`${logPrefix()}[carousel][mapIdentifierData] no data found`)
     return null
   }
-  const item = extractComponentsFromSanityData(data, "carousel", log)
+  const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
+  log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
+  const item = extractComponentsFromSanityData(data, "carousel", log, true, '', thisComponentsOrder)
   return item
 }
