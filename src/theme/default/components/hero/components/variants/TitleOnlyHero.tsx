@@ -20,20 +20,20 @@ const TitleOnlyHero: React.FC<StandardComponentProps> = ({ blueprint, componentI
       <Suspense>
         {componentInformation.metaData && <DevButton metaData={componentInformation.metaData} />}
       </Suspense>
-      <Hero className="relative overflow-hidden bg-[#D1D3D433] font-urbanist sm:min-h-81">
+      <Hero className="relative overflow-hidden bg-white font-urbanist sm:min-h-81">
         {componentInformation.pageDefinition && (
           <Breadcrumbs
             className="container! row-start-1 my-8 w-full self-baseline"
             data={blueprint.breadcrumbItems}
             seperatorIcon={<span>/</span>}
-            itemClassName="font-urbanist text-xs font-500 uppercase tracking-0.1em text-my-blue"
+            itemClassName="font-urbanist text-xs font-500 uppercase tracking-0.1em text-gray-900"
             slug={componentInformation.pageDefinition.preliminarySlug || ''}
           />
         )}
         <Hero.Content className="container! row-start-2 self-start">
           <div className={`flex w-full flex-col ${alignItemsClass}`}>
             <h1
-              className={`text-h3 font-800 leading-h3 text-my-blue md:text-h2 md:leading-h2 ${textAlignClass}`}
+              className={`text-h3 font-800 leading-h3 text-gray-800 md:text-h2 md:leading-h2 ${textAlignClass}`}
               dangerouslySetInnerHTML={{
                 __html: formatHeading(matchingData.heading) || '',
               }}
