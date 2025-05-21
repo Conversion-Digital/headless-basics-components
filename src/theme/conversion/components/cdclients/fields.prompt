@@ -1,0 +1,12 @@
+## cdclients Fields
+- selectableVariant (string): "default" or "xDemo" 
+- sortOrder (number)
+- title (string): Title for the section
+- subtitle (string): Optional short tagline
+- clientsList (array of objects): Each has:
+  - name (string)
+  - link (url)
+  - logo (image)
+
+## Additional Notes
+The fields were derived from the example images and the typical approach for listing logos or partner items.

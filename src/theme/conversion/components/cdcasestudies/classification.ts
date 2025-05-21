@@ -1,0 +1,1 @@
+export default ["cdcasestudies", "case studies", "cdcasestudiesVariant"];

@@ -1,0 +1,20 @@
+Fields for cdpartners:
+1) selectableVariant: string
+   - "default" or "xDemo"
+
+2) sortOrder: number
+   - the display order on a page
+
+3) title: string
+   - main heading for partners
+
+4) subtitle: string
+   - subtext or tagline
+
+5) partnerLogos: array of objects
+   - partnerName: string
+   - link: string (url)
+   - image: "image" field with asset reference
+
+6) globalComponentSource
+   - reference to another cdpartners object

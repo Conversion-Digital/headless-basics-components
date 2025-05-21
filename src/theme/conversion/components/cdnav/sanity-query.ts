@@ -18,18 +18,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 url
               }
             }
-            isTransparent
             links {
               label
               url
             }
-            dropdownMenus {
-              label
-              dropdownLinks {
-                label
-                url
-              }
-            }
+            backgroundColor
             sortOrder
             globalComponentSource {
               __typename
@@ -37,7 +30,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               _type
               title
               subtitle
-              isTransparent
               logo {
                 asset {
                   url
@@ -47,16 +39,8 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 label
                 url
               }
-              dropdownMenus {
-                label
-                dropdownLinks {
-                  label
-                  url
-                }
-              }
+              backgroundColor
             }
-            buttonText
-            buttonUrl
           }
         }
       }
@@ -75,18 +59,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 url
               }
             }
-            isTransparent
             links {
               label
               url
             }
-            dropdownMenus {
-              label
-              dropdownLinks {
-                label
-                url
-              }
-            }
+            backgroundColor
             sortOrder
             globalComponentSource {
               __typename
@@ -94,7 +71,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               _type
               title
               subtitle
-              isTransparent
               logo {
                 asset {
                   url
@@ -104,16 +80,8 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 label
                 url
               }
-              dropdownMenus {
-                label
-                dropdownLinks {
-                  label
-                  url
-                }
-              }
+              backgroundColor
             }
-            buttonText
-            buttonUrl
           }
         }
       }

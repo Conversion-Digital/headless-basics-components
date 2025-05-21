@@ -1,95 +1,48 @@
-import React from "react";
-import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
-import { getCmsImage } from "@conversiondigital/headless-basics-data/src/cms/tools/multiCmsImageTools";
+import React from "react"
+import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps"
+import { getCmsImage } from "@conversiondigital/headless-basics-data/src/cms/tools/multiCmsImageTools"
 
-export default function cdnavDefaultVariant(props: StandardComponentProps) {
-  const { blueprint, componentInformation, matchingData } = props;
-  const subtitle = matchingData?.subtitle || "";
-  const isTransparent = matchingData?.isTransparent === true;
-  const logo = matchingData?.logo?.asset?.url || null;
-  const links = matchingData?.links || [];
-  const dropdownMenus = matchingData?.dropdownMenus || [];
-  const buttonText = matchingData?.buttonText || "Contact Us";
-  const buttonUrl = matchingData?.buttonUrl || "#";
-
-  const { hasImage: hasMobile, imageLocation: mobileSrc } = getCmsImage({ image: matchingData?.mobileImage });
-  const { hasImage: hasDesktop, imageLocation: desktopSrc } = getCmsImage({ image: matchingData?.desktopImage });
-
+const DefaultVariant: React.FC<StandardComponentProps> = ({ matchingData }) => {
+  const { hasImage, imageLocation } = getCmsImage(matchingData?.logo)
+  const backgroundColor = matchingData?.backgroundColor || "#0D0E47"
+  const links = matchingData?.links || []
   return (
-    <nav className={`${isTransparent ? "bg-transparent" : "bg-[#FFFFFF]"} text-[#000] p-4 sticky top-0 z-50`}>
+    <nav
+      className="text-[#ffffff] px-6 py-4"
+      style={{ backgroundColor }}
+    >
       <div className="container mx-auto flex items-center justify-between">
-        <div>
-          {logo ? (
-            <div>
-              <img src={logo} alt="Nav Logo" className="w-[179px] h-[71px] object-contain" />
-            </div>
+        <div className="flex items-center gap-4">
+          {hasImage ? (
+            <img
+              src={imageLocation}
+              alt="logo"
+              className="h-8 w-auto object-contain"
+            />
           ) : (
-            <p>No Logo</p>
+            <span className="font-bold text-white">
+              {matchingData?.title || "CDNav Default"}
+            </span>
           )}
-          {subtitle && <p className="text-sm">{subtitle}</p>}
+          {matchingData?.subtitle && (
+            <span className="text-sm text-white/80">{matchingData.subtitle}</span>
+          )}
         </div>
-        <div className="flex items-center gap-14">
-          <div className="inline-flex justify-end items-center gap-14">
-            {dropdownMenus.length > 0 && (
-              <div className="relative group">
-                <button className="text-centertext-Color-Navy text-xltracking-wide hover:underline hover:decoration-[#800928] hover:underline-offset-8 pt-[6px] pb-[5px] flex items-center gap-1">
-                  {dropdownMenus[0].label}
-                  <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-gray-400 group-hover:border-t-[#0D0E47] transition-transform duration-300 group-hover:rotate-180" />
-                </button>
-                <div className="w-2 bg-Color-Navy rounded-[0.40px] " />
-                <ul className="absolute hidden group-hover:block top-full left-0 bg-white shadow-md rounded-md p-2 min-w-[200px] z-10 before:content-[''] before:absolute before:-top-2 before:left-1 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-b-white">
-                  {dropdownMenus[0].dropdownLinks?.map((link: any, linkIdx: number) => (
-                    <li key={linkIdx} className="py-1">
-                      <a href={link.url ?? "#"} className="hover:underline hover:decoration-[#800928] hover:underline-offset-8 block">
-                        {link.label ?? "Dropdown Link"}
-                      </a>
-                    </li>
-                  ))}
-                  {dropdownMenus.length > 1 && (
-                    <li className="relative group/nested py-1">
-                      <button className="hover:underline hover:decoration-[#800928] hover:underline-offset-8 block w-full text-left flex items-center justify-between">
-                        {dropdownMenus[1].label}
-                        <div className="w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[6px] border-l-gray-400 group-hover/nested:border-l-[#0D0E47]" />
-                      </button>
-                      <ul className="absolute hidden group-hover/nested:block left-full top-0 bg-white shadow-md rounded-md p-2 min-w-[200px] z-20 before:content-[''] before:absolute before:top-3 before:-left-2 before:border-8 before:border-transparent before:border-r-white before:rotate-180">
-                        {dropdownMenus[1].dropdownLinks?.map((link: any, linkIdx: number) => (
-                          <li key={linkIdx} className="py-1">
-                            <a href={link.url ?? "#"} className="hover:underline hover:decoration-[#800928] hover:underline-offset-8 block">
-                              {link.label ?? "Dropdown Link"}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  )}
-                </ul>
-              </div>
-            )}
-            {links.map((linkItem: any, idx: number) => (
-              <div key={idx} className="text-center justify-start text-Color-Navy tracking-wide">
-                <a href={linkItem.url ?? "#"} className="hover:underline hover:decoration-[#800928] hover:underline-offset-8 pt-[6px] pb-[5px]">
-                  {linkItem.label ?? "Nav Link"}
-                </a>
-              </div>
-            ))}
-          </div>
-          <a 
-            href={buttonUrl}
-            className="bg-[#800928] hover:bg-blue-950 font-semibold text-xl text-white px-6 py-2 rounded-full hover:bg-opacity-80 transition-colors px-10 py-4 rounded-[50px] inline-flex justify-center items-center gap-2.5"
-          >
-            {buttonText}
-          </a>
-        </div>
-      </div>
-
-      <div className="mt-4 flex flex-col gap-2">
-        {hasMobile && (
-          <img src={mobileSrc} alt="Mobile Nav" className="w-auto h-16 object-cover" />
-        )}
-        {hasDesktop && (
-          <img src={desktopSrc} alt="Desktop Nav" className="w-auto h-16 object-cover" />
-        )}
+        <ul className="flex gap-6">
+          {links.map((linkItem: any, idx: number) => (
+            <li key={idx}>
+              <a
+                href={linkItem.url ?? "#"}
+                className="text-white hover:underline"
+              >
+                {linkItem.label ?? "Link"}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
-  );
-};
+  )
+}
+
+export default DefaultVariant

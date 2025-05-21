@@ -1,0 +1,13 @@
+## cdcasestudies Fields
+
+- selectableVariant (string): "default" or "xDemo"
+- sortOrder (number): numeric order
+- title (string): main heading
+- subtitle (string): secondary text
+- items (array): list of case study items
+  - title (string): item title
+  - description (text): item description
+  - image (image): optional image
+  - link (url): optional link
+
+These fields were selected to display a typical "Case Studies" section.

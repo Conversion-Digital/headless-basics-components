@@ -1,6 +1,45 @@
 import { defineField, defineType } from 'sanity'
 import { EyeOpenIcon } from '@sanity/icons'
 
+// Define the dropdownMenu type
+export const dropdownMenu = defineType({
+  name: 'dropdownMenu',
+  title: 'Dropdown Menu',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'title',
+      title: 'Menu Title',
+      type: 'string'
+    }),
+    defineField({
+      name: 'links',
+      title: 'Menu Links',
+      type: 'array',
+      of: [{ type: 'linkItem' }]
+    })
+  ]
+})
+
+// Define the linkItem type
+export const linkItem = defineType({
+  name: 'linkItem',
+  title: 'Link Item',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'text',
+      title: 'Link Text',
+      type: 'string'
+    }),
+    defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'url'
+    })
+  ]
+})
+
 export default defineType({
   name: 'cdnav',
   title: 'Navigation (CD)', 

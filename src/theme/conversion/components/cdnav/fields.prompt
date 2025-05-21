@@ -1,14 +1,27 @@
-Fields:
-- selectableVariant (string)
-- title (string)
-- subtitle (string)
-- logo (image)
-- isTransparent (boolean)
-- mobileImage (image)
-- desktopImage (image)
-- links (array of linkItem)
-- sortOrder (number)
-- globalComponentSource (reference to cdnav)
+# CDNav Fields
 
-Notes:
-We included these fields by referencing mobile/desktop images from the instructions. We also have a typical nav structure with links, a potential logo, and a title/subtitle.
+1. selectableVariant (string) 
+   - "default" or "xDemo" 
+   - Controls the variant rendered
+
+2. title (string) 
+   - The primary title displayed if logo is missing
+
+3. subtitle (string) 
+   - Additional line shown near the title or under it
+
+4. logo (image)
+   - Optional logo image
+
+5. links (array of objects)
+   - label (string)
+   - url (string)
+
+6. backgroundColor (string)
+   - hex or named color to style the nav background
+
+7. sortOrder (number)
+   - used for ordering multiple components
+
+8. globalComponentSource (reference)
+   - re-usable source for the nav

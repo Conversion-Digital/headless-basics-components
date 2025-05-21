@@ -1,0 +1,12 @@
+# cdservices Fields
+
+- selectableVariant (string): Allows user to choose "default" or "xDemo"
+- sortOrder (number): The order of the component on the page
+- title (string): Main heading for the services section
+- subtitle (string): Secondary text for the services section
+- image (image): Optional image displayed above the service list
+- servicesList (array): The actual list of services
+  - serviceItem
+    - title (string): Name of the service
+    - description (text): Short summary of what the service entails
+- globalComponentSource (reference): For referencing a global cdservices doc if desired
