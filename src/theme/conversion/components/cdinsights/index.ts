@@ -5,8 +5,9 @@ import { ThemeConfig } from "@conversiondigital/headless-basics-data/src/interfa
 getLogger("theme.components.cdinsights");
 
 async function getConfig(): Promise<ThemeConfig> {
-    const config = await getThemeConfig("cdinsights");
-    config.view = View;
-    return config;
+  const config = await getThemeConfig('cdinsights');
+  config.view = View;
+  return config;
 }
-export default getConfig;
+
+export default getConfig();

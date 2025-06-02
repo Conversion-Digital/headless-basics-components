@@ -44,7 +44,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               }
             }
             linkGroups {
-              groupTitle
+              title
               links {
                 label
                 url
@@ -88,7 +88,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 }
               }
               linkGroups {
-                groupTitle
+                title
                 links {
                   label
                   url
@@ -139,7 +139,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               }
             }
             linkGroups {
-              groupTitle
+              title
               links {
                 label
                 url
@@ -183,7 +183,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 }
               }
               linkGroups {
-                groupTitle
+                title
                 links {
                   label
                   url

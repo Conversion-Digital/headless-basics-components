@@ -12,12 +12,14 @@ export const partnerItem = defineType({
       type: 'string'
     }),
     defineField({
+      name: 'url',
+      title: 'Partner Website URL',
+      type: 'url'
+    }),
+    defineField({
       name: 'logo',
       title: 'Partner Logo',
-      type: 'image',
-      options: {
-        hotspot: true
-      }
+      type: 'image'
     })
   ]
 })
@@ -36,26 +38,18 @@ export default defineType({
         list: [
           { title: 'Default', value: 'default' },
           { title: 'Demo', value: 'xDemo' },
-        ],
-      },
-    }),
-    defineField({
-      name: 'sortOrder',
-      title: 'Sort Order',
-      type: 'number',
-      description: 'Order of the component when displayed on a page.'
+        ]
+      }
     }),
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'string',
-      description: 'Main heading for the partners section.'
+      type: 'string'
     }),
     defineField({
       name: 'subtitle',
       title: 'Subtitle',
-      type: 'string',
-      description: 'Subtitle or tagline for the partners section.'
+      type: 'string'
     }),
     defineField({
       name: 'partnerLogos',
@@ -64,11 +58,15 @@ export default defineType({
       of: [{ type: 'partnerItem' }]
     }),
     defineField({
+      name: 'sortOrder',
+      title: 'Sort Order',
+      type: 'number'
+    }),
+    defineField({
       name: 'globalComponentSource',
       title: 'Global Component Source',
       type: 'reference',
-      to: [{ type: 'cdpartners' }],
-      description: 'Select a global re-usable cdpartners component if desired.'
+      to: [{ type: 'cdpartners' }]
     })
   ],
   preview: {

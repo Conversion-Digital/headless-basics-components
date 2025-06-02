@@ -1,7 +1,8 @@
 import { defineField, defineType } from 'sanity';
 import { EyeOpenIcon } from '@sanity/icons';
 
-const clientItem = defineType({
+// Export the clientItem type
+export const clientItem = defineType({
   name: 'clientItem',
   title: 'Client Item',
   type: 'object',
@@ -12,20 +13,17 @@ const clientItem = defineType({
       type: 'string'
     }),
     defineField({
-      name: 'logo',
-      title: 'Client Logo',
-      type: 'image',
-      options: {
-        hotspot: true
-      }
+      name: 'link',
+      title: 'Client Website URL',
+      type: 'url'
     }),
     defineField({
-      name: 'link',
-      title: 'Client Link',
-      type: 'url'
+      name: 'logo',
+      title: 'Client Logo',
+      type: 'image'
     })
   ]
-})
+});
 
 export default defineType({
   name: 'cdclients',
@@ -35,7 +33,7 @@ export default defineType({
   fields: [
     defineField({
       name: 'selectableVariant',
-      title: 'Selectable Variant',
+      title: 'Selectable Variant', 
       type: 'string',
       options: {
         list: [
@@ -74,6 +72,18 @@ export default defineType({
       type: 'reference',
       to: [{ type: 'cdclients' }],
       description: 'Select a global re-usable cdclients component if desired.'
+    }),
+    defineField({
+      name: 'buttonText',
+      title: 'Button Text',
+      type: 'string',
+      description: 'Text to display on the button'
+    }),
+    defineField({
+      name: 'buttonUrl',
+      title: 'Button URL',
+      type: 'string',
+      description: 'URL for the button link'
     })
   ],
   preview: {

@@ -10,4 +10,4 @@ async function getConfig(): Promise<ThemeConfig> {
     return config;
 }
 
-export default getConfig;
+export default getConfig();

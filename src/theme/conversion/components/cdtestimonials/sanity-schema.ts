@@ -8,18 +8,14 @@ export const singleTestimonial = defineType({
     fields: [
       defineField({
         name: 'name',
-        title: 'Name',
+        title: 'Client Name',
         type: 'string'
       }),
       defineField({
-        name: 'role',
-        title: 'Role',
-        type: 'string'
-      }),
-      defineField({
-        name: 'company',
-        title: 'Company',
-        type: 'string'
+        name: 'position',
+        title: 'Position & Company',
+        type: 'string',
+        description: 'e.g. "CEO at Company Name" or "Marketing Director, Company Name"'
       }),
       defineField({
         name: 'testimonial',
@@ -28,7 +24,7 @@ export const singleTestimonial = defineType({
       }),
       defineField({
         name: 'image',
-        title: 'Image',
+        title: 'Client Image',
         type: 'image',
         options: {
           hotspot: true
@@ -36,6 +32,44 @@ export const singleTestimonial = defineType({
       })
     ]
   })
+
+export const videoTestimonial = defineType({
+  name: 'videoTestimonial',
+  title: 'Video Testimonial',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'name',
+      title: 'Client Name',
+      type: 'string'
+    }),
+    defineField({
+      name: 'position',
+      title: 'Position & Company',
+      type: 'string',
+      description: 'e.g. "CEO at Company Name" or "Marketing Director, Company Name"'
+    }),
+    defineField({
+      name: 'testimonial',
+      title: 'Testimonial Text',
+      type: 'text'
+    }),
+    defineField({
+      name: 'videoUrl',
+      title: 'Video URL',
+      type: 'url',
+      description: 'Enter the URL of the video (YouTube, Vimeo, etc.)'
+    }),
+    defineField({
+      name: 'thumbnail',
+      title: 'Video Thumbnail',
+      type: 'image',
+      options: {
+        hotspot: true
+      }
+    })
+  ]
+})
 
 export default defineType({
   name: 'cdtestimonials',
@@ -74,9 +108,27 @@ export default defineType({
     }),
     defineField({
       name: 'testimonials',
-      title: 'Testimonials',
+      title: 'Written Testimonials',
       type: 'array',
       of: [{ type: 'singleTestimonial' }]
+    }),
+    defineField({
+      name: 'videoTitle',
+      title: 'Video Testimonials Title',
+      type: 'string',
+      description: 'Heading for video testimonials section.'
+    }),
+    defineField({
+      name: 'videoSubtitle',
+      title: 'Video Testimonials Subtitle',
+      type: 'string',
+      description: 'Subtitle for video testimonials section.'
+    }),
+    defineField({
+      name: 'videoTestimonials',
+      title: 'Video Testimonials',
+      type: 'array',
+      of: [{ type: 'videoTestimonial' }]
     }),
     defineField({
       name: 'globalComponentSource',

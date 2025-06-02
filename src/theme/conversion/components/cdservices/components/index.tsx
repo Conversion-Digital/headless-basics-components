@@ -7,11 +7,11 @@ import DefaultVariant from "./variants/cdservicesDefaultVariant";
 
 export const log = getLogger("conversion.components.cdservices");
 
-export default function CdservicesUI(dynamicComponent: ViewComponentProps) {
+export default function TemplateUI(dynamicComponent: ViewComponentProps) {
   const { variant, matchingData } = componentBoilerPlate(dynamicComponent);
 
   if (!matchingData) return null;
-  log.trace(`${logPrefix()} cdservicesUI started, matchingData: ${JSON.stringify(matchingData)}`);
+  log.trace(`${logPrefix()} TemplateUI started, matchingData: ${JSON.stringify(matchingData)}`);
 
   switch (variant) {
     case "xDemo":

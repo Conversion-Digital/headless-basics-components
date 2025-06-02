@@ -1,5 +1,6 @@
 import { defineField, defineType, defineArrayMember } from 'sanity'
 import { EyeOpenIcon } from '@sanity/icons'
+import { linkItem } from '@conversiondigital/headless-basics-data/src/cms/sanity/sanityCommonSchema'
 
 // Define the socialLink type
 export const socialLink = defineType({
@@ -37,35 +38,16 @@ export const socialLink = defineType({
   ]
 })
 
-// Define the linkItem type
-export const linkItem = defineType({
-  name: 'linkItem',
-  title: 'Link Item',
-  type: 'object',
-  fields: [
-    defineField({
-      name: 'text',
-      title: 'Link Text',
-      type: 'string'
-    }),
-    defineField({
-      name: 'url',
-      title: 'URL',
-      type: 'url'
-    })
-  ]
-})
-
-// Define the linkGroup type
+// Define the link group type
 export const linkGroup = defineType({
-  name: 'linkGroup',
-  title: 'Link Group',
+  name: 'footerLinkGroup',
+  title: 'Footer Link Group',
   type: 'object',
   fields: [
     defineField({
-      name: 'groupTitle',
+      name: 'title',
       title: 'Group Title',
-      type: 'string',
+      type: 'string'
     }),
     defineField({
       name: 'links',
@@ -73,12 +55,31 @@ export const linkGroup = defineType({
       type: 'array',
       of: [{ type: 'linkItem' }]
     })
-  ],
-  preview: {
-    select: {
-      title: 'groupTitle'
-    }
-  }
+  ]
+})
+
+// Define additionalInformation as a top-level type
+export const additionalInformationType = defineType({
+  name: 'additionalInformationType',
+  title: 'Additional Information',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'phoneNumber',
+      title: 'Phone Number',
+      type: 'string'
+    }),
+    defineField({
+      name: 'email',
+      title: 'Email',
+      type: 'string'
+    }),
+    defineField({
+      name: 'address',
+      title: 'Address',
+      type: 'string'
+    })
+  ]
 })
 
 export default defineType({
@@ -157,7 +158,7 @@ export default defineType({
       name: 'linkGroups',
       title: 'Link Groups',
       type: 'array',
-      of: [{ type: 'linkGroup' }]
+      of: [{ type: 'footerLinkGroup' }]
     }),
     defineField({
       name: 'copyrightMessage',
@@ -176,6 +177,11 @@ export default defineType({
       type: 'reference',
       to: [{ type: 'cdfooter' }],
       description: 'Select a global re-usable cdfooter.'
+    }),
+    defineField({
+      name: 'additionalInformation',
+      title: 'Additional Information',
+      type: 'additionalInformationType'
     })
   ],
   preview: {
@@ -184,3 +190,5 @@ export default defineType({
     }
   }
 })
+
+

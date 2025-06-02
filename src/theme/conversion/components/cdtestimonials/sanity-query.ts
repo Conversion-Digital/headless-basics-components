@@ -11,31 +11,54 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             _key
             _type
             selectableVariant
-            sortOrder
             title
             subtitle
             testimonials {
-              clientName
-              clientCompany
-              quote
-              logo {
+              name
+              position
+              testimonial
+              image {
                 asset {
                   url
                 }
               }
             }
+            videoTitle
+            videoSubtitle
+            videoTestimonials {
+              name
+              position
+              testimonial
+              videoUrl
+              thumbnail {
+                asset {
+                  url
+                }
+              }
+            }
+            sortOrder
             globalComponentSource {
               __typename
               _key
               _type
-              selectableVariant
               title
               subtitle
               testimonials {
-                clientName
-                clientCompany
-                quote
-                logo {
+                name
+                position
+                testimonial
+                image {
+                  asset {
+                    url
+                  }
+                }
+              }
+              videoTestimonials {
+                name
+                position
+                testimonial
+                videoUrl
+                thumbnail {
                   asset {
                     url
                   }
@@ -53,31 +76,54 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             _key
             _type
             selectableVariant
-            sortOrder
             title
             subtitle
             testimonials {
-              clientName
-              clientCompany
-              quote
-              logo {
+              name
+              position
+              testimonial
+              image {
                 asset {
                   url
                 }
               }
             }
+            videoTitle
+            videoSubtitle
+            videoTestimonials {
+              name
+              position
+              testimonial
+              videoUrl
+              thumbnail {
+                asset {
+                  url
+                }
+              }
+            }
+            sortOrder
             globalComponentSource {
               __typename
               _key
               _type
-              selectableVariant
               title
               subtitle
               testimonials {
-                clientName
-                clientCompany
-                quote
-                logo {
+                name
+                position
+                testimonial
+                image {
+                  asset {
+                    url
+                  }
+                }
+              }
+              videoTestimonials {
+                name
+                position
+                testimonial
+                videoUrl
+                thumbnail {
                   asset {
                     url
                   }

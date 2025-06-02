@@ -11,29 +11,26 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             _key
             _type
             selectableVariant
-            sortOrder
             title
             subtitle
             partnerLogos {
-              partnerName
-              link
-              image {
+              name
+              logo {
                 asset {
                   url
                 }
               }
             }
+            sortOrder
             globalComponentSource {
               __typename
               _key
               _type
-              selectableVariant
               title
               subtitle
               partnerLogos {
-                partnerName
-                link
-                image {
+                name
+                logo {
                   asset {
                     url
                   }
@@ -51,29 +48,26 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             _key
             _type
             selectableVariant
-            sortOrder
             title
             subtitle
             partnerLogos {
-              partnerName
-              link
-              image {
+              name
+              logo {
                 asset {
                   url
                 }
               }
             }
+            sortOrder
             globalComponentSource {
               __typename
               _key
               _type
-              selectableVariant
               title
               subtitle
               partnerLogos {
-                partnerName
-                link
-                image {
+                name
+                logo {
                   asset {
                     url
                   }

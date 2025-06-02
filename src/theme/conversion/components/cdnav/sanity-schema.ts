@@ -1,41 +1,23 @@
 import { defineField, defineType } from 'sanity'
 import { EyeOpenIcon } from '@sanity/icons'
+import { linkItem } from '@conversiondigital/headless-basics-data/src/cms/sanity/sanityCommonSchema'
 
-// Define the dropdownMenu type
+// Define the dropdown menu type
 export const dropdownMenu = defineType({
-  name: 'dropdownMenu',
-  title: 'Dropdown Menu',
+  name: 'cdnavDropdownMenu',
+  title: 'Navigation Dropdown Menu',
   type: 'object',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Menu Title',
+      name: 'label',
+      title: 'Menu Label',
       type: 'string'
     }),
     defineField({
-      name: 'links',
-      title: 'Menu Links',
+      name: 'dropdownLinks',
+      title: 'Dropdown Links',
       type: 'array',
       of: [{ type: 'linkItem' }]
-    })
-  ]
-})
-
-// Define the linkItem type
-export const linkItem = defineType({
-  name: 'linkItem',
-  title: 'Link Item',
-  type: 'object',
-  fields: [
-    defineField({
-      name: 'text',
-      title: 'Link Text',
-      type: 'string'
-    }),
-    defineField({
-      name: 'url',
-      title: 'URL',
-      type: 'url'
     })
   ]
 })
@@ -43,7 +25,7 @@ export const linkItem = defineType({
 export default defineType({
   name: 'cdnav',
   title: 'Navigation (CD)', 
-  type: 'object',
+  type: 'document',
   icon: EyeOpenIcon,
   fields: [
     defineField({
@@ -82,6 +64,12 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'string',
+      initialValue: 'transparent'
+    }),
+    defineField({
       name: 'links',
       title: 'Links',
       type: 'array',
@@ -91,7 +79,7 @@ export default defineType({
       name: 'dropdownMenus',
       title: 'Dropdown Menus',
       type: 'array',
-      of: [{ type: 'dropdownMenu' }]
+      of: [{ type: 'cdnavDropdownMenu' }]
     }),
     defineField({
       name: 'sortOrder',
@@ -123,3 +111,6 @@ export default defineType({
     }
   }
 })
+
+
+

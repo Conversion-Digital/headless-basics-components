@@ -2,7 +2,7 @@ import { defineField, defineType, defineArrayMember } from 'sanity'
 import { EyeOpenIcon } from '@sanity/icons'
 
 // Define the case study item schema
-const caseStudyItem = defineType({
+export const caseStudyItem = defineType({
   name: 'caseStudyItem',
   title: 'Case Study Item',
   type: 'object',
@@ -80,6 +80,18 @@ export default defineType({
       type: 'reference',
       to: [{ type: 'cdcasestudies' }],
       description: 'Select a global re-usable cdcasestudies component if desired.'
+    }),
+    defineField({
+      name: 'buttonText',
+      title: 'Button Text',
+      type: 'string',
+      description: 'Text to display on the button'
+    }),
+    defineField({
+      name: 'buttonUrl',
+      title: 'Button URL',
+      type: 'string',
+      description: 'URL for the button link'
     })
   ],
   preview: {

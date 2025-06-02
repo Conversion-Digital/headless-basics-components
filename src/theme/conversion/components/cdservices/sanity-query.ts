@@ -22,6 +22,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             servicesList {
               title
               description
+              image {
+                asset {
+                  url
+                }
+              }
             }
             globalComponentSource {
               __typename
@@ -38,6 +43,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               servicesList {
                 title
                 description
+                image {
+                  asset {
+                    url
+                  }
+                }
               }
             }
           }
@@ -62,6 +72,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             servicesList {
               title
               description
+              image {
+                asset {
+                  url
+                }
+              }
             }
             globalComponentSource {
               __typename
@@ -78,11 +93,16 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               servicesList {
                 title
                 description
+                image {
+                  asset {
+                    url
+                  }
+                }
               }
             }
           }
         }
       }
     }
-  `;
+  `
 }

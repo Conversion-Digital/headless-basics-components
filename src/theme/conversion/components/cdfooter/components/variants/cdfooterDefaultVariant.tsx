@@ -48,7 +48,7 @@ export default function DefaultVariant(props: StandardComponentProps) {
         <div className="flex flex-col md:flex-row gap-12">
           {Array.isArray(linkGroups) && linkGroups.map((group: any, groupIdx: number) => (
             <div key={groupIdx} className="flex flex-col gap-4">
-              <h4 className="uppercase text-white/60">{group.groupTitle}</h4>
+              <h4 className="uppercase text-white/60">{group.title}</h4>
               <ul className="flex flex-col gap-2 font-bold">
                 {Array.isArray(group.links) && group.links.map((linkItem: any, idx: number) => (
                   <li key={idx}>

@@ -1,105 +1,85 @@
 import React from "react";
 import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
 import { getCmsImage } from "@conversiondigital/headless-basics-data/src/cms/tools/multiCmsImageTools";
-import { ArrowRight } from "lucide-react";
+import { buttonIcon as ButtonIcon } from "../../../../styles/icons/icons";
 
-const DefaultVariant: React.FC<StandardComponentProps> = ({ matchingData }) => {
-
-  const heading = matchingData?.heading || "Insights & Perspectives";
-  const tagline = matchingData?.tagline || "Latest insights from our digital experts";
+export default function DefaultVariant(props: StandardComponentProps) {
+  const { matchingData } = props;
+  const heading = matchingData?.heading?.toUpperCase() || "Insights & Perspectives";
+  const tagline = matchingData?.tagline || "Read the latest insights and marketing trends, as they are happening, from our team of digital experts here at Conversion Digital.";
   const items = matchingData?.items || [];
-
-  const insights = [
-    {
-      id: 1,
-      image: '/shopify-tools.jpg', // Replace with actual image path
-      category: 'SHOPIFY SEARCH ENGINE OPTIMISATION',
-      title: 'LEVERAGING SHOPIFY\'S SEO TOOLS TO DOMINATE SEARCH ENGINE RANKINGS',
-      link: '#'
-    },
-    {
-      id: 2,
-      image: '/shopify-vs-woo1.jpg', // Replace with actual image path
-      category: 'SHOPIFY DEVELOPMENT, WORDPRESS',
-      title: 'SHOPIFY VS WOOCOMMERCE: WHICH E-COMMERCE PLATFORM WINS ON SEO, MARKETING, AND COSTS?',
-      link: '#'
-    },
-    {
-      id: 3,
-      image: '/shopify-vs-woo2.jpg', // Replace with actual image path
-      category: 'SHOPIFY DEVELOPMENT, WORDPRESS',
-      title: 'SHOPIFY VS WOOCOMMERCE: WHICH E-COMMERCE PLATFORM IS EASIER TO USE AND SET UP?',
-      link: '#'
-    }
-  ];
+  const buttonText = matchingData?.buttonText || "View all insights";
 
   return (
-    // <section id="cdinsights-default" className="bg-[#F5F3ED] text-[#0D0E47] py-12 px-4 md:px-8">
-    //   <div className="max-w-7xl mx-auto">
-    //     <div className="mb-8 text-center">
-    //       <h2 className="text-3xl md:text-4xl font-bold mb-2">{heading}</h2>
-    //       <p className="text-lg text-gray-600">{tagline}</p>
-    //     </div>
-    //     <div className="flex flex-wrap justify-center gap-8">
-    //       {Array.isArray(items) &&
-    //         items.map((item: any, index: number) => {
-    //           // Attempt to get an image if item has an image object from cms, else use item.imageUrl
-    //           const { hasImage, imageLocation } = getCmsImage(item);
-    //           const url = hasImage ? imageLocation : item?.imageUrl;
-    //           return (
-    //             <div key={index} className="bg-white w-full md:w-[30%] rounded-lg overflow-hidden shadow hover:shadow-md transition-shadow">
-    //               {url && (
-    //                 <img
-    //                   src={url}
-    //                   alt={item?.subtitle || "cdinsights item"}
-    //                   className="w-full h-48 object-cover"
-    //                 />
-    //               )}
-    //               <div className="p-4 flex flex-col gap-2">
-    //                 <h3 className="text-xl font-semibold text-[#0D0E47]">{item?.title || "Default Item Title"}</h3>
-    //                 <p className="text-gray-700 text-sm">{item?.subtitle || "Default item subtitle"}</p>
-    //               </div>
-    //             </div>
-    //           );
-    //         })}
-    //     </div>
-    //   </div>
-    // </section>
-    <section className="insights-container">
-    <div className="max-w-7xl mx-auto">
-      <h2 className="insights-heading">INSIGHTS AND PERSPECTIVES</h2>
-      <p className="insights-description">
-        Read the latest insights and marketing trends, as they are happening, from our team of digital
-        experts here at Conversion Digital.
-      </p>
+    <section className="bg-[#FFF3EA] px-6 md:px-12 lg:px-20 py-24">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+          <h2 className="text-[#0C093F] font-extrabold text-2xl md:text-3xl mb-4">
+            {heading}
+          </h2>
+          <p className=" mt-4 md:mt-0 max-w-xl text-2xl text-[#0D0E47]">
+            {tagline}
+          </p>
+        </div>
 
-      <div className="insights-grid">
-        {insights.map((insight) => (
-          <div key={insight.id} className="insight-card">
-            <img
-              src={insight.image}
-              alt={insight.title}
-              className="insight-image"
-            />
-            <div className="insight-content">
-              <p className="insight-category">{insight.category}</p>
-              <h3 className="insight-title">{insight.title}</h3>
-              <a href={insight.link} className="insight-read-more">
-                Read more <ArrowRight className="insight-read-more-icon" />
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {Array.isArray(items) && items.map((item: any, index: number) => {
+            const { hasImage, imageLocation } = getCmsImage(item);
+            const url = hasImage ? imageLocation : item?.imageUrl;
+            return (
+              <div key={index} className="bg-white rounded-xl shadow-sm hover:shadow-md transition flex flex-col">
+                {url && (
+                  <div className="h-52 bg-gray-100 rounded-md overflow-hidden mb-6 flex items-center justify-center">
+                    <img
+                      src={url}
+                      alt={item?.title || ""}
+                      className="object-cover h-full w-full"
+                    />
+                  </div>
+                )}
 
-      <div className="flex justify-center mt-12">
-        <a href="#" className="view-all-button">
-          View all insights <ArrowRight className="ml-2 h-5 w-5" />
-        </a>
+              <div className="p-6">
+                {item.topics && item.topics.length > 0 && (
+                  <div className="uppercase text-xs font-semibold tracking-wide text-[#0C093F] mb-2 ">
+                    {item.topics.map((topic: any, i: number) => (
+                      <React.Fragment key={i}>
+                        {i > 0 && ", "}
+                        <a href={topic.url} className="hover:text-[#86002F]">
+                          {topic.name}
+                        </a>
+                      </React.Fragment>
+                    ))}
+                  </div>
+                )}
+
+                <h3 className="font-extrabold text-[#0C093F] text-base leading-snug mb-4">
+                  {item?.title?.toUpperCase()}
+                </h3>
+                {item.buttonText && item.buttonUrl && (
+                  <a
+                    href={item.buttonUrl}
+                    className="text-sm font-semibold text-[#0C093F] mt-auto inline-flex items-center gap-[22px] hover:underline"
+                  >
+                    {item.buttonText} 
+                    <ButtonIcon />
+                  </a>
+                )}
+              </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-16 text-center">
+          <a
+            href="/insights"
+            className="bg-[#800928] text-[#FFF6EC] font-semibold text-lg md:text-xl px-10 py-4 rounded-full shadow-md hover:bg-[#0D0E47] hover:text-[#FFF6EC] inline-flex items-center gap-[44px]"
+          >
+            {buttonText}
+            <ButtonIcon />
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
-};
-
-export default DefaultVariant;
+}

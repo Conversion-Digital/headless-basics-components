@@ -1,6 +1,7 @@
 import React from "react";
 import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
 import { getCmsImage } from "@conversiondigital/headless-basics-data/src/cms/tools/multiCmsImageTools";
+import { buttonIcon as ButtonIcon } from "../../../../styles/icons/icons";
 
 const DefaultVariant: React.FC<StandardComponentProps> = ({
   matchingData
@@ -12,31 +13,14 @@ const DefaultVariant: React.FC<StandardComponentProps> = ({
   const buttonUrl = matchingData?.buttonUrl || "#";
 
   return (
-    <section
-      id="cdcta-default"
-      className="bg-[#f7f7fc] text-black py-12 px-4 md:px-8"
-    >
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 items-center justify-center">
-        {hasImage && (
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-            <img
-              src={imageLocation}
-              alt={altText || "CTA Banner"}
-              className="rounded-md object-cover w-full md:w-4/5 h-auto"
-            />
-          </div>
-        )}
-        <div className="w-full md:w-1/2 flex flex-col items-start justify-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">{title}</h2>
-          <p className="text-gray-700 mb-5">{subtitle}</p>
-          <a
-            href={buttonUrl}
-            className="inline-block bg-[#0D0E47] text-white py-3 px-6 rounded-md hover:bg-[#0F1060] transition-colors"
-          >
-            {buttonLabel}
-          </a>
-        </div>
-      </div>
+    <section className="bg-[#86002F] py-32 text-center text-[#FFF3EA]">
+      <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight uppercase mb-10">
+        {title}
+      </h2>
+      <a href={buttonUrl} className="bg-[#FFF3EA] text-[#0C093F] font-semibold text-lg md:text-xl px-10 py-4 rounded-full shadow-md hover:shadow-lg hover:scale-105 hover:bg-[#0D0E47] hover:text-[#FFF6EC] inline-flex items-center gap-[44px]">
+        {buttonLabel}
+      <ButtonIcon/>
+      </a>
     </section>
   );
 };

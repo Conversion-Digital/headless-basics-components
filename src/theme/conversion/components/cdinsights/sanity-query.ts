@@ -11,32 +11,44 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             _key
             _type
             selectableVariant
-            sortOrder
             heading
             tagline
             items {
               title
-              subtitle
+              description
+              buttonText
+              buttonUrl
               image {
                 asset {
                   url
                 }
               }
+              topics {
+                name
+                url
+              }
             }
+            buttonText
+            buttonUrl
             globalComponentSource {
               __typename
               _key
               _type
-              selectableVariant
               heading
               tagline
               items {
                 title
-                subtitle
+                description
+                buttonText
+                buttonUrl
                 image {
                   asset {
                     url
                   }
+                }
+                topics {
+                  name
+                  url
                 }
               }
             }
@@ -51,32 +63,44 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             _key
             _type
             selectableVariant
-            sortOrder
             heading
             tagline
             items {
               title
-              subtitle
+              description
+              buttonText
+              buttonUrl
               image {
                 asset {
                   url
                 }
               }
+              topics {
+                name
+                url
+              }
             }
+            buttonText
+            buttonUrl
             globalComponentSource {
               __typename
               _key
               _type
-              selectableVariant
               heading
               tagline
               items {
                 title
-                subtitle
+                description
+                buttonText
+                buttonUrl
                 image {
                   asset {
                     url
                   }
+                }
+                topics {
+                  name
+                  url
                 }
               }
             }
@@ -84,5 +108,5 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
         }
       }
     }
-  `;
+  `
 }

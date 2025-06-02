@@ -1,9 +1,28 @@
 import { defineField, defineType } from 'sanity'
 import { EyeOpenIcon } from '@sanity/icons'
 
-export const insightsItem = defineType({
-  name: 'insightsItem',
-  title: 'Insights Item',
+// Define the topic type at the top level
+export const topicItem = defineType({
+  name: 'topicItem',
+  title: 'Topic Item',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'name',
+      title: 'Topic Name',
+      type: 'string'
+    }),
+    defineField({
+      name: 'url',
+      title: 'Topic URL',
+      type: 'string'
+    })
+  ]
+});
+
+export const insightItem = defineType({
+  name: 'insightItem',
+  title: 'Insight Item',
   type: 'object',
   fields: [
     defineField({
@@ -17,6 +36,18 @@ export const insightsItem = defineType({
       type: 'text'
     }),
     defineField({
+      name: 'buttonText',
+      title: 'Button Text',
+      type: 'string',
+      description: 'Text for the item button'
+    }),
+    defineField({
+      name: 'buttonUrl',
+      title: 'Button URL',
+      type: 'string',
+      description: 'URL for the item button'
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
@@ -25,12 +56,13 @@ export const insightsItem = defineType({
       }
     }),
     defineField({
-      name: 'link',
-      title: 'Link',
-      type: 'url'
+      name: 'topics',
+      title: 'Topics',
+      type: 'array',
+      of: [{ type: 'topicItem' }]  // Reference the top-level type
     })
   ]
-})
+});
 
 export default defineType({
   name: 'cdinsights',
@@ -50,41 +82,38 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'sortOrder',
-      title: 'Sort Order',
-      type: 'number',
-      description: 'Order of the component when displayed on a page.'
-    }),
-    defineField({
       name: 'heading',
       title: 'Heading',
-      type: 'string',
-      description: 'Main heading for the insights section.'
+      type: 'string'
     }),
     defineField({
       name: 'tagline',
       title: 'Tagline',
-      type: 'string',
-      description: 'Subtitle or tagline for the insights section.'
+      type: 'string'
     }),
     defineField({
       name: 'items',
-      title: 'Insights Items',
+      title: 'Insights',
       type: 'array',
-      of: [{ type: 'insightsItem' }]
+      of: [{ type: 'insightItem' }]
     }),
     defineField({
       name: 'globalComponentSource',
       title: 'Global Component Source',
       type: 'reference',
-      to: [{ type: 'cdinsights' }],
-      description: 'Select a global re-usable cdinsights component if desired.'
+      to: [{ type: 'cdinsights' }]
     }),
-  ],
-  preview: {
-    select: {
-      title: 'heading',
-      subtitle: 'tagline'
-    }
-  }
-})
+    defineField({
+      name: 'buttonText',
+      title: 'Button Text',
+      type: 'string',
+      description: 'Text to display on the button'
+    }),
+    defineField({
+      name: 'buttonUrl',
+      title: 'Button URL',
+      type: 'string',
+      description: 'URL for the button link'
+    })
+  ]
+});

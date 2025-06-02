@@ -24,6 +24,8 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 }
               }
             }
+            buttonText
+            buttonUrl
             globalComponentSource {
               __typename
               _key
@@ -66,6 +68,8 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 }
               }
             }
+            buttonText
+            buttonUrl
             globalComponentSource {
               __typename
               _key
@@ -88,5 +92,5 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
         }
       }
     }
-  `;
+  `
 }

@@ -9,7 +9,6 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   );
 
   const content = pageAndComponentCombo?.component?.data;
-  // The second arg 'cdclients' must match the name in cdclients' sanity-schema
   const matchingData = extractComponentsFromSanityData(content, "cdclients", log);
   return matchingData;
 }
