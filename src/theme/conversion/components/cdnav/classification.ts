@@ -1,1 +1,1 @@
-export default ["cdnav", "nav", "cdnavVariant"];
+export default ["cdnav", "nav", "cdnavVariant"]

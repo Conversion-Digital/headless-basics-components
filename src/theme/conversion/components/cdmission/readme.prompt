@@ -1,0 +1,7 @@
+# cdmission Component
+
+This component displays a company's mission statement. It can be used to highlight the mission with a large heading, subtitle, description, and optionally an image.
+
+## Variants
+- **default**: Standard layout with a heading, optional subtitle, optional image, and paragraph text
+- **xDemo**: A demonstration variant with placeholder content, referencing `demoVariantData.ts`

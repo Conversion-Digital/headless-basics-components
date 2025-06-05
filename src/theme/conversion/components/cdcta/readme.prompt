@@ -1,0 +1,11 @@
+This "cdcta" (Call to Action) component is designed to let editors configure a 
+simple or elaborate CTA banner. They can specify a title, subtitle, an optional image, 
+and button text plus link. Two variants are implemented: "default" and "xDemo". 
+The default variant typically places the image on the left or right, while the 
+demo variant demonstrates a simple example styling.
+
+We used similar patterns from the "hero" or "template" references. We extended 
+the fields in the schema so that we have "title", "subtitle", "buttonLabel", 
+"buttonUrl", and an "image".
+
+We've tested it for a typical CTA usage scenario.

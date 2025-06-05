@@ -15,3 +15,10 @@ export const buttonIcon: React.FC = () => (
     </g>
   </svg>
 )
+
+export const tickIcon: React.FC = () => (
+<svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="15" cy="15.2506" r="14.5" fill="#800928" stroke="#800928"/>
+<path d="M9.59082 15.5198L13.0071 18.7506L20.409 11.7506" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="0 5"/>
+</svg>
+)

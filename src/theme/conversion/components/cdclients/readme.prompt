@@ -1,0 +1,4 @@
+This readme.prompt describes the new cdclients component. 
+It uses data from a field "clientsList" which includes name, link, and logo image.
+We've created two variants: "default" and "xDemo".
+We used a structure similar to other "cd*" conversion theme components.

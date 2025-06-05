@@ -1,0 +1,1 @@
+export default ["cdpartners","partners","cdpartnersVariant"];

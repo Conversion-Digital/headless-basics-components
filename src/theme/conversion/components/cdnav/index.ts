@@ -9,5 +9,4 @@ async function getConfig(): Promise<ThemeConfig> {
     config.view = View;
     return config;
 }
-
 export default getConfig();

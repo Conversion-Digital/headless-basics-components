@@ -1,0 +1,12 @@
+# cdinsights Component
+This component showcases a section of "Insights and Perspectives" that can list multiple "items" each with a title, subtitle, and image. The default variant uses a flex layout with images, while the demo variant uses placeholder data from the `demoVariantData.ts`.
+
+## Key Features
+- `heading` and `tagline` define the main text
+- `items` array can contain multiple sub-entries
+
+## Notes
+1. We based it on the reference from [hero] and [__[template] examples in the default theme.
+2. We implemented both a default variant and a demo variant (xDemo).
+3. The sample images and text data in the default variant references `matchingData`.
+4. There's an array of items to show multiple posts/insights in a grid or flex layout.

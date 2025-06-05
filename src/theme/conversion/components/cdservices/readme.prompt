@@ -1,0 +1,18 @@
+## cdservices (Readme Notes)
+
+This component displays a list of services in a nicely styled, themed layout. 
+We have added two variants: 
+1) Default (cdservicesDefaultVariant)
+2) Demo (demoVariant)
+
+We've also added an optional image at the top. 
+We added a "servicesList" field, which is an array of service items each with title and description.
+
+The user can choose to pass in a "selectableVariant" as "default" or "xDemo" from the CMS.
+
+Typical usage:
+```
+
+{ type: 'cdservices', selectableVariant: 'default', title: 'Our Services', servicesList: \[...] }
+
+```

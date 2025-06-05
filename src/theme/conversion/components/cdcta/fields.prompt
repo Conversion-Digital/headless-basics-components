@@ -1,0 +1,31 @@
+Field: selectableVariant
+Type: string
+Purpose: Controls which variant "default" or "xDemo"
+
+Field: sortOrder
+Type: number
+Purpose: sets the order of the component on the page
+
+Field: title
+Type: string
+Purpose: main heading
+
+Field: subtitle
+Type: string
+Purpose: supporting text
+
+Field: buttonLabel
+Type: string
+Purpose: text displayed on CTA button
+
+Field: buttonUrl
+Type: url
+Purpose: link destination for CTA button
+
+Field: image
+Type: image
+Purpose: optional image or background
+
+Field: globalComponentSource
+Type: reference
+Purpose: referencing a global cdcta object to reuse
