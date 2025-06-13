@@ -327,3 +327,25 @@ nav {
 .nav-button:hover {
   background-color: rgba(128, 9, 40, 0.8);
 }
+
+
+.contentServiceIntroWrapper {
+  color: #0d0e47;
+}
+
+.contentServiceIntroWrapper p{ 
+  margin-top: 30px;
+  color: #0d0e47;
+}
+
+.contentServiceIntroWrapper p:first-child{ 
+  margin-top: 0;
+}
+.contentServiceIntroWrapper h3{ 
+  margin-top: 53px;
+  margin-bottom: 22px;
+  font-size: 30px;
+  font-weight: 500;
+  font-family:  var(--font-staatliches);
+  color: #0d0e47;
+}
