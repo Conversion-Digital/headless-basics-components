@@ -11,6 +11,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             _key
             _type
             selectableVariant
+            heading
             title
             content
             sortOrder
@@ -18,6 +19,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               __typename
               _key
               _type
+              heading
               title
               content
             }
@@ -32,6 +34,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             _key
             _type
             selectableVariant
+            heading
             title
             content
             sortOrder
@@ -39,6 +42,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               __typename
               _key
               _type
+              heading
               title
               content
             }

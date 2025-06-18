@@ -336,9 +336,10 @@ nav {
 .contentServiceIntroWrapper p{ 
   margin-top: 30px;
   color: #0d0e47;
+  font-family: var(--font-figtree);
 }
 
-.contentServiceIntroWrapper p:first-child{ 
+.contentServiceIntroWrapper p:first-child, .contentServiceIntroWrapper h3:first-child{ 
   margin-top: 0;
 }
 .contentServiceIntroWrapper h3{ 
@@ -348,4 +349,42 @@ nav {
   font-weight: 500;
   font-family:  var(--font-staatliches);
   color: #0d0e47;
+}
+
+.contentServiceOfferingsWrapper {
+  color: white;
+  font-family: var(--font-figtree);
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+.contentServiceOfferingsWrapper p{ 
+  margin-top: 30px;
+  color: white;
+  font-family: var(--font-figtree);
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+.contentServiceOfferingsWrapper ul {
+  list-style: initial;
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: 500;
+  margin-left: 30px;
+}
+
+.contentServiceOfferingsWrapper p:first-child, .contentServiceOfferingsWrapper h3:first-child{ 
+  margin-top: 0;
+}
+
+.contentServiceOfferingsWrapper h3, .contentServiceOfferingsWrapper h2{ 
+  margin-top: 53px;
+  margin-bottom: 22px;
+  font-size: 30px;
+  font-weight: 500;
+  font-family: var(--font-staatliches);
+  color: white;
 }

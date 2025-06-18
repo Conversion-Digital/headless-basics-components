@@ -1,40 +1,20 @@
 import React from 'react';
-import { ServiceIntroData } from '../../../mockData/servicePageMockData';
-import { IndividualComponentProps } from '@conversiondigital/headless-basics-data/src/interfaces';
+import { componentBoilerPlate } from "@conversiondigital/headless-basics-data/src/component-tools/componentBoilerPlate";
+import { ViewComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces";
+import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src";
 import CdserviceintroDefaultVariant from './variants/cdserviceintroDefaultVariant';
 
-export interface CdserviceintroProps {
-  componentInformation?: IndividualComponentProps;
-  data?: ServiceIntroData;
-  variant?: 'default';
-}
+export const log = getLogger("conversion.components.cdserviceintro");
 
-const Cdserviceintro: React.FC<CdserviceintroProps> = ({ 
-  componentInformation,
-  data, 
-  variant = 'default' 
-}) => {
-  // Get data from componentInformation if available (for CMS integration)
-  const componentData = componentInformation?.props || {};
-  
-  // If using componentInformation, extract the needed props
-  const introData: ServiceIntroData = {
-    heading: componentData.heading || (data ? data.heading : ''),
-    title: componentData.title || (data ? data.title : ''),
-    content: componentData.content || (data ? data.content : '')
-  };
-  
-  // If no data is provided, return null
-  if (!introData.title && !introData.content) {
-    return null;
-  }
+export default function CdserviceintroUI(dynamicComponent: ViewComponentProps) {
+  const { variant, matchingData } = componentBoilerPlate(dynamicComponent);
+  if (!matchingData) return null;
 
-  // Render the appropriate variant
+  log.trace(`${logPrefix()} cdserviceintroUI started, matchingData: ${JSON.stringify(matchingData)}`);
+
   switch (variant) {
     case 'default':
     default:
-      return <CdserviceintroDefaultVariant data={introData} />;
+      return <CdserviceintroDefaultVariant matchingData={matchingData} {...dynamicComponent} />;
   }
-};
-
-export default Cdserviceintro; 
+} 

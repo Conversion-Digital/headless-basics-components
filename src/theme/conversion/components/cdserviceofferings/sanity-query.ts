@@ -20,6 +20,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 current
               }
             }
+            services {
+              id
+              title
+              content
+            }
             sortOrder
             globalComponentSource {
               __typename
@@ -33,6 +38,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 id {
                   current
                 }
+              }
+              services {
+                id
+                title
+                content
               }
             }
           }
@@ -55,6 +65,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 current
               }
             }
+            services {
+              id
+              title
+              content
+            }
             sortOrder
             globalComponentSource {
               __typename
@@ -68,6 +83,11 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                 id {
                   current
                 }
+              }
+              services {
+                id
+                title
+                content
               }
             }
           }

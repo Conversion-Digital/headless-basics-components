@@ -1,38 +1,20 @@
 import React from 'react';
+import { componentBoilerPlate } from "@conversiondigital/headless-basics-data/src/component-tools/componentBoilerPlate";
+import { ViewComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces";
+import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src";
 import CdservicestatsDefaultVariant from './variants/cdservicestatsDefaultVariant';
-import { ServiceStatsData } from '../../../mockData/servicePageMockData';
-import { IndividualComponentProps } from '@conversiondigital/headless-basics-data/src/interfaces';
 
-export interface CdservicestatsProps {
-  componentInformation?: IndividualComponentProps;
-  data?: ServiceStatsData;
-  variant?: 'default';
-}
+export const log = getLogger("conversion.components.cdservicestats");
 
-const Cdservicestats: React.FC<CdservicestatsProps> = ({ 
-  componentInformation,
-  data, 
-  variant = 'default' 
-}) => {
-  // Get data from componentInformation if available (for CMS integration)
-  const componentData = componentInformation?.props || {};
-  
-  // If using componentInformation, extract the needed props
-  const statsData: ServiceStatsData = {
-    stats: componentData.stats || (data ? data.stats : [])
-  };
-  
-  // If no data is provided, return null
-  if (!statsData.stats || statsData.stats.length === 0) {
-    return null;
-  }
+export default function CdservicestatsUI(dynamicComponent: ViewComponentProps) {
+  const { variant, matchingData } = componentBoilerPlate(dynamicComponent);
+  if (!matchingData) return null;
 
-  // Render the appropriate variant
+  log.trace(`${logPrefix()} cdservicestatsUI started, matchingData: ${JSON.stringify(matchingData)}`);
+
   switch (variant) {
     case 'default':
     default:
-      return <CdservicestatsDefaultVariant data={statsData} />;
+      return <CdservicestatsDefaultVariant matchingData={matchingData} {...dynamicComponent} />;
   }
-};
-
-export default Cdservicestats; 
+} 

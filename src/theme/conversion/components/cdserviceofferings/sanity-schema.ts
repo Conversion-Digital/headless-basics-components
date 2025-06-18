@@ -61,6 +61,39 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'services',
+      title: 'Service Details',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          title: 'Service Detail',
+          fields: [
+            {
+              name: 'id',
+              title: 'ID',
+              type: 'string',
+              description: 'A unique identifier for this service detail (should match an offering ID)'
+            },
+            {
+              name: 'title',
+              title: 'Title',
+              type: 'string',
+              description: 'The title of the service detail'
+            },
+            {
+              name: 'content',
+              title: 'Content',
+              type: 'array',
+              of: [{ type: 'block' }],
+              description: 'The rich text content for this service detail'
+            }
+          ]
+        }
+      ],
+      description: 'The detailed content for each service offering'
+    }),
+    defineField({
       name: 'sortOrder',
       title: 'Sort Order',
       type: 'number'
@@ -72,5 +105,10 @@ export default defineType({
       to: [{ type: 'cdserviceofferings' }],
       description: 'Select a global re-usable service offerings component.'
     })
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'title'
+    }
+  }
 }) 

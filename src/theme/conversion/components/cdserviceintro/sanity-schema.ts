@@ -1,11 +1,11 @@
 import { defineField, defineType } from 'sanity'
-import { DescriptionIcon } from '@sanity/icons'
+import { DocumentTextIcon } from '@sanity/icons'
 
 export default defineType({
   name: 'cdserviceintro',
   title: 'Service Introduction (CD)', 
   type: 'document',
-  icon: DescriptionIcon,
+  icon: DocumentTextIcon,
   fields: [
     defineField({
       name: 'selectableVariant',
@@ -18,10 +18,16 @@ export default defineType({
       }
     }),
     defineField({
+      name: 'heading',
+      title: 'Heading',
+      type: 'string',
+      description: 'The main heading for the service introduction section'
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-      description: 'The main title for the service introduction section (e.g., "What is Search Engine Optimization?")'
+      description: 'The secondary title for the service introduction section'
     }),
     defineField({
       name: 'content',
@@ -79,4 +85,10 @@ export default defineType({
       description: 'Select a global re-usable service introduction.'
     })
   ],
+  preview: {
+    select: {
+      title: 'heading',
+      subtitle: 'title'
+    }
+  }
 }) 

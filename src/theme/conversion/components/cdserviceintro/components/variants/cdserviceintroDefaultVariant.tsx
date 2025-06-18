@@ -1,25 +1,22 @@
 import React from 'react';
-import { ServiceIntroData, serviceIntroMockData, getMockOrRealData } from '../../../../mockData/servicePageMockData';
+import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
 
-interface CdserviceintroDefaultVariantProps {
-  data: ServiceIntroData;
-}
-
-const CdserviceintroDefaultVariant: React.FC<CdserviceintroDefaultVariantProps> = ({ data }) => {
-  // Use mock data if enabled, otherwise use provided data
-  const displayData = getMockOrRealData(serviceIntroMockData, data);
+const CdserviceintroDefaultVariant: React.FC<StandardComponentProps> = ({ matchingData }) => {
+  const heading = matchingData?.heading || '';
+  const title = matchingData?.title || '';
+  const content = matchingData?.content || '';
   
   return (
-    <section data-testid="cdserviceintro">
-      <div>
-        <div className="grid md:grid-cols-2 grid-cols-1 pb-[60px]">
-          <h1 className="text-body-color text-[72px] font-staatliches">{displayData.heading}</h1>
+    <section className="bg-[white] px-6 md:px-12 lg:px-20 py-16" data-testid="cdserviceintro">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="grid md:grid-cols-2 grid-cols-1 md:pb-[60px] pb-[0px]">
+          <h1 className="text-body-color md:text-[72px] text-[52px] font-staatliches">{heading}</h1>
         </div>
-        <div className="grid md:grid-cols-[40%_60%] grid-cols-1 pt-[60px]">
-          <h2 className="text-body-color text-[48px] mb-0 pr-70px font-staatliches">{displayData.title}</h2>
+        <div className="grid md:grid-cols-[40%_60%] grid-cols-1 pt-[60px] gap-[24px]">
+          <h2 className="text-body-color md:text-[48px] text-[32px] mb-0 pr-70px font-staatliches">{title}</h2>
           <div 
             className={`contentServiceIntroWrapper text-body-color text-[18px] mb-0 pr-70px font-figtree leading-[36px]`}
-            dangerouslySetInnerHTML={{ __html: displayData.content }}
+            dangerouslySetInnerHTML={{ __html: content }}
           />
         </div>
       </div>

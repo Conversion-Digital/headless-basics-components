@@ -7,9 +7,10 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   log.trace(
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
   );
+  
   const content = pageAndComponentCombo?.component?.data
-  const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
-  log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
-  const matchingData = extractComponentsFromSanityData(content, "cdservicestats", log, true, '', thisComponentsOrder);
+  // The second arg 'cdservicestats' must match the name in cdservicestats's sanity-schema
+  const matchingData = extractComponentsFromSanityData(content, "cdservicestats", log);
+  
   return matchingData
 }

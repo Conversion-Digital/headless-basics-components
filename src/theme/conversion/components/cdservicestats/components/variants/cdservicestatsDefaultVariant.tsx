@@ -1,22 +1,25 @@
 import React from 'react';
-import { ServiceStatsData, serviceStatsMockData, getMockOrRealData } from '../../../../mockData/servicePageMockData';
+import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
 
-interface CdservicestatsDefaultVariantProps {
-  data: ServiceStatsData;
+interface Stat {
+  value: string;
+  description: string;
 }
 
-const CdservicestatsDefaultVariant: React.FC<CdservicestatsDefaultVariantProps> = ({ data }) => {
-  const displayData = getMockOrRealData(serviceStatsMockData, data);
+const CdservicestatsDefaultVariant: React.FC<StandardComponentProps> = ({ matchingData }) => {
+  const stats = matchingData?.stats || [];
   
   return (
-    <section className={``} data-testid="cdservicestats">
+    <section className={"bg-[white] px-6 md:px-12 lg:px-20 py-16"} data-testid="cdservicestats">
+      <div className="max-w-screen-xl mx-auto">
         <div className={"grid md:grid-cols-4 grid-cols-1 gap-[24px]"}>
-          {displayData.stats.map((stat, index) => (
-            <div key={index}>
-              <div className={"text-left text-body-color text-[48px] font-staatliches font-[500] mb-[16px]"}>{stat.value}</div>
-              <div className={"text-left text-body-color text-[24px] font-figtree leading-[36px] max-w-[300px]"}>{stat.description}</div>
-            </div>
-          ))}
+            {stats.map((stat: Stat, index: number) => (
+              <div key={index}>
+                <div className={"text-left text-body-color text-[48px] font-staatliches font-[500] mb-[16px]"}>{stat.value}</div>
+                <div className={"text-left text-body-color text-[24px] font-figtree leading-[36px] max-w-[300px]"}>{stat.description}</div>
+              </div>
+            ))}
+          </div>
         </div>
     </section>
   );
