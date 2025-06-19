@@ -1,7 +1,6 @@
 'use client';
 
-
-import { Inter as FontSans, Urbanist, Staatliches, Poppins} from "next/font/google"
+import { Inter as FontSans, Urbanist, Staatliches, Poppins, Figtree} from "next/font/google"
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans", 
@@ -28,6 +27,13 @@ const fontPoppins = Poppins({
   weight: "400"
 })
 
+const fontFigtree = Figtree({
+  subsets: ["latin"],
+  variable: "--font-figtree",
+  display: "swap",
+  weight: "400"
+})
+
 const FontsGlobalStyle = () => {
   return (
     <>
@@ -37,6 +43,7 @@ const FontsGlobalStyle = () => {
                 --font-urbanist: ${fontUrbanist.style.fontFamily};
                 --font-staatliches: ${fontStaatliches.style.fontFamily};
                 --font-poppins: ${fontPoppins.style.fontFamily};
+                --font-figtree: ${fontFigtree.style.fontFamily};
             }`}</style>
     </>
   )
