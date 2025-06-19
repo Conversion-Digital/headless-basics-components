@@ -46,6 +46,7 @@ export default defineType({
       options: {
         list: [
           { title: 'Default', value: 'default' },
+          { title: 'Our Work', value: 'ourWork' },
           { title: 'Demo', value: 'xDemo' },
         ],
       },
