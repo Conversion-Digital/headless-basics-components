@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { Key } from "react";
+import React, { forwardRef, ForwardedRef, Key } from "react";
 import { BreadcrumbsProps } from "./BreadcrumbsProps";
 import { cnm as cn } from "../../utils/cnMerge";
 import { DefaultSeperatorIcon } from "../../icons/SeperatorIcon";
@@ -7,9 +7,9 @@ import BreadcrumbsItem from "./BreadcrumbsItem";
 
 const exludedPaths = ["/", "au", "nz"];
 
-const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
+export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
   (
-    { children, data, className, innerProps, innerRef, seperatorIcon, slug, itemClassName, ...props },
+    { children, data, className, innerProps, slug, itemClassName, ...props },
     ref,
   ) => {
     const classes = cn("breadcrumbs [&>ul]:flex-wrap", "text-sm", className);
@@ -35,6 +35,9 @@ const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
     const renderedBreadcrumbs: any = data?.links
       ? (React.Children.toArray(breadcrumbItems) as React.ReactNode)
       : children;
+
+    // Change the innerRef definition to use the explicit ForwardedRef type
+    const innerRef = React.useRef<HTMLUListElement>(null);
 
     return (
       <div role="navigation" aria-label="Breadcrumbs" className={classes} ref={ref} {...props}>
