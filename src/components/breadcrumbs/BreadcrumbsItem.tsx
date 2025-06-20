@@ -1,23 +1,35 @@
 /* eslint-disable react/prop-types */
-import React, { ReactElement, ReactNode } from "react";
+import React, { LiHTMLAttributes, ReactElement, JSXElementConstructor } from "react";
+// Import LinkComponent's type to check what it expects
 import Link from "next/link";
+// Use explicit types from a single source
+import type { ReactNode } from "react";
 import { DefaultSeperatorIcon } from "../../icons/SeperatorIcon";
-import { BreadcrumbsItemProps as BaseBreadcrumbsItemProps } from "./BreadcrumbsProps";
 
-// Extend the base props to explicitly include children.
-export interface BreadcrumbsItemProps extends BaseBreadcrumbsItemProps {
+// Define a more specific base interface to avoid type conflicts
+interface BaseBreadcrumbsItemProps {
+  href?: string;
+  prefetch?: boolean;
+  useNextLink?: boolean;
+  seperatorIcon?: ReactElement;
+  itemClassName?: string;
+}
+
+// Extend both interfaces separately to avoid conflicts
+export interface BreadcrumbsItemProps extends LiHTMLAttributes<HTMLLIElement>, BaseBreadcrumbsItemProps {
   children: ReactNode;
 }
 
-const BreadcrumbsItem = React.forwardRef<HTMLLIElement, BreadcrumbsItemProps>(
+export const BreadcrumbsItem = React.forwardRef<HTMLLIElement, BreadcrumbsItemProps>(
   (
     {
       children,
       href,
       prefetch,
-      useNextLink = false,
+      useNextLink = true,
       className = "",
       seperatorIcon = <DefaultSeperatorIcon />,
+      itemClassName,
       ...props
     },
     ref,
@@ -26,18 +38,25 @@ const BreadcrumbsItem = React.forwardRef<HTMLLIElement, BreadcrumbsItemProps>(
     const childComponent = seperatorIcon as ReactElement;
 
     const prefetchVal = typeof prefetch === "undefined" || prefetch ? true : false;
-    return (
-      <li role="link" className={className} {...props} ref={ref}>
-        {href ? (
-          <LinkComponent data-attr-prefetch={prefetchVal} href={href} prefetch={prefetchVal}>
-            {children}
-          </LinkComponent>
-        ) : (
-          children
-        )}
 
-        {/* Render the separator icon. If the cloned element's type is "span", render it directly; otherwise, wrap it in a span */}
-        {React.cloneElement(childComponent, {}).type === "span" ? seperatorIcon : <span>{seperatorIcon}</span>}
+    const itemClasses = `${className} ${itemClassName ? itemClassName : ""}`.trim();
+
+    // Create a typed version of children
+    // This addresses the React version conflict by explicitly defining the type
+    const typedChildren: JSX.Element = <>{children}</>;
+
+    return (
+      <li role="link" className={itemClasses} {...props} ref={ref}>
+        {seperatorIcon && <div className="breadcrumbs__seperator">{seperatorIcon}</div>}
+        <div className="breadcrumbs__label">
+          {href ? (
+            <LinkComponent data-attr-prefetch={prefetchVal} href={href} prefetch={prefetchVal}>
+              {typedChildren}
+            </LinkComponent>
+          ) : (
+            typedChildren
+          )}
+        </div>
       </li>
     );
   },
