@@ -5,7 +5,7 @@ const log = getLogger("theme.components.model.variables");
 export function variables(individualComponentProps: PageAndSingleComponentDetails) {
   try {
     if (typeof individualComponentProps?.component?.variableForQuery === 'undefined') {
-      throw new Error(`${logPrefix()}[model][variables][${individualComponentProps.page.source}] IndividualComponentProps.pageIdentifier is undefined`);
+      throw new Error(`${logPrefix()}[model][variables][${individualComponentProps.page.source}] IndividualComponentProps.component?.variableForQuery is undefined`);
     }
 
     const thisBackendSlug = individualComponentProps?.component?.variableForQuery;
