@@ -38,10 +38,10 @@ const ImageHighlightHero: React.FC<StandardComponentProps> = ({ blueprint, compo
         )}
         <Breadcrumbs
           className="container! relative z-10 row-start-1 my-8 w-full self-baseline"
-          data={blueprint.breadcrumbItems}
+          data={blueprint?.breadcrumbItems}
           seperatorIcon={<span>/</span>}
           itemClassName="font-urbanist text-xs font-500 uppercase tracking-0.1em text-my-white"
-          slug={componentInformation.pageDefinition?.preliminarySlug || ''}
+          slug={componentInformation?.pageDefinition?.preliminarySlug || ''}
         />
         <Hero.Content className={`container! row-start-2 self-start`}>
           <div

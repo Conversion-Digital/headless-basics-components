@@ -55,6 +55,8 @@
            "src/theme/default/components/exploretherange/components/index.tsx",
            "src/theme/default/components/common/carousel/centered-carousel.tsx",
            "src/theme/default/components/ctalist/heartcore-query.ts",
+           "src/theme/default/components/gridblock/heartcore-query.ts",
+           "src/theme/default/components/gridblock/heartcore-mapping.ts",
            "src/theme/default/components/common/dropdown/DropDown.tsx",
            "src/theme/default/components/**/heartcore-*.ts",
            "src/mock-data",
