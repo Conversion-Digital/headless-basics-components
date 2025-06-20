@@ -8,8 +8,11 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
   );
 
-  const content = { ...pageAndComponentCombo?.component?.data, sortOrder: pageAndComponentCombo.component.sortOrder }
-  const matchingData = extractComponentsFromSanityData(content, "Hero", log)
+  const content = pageAndComponentCombo?.component?.data;
+  const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
+  log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
+
+  const matchingData = extractComponentsFromSanityData(content, "Hero", log, true, '', thisComponentsOrder);
 
   if (!(matchingData?.image && matchingData.backgroundImage)) {
     matchingData.image = matchingData.backgroundImage;

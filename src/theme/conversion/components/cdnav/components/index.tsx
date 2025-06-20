@@ -1,21 +1,21 @@
-import React from "react";
-import { componentBoilerPlate } from "@conversiondigital/headless-basics-data/src/component-tools/componentBoilerPlate";
-import type { ViewComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces/ThemeConfig.interface";
-import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src";
-import DemoVariant from "./variants/demoVariant";
-import CdnavDefaultVariant from "./variants/cdnavDefaultVariant";
+import React from "react"
+import { componentBoilerPlate } from "@conversiondigital/headless-basics-data/src/component-tools/componentBoilerPlate"
+import type { ViewComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces/ThemeConfig.interface"
+import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src"
+import DemoVariant from "./variants/demoVariant"
+import DefaultVariant from "./variants/cdnavDefaultVariant"
 
-export const log = getLogger("conversion.components.cdnav.components");
+export const log = getLogger("conversion.components.cdnav")
 
 export default function CdnavUI(dynamicComponent: ViewComponentProps) {
   const { variant, matchingData } = componentBoilerPlate(dynamicComponent);
   if (!matchingData) return null;
-  log.trace(`${logPrefix()} CdnavUI started, matchingData: ${JSON.stringify(matchingData)}`);
+  log.trace(`${logPrefix()} cdnavUI started, matchingData: ${JSON.stringify(matchingData)}`);
 
   switch (variant) {
     case "xDemo":
       return <DemoVariant matchingData={matchingData} {...dynamicComponent} />;
     default:
-      return <CdnavDefaultVariant matchingData={matchingData} {...dynamicComponent} />;
+      return <DefaultVariant matchingData={matchingData} {...dynamicComponent} />;
   }
 }

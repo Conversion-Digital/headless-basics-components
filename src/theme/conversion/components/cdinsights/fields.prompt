@@ -1,0 +1,17 @@
+# cdinsights Fields
+
+1. heading (string)
+   - The main heading for the insights section
+2. tagline (string)
+   - A subtitle or descriptive tagline for the insights
+3. items (array of objects)
+   - Repeated items listing:
+     a) title (string)
+     b) subtitle (string)
+     c) image (image asset in Sanity)
+4. selectableVariant (string)
+   - "default" or "xDemo" – chosen in Sanity
+5. sortOrder (number)
+   - The order of this component on the page
+6. globalComponentSource (reference)
+   - If set, references a global cdinsights object

@@ -6,8 +6,10 @@ export const log = getLogger("default.components.sanity.motto.mapping")
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(`${logPrefix()}[motto][sanity-mapping][mapIdentifierData] for slug: ${pageAndComponentCombo?.page?.preliminarySlug}`)
 
-  const data = pageAndComponentCombo?.component?.data
-  const matchingComponent = extractComponentsFromSanityData(data, "Motto", log)
+  const data = pageAndComponentCombo?.component?.data;
+  const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
+  log.trace(`${logPrefix()}[motto][sanity-mapping][mapIdentifierData] thisComponentsOrder: ${thisComponentsOrder}`)
+  const matchingComponent = extractComponentsFromSanityData(data, "Motto", log, true, '', thisComponentsOrder);
 
   return {
     words: matchingComponent?.words || "",

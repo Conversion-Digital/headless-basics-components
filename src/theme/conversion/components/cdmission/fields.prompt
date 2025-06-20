@@ -1,0 +1,9 @@
+**cdmission** fields:
+
+1. selectableVariant (string) - "default" or "xDemo"
+2. sortOrder (number) - The order to place the component in the page
+3. title (string) - The main heading text for the mission
+4. subtitle (string) - Optional subtitle text
+5. description (text) - Paragraph or summary describing the mission
+6. image (image) - Optional image referencing the mission
+7. globalComponentSource (reference to cdmission) - used to override local fields

@@ -1,0 +1,5 @@
+This cdtestimonials component was created to showcase client testimonial data. 
+We followed a pattern similar to other existing components (like hero or template).
+We provided two variants: 'default' and 'xDemo'.
+We used the standard approach with a 'sanity-schema', 'sanity-query', 'sanity-mapping' setup, 
+and included classification, index, view, and variants subfolder for code organization.

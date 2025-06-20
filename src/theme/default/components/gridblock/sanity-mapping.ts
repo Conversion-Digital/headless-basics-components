@@ -8,9 +8,11 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
     `${logPrefix()}[${pageAndComponentCombo.component.identifier}][${pageAndComponentCombo.page.source}][${pageAndComponentCombo.page.preliminarySlug}] mapIdentifierData started, ${JSON.stringify(pageAndComponentCombo?.component?.data)}`
   );
   
+  const content = pageAndComponentCombo?.component?.data;
+  const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
+  log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
   
-  const content = { ...pageAndComponentCombo?.component?.data, sortOrder: pageAndComponentCombo.component.sortOrder }
-  let matchingData = extractComponentsFromSanityData(content, "Gridblock", log);
+  let matchingData = extractComponentsFromSanityData(content, "Gridblock", log, true, '', thisComponentsOrder);
   
   if (matchingData) {
     if (matchingData.componentsGrid && Array.isArray(matchingData.componentsGrid)) {

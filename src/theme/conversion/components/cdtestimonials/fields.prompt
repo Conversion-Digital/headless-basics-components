@@ -1,0 +1,11 @@
+Fields for cdtestimonials:
+- selectableVariant: string (select from "default", "xDemo")
+- sortOrder: number
+- title: string (section heading)
+- subtitle: string (subtitle for the section)
+- testimonials: array of objects
+    * clientName: string
+    * clientCompany: string
+    * quote: text
+    * logo: image (hotspot true)
+- globalComponentSource: reference to cdtestimonials

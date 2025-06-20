@@ -1,0 +1,17 @@
+# cdpartners Component
+
+**Purpose**: Displays a grid of partner logos with optional title and subtitle, linking to external partner sites.
+
+**Variants**:
+- Default
+- xDemo
+
+**CMS Fields**:
+- "title" (string)
+- "subtitle" (string)
+- "partnerLogos" (array of objects each with partnerName, link, image)
+- "selectableVariant" (string)
+
+**Usage**: 
+Import this component from "cdpartners" or from the dynamic page loading. 
+In the CMS, add the "cdpartners" item to "components" and configure partner logos.

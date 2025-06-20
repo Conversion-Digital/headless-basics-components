@@ -44,20 +44,6 @@ const ImageHighlightHero: React.FC<StandardComponentProps> = ({ blueprint, compo
           slug={componentInformation?.pageDefinition?.preliminarySlug || ''}
         />
         <Hero.Content className={`container! row-start-2 self-start`}>
-          <div className="absolute inset-y-[-3vh] left-0 z-50 aspect-1/1 -translate-x-1/2 opacity-80 mix-blend-normal md:inset-y-[-5vh] md:translate-x-[-8vw]">
-            <svg
-              className="h-full w-full"
-              viewBox="0 0 1010 1009"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                opacity=".8"
-                d="M0 504.5C0 782.537 226.687 1009 505 1009s505-226.463 505-504.5C1010 226.463 783.701 0 505 0S0 226.463 0 504.5Zm140.515 0c0-200.869 163.417-364.124 364.485-364.124S869.485 303.631 869.485 504.5c0 200.869-163.417 364.124-364.485 364.124S140.515 705.369 140.515 504.5Z"
-                fill="#FED095"
-              />
-            </svg>
-          </div>
           <div
             className={`relative z-100 flex h-full w-full items-center ${justifyClass}`}
           >

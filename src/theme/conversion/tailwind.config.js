@@ -65,6 +65,7 @@ module.exports = {
       DEFAULT: "#FACF41",
       light: "#FFE799",
     },
+    "body-color": "#0d0e47",
   },
   backgroundImage: {
     "gradient-dark": "linear-gradient(277deg, #171717 55.29%, #3D3D3D 98.19%)",

@@ -1,10 +1,31 @@
 import { defineField, defineType } from 'sanity'
 import { EyeOpenIcon } from '@sanity/icons'
+import { linkItem } from '@conversiondigital/headless-basics-data/src/cms/sanity/sanityCommonSchema'
+
+// Define the dropdown menu type
+export const dropdownMenu = defineType({
+  name: 'cdnavDropdownMenu',
+  title: 'Navigation Dropdown Menu',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'label',
+      title: 'Menu Label',
+      type: 'string'
+    }),
+    defineField({
+      name: 'dropdownLinks',
+      title: 'Dropdown Links',
+      type: 'array',
+      of: [{ type: 'linkItem' }]
+    })
+  ]
+})
 
 export default defineType({
   name: 'cdnav',
   title: 'Navigation (CD)', 
-  type: 'object',
+  type: 'document',
   icon: EyeOpenIcon,
   fields: [
     defineField({
@@ -43,6 +64,12 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'string',
+      initialValue: 'transparent'
+    }),
+    defineField({
       name: 'links',
       title: 'Links',
       type: 'array',
@@ -52,7 +79,7 @@ export default defineType({
       name: 'dropdownMenus',
       title: 'Dropdown Menus',
       type: 'array',
-      of: [{ type: 'dropdownMenu' }]
+      of: [{ type: 'cdnavDropdownMenu' }]
     }),
     defineField({
       name: 'sortOrder',
@@ -84,3 +111,6 @@ export default defineType({
     }
   }
 })
+
+
+
