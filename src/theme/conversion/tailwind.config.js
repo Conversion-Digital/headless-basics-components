@@ -6,14 +6,20 @@ module.exports = {
     "pages/**/*.{ts,tsx}",
     "theme/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
+    
     "./node_modules/@conversiondigital/headless-basics-components/src/components/**/*.{ts,tsx}",
     "./../headless-basics-components/src/components/**/*.{ts,tsx}",
+    "../../node_modules/@conversiondigital/headless-basics-components/src/components/**/*.{ts,tsx}",
     "./../../../headless-basics-components/src/components/**/*.{ts,tsx}",
+    
     "./node_modules/@conversiondigital/headless-basics-components/src/theme/default/**/*.{ts,tsx}",
     "./../headless-basics-components/src/theme/default/**/*.{ts,tsx}",
+    "../../node_modules/@conversiondigital/headless-basics-components/src/theme/default/**/*.{ts,tsx}",
     "./../../../headless-basics-components/src/theme/default/**/*.{ts,tsx}",
+    
     "./node_modules/@conversiondigital/headless-basics-components/src/theme/conversion/**/*.{ts,tsx}",
     "./../headless-basics-components/src/theme/conversion/**/*.{ts,tsx}",
+    "../../node_modules/@conversiondigital/headless-basics-components/src/theme/conversion/**/*.{ts,tsx}",
     "./../../../headless-basics-components/src/theme/conversion/**/*.{ts,tsx}",
     './src/**/*.{js,jsx,ts,tsx}'
   ],
