@@ -11,7 +11,7 @@ const exludedPaths = ["/", "au", "nz"];
 
 export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
   (
-    { children, data, className, innerProps, slug, itemClassName, ...props },
+    { children, data, className, innerProps, slug, itemClassName, seperatorIcon, ...props },
     ref,
   ) => {
     const classes = cn("breadcrumbs [&>ul]:flex-wrap", "text-sm", className);
