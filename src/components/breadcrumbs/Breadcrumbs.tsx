@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+"use client";
+
 import React, { forwardRef, ForwardedRef, Key } from "react";
 import { BreadcrumbsProps } from "./BreadcrumbsProps";
 import { cnm as cn } from "../../utils/cnMerge";
@@ -36,12 +38,9 @@ export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
       ? (React.Children.toArray(breadcrumbItems) as React.ReactNode)
       : children;
 
-    // Change the innerRef definition to use the explicit ForwardedRef type
-    const innerRef = React.useRef<HTMLUListElement>(null);
-
     return (
       <div role="navigation" aria-label="Breadcrumbs" className={classes} ref={ref} {...props}>
-        <ul {...innerProps} ref={innerRef}>
+        <ul {...innerProps}>
           {renderedBreadcrumbs}
         </ul>
       </div>
@@ -52,3 +51,5 @@ export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
 Breadcrumbs.displayName = "Breadcrumbs";
 
 export default Object.assign(Breadcrumbs, { Item: BreadcrumbsItem });
+Breadcrumbs.displayName = "Breadcrumbs";
+
