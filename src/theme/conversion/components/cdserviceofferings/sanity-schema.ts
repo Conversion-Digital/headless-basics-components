@@ -4,7 +4,7 @@ import { TagIcon } from '@sanity/icons'
 export default defineType({
   name: 'cdserviceofferings',
   title: 'Service Offerings (CD)', 
-  type: 'document',
+  type: 'object',
   icon: TagIcon,
   fields: [
     defineField({

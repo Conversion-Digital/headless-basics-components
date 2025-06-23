@@ -4,7 +4,7 @@ import { DocumentTextIcon } from '@sanity/icons'
 export default defineType({
   name: 'cdserviceintro',
   title: 'Service Introduction (CD)', 
-  type: 'document',
+  type: 'object',
   icon: DocumentTextIcon,
   fields: [
     defineField({

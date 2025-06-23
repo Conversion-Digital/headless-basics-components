@@ -17,7 +17,3 @@ export { default as cdcta } from "./components/cdcta/index";
 export { default as cdserviceintro } from "./components/cdserviceintro/index";
 export { default as cdservicestats } from "./components/cdservicestats/index";
 export { default as cdserviceofferings } from "./components/cdserviceofferings/index";
-export { default as cdservicedetail } from "./components/cdservicedetail/index";
-
-// Page structures
-export { default as ServicePage } from "./structures/servicepage/index";

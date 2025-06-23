@@ -4,7 +4,7 @@ import { BarChartIcon } from '@sanity/icons'
 export default defineType({
   name: 'cdservicestats',
   title: 'Service Statistics (CD)', 
-  type: 'document',
+  type: 'object',
   icon: BarChartIcon,
   fields: [
     defineField({
