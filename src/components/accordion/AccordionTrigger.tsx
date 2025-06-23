@@ -3,10 +3,15 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { cnm as cn } from "../../utils/cnMerge";;
 
-interface AccordionTriggerProps extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> {
+import type { SVGProps } from "react";
+
+type IconElement = React.ReactElement<SVGProps<SVGSVGElement>>;
+
+interface AccordionTriggerProps
+  extends React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> {
   className?: string;
-  collapsedIcon?: React.ReactElement;
-  expandedIcon?: React.ReactElement;
+  collapsedIcon?: IconElement;
+  expandedIcon?: IconElement;
   hasChild?: boolean;
 }
 

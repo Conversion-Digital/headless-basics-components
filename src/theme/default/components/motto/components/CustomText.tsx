@@ -21,7 +21,7 @@ export const CustomText = ({ text, align }: CustomTextProps) => {
   })
 
   return (
-    <div className=" w-full break-after-auto bg-my-blue py-8 font-urbanist uppercase">
+    <div className=" w-full break-after-auto bg-blue-500 py-8 font-urbanist uppercase">
       <h2
         className={`w-full py-2 font-urbanist text-h4 font-800 leading-h4 text-white sm:container lg:py-12 lg:text-h2 lg:leading-h2 ${textAlignClass}`}
       >

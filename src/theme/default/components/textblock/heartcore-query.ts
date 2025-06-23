@@ -1,0 +1,56 @@
+import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src";
+
+export function query(individualComponentProps: PageAndSingleComponentDetails) {
+  return `
+  query GetTextBlockComponent($slug: String!) {
+      content(url: $slug) {
+        url
+        contentTypeAlias
+        name
+        sortOrder
+        updateDate
+        ... on TextBlock{
+            body
+            order
+            sortOrder
+            align
+            backgroundColour
+            updateDate
+        }
+        children{
+            edges{
+                node{
+                    __typename
+                    name
+                    updateDate
+                    children{
+                        edges{
+                            node {
+                                __typename
+                                name
+                                level
+                                url
+                                sortOrder
+                                updateDate
+                                ... on Richtext{
+                                    body
+                                    order
+                                    sortOrder
+                                    align
+                                    backgroundColour
+                                    updateDate
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+      }
+  }
+  `
+}
+
+export function getQuery() {
+  return query;
+}

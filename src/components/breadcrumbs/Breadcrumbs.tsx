@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { Key } from "react";
+"use client";
+
+import React, { forwardRef, ForwardedRef, Key } from "react";
 import { BreadcrumbsProps } from "./BreadcrumbsProps";
 import { cnm as cn } from "../../utils/cnMerge";
 import { DefaultSeperatorIcon } from "../../icons/SeperatorIcon";
@@ -7,9 +9,9 @@ import BreadcrumbsItem from "./BreadcrumbsItem";
 
 const exludedPaths = ["/", "au", "nz"];
 
-const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
+export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
   (
-    { children, data, className, innerProps, innerRef, seperatorIcon, slug, itemClassName, ...props },
+    { children, data, className, innerProps, slug, itemClassName, seperatorIcon, ...props },
     ref,
   ) => {
     const classes = cn("breadcrumbs [&>ul]:flex-wrap", "text-sm", className);
@@ -38,7 +40,7 @@ const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
 
     return (
       <div role="navigation" aria-label="Breadcrumbs" className={classes} ref={ref} {...props}>
-        <ul {...innerProps} ref={innerRef}>
+        <ul {...innerProps}>
           {renderedBreadcrumbs}
         </ul>
       </div>
@@ -49,3 +51,5 @@ const Breadcrumbs = React.forwardRef<HTMLDivElement, BreadcrumbsProps>(
 Breadcrumbs.displayName = "Breadcrumbs";
 
 export default Object.assign(Breadcrumbs, { Item: BreadcrumbsItem });
+Breadcrumbs.displayName = "Breadcrumbs";
+
