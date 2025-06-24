@@ -9,12 +9,9 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   );
 
   const content = pageAndComponentCombo?.component?.data
-
   const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
   log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
-
-
-  const matchingData = extractComponentsFromSanityData(content, "cdfooter", log, true, '', thisComponentsOrder);
+  const matchingData = extractComponentsFromSanityData(content, "cdfooter", log);
 
   return matchingData
 }
