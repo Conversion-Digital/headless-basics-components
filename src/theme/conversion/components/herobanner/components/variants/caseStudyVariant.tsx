@@ -14,12 +14,12 @@ export default function CaseStudyVariant(props: StandardComponentProps) {
   return (
     <div id="herobanner-casestudy" className="bg-[#FFF6EC] h-[648px] flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-20 hero-cover container-stretch pt-300px pb-300px d-flex flex-wrap justify-content-between">
       <div className="max-w-xl flex flex-col justify-center">
-        <h2 className="text-5xl md:text-6xl font-extrabold text-[#0D0E47] leading-tight">
-          {(matchingData?.title || "Case Study HeroBanner Title").toUpperCase()}
-        </h2>
-        <p className="mt-6 text-lg md:text-xl text-[#0D0E47] mb-[54px]">
-          {matchingData?.subtitle || "Case Study HeroBanner Subtitle"}
+        <p className="mt-6 text-lg md:text-xl text-[#0D0E47] mb-[54px] ">
+          {matchingData?.title || "Case Study HeroBanner Title"}
         </p>
+        <h2 className="text-5xl md:text-6xl font-extrabold text-[#0D0E47] leading-tight">
+          {(matchingData?.subtitle || "Case Study HeroBanner Subtitle").toUpperCase()}
+        </h2>
         <p className="mt-2 text-base text-[#0D0E47] mb-[30px]">
           {description}
         </p>

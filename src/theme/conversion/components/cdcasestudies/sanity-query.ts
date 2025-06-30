@@ -14,10 +14,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             sortOrder
             title
             subtitle
+            keywords
             items {
               title
               description
               link
+              topics
               image {
                 asset {
                   url
@@ -33,10 +35,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               selectableVariant
               title
               subtitle
+              keywords
               items {
                 title
                 description
                 link
+                topics
                 image {
                   asset {
                     url
@@ -58,10 +62,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             sortOrder
             title
             subtitle
+            keywords
             items {
               title
               description
               link
+              topics
               image {
                 asset {
                   url
@@ -77,10 +83,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               selectableVariant
               title
               subtitle
+              keywords
               items {
                 title
                 description
                 link
+                topics
                 image {
                   asset {
                     url
