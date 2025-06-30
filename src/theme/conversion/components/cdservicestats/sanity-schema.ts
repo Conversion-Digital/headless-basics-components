@@ -1,6 +1,27 @@
 import { defineField, defineType } from 'sanity'
 import { BarChartIcon } from '@sanity/icons'
 
+// Define a separate type for the statistic object
+export const cdserviceStatItem = defineType({
+  name: 'cdserviceStatItem',
+  title: 'Service Statistic Item',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'value',
+      title: 'Value',
+      type: 'string',
+      description: 'The statistical value to display (e.g., "93%", "5.14")'
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'string',
+      description: 'The description of what the statistic represents'
+    })
+  ]
+})
+
 export default defineType({
   name: 'cdservicestats',
   title: 'Service Statistics (CD)', 
@@ -22,24 +43,7 @@ export default defineType({
       title: 'Statistics',
       type: 'array',
       of: [
-        {
-          type: 'object',
-          title: 'Statistic',
-          fields: [
-            {
-              name: 'value',
-              title: 'Value',
-              type: 'string',
-              description: 'The statistical value to display (e.g., "93%", "5.14")'
-            },
-            {
-              name: 'description',
-              title: 'Description',
-              type: 'string',
-              description: 'The description of what the statistic represents'
-            }
-          ]
-        }
+        { type: 'cdserviceStatItem' }
       ],
     }),
     defineField({

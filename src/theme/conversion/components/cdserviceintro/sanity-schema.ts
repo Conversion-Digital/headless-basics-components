@@ -1,10 +1,11 @@
 import { defineField, defineType } from 'sanity'
 import { DocumentTextIcon } from '@sanity/icons'
 
+// Define a separate document type for cdserviceintro
 export default defineType({
   name: 'cdserviceintro',
   title: 'Service Introduction (CD)', 
-  type: 'object',
+  type: 'document',
   icon: DocumentTextIcon,
   fields: [
     defineField({
@@ -61,8 +62,14 @@ export default defineType({
                 fields: [
                   {
                     name: 'href',
-                    type: 'url',
+                    type: 'string',
                     title: 'URL'
+                  },
+                  {
+                    name: 'blank',
+                    type: 'boolean',
+                    title: 'Open in new tab',
+                    initialValue: false
                   }
                 ]
               }
@@ -76,14 +83,15 @@ export default defineType({
       name: 'sortOrder',
       title: 'Sort Order',
       type: 'number'
-    }),
-    defineField({
-      name: 'globalComponentSource',
-      title: 'Global Component Source',
-      type: 'reference',
-      to: [{ type: 'cdserviceintro' }],
-      description: 'Select a global re-usable service introduction.'
     })
+    // Temporarily removing the globalComponentSource field as it may be causing circular references
+    // defineField({
+    //   name: 'globalComponentSource',
+    //   title: 'Global Component Source',
+    //   type: 'reference',
+    //   to: [{ type: 'cdserviceintro' }],
+    //   description: 'Select a global re-usable service introduction.'
+    // })
   ],
   preview: {
     select: {
