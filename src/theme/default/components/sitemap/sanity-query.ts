@@ -26,7 +26,6 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails) {
           }
           components {
             __typename
-            _type
           }
       }
     }
