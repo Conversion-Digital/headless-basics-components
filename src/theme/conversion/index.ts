@@ -14,6 +14,6 @@ export { default as cdclients } from "./components/cdclients/index";
 // Insert cdcta
 export { default as cdcta } from "./components/cdcta/index";
 // New service page components
-export { default as cdserviceintro } from "./components/cdserviceintro/index";
-export { default as cdservicestats } from "./components/cdservicestats/index";
-export { default as cdserviceofferings } from "./components/cdserviceofferings/index";
+export { default as cdintroduction } from "./components/cdintroduction/index";
+export { default as cdstatistics } from "./components/cdstatistics/index";
+export { default as cdfaqs } from "./components/cdfaqs/index";

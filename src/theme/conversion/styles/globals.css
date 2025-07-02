@@ -35,6 +35,10 @@
   background-color: var(--off-white);
 }
 
+@theme {
+  --color-primary-bg: #0d0e47;
+}
+
 :root {
   --color-primary-bg: #0D0E47;
   --color-primary-text: white;
@@ -71,6 +75,7 @@
   --border-gray-700: #374151;
   --br-white: #DEDEDE;
   --border-purple: #6C2BD9;
+  --body-color: #0d0e47;
 }
 
 body {
@@ -329,20 +334,20 @@ nav {
 }
 
 
-.contentServiceIntroWrapper {
+.contentIntroductionWrapper {
   color: #0d0e47;
 }
 
-.contentServiceIntroWrapper p{ 
+.contentIntroductionWrapper p{ 
   margin-top: 30px;
   color: #0d0e47;
   font-family: var(--font-figtree);
 }
 
-.contentServiceIntroWrapper p:first-child, .contentServiceIntroWrapper h3:first-child{ 
+.contentIntroductionWrapper p:first-child, .contentIntroductionWrapper h3:first-child{ 
   margin-top: 0;
 }
-.contentServiceIntroWrapper h3{ 
+.contentIntroductionWrapper h3{ 
   margin-top: 53px;
   margin-bottom: 22px;
   font-size: 30px;
@@ -351,7 +356,7 @@ nav {
   color: #0d0e47;
 }
 
-.contentServiceOfferingsWrapper {
+.contentFaqsWrapper {
   color: white;
   font-family: var(--font-figtree);
   font-size: 18px;
@@ -359,7 +364,7 @@ nav {
   font-weight: 500;
 }
 
-.contentServiceOfferingsWrapper p{ 
+.contentFaqsWrapper p{ 
   margin-top: 30px;
   color: white;
   font-family: var(--font-figtree);
@@ -368,7 +373,7 @@ nav {
   font-weight: 500;
 }
 
-.contentServiceOfferingsWrapper ul {
+.contentFaqsWrapper ul {
   list-style: initial;
   font-size: 18px;
   line-height: 36px;
@@ -376,11 +381,11 @@ nav {
   margin-left: 30px;
 }
 
-.contentServiceOfferingsWrapper p:first-child, .contentServiceOfferingsWrapper h3:first-child{ 
+.contentFaqsWrapper p:first-child, .contentFaqsWrapper h3:first-child{ 
   margin-top: 0;
 }
 
-.contentServiceOfferingsWrapper h3, .contentServiceOfferingsWrapper h2{ 
+.contentFaqsWrapper h3, .contentFaqsWrapper h2{ 
   margin-top: 53px;
   margin-bottom: 22px;
   font-size: 30px;
