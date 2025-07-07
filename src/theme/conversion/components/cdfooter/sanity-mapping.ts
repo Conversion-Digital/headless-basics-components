@@ -14,7 +14,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
 
 
-  const matchingData = extractComponentsFromSanityData(content, "cdfooter", log, true, '', thisComponentsOrder);
+  const matchingData = extractComponentsFromSanityData(content, "cdfooter", log);
 
   return matchingData
 }

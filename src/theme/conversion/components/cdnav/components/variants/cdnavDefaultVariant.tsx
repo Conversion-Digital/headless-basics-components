@@ -28,7 +28,7 @@ export default function cdnavDefaultVariant(props: StandardComponentProps) {
   };
 
   return (
-    <nav className={`${isTransparent ? "bg-transparent" : "bg-[#FFFFFF]"} text-[#000] p-4 sticky top-0 z-50`}>
+    <nav className={`${isTransparent ? "bg-transparent" : "bg-[#FFFFFF]"} text-[#000] p-4 sticky top-0 z-50 text-xl`}>
       <div className="container mx-auto">
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-between">
@@ -47,9 +47,9 @@ export default function cdnavDefaultVariant(props: StandardComponentProps) {
               {/* Render first dropdown menu with nested second dropdown */}
               {dropdownMenus.length > 0 && (
                 <div className="relative group">
-                  <button className="text-center text-Color-Navy text-xl tracking-wide hover:underline hover:decoration-[#800928] hover:underline-offset-8 pt-[6px] pb-[5px] flex items-center gap-1">
+                  <button className="text-center tracking-wide hover:underline hover:decoration-[#800928] hover:underline-offset-8 pt-[6px] pb-[5px] flex items-center gap-1">
                     {dropdownMenus[0].label}
-                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-gray-400 group-hover:border-t-[#0D0E47] transition-transform duration-300 group-hover:rotate-180" />
+                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-gray-400 group-hover:border-t-[#0D0E47] transition-transform duration-300 group-hover:-rotate-180" />
                   </button>
                   <div className="w-2 bg-Color-Navy rounded-[0.40px] " />
                   <ul className="absolute hidden group-hover:block top-full left-0 bg-white shadow-md rounded-md p-2 min-w-[200px] z-10">
@@ -65,7 +65,7 @@ export default function cdnavDefaultVariant(props: StandardComponentProps) {
                       <li className="py-1 relative group/nested">
                         <div className="flex items-center justify-between hover:underline hover:decoration-[#800928] hover:underline-offset-8">
                           <span>{dropdownMenus[1].label}</span>
-                          <div className="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-gray-400 group-hover/nested:border-t-[#0D0E47] transition-transform duration-300 group-hover/nested:rotate-90" />
+                          <div className="w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[4px] border-l-gray-400 group-hover/nested:border-l-[#0D0E47]" />
                         </div>
                         <ul className="absolute hidden group-hover/nested:block left-full top-0 bg-white shadow-md rounded-md p-2 min-w-[180px] z-20 ml-1">
                           {dropdownMenus[1].dropdownLinks?.map((link: any, linkIdx: number) => (
@@ -82,7 +82,7 @@ export default function cdnavDefaultVariant(props: StandardComponentProps) {
                 </div>
               )}
               {links.map((linkItem: any, idx: number) => (
-                <div key={idx} className="text-center justify-start text-Color-Navy tracking-wide">
+                <div key={idx} className="text-center justify-start tracking-wide">
                   <a href={linkItem.url ?? "#"} className="hover:underline hover:decoration-[#800928] hover:underline-offset-8 pt-[6px] pb-[5px]">
                     {linkItem.label ?? "Nav Link"}
                   </a>
@@ -91,7 +91,7 @@ export default function cdnavDefaultVariant(props: StandardComponentProps) {
             </div>
             <a 
               href={buttonUrl}
-              className="bg-[#800928] hover:bg-blue-950 font-semibold text-xl text-white px-10 py-4 rounded-full hover:bg-opacity-80 transition-colors inline-flex justify-center items-center gap-2.5"
+              className="bg-[#800928] hover:bg-blue-950 font-semibold text-white px-10 py-4 rounded-full hover:bg-opacity-80 transition-colors inline-flex justify-center items-center gap-2.5"
             >
               {buttonText}
             </a>
