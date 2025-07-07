@@ -18,9 +18,16 @@ export const clientItem = defineType({
       type: 'url'
     }),
     defineField({
-      name: 'logo',
-      title: 'Client Logo',
-      type: 'image'
+      name: 'inactiveLogo',
+      title: 'Inactive Logo',
+      type: 'image',
+      description: 'Logo shown by default (grayscale or muted version)'
+    }),
+    defineField({
+      name: 'activeLogo',
+      title: 'Active Logo',
+      type: 'image',
+      description: 'Logo shown on hover (colored or highlighted version)'
     })
   ]
 });

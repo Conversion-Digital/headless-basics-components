@@ -17,15 +17,38 @@ const DemoVariant: React.FC<StandardComponentProps> = ({
         {clientsList.map((client: any, index: number) => (
           <div
             key={index}
-            className="bg-white rounded-md shadow-md w-[140px] p-4 flex items-center justify-center"
+            className="bg-white rounded-md shadow-md w-[140px] p-4 flex items-center justify-center group"
           >
-            {client.logo && (
+            {(client.inactiveLogo || client.activeLogo) && (
               <a href={client.link || "#"} target="_blank" rel="noopener noreferrer">
-                <img
-                  src={client.logo}
-                  alt={client.name || "Client"}
-                  className="object-contain max-h-12 hover:opacity-80 transition"
-                />
+                <div className="relative w-full h-12 flex items-center justify-center">
+                  {/* Inactive Logo */}
+                  {client.inactiveLogo && (
+                    <img
+                      src={client.inactiveLogo.asset?.url || client.inactiveLogo}
+                      alt={client.name || "Client"}
+                      className="max-w-full max-h-full object-contain filter grayscale opacity-70 group-hover:opacity-0 transition-all duration-300"
+                    />
+                  )}
+                  
+                  {/* Active Logo */}
+                  {client.activeLogo && (
+                    <img
+                      src={client.activeLogo.asset?.url || client.activeLogo}
+                      alt={client.name || "Client"}
+                      className="absolute inset-0 max-w-full max-h-full object-contain opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    />
+                  )}
+                  
+                  {/* Fallback if only inactive logo exists */}
+                  {client.inactiveLogo && !client.activeLogo && (
+                    <img
+                      src={client.inactiveLogo.asset?.url || client.inactiveLogo}
+                      alt={client.name || "Client"}
+                      className="absolute inset-0 max-w-full max-h-full object-contain opacity-0 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
+                    />
+                  )}
+                </div>
               </a>
             )}
           </div>
