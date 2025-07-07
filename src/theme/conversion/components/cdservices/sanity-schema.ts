@@ -1,6 +1,19 @@
 import { defineField, defineType } from 'sanity'
 import { EyeOpenIcon } from '@sanity/icons'
 
+export const serviceLink = defineType({
+  name: 'serviceLink',
+  title: 'Service Link',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'name',
+      title: 'Name',
+      type: 'string'
+    })
+  ]
+})
+
 export const serviceItem = defineType({
     name: 'serviceItem',
     title: 'Service Item',
@@ -25,9 +38,37 @@ export const serviceItem = defineType({
         }
       }),
       defineField({
-        name: 'link',
-        title: 'Link',
-        type: 'url'
+        name: 'serviceLinks',
+        title: 'Service Links',
+        type: 'array',
+        of: [
+          {
+            type: 'serviceLink'
+          }
+        ]
+      }),
+      defineField({
+        name: 'category',
+        title: 'Category',
+        type: 'string',
+        description: 'e.g: Featured case study'
+      }),
+      defineField({
+        name: 'imageTitle',
+        title: 'Image Title',
+        type: 'string'
+      }),
+      defineField({
+        name: 'buttonText',
+        title: 'Button Text',
+        type: 'string',
+        initialValue: 'Learn more'
+      }),
+      defineField({
+        name: 'buttonUrl',
+        title: 'Button URL',
+        type: 'string',
+        description: 'URL for the button',
       })
     ]
   })
@@ -46,6 +87,7 @@ export default defineType({
         list: [
           { title: 'Default', value: 'default' },
           { title: 'Demo', value: 'xDemo' },
+          { title: 'Feature Blocks', value: 'featureBlocks' },
         ]
       }
     }),

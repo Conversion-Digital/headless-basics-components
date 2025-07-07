@@ -27,6 +27,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                   url
                 }
               }
+              serviceLinks {
+                name
+              }
+              category
+              imageTitle
+              buttonText
+              buttonUrl
             }
             globalComponentSource {
               __typename
@@ -77,6 +84,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
                   url
                 }
               }
+              serviceLinks {
+                name
+              }
+              category
+              imageTitle
+              buttonText
+              buttonUrl
             }
             globalComponentSource {
               __typename

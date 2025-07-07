@@ -6,22 +6,22 @@ module.exports = {
     "pages/**/*.{ts,tsx}",
     "theme/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
-    
+
     "./node_modules/@conversiondigital/headless-basics-components/src/components/**/*.{ts,tsx}",
     "./../headless-basics-components/src/components/**/*.{ts,tsx}",
     "../../node_modules/@conversiondigital/headless-basics-components/src/components/**/*.{ts,tsx}",
     "./../../../headless-basics-components/src/components/**/*.{ts,tsx}",
-    
+
     "./node_modules/@conversiondigital/headless-basics-components/src/theme/default/**/*.{ts,tsx}",
     "./../headless-basics-components/src/theme/default/**/*.{ts,tsx}",
     "../../node_modules/@conversiondigital/headless-basics-components/src/theme/default/**/*.{ts,tsx}",
     "./../../../headless-basics-components/src/theme/default/**/*.{ts,tsx}",
-    
+
     "./node_modules/@conversiondigital/headless-basics-components/src/theme/conversion/**/*.{ts,tsx}",
     "./../headless-basics-components/src/theme/conversion/**/*.{ts,tsx}",
     "../../node_modules/@conversiondigital/headless-basics-components/src/theme/conversion/**/*.{ts,tsx}",
     "./../../../headless-basics-components/src/theme/conversion/**/*.{ts,tsx}",
-    './src/**/*.{js,jsx,ts,tsx}'
+    "./src/**/*.{js,jsx,ts,tsx}",
   ],
   colors: {
     black45: "var(--black-45)",
@@ -73,12 +73,15 @@ module.exports = {
     },
     "body-color": "var(--body-color)",
     "primary-bg": "var(--color-primary-bg)",
+    accent: "var(--color-accent)",
   },
   backgroundImage: {
     "gradient-dark": "linear-gradient(277deg, #171717 55.29%, #3D3D3D 98.19%)",
   },
   fontFamily: {
     helvetica: ["var(--font-helvetica)", ...fontFamily.sans],
+    staatliches: ["var(--font-staatliches)", ...fontFamily.sans],
+    figtree: ["var(--font-figtree)", ...fontFamily.sans],
   },
   fontSize: {
     h1: "60px",

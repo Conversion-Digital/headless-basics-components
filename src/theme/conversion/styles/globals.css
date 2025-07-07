@@ -37,6 +37,9 @@
 
 @theme {
   --color-primary-bg: #0d0e47;
+  --color-accent: #800928;
+  --font-staatliches: var(--font-staatliches);
+  --font-figtree: var(--font-figtree);
 }
 
 :root {
@@ -75,7 +78,6 @@
   --border-gray-700: #374151;
   --br-white: #DEDEDE;
   --border-purple: #6C2BD9;
-  --body-color: #0d0e47;
 }
 
 body {
