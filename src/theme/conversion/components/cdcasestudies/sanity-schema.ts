@@ -80,11 +80,11 @@ export default defineType({
       description: 'Subtitle or tagline for the case studies section.'
     }),
     defineField({
-      name: 'keywords',
-      title: 'Keywords',
+      name: 'topics',
+      title: 'Topics',
       type: 'array',
       of: [{ type: 'string' }],
-      description: 'Keywords displayed at the top of the case studies section',
+      description: 'Topics used for filtering case studies',
       options: {
         layout: 'tags'
       }

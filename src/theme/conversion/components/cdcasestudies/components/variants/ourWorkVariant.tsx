@@ -4,33 +4,61 @@ import { StandardComponentProps } from "@conversiondigital/headless-basics-compo
 import { getCmsImage } from "@conversiondigital/headless-basics-data/src/cms/tools/multiCmsImageTools";
 
 export default function OurWorkVariant(props: StandardComponentProps) {
+  console.log('DEBUG: OurWorkVariant props:', props);
+  
   const { matchingData } = props;
+  console.log('DEBUG: matchingData:', matchingData);
+  
   const title = matchingData?.title?.toUpperCase();
   const subtitle = matchingData?.subtitle;
-  const keywords = matchingData?.keywords || [];
+  const topics = matchingData?.topics || [];
   const items = matchingData?.items || [];
   const button = matchingData?.button || {};
+  
+  console.log('DEBUG: Extracted data:');
+  console.log('- title:', title);
+  console.log('- subtitle:', subtitle);
+  console.log('- topics:', topics);
+  console.log('- items:', items);
+  console.log('- button:', button);
 
   // State for active filter
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
+  // Use topics from main schema
+  const availableTopics = topics;
+
   // Filter case studies based on active filter
   const filteredItems = useMemo(() => {
+    console.log('DEBUG: Filtering - activeFilter:', activeFilter);
+    console.log('DEBUG: Filtering - items:', items);
+    
     if (activeFilter === 'all') {
       return items;
     }
 
-    return items.filter((item: any) => {
+    const filtered = items.filter((item: any) => {
       const itemTopics = item?.topics || [];
-      // Check if any of the item's topics match the selected keyword (case-insensitive)
-      return itemTopics.some((topic: string) => 
-        topic?.toLowerCase() === activeFilter?.toLowerCase()
-      );
+      console.log('DEBUG: Item topics:', itemTopics, 'for item:', item?.title);
+      
+      const matches = itemTopics.some((topic: string) => {
+        const match = topic?.toLowerCase().trim() === activeFilter?.toLowerCase().trim();
+        console.log('DEBUG: Comparing:', topic, 'with', activeFilter, 'match:', match);
+        return match;
+      });
+      
+      console.log('DEBUG: Item matches filter:', matches);
+      return matches;
     });
+    
+    console.log('DEBUG: Filtered items:', filtered);
+    return filtered;
   }, [items, activeFilter]);
 
-  const handleFilterClick = (keyword: string) => {
-    setActiveFilter(activeFilter === keyword ? 'all' : keyword);
+  const handleFilterClick = (topic: string) => {
+    console.log('DEBUG: handleFilterClick called with topic:', topic);
+    setActiveFilter(topic);
+    console.log('DEBUG: activeFilter set to:', topic);
   };
 
   return (
@@ -47,40 +75,54 @@ export default function OurWorkVariant(props: StandardComponentProps) {
           </div>
         </div>
 
-        {keywords.length > 0 && (
-          <div className="flex flex-wrap gap-4 mb-16">
-            <button
-              onClick={() => handleFilterClick('all')}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeFilter === 'all'
-                  ? 'bg-[#FF6B35] text-white'
-                  : 'bg-[#fff6ec] text-[#0C093F] hover:bg-[#FF6B35]/10'
-              }`}
-            >
-              All ({items.length})
-            </button>
-            {keywords.map((keyword: string, index: number) => {
-              // Count items that match this keyword (case-insensitive)
+        {availableTopics && availableTopics.length > 0 && (
+          <div className="mb-16">
+            <div className="flex flex-wrap gap-4 mb-4">
+              <button
+                onClick={() => handleFilterClick('all')}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeFilter === 'all'
+                    ? 'bg-[#FF6B35] text-white shadow-lg'
+                    : 'bg-[#fff6ec] text-[#0C093F] hover:bg-[#FF6B35]/10'
+                }`}
+              >
+                All ({items.length})
+              </button>
+            {availableTopics.map((topic: string, index: number) => {
+              // Count items that match this topic (case-insensitive)
               const matchingCount = items.filter((item: any) => 
-                item?.topics?.some((topic: string) => 
-                  topic?.toLowerCase() === keyword?.toLowerCase()
+                item?.topics?.some((itemTopic: string) => 
+                  itemTopic?.toLowerCase().trim() === topic?.toLowerCase().trim()
                 )
               ).length;
 
               return (
                 <button
                   key={index}
-                  onClick={() => handleFilterClick(keyword)}
+                  onClick={() => handleFilterClick(topic)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                    activeFilter === keyword
-                      ? 'bg-[#FF6B35] text-white'
+                    activeFilter === topic
+                      ? 'bg-[#FF6B35] text-white shadow-lg'
                       : 'bg-[#fff6ec] text-[#0C093F] hover:bg-[#FF6B35]/10'
                   }`}
                 >
-                  {keyword} ({matchingCount})
+                  {topic} ({matchingCount})
                 </button>
               );
             })}
+            </div>
+          </div>
+        )}
+
+        {activeFilter !== 'all' && filteredItems.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-[#0C093F] text-lg mb-4">No case studies found for topic "{activeFilter}"</p>
+            <button
+              onClick={() => handleFilterClick('all')}
+              className="px-6 py-3 bg-[#FF6B35] text-white rounded-full hover:bg-[#FF6B35]/90 transition"
+            >
+              Show All Case Studies
+            </button>
           </div>
         )}
 

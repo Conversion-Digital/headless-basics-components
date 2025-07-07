@@ -14,7 +14,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             sortOrder
             title
             subtitle
-            keywords
+            topics
             items {
               title
               description
@@ -35,7 +35,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               selectableVariant
               title
               subtitle
-              keywords
+              topics
               items {
                 title
                 description
@@ -62,7 +62,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             sortOrder
             title
             subtitle
-            keywords
+            topics
             items {
               title
               description
@@ -83,7 +83,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               selectableVariant
               title
               subtitle
-              keywords
+              topics
               items {
                 title
                 description
