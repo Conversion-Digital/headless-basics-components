@@ -14,6 +14,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             selectableVariant
             title
             subtitle
+            category
             image {
               asset {
                 url
@@ -31,6 +32,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               _type
               title
               subtitle
+              category
               image {
                 asset {
                   url
@@ -55,6 +57,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             selectableVariant
             title
             subtitle
+            category
             image {
               asset {
                 url
@@ -72,6 +75,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               _type
               title
               subtitle
+              category
               image {
                 asset {
                   url

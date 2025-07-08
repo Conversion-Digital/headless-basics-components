@@ -13,6 +13,8 @@ export default defineType({
       type: 'string',
       options: {
         list: [
+          { title: 'Title Only', value: 'title-only' },
+          { title: 'Introduction', value: 'introduction' },
           { title: 'Default', value: 'default' },
           { title: 'Demo', value: 'xDemo' },
         ]
@@ -26,6 +28,12 @@ export default defineType({
     defineField({
       name: 'subtitle',
       title: 'Subtitle',
+      type: 'string',
+    }),
+    defineField({
+      name: 'category',
+      title: 'Category',
+      description: 'e.g: Services, About Us, etc.',
       type: 'string',
     }),
     defineField({

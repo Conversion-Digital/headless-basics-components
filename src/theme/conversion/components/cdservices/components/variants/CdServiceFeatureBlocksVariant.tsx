@@ -62,7 +62,7 @@ export default function CdServiceFeatureBlocksVariant(props: StandardComponentPr
                 <span className="absolute left-[6px] md:left-[-30px] xl:left-[-40px] top-[-64px] md:top-[-120px] xl:top-[-200px] text-[90px] md:text-[180px] xl:text-[288px] font-extrabold leading-none -z-10 bg-gradient-to-b from-[rgba(128,9,40,0.05)] via-[rgba(128,9,40,0.05)] to-transparent bg-clip-text text-transparent">
                   {padStart(idx + 1)}
                 </span>
-                <h2 className="font-bold text-[30px] 2xl:text-[44px] 3xl:text-[48px] mb-5 md:mb-[15px] 2xl:mb-6 font-staatliches text-[#212529]">
+                <h2 className="font-bold text-[30px] 2xl:text-[44px] 3xl:text-[48px] mb-5 md:mb-[15px] 2xl:mb-6 font-staatliches text-primary-bg">
                   {service.title}
                 </h2>
                 <p className="text-[#202020] text-base md:text-[1rem] xl:text-[1.125rem] leading-[2] font-normal mb-[2.125rem] md:mb-[0.9375rem] xl:mb-[2.5rem]">
