@@ -1,8 +1,13 @@
 import React from 'react';
 import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
+import { CdIntroductionData } from '../index';
 import {toHTML} from '@portabletext/to-html'
 
-const CdIntroductionDefaultVariant: React.FC<StandardComponentProps> = ({ matchingData }) => {
+interface CdIntroductionDefaultVariantProps extends StandardComponentProps {
+  matchingData: CdIntroductionData;
+}
+
+const CdIntroductionDefaultVariant: React.FC<CdIntroductionDefaultVariantProps> = ({ matchingData }) => {
   const title = matchingData?.title || '';
   const content = matchingData?.richtextRaw || '';
 

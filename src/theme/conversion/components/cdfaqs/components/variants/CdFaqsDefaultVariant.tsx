@@ -1,14 +1,14 @@
 "use client";
 import { StandardComponentProps } from "@conversiondigital/headless-basics-components/src/interfaces/standardComponentProps";
+import { CdFaqsData, FaqItem } from "../index";
 import { toHTML } from "@portabletext/to-html";
 import React, { useState } from "react";
 
-interface FaqItem {
-  title: string;
-  richtextRaw: any[];
+interface CdFaqsDefaultVariantProps extends StandardComponentProps {
+  matchingData: CdFaqsData;
 }
 
-const CdFaqsDefaultVariant: React.FC<StandardComponentProps> = ({ matchingData }) => {
+const CdFaqsDefaultVariant: React.FC<CdFaqsDefaultVariantProps> = ({ matchingData }) => {
   const [indexActive, setIndexActive] = useState(0);
 
   const title = matchingData?.title || "";
