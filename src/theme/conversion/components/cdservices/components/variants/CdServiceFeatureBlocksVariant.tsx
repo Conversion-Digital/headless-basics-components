@@ -45,8 +45,8 @@ export default function CdServiceFeatureBlocksVariant(props: StandardComponentPr
   const padStart = (number: number) => String(number).padStart(2, "0");
 
   return (
-    <div className="feature-blocks-root container mx-auto font-figtree px-2 md:px-0">
-      <section className="pt-4 pb-8 lg:pt-5 lg:pb-[150px] xl:pt-[60px] xl:pb-[200px]">
+    <section className="pt-4 pb-8 lg:pt-5 lg:pb-[150px] xl:pt-[60px] xl:pb-[200px] font-figtree px-6 md:px-12 lg:px-20">
+      <div className="max-w-screen-xl mx-auto">
         {services.map((service: ServiceItem, idx: number) => (
           <div
             key={idx + data._key}
@@ -114,7 +114,7 @@ export default function CdServiceFeatureBlocksVariant(props: StandardComponentPr
             </div>
           </div>
         ))}
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
