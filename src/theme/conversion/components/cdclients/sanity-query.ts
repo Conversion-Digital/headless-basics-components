@@ -17,7 +17,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             clientsList {
               name
               link
-              logo {
+              inactiveLogo {
+                asset {
+                  url
+                }
+              }
+              activeLogo {
                 asset {
                   url
                 }
@@ -35,7 +40,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               clientsList {
                 name
                 link
-                logo {
+                inactiveLogo {
+                  asset {
+                    url
+                  }
+                }
+                activeLogo {
                   asset {
                     url
                   }
@@ -59,7 +69,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             clientsList {
               name
               link
-              logo {
+              inactiveLogo {
+                asset {
+                  url
+                }
+              }
+              activeLogo {
                 asset {
                   url
                 }
@@ -77,7 +92,12 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               clientsList {
                 name
                 link
-                logo {
+                inactiveLogo {
+                  asset {
+                    url
+                  }
+                }
+                activeLogo {
                   asset {
                     url
                   }

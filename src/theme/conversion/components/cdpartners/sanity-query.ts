@@ -15,7 +15,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             subtitle
             partnerLogos {
               name
-              logo {
+              url
+              inactiveLogo {
+                asset {
+                  url
+                }
+              }
+              activeLogo {
                 asset {
                   url
                 }
@@ -26,11 +32,18 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               __typename
               _key
               _type
+              selectableVariant
               title
               subtitle
               partnerLogos {
                 name
-                logo {
+                url
+                inactiveLogo {
+                  asset {
+                    url
+                  }
+                }
+                activeLogo {
                   asset {
                     url
                   }
@@ -52,7 +65,13 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
             subtitle
             partnerLogos {
               name
-              logo {
+              url
+              inactiveLogo {
+                asset {
+                  url
+                }
+              }
+              activeLogo {
                 asset {
                   url
                 }
@@ -63,11 +82,18 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               __typename
               _key
               _type
+              selectableVariant
               title
               subtitle
               partnerLogos {
                 name
-                logo {
+                url
+                inactiveLogo {
+                  asset {
+                    url
+                  }
+                }
+                activeLogo {
                   asset {
                     url
                   }

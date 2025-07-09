@@ -1,6 +1,8 @@
 import { defineField, defineType } from 'sanity'
-import { EyeOpenIcon } from '@sanity/icons'
+
+import { EyeOpenIcon, LinkIcon } from '@sanity/icons'
 import { linkItem } from '@conversiondigital/headless-basics-data/src/cms/sanity/sanityCommonSchema'
+
 
 // Define the dropdown menu type
 export const dropdownMenu = defineType({
@@ -21,6 +23,26 @@ export const dropdownMenu = defineType({
     })
   ]
 })
+
+export const linkItem = defineType({
+  name: 'linkItem',
+  title: 'Link Item',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'label',
+      title: 'Label',
+      type: 'string',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'url',
+      validation: Rule => Rule.required()
+    })
+  ]
+}) 
 
 export default defineType({
   name: 'cdnav',
@@ -112,5 +134,62 @@ export default defineType({
   }
 })
 
+// Override settings type for navigation
+export const cdnavOverrideSettings = defineType({
+  name: 'cdnavOverrideSettings',
+  title: 'Navigation Override Settings',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'isTransparent',
+      title: 'Make Transparent',
+      type: 'boolean'
+    }),
+    defineField({
+      name: 'hideOnThisPage',
+      title: 'Hide Navigation on This Page',
+      type: 'boolean'
+    })
+  ]
+})
 
-
+// Simplified reference component for use in pages
+export const cdnavReference = defineType({
+  name: 'cdnavReference',
+  title: 'Navigation',
+  type: 'object',
+  icon: LinkIcon,
+  fields: [
+    defineField({
+      name: 'globalComponentSource',
+      title: 'Select Navigation',
+      type: 'reference',
+      to: [{ type: 'cdnav' }],
+      description: 'Choose a global navigation component.',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'overrideSettings',
+      title: 'Override Settings',
+      type: 'cdnavOverrideSettings',
+      description: 'Optional: Override specific settings for this page only'
+    })
+  ],
+  preview: {
+    select: {
+      title: 'globalComponentSource.title',
+      transparent: 'overrideSettings.isTransparent',
+      hidden: 'overrideSettings.hideOnThisPage'
+    },
+    prepare({ title, transparent, hidden }) {
+      const subtitle = []
+      if (hidden) subtitle.push('Hidden')
+      if (transparent) subtitle.push('Transparent')
+      
+      return {
+        title: title || 'Navigation',
+        subtitle: subtitle.length > 0 ? subtitle.join(', ') : 'Default settings'
+      }
+    }
+  }
+})
