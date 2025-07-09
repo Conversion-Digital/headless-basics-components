@@ -55,7 +55,7 @@ async function getComponent(udi: string, individualComponentProps: PageAndSingle
     log.warn('pageDefinition is undefined');
     return null;
   }
-  log.trace(`${logPrefix()}[getComponent][${individualComponentProps.page.preliminarySlug}] calling getPageTypeBySlug with udi: ${udi}`);
+  log.info(`${logPrefix()}[getComponent][${individualComponentProps.page.preliminarySlug}] calling getPageTypeBySlug with udi: ${udi}`);
   const model = await getPageTypeBySlug(pageDefinition, true, udi);
   log.trace(`${logPrefix()}[getComponent][${individualComponentProps.page.preliminarySlug}]`, model);
   const contentTypeAlias = model.contentTypeAlias;
