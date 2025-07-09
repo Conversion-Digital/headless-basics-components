@@ -1,6 +1,8 @@
 import { defineField, defineType } from 'sanity'
+
 import { EyeOpenIcon, LinkIcon } from '@sanity/icons'
 import { linkItem } from '@conversiondigital/headless-basics-data/src/cms/sanity/sanityCommonSchema'
+
 
 // Define the dropdown menu type
 export const dropdownMenu = defineType({
@@ -21,6 +23,26 @@ export const dropdownMenu = defineType({
     })
   ]
 })
+
+export const linkItem = defineType({
+  name: 'linkItem',
+  title: 'Link Item',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'label',
+      title: 'Label',
+      type: 'string',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'url',
+      validation: Rule => Rule.required()
+    })
+  ]
+}) 
 
 export default defineType({
   name: 'cdnav',
