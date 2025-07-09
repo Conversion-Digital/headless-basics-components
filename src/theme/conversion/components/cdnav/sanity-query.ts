@@ -3,6 +3,34 @@ import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basic
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails): string {
   return `
     query GetCdnavBySlug($slug: String!) {
+      allCdnav {
+        __typename
+        _id
+        _key
+        _type
+        selectableVariant
+        title
+        subtitle
+        logo {
+          asset {
+            url
+          }
+        }
+        isTransparent
+        links {
+          label
+          url
+        }
+        dropdownMenus {
+          label
+          dropdownLinks {
+            label
+            url
+          }
+        }
+        buttonText
+        buttonUrl
+      }
       allPage(where: { slug: { current: { eq: $slug } } }) {
         components {
           __typename
