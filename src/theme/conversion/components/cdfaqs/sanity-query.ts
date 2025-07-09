@@ -1,29 +1,21 @@
 import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src/interfaces"
 
-
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails): string {
   return `
-    query GetHerobannerBySlug($slug: String!) {
+    query GetCdFaqsBySlug($slug: String!) {
       allPage(where: { slug: { current: { eq: $slug } } }) {
         components {
           __typename
-          ... on Herobanner {
+          ... on Cdfaqs {
             __typename
             _key
             _type
             selectableVariant
             title
-            subtitle
-            category
-            image {
-              asset {
-                url
-              }
-            }
-            altText
-            button {
-              label
-              link
+            description
+            items {
+              title
+              richtextRaw
             }
             sortOrder
             globalComponentSource {
@@ -31,17 +23,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               _key
               _type
               title
-              subtitle
-              category
-              image {
-                asset {
-                  url
-                }
-              }
-              altText
-              button {
-                label
-                link
+              description
+              items {
+                title
+                richtextRaw
               }
             }
           }
@@ -50,23 +35,16 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
       allHomepage {
         components {
           __typename
-          ... on Herobanner {
+          ... on Cdfaqs {
             __typename
             _key
             _type
             selectableVariant
             title
-            subtitle
-            category
-            image {
-              asset {
-                url
-              }
-            }
-            altText
-            button {
-              label
-              link
+            description
+            items {
+              title
+              richtextRaw
             }
             sortOrder
             globalComponentSource {
@@ -74,17 +52,10 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
               _key
               _type
               title
-              subtitle
-              category
-              image {
-                asset {
-                  url
-                }
-              }
-              altText
-              button {
-                label
-                link
+              description
+              items {
+                title
+                richtextRaw
               }
             }
           }
@@ -92,4 +63,4 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
       }
     }
   `
-}
+} 
