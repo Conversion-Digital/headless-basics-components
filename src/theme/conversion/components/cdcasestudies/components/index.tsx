@@ -4,6 +4,7 @@ import type { ViewComponentProps } from "@conversiondigital/headless-basics-data
 import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src";
 import DemoVariant from "./variants/demoVariant";
 import CdcasestudiesDefaultVariant from "./variants/cdcasestudiesDefaultVariant";
+import OurWorkVariant from "./variants/ourWorkVariant";
 
 export const log = getLogger("conversion.components.cdcasestudies");
 
@@ -15,6 +16,8 @@ export default function CdcasestudiesUI(dynamicComponent: ViewComponentProps) {
   switch (variant) {
     case "xDemo":
       return <DemoVariant matchingData={matchingData} {...dynamicComponent} />;
+    case "ourWork":
+      return <OurWorkVariant matchingData={matchingData} {...dynamicComponent} />;
     default:
       return <CdcasestudiesDefaultVariant matchingData={matchingData} {...dynamicComponent} />;
   }

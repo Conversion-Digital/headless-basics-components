@@ -29,6 +29,16 @@ export const caseStudyItem = defineType({
       name: 'link',
       title: 'Link',
       type: 'url'
+    }),
+    defineField({
+      name: 'topics',
+      title: 'Topics',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'Topics/categories for this case study',
+      options: {
+        layout: 'tags'
+      }
     })
   ]
 })
@@ -46,6 +56,7 @@ export default defineType({
       options: {
         list: [
           { title: 'Default', value: 'default' },
+          { title: 'Our Work', value: 'ourWork' },
           { title: 'Demo', value: 'xDemo' },
         ],
       },
@@ -67,6 +78,16 @@ export default defineType({
       title: 'Subtitle',
       type: 'string',
       description: 'Subtitle or tagline for the case studies section.'
+    }),
+    defineField({
+      name: 'topics',
+      title: 'Topics',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'Topics used for filtering case studies',
+      options: {
+        layout: 'tags'
+      }
     }),
     defineField({
       name: 'items',
@@ -92,6 +113,27 @@ export default defineType({
       title: 'Button URL',
       type: 'string',
       description: 'URL for the button link'
+    }),
+    defineField({
+      name: 'showFilter',
+      title: 'Show Keyword Filter',
+      type: 'boolean',
+      description: 'Show the keyword filter section above the case studies',
+      initialValue: true
+    }),
+    defineField({
+      name: 'filterTitle',
+      title: 'Filter Title',
+      type: 'string',
+      description: 'Title for the keyword filter section',
+      initialValue: 'Filter by Category'
+    }),
+    defineField({
+      name: 'allKeyword',
+      title: 'All Keywords Text',
+      type: 'string',
+      description: 'Text for the "show all" filter option',
+      initialValue: 'All'
     })
   ],
   preview: {
