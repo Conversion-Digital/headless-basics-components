@@ -68,6 +68,8 @@ export default defineType({
       title: 'Description',
       type: 'text',
       description: 'Additional descriptive text for the hero banner (especially useful for Case Study variant)'
+    }),
+    defineField({
       name: 'category',
       title: 'Category',
       description: 'e.g: Services, About Us, etc.',
