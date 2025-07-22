@@ -18,14 +18,13 @@ interface CdpartnersDefaultVariantProps extends StandardComponentProps {
 
 const CdpartnersDefaultVariant: React.FC<CdpartnersDefaultVariantProps> = (props) => {
   const { matchingData } = props;
-  const title = matchingData?.title || "OUR PARTNERS";
+  const title = matchingData?.title?.toUpperCase() || "OUR PARTNERS";
   const subtitle = matchingData?.subtitle;
   const partnerLogos = matchingData?.partnerLogos || [];
 
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <div className="mb-16">
           {title && (
             <h2 className="text-3xl md:text-3xl font-bold text-[#0D0E47] mb-4">
@@ -40,7 +39,6 @@ const CdpartnersDefaultVariant: React.FC<CdpartnersDefaultVariantProps> = (props
           <div className="w-full h-0.5 bg-gray-300"></div>
         </div>
 
-        {/* Partners Grid */}
         {partnerLogos.length > 0 && (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
             {partnerLogos.map((partner: PartnerItem, index: number) => (
@@ -56,7 +54,6 @@ const CdpartnersDefaultVariant: React.FC<CdpartnersDefaultVariantProps> = (props
                     className="block w-full h-full"
                   >
                     <div className="relative w-full h-16 flex items-center justify-center">
-                      {/* Inactive Logo */}
                       {partner.inactiveLogo && (
                         <img
                           src={partner.inactiveLogo.asset?.url || partner.inactiveLogo}
@@ -65,7 +62,6 @@ const CdpartnersDefaultVariant: React.FC<CdpartnersDefaultVariantProps> = (props
                         />
                       )}
                       
-                      {/* Active Logo */}
                       {partner.activeLogo && (
                         <img
                           src={partner.activeLogo.asset?.url || partner.activeLogo}
@@ -74,7 +70,6 @@ const CdpartnersDefaultVariant: React.FC<CdpartnersDefaultVariantProps> = (props
                         />
                       )}
                       
-                      {/* Fallback if only inactive logo exists */}
                       {partner.inactiveLogo && !partner.activeLogo && (
                         <img
                           src={partner.inactiveLogo.asset?.url || partner.inactiveLogo}
@@ -86,7 +81,6 @@ const CdpartnersDefaultVariant: React.FC<CdpartnersDefaultVariantProps> = (props
                   </a>
                 ) : (
                   <div className="relative w-full h-16 flex items-center justify-center">
-                    {/* Inactive Logo */}
                     {partner.inactiveLogo && (
                       <img
                         src={partner.inactiveLogo.asset?.url || partner.inactiveLogo}
@@ -95,7 +89,6 @@ const CdpartnersDefaultVariant: React.FC<CdpartnersDefaultVariantProps> = (props
                       />
                     )}
                     
-                    {/* Active Logo */}
                     {partner.activeLogo && (
                       <img
                         src={partner.activeLogo.asset?.url || partner.activeLogo}
@@ -104,7 +97,6 @@ const CdpartnersDefaultVariant: React.FC<CdpartnersDefaultVariantProps> = (props
                       />
                     )}
                     
-                    {/* Fallback if only inactive logo exists */}
                     {partner.inactiveLogo && !partner.activeLogo && (
                       <img
                         src={partner.inactiveLogo.asset?.url || partner.inactiveLogo}

@@ -1,5 +1,5 @@
 import { defineField, defineType, defineArrayMember } from 'sanity'
-import { EyeOpenIcon } from '@sanity/icons'
+import { EyeOpenIcon, BlockElementIcon } from '@sanity/icons'
 import { linkItem } from '@conversiondigital/headless-basics-data/src/cms/sanity/sanityCommonSchema'
 
 // Define the socialLink type
@@ -85,7 +85,7 @@ export const additionalInformationType = defineType({
 export default defineType({
   name: 'cdfooter',
   title: 'Footer (CD)',
-  type: 'object',
+  type: 'document',
   icon: EyeOpenIcon,
   fields: [
     defineField({
@@ -191,4 +191,63 @@ export default defineType({
   }
 })
 
+// Override settings type for footer
+export const cdfooterOverrideSettings = defineType({
+  name: 'cdfooterOverrideSettings',
+  title: 'Footer Override Settings',
+  type: 'object',
+  fields: [
+    defineField({
+      name: 'hideOnThisPage',
+      title: 'Hide Footer on This Page',
+      type: 'boolean'
+    }),
+    defineField({
+      name: 'customCopyright',
+      title: 'Custom Copyright Message',
+      type: 'string',
+      description: 'Override the copyright message for this page only'
+    })
+  ]
+})
 
+// Simplified reference component for use in pages
+export const cdfooterReference = defineType({
+  name: 'cdfooterReference',
+  title: 'Footer',
+  type: 'object',
+  icon: BlockElementIcon,
+  fields: [
+    defineField({
+      name: 'globalComponentSource',
+      title: 'Select Footer',
+      type: 'reference',
+      to: [{ type: 'cdfooter' }],
+      description: 'Choose a global footer component.',
+      validation: Rule => Rule.required()
+    }),
+    defineField({
+      name: 'overrideSettings',
+      title: 'Override Settings',
+      type: 'cdfooterOverrideSettings',
+      description: 'Optional: Override specific settings for this page only'
+    })
+  ],
+  preview: {
+    select: {
+      title: 'globalComponentSource.title',
+      hidden: 'overrideSettings.hideOnThisPage',
+      customCopyright: 'overrideSettings.customCopyright'
+    },
+    prepare({ title, hidden, customCopyright }) {
+      const subtitle = []
+      if (hidden) subtitle.push('Hidden')
+      if (customCopyright) subtitle.push('Custom Copyright')
+      
+      return {
+        title: title || 'Footer',
+        subtitle: subtitle.length > 0 ? subtitle.join(', ') : 'Default settings'
+      }
+    }
+  }
+})

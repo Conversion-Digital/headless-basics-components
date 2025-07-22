@@ -32,7 +32,6 @@ const CdclientsDefaultVariant: React.FC<CdclientsDefaultVariantProps> = (props) 
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
         <div className="mb-16">
           {title && (
             <h2 className="text-3xl md:text-3xl font-bold text-[#0D0E47] mb-4">
@@ -48,7 +47,6 @@ const CdclientsDefaultVariant: React.FC<CdclientsDefaultVariantProps> = (props) 
         </div>
       
 
-        {/* Clients Grid */}
         {clientsList.length > 0 && (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
             {clientsList.map((client, index) => (
@@ -64,7 +62,6 @@ const CdclientsDefaultVariant: React.FC<CdclientsDefaultVariantProps> = (props) 
                     className="block w-full h-full"
                   >
                     <div className="relative w-full h-16 flex items-center justify-center">
-                      {/* Inactive Logo */}
                       {client.inactiveLogo && (
                         <img
                           src={client.inactiveLogo.asset?.url || client.inactiveLogo}
@@ -73,7 +70,6 @@ const CdclientsDefaultVariant: React.FC<CdclientsDefaultVariantProps> = (props) 
                         />
                       )}
                       
-                      {/* Active Logo */}
                       {client.activeLogo && (
                         <img
                           src={client.activeLogo.asset?.url || client.activeLogo}
@@ -82,7 +78,6 @@ const CdclientsDefaultVariant: React.FC<CdclientsDefaultVariantProps> = (props) 
                         />
                       )}
                       
-                      {/* Fallback if only inactive logo exists */}
                       {client.inactiveLogo && !client.activeLogo && (
                         <img
                           src={client.inactiveLogo.asset?.url || client.inactiveLogo}
@@ -94,7 +89,6 @@ const CdclientsDefaultVariant: React.FC<CdclientsDefaultVariantProps> = (props) 
                   </a>
                 ) : (
                   <div className="relative w-full h-16 flex items-center justify-center">
-                    {/* Inactive Logo */}
                     {client.inactiveLogo && (
                       <img
                         src={client.inactiveLogo.asset?.url || client.inactiveLogo}
@@ -103,7 +97,6 @@ const CdclientsDefaultVariant: React.FC<CdclientsDefaultVariantProps> = (props) 
                       />
                     )}
                     
-                    {/* Active Logo */}
                     {client.activeLogo && (
                       <img
                         src={client.activeLogo.asset?.url || client.activeLogo}
@@ -111,8 +104,7 @@ const CdclientsDefaultVariant: React.FC<CdclientsDefaultVariantProps> = (props) 
                         className="absolute inset-0 w-full h-16 object-contain opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
                       />
                     )}
-                    
-                    {/* Fallback if only inactive logo exists */}
+                  
                     {client.inactiveLogo && !client.activeLogo && (
                       <img
                         src={client.inactiveLogo.asset?.url || client.inactiveLogo}
@@ -127,7 +119,6 @@ const CdclientsDefaultVariant: React.FC<CdclientsDefaultVariantProps> = (props) 
           </div>
         )}
 
-        {/* Button */}
         {buttonText && buttonUrl && (
           <div className="text-center">
             <Link

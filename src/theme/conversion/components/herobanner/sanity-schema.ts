@@ -45,6 +45,8 @@ export default defineType({
       type: 'string',
       options: {
         list: [
+          { title: 'Title Only', value: 'title-only' },
+          { title: 'Introduction', value: 'introduction' },
           { title: 'Default', value: 'default' },
           { title: 'Case Study', value: 'caseStudy' },
           { title: 'Demo', value: 'xDemo' },
@@ -66,6 +68,10 @@ export default defineType({
       title: 'Description',
       type: 'text',
       description: 'Additional descriptive text for the hero banner (especially useful for Case Study variant)'
+      name: 'category',
+      title: 'Category',
+      description: 'e.g: Services, About Us, etc.',
+      type: 'string',
     }),
     defineField({
       name: 'image',
