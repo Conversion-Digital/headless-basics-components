@@ -6,7 +6,7 @@ import { linkItem } from '@conversiondigital/headless-basics-data/src/cms/sanity
 
 // Define the dropdown menu type
 export const dropdownMenu = defineType({
-  name: 'cdnavDropdownMenu',
+  name: 'navigationDropdownMenu',
   title: 'Navigation Dropdown Menu',
   type: 'object',
   fields: [
@@ -83,7 +83,7 @@ export default defineType({
       name: 'dropdownMenus',
       title: 'Dropdown Menus',
       type: 'array',
-      of: [{ type: 'cdnavDropdownMenu' }]
+      of: [{ type: 'navigationDropdownMenu' }]
     }),
     defineField({
       name: 'sortOrder',
@@ -94,8 +94,8 @@ export default defineType({
       name: 'globalComponentSource',
       title: 'Global Component Source',
       type: 'reference',
-      to: [{ type: 'cdnav' }],
-      description: 'Select a global re-usable cdnav.'
+      to: [{ type: 'navigation' }],
+      description: 'Select a global re-usable navigation.'
     }),
     defineField({
       name: 'buttonText',
@@ -117,8 +117,8 @@ export default defineType({
 })
 
 // Override settings type for navigation
-export const cdnavOverrideSettings = defineType({
-  name: 'cdnavOverrideSettings',
+export const navigationOverrideSettings = defineType({
+  name: 'navigationOverrideSettings',
   title: 'Navigation Override Settings',
   type: 'object',
   fields: [
@@ -136,8 +136,8 @@ export const cdnavOverrideSettings = defineType({
 })
 
 // Simplified reference component for use in pages
-export const cdnavReference = defineType({
-  name: 'cdnavReference',
+export const navigationReference = defineType({
+  name: 'navigationReference',
   title: 'Navigation',
   type: 'object',
   icon: LinkIcon,
@@ -146,14 +146,14 @@ export const cdnavReference = defineType({
       name: 'globalComponentSource',
       title: 'Select Navigation',
       type: 'reference',
-      to: [{ type: 'cdnav' }],
+      to: [{ type: 'navigation' }],
       description: 'Choose a global navigation component.',
       validation: Rule => Rule.required()
     }),
     defineField({
       name: 'overrideSettings',
       title: 'Override Settings',
-      type: 'cdnavOverrideSettings',
+      type: 'navigationOverrideSettings',
       description: 'Optional: Override specific settings for this page only'
     })
   ],

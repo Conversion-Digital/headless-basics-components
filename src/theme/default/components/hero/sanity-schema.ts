@@ -2,7 +2,7 @@ import { defineField, defineType } from 'sanity'
 import {EyeOpenIcon} from '@sanity/icons'
 
 
-const heroButton = defineType({
+export const heroButton = defineType({
   name: 'heroButton',
   title: 'Hero Button',
   type: 'object',

@@ -2,8 +2,8 @@ import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basic
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails): string {
   return `
-    query GetCdnavBySlug($slug: String!) {
-      allCdnav {
+    query GetNavigationBySlug($slug: String!) {
+      allNavigation {
         __typename
         _id
         _key
@@ -34,7 +34,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
       allPage(where: { slug: { current: { eq: $slug } } }) {
         components {
           __typename
-          ... on Cdnav {
+          ... on Navigation {
             __typename
             _key
             _type
@@ -91,7 +91,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
       allHomepage {
         components {
           __typename
-          ... on Cdnav {
+          ... on Navigation {
             __typename
             _key
             _type
