@@ -77,14 +77,14 @@ const NavMegaMenuV1 = ({
           </li>
           <li className="h-full flex-1 lg:pl-4">
             <ul className="flex h-full w-full items-center justify-end [&>li]:ml-6 whitespace-nowrap font-urbanist text-nav font-medium uppercase leading-nav tracking-0.1em text-my-blue">
-              {navItems.map((item, index) => (
+              {navItems && Array.isArray(navItems) ? navItems.map((item, index) => (
                 <Suspense
                   key={`${item.id}-${index}`}
                   fallback={<div>Loading...</div>}
                 >
                   <NavItem {...item} />
                 </Suspense>
-              ))}
+              )) : null}
             </ul>
           </li>
         </ul>
