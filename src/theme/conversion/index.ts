@@ -2,7 +2,7 @@ import { getLogger, getThemeConfig } from "@conversiondigital/headless-basics-da
 // any other exports or theme logic...
 // Existing code from before
 export { default as cdfooter } from "./components/cdfooter/index";
-export { default as cdnav } from "./components/cdnav/index";
+export { default as cdnav } from "./components/navigation/index";
 export { default as herobanner } from "./components/herobanner/index";
 export { default as cdinsights } from "./components/cdinsights/index";
 export { default as cdservices } from "./components/cdservices/index";

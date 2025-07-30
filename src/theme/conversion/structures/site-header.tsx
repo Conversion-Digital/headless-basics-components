@@ -17,7 +17,7 @@ export function SiteHeader({ blueprint, isMegamenu = false, megaMenuMenu }: Site
   let navItems: string | any[] | undefined = [];
   if (blueprint?.navItems) {
     navItems = blueprint.navItems;
-    log.trace(`${logPrefix()} NavItems: ${JSON.stringify(navItems)}`)
+    log.info(`${logPrefix()} ite-header.tsx NavItems: ${JSON.stringify(navItems)}`)
   }
 
   const languageSite = blueprint?.pageData?.languageSite;

@@ -27,7 +27,7 @@ export const dropdownMenu = defineType({
 // Using linkItem from sanityCommonSchema instead of redefining it
 
 export default defineType({
-  name: 'cdnav',
+  name: 'navigation',
   title: 'Navigation (CD)', 
   type: 'document',
   icon: EyeOpenIcon,
