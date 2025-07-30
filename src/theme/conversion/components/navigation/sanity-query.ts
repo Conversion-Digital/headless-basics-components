@@ -3,7 +3,7 @@ import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basic
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails): string {
   return `
     query GetNavigationBySlug($slug: String!) {
-      allNavigation {
+      allNavigation(limit: 1) {
         __typename
         _id
         _key
