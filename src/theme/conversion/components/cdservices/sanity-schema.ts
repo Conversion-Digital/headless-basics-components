@@ -88,6 +88,7 @@ export default defineType({
           { title: 'Default', value: 'default' },
           { title: 'Demo', value: 'xDemo' },
           { title: 'Feature Blocks', value: 'featureBlocks' },
+          { title: 'Meet Our Staff', value: 'meetOurStaff' },
         ]
       }
     }),

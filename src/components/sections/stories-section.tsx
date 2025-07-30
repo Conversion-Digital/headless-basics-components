@@ -13,14 +13,7 @@ export default function StoriesSection(props: StoriesSectionProps) {
     <div className="flex w-full flex-row items-center justify-center bg-[#d5fafcff] py-12 px-8">
       <div className="flex max-w-(--breakpoint-lg) flex-col flex-wrap items-center justify-center md:flex-row">
         <div className="relative flex shrink-0 grow-0 basis-auto flex-col items-center md:items-start">
-          <Image
-            alt="image"
-            loading="lazy"
-            src="/landify/static/playground_assets/quote-mark.svg"
-            width={15}
-            height={13}
-            className="m-4 w-[100px] object-cover md:m-0"
-          />
+          <div className="m-4 w-[100px] h-[13px] md:m-0" />
           <h1 className="z-50 max-w-lg text-center font-['Inter'] text-4xl font-extrabold leading-normal! md:text-left md:text-5xl">
             {props.title}
           </h1>

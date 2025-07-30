@@ -5,6 +5,7 @@ import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/sr
 import DemoVariant from "./variants/demoVariant";
 import DefaultVariant from "./variants/cdservicesDefaultVariant";
 import CdServiceFeatureBlocksVariant from "./variants/CdServiceFeatureBlocksVariant";
+import MeetOurStaff from "./variants/MeetOurStaff";
 
 export const log = getLogger("conversion.components.cdservices");
 
@@ -19,6 +20,8 @@ export default function TemplateUI(dynamicComponent: ViewComponentProps) {
       return <DemoVariant matchingData={matchingData} {...dynamicComponent} />;
     case "featureBlocks":
       return <CdServiceFeatureBlocksVariant matchingData={matchingData} {...dynamicComponent} />;
+    case "meetOurStaff":
+      return <MeetOurStaff matchingData={matchingData} {...dynamicComponent} />;
     default:
       return <DefaultVariant matchingData={matchingData} {...dynamicComponent} />;
   }

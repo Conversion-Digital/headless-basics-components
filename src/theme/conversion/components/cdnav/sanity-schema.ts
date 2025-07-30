@@ -24,25 +24,7 @@ export const dropdownMenu = defineType({
   ]
 })
 
-export const linkItem = defineType({
-  name: 'linkItem',
-  title: 'Link Item',
-  type: 'object',
-  fields: [
-    defineField({
-      name: 'label',
-      title: 'Label',
-      type: 'string',
-      validation: Rule => Rule.required()
-    }),
-    defineField({
-      name: 'url',
-      title: 'URL',
-      type: 'url',
-      validation: Rule => Rule.required()
-    })
-  ]
-}) 
+// Using linkItem from sanityCommonSchema instead of redefining it
 
 export default defineType({
   name: 'cdnav',
