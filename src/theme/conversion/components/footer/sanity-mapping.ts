@@ -1,7 +1,7 @@
 import { getLogger, logPrefix, PageAndSingleComponentDetails } from "@conversiondigital/headless-basics-data/src"
 import { extractComponentsFromSanityData } from "@conversiondigital/headless-basics-data/src/cms/sanity/sanityMappingUtils"
 
-export const log = getLogger("conversion.components.sanity.cdfooter.mapping")
+export const log = getLogger("conversion.components.sanity.footer.mapping")
 
 export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComponentDetails) {
   log.trace(
@@ -12,7 +12,7 @@ export async function mapIdentifierData(pageAndComponentCombo: PageAndSingleComp
   const thisComponentsOrder = pageAndComponentCombo?.component?.sortOrder ?? 0;
   log.trace(`${logPrefix()} thisComponentsOrder: ${thisComponentsOrder}`);
 
-  const matchingData = extractComponentsFromSanityData(content, "cdfooter", log);
+  const matchingData = extractComponentsFromSanityData(content, "footer", log);
 
   return matchingData
 }

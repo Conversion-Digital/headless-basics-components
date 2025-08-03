@@ -2,8 +2,8 @@ import { PageAndSingleComponentDetails } from "@conversiondigital/headless-basic
 
 export function query(pageAndComponentCombo: PageAndSingleComponentDetails): string {
   return `
-    query GetCdfooterBySlug($slug: String!) {
-      allCdfooter {
+    query GetFooterBySlug($slug: String!) {
+      allFooter {
         __typename
         _id
         _key
@@ -52,7 +52,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
       allPage(where: { slug: { current: { eq: $slug } } }) {
         components {
           __typename
-          ... on Cdfooter {
+          ... on Footer {
             __typename
             _key
             _type
@@ -147,7 +147,7 @@ export function query(pageAndComponentCombo: PageAndSingleComponentDetails): str
       allHomepage {
         components {
           __typename
-          ... on Cdfooter {
+          ... on Footer {
             __typename
             _key
             _type

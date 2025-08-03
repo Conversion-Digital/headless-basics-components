@@ -3,7 +3,7 @@ import { componentBoilerPlate } from "@conversiondigital/headless-basics-data/sr
 import type { ViewComponentProps } from "@conversiondigital/headless-basics-data/src/interfaces/ThemeConfig.interface"
 import { getLogger, logPrefix } from "@conversiondigital/headless-basics-data/src"
 import DemoVariant from "./variants/demoVariant"
-import DefaultVariant from "./variants/cdfooterDefaultVariant"
+import DefaultVariant from "./variants/footerDefaultVariant"
 
 export const log = getLogger("default.components.heartcore.template.variants");
 

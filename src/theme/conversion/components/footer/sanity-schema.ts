@@ -1,5 +1,5 @@
 import { defineField, defineType, defineArrayMember } from 'sanity'
-import { EyeOpenIcon, BlockElementIcon } from '@sanity/icons'
+import { EyeOpenIcon, BlockElementIcon, LinkIcon } from '@sanity/icons'
 import { linkItem } from '@conversiondigital/headless-basics-data/src/cms/sanity/sanityCommonSchema'
 
 // Define the socialLink type
@@ -83,7 +83,7 @@ export const additionalInformationType = defineType({
 })
 
 export default defineType({
-  name: 'cdfooter',
+  name: 'footer',
   title: 'Footer (CD)',
   type: 'document',
   icon: EyeOpenIcon,
@@ -175,8 +175,8 @@ export default defineType({
       name: 'globalComponentSource',
       title: 'Global Component Source',
       type: 'reference',
-      to: [{ type: 'cdfooter' }],
-      description: 'Select a global re-usable cdfooter.'
+      to: [{ type: 'footer' }],
+      description: 'Select a global re-usable footer.'
     }),
     defineField({
       name: 'additionalInformation',
@@ -192,8 +192,8 @@ export default defineType({
 })
 
 // Override settings type for footer
-export const cdfooterOverrideSettings = defineType({
-  name: 'cdfooterOverrideSettings',
+export const footerOverrideSettings = defineType({
+  name: 'footerOverrideSettings',
   title: 'Footer Override Settings',
   type: 'object',
   fields: [
@@ -201,53 +201,44 @@ export const cdfooterOverrideSettings = defineType({
       name: 'hideOnThisPage',
       title: 'Hide Footer on This Page',
       type: 'boolean'
-    }),
-    defineField({
-      name: 'customCopyright',
-      title: 'Custom Copyright Message',
-      type: 'string',
-      description: 'Override the copyright message for this page only'
     })
   ]
 })
 
 // Simplified reference component for use in pages
-export const cdfooterReference = defineType({
-  name: 'cdfooterReference',
+export const footerReference = defineType({
+  name: 'footerReference',
   title: 'Footer',
   type: 'object',
-  icon: BlockElementIcon,
+  icon: LinkIcon,
   fields: [
     defineField({
       name: 'globalComponentSource',
       title: 'Select Footer',
       type: 'reference',
-      to: [{ type: 'cdfooter' }],
+      to: [{ type: 'footer' }],
       description: 'Choose a global footer component.',
       validation: Rule => Rule.required()
     }),
     defineField({
       name: 'overrideSettings',
       title: 'Override Settings',
-      type: 'cdfooterOverrideSettings',
+      type: 'footerOverrideSettings',
       description: 'Optional: Override specific settings for this page only'
     })
   ],
   preview: {
     select: {
       title: 'globalComponentSource.title',
-      hidden: 'overrideSettings.hideOnThisPage',
-      customCopyright: 'overrideSettings.customCopyright'
+      hidden: 'overrideSettings.hideOnThisPage'
     },
-    prepare({ title, hidden, customCopyright }) {
-      const subtitle = []
-      if (hidden) subtitle.push('Hidden')
-      if (customCopyright) subtitle.push('Custom Copyright')
-      
+    prepare({ title, hidden }) {
       return {
         title: title || 'Footer',
-        subtitle: subtitle.length > 0 ? subtitle.join(', ') : 'Default settings'
+        subtitle: hidden ? 'Hidden' : 'Default settings'
       }
     }
   }
 })
+
+
