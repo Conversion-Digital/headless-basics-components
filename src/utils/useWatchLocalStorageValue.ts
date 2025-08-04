@@ -11,5 +11,5 @@ export const useWatchLocalStorageValue = ({ key: watchKey, onChange }: { key: st
   useEffect(() => {
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
-  }, []);
+  }, [watchKey, onChange]);
 };

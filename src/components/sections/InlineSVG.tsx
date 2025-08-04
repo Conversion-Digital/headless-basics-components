@@ -2,8 +2,11 @@
 
 import React, { ImgHTMLAttributes, memo, useEffect, useRef } from "react"
 
-type InlineSVGProps = ImgHTMLAttributes<HTMLImageElement> &
-  React.SVGProps<SVGSVGElement>
+type InlineSVGProps = {
+  src?: string;
+  alt?: string;
+  className?: string;
+} & React.SVGProps<SVGSVGElement>
 
 const updateChildAttributes = (element: SVGElement | null): void => {
   if (element && element instanceof SVGElement) {
@@ -30,15 +33,37 @@ const updateChildAttributes = (element: SVGElement | null): void => {
 const InlineSVG = memo<InlineSVGProps>(
   ({ src, alt, className, ...svgProps }: InlineSVGProps) => {
     const divRef = useRef<HTMLDivElement>(null)
+    const abortControllerRef = useRef<AbortController | null>(null)
 
     useEffect(() => {
+      // Abort any previous fetch
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort()
+      }
+
+      // Create new abort controller for this fetch
+      abortControllerRef.current = new AbortController()
+      const { signal } = abortControllerRef.current
+
       const replaceImgWithSVG = async () => {
         try {
-          const response = await fetch(src || "")
+          if (!src) return
+          
+          const response = await fetch(src, { signal })
+          if (!response.ok) {
+            throw new Error(`Failed to fetch SVG: ${response.statusText}`)
+          }
           const text = await response.text()
           const parser = new DOMParser()
           const xmlDoc = parser.parseFromString(text, "text/xml")
           const svg = xmlDoc.getElementsByTagName("svg")[0]
+          
+          if (!svg) {
+            throw new Error("No SVG element found in the fetched content")
+          }
+          
+          // Check if the fetch was aborted
+          if (signal.aborted) return
 
           if (className) {
             svg.setAttribute("class", className)
@@ -76,11 +101,20 @@ const InlineSVG = memo<InlineSVGProps>(
             divElement.replaceChild(svg, divElement.firstChild)
           }
         } catch (error) {
-          console.error(`Error fetching or parsing SVG: ${error}`)
+          if (error instanceof Error && error.name !== 'AbortError') {
+            console.error(`Error fetching or parsing SVG: ${error}`)
+          }
         }
       }
 
       replaceImgWithSVG()
+      
+      // Cleanup function to abort fetch on unmount or src change
+      return () => {
+        if (abortControllerRef.current) {
+          abortControllerRef.current.abort()
+        }
+      }
     }, [src, className, svgProps])
 
     return (

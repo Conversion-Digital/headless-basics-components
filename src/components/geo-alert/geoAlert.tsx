@@ -16,8 +16,10 @@ export const GeoAlert = () => {
 
   useEffect(() => {
     // Extract the visited country from the pathname
-    const pathCountryCode = pathname.split("/")[1].toUpperCase();
-    if (countryCodeWithNames[pathCountryCode as keyof typeof countryCodeWithNames]) {
+    const pathSegments = pathname.split("/");
+    const pathCountryCode = pathSegments.length > 1 && pathSegments[1] ? pathSegments[1].toUpperCase() : "";
+    
+    if (pathCountryCode && countryCodeWithNames[pathCountryCode as keyof typeof countryCodeWithNames]) {
       setWebsiteCountryCode(pathCountryCode);
     } else {
       setWebsiteCountryCode("US"); // Default to "US"
@@ -39,8 +41,8 @@ export const GeoAlert = () => {
    * Following method is used to compare and identify that current location is matched with site url or not.
    */
   const checkCurrentLocation = () => {
-    if (currentCountryCode) {
-      return (pathname === "/" && currentCountryCode === "US") || pathname.includes(currentCountryCode.toLowerCase());
+    if (currentCountryCode && typeof currentCountryCode === 'string') {
+      return (pathname === "/" && currentCountryCode === "US") || pathname.toLowerCase().includes(currentCountryCode.toLowerCase());
     }
     return false;
   };
@@ -67,7 +69,7 @@ export const GeoAlert = () => {
               &times;
             </button>
             <p id="geo-popup-us" className="text-base mb-6 pr-12">
-              We think you are in the {countryCodeWithNames[currentCountryCode as keyof typeof countryCodeWithNames]}. Update your location?
+              We think you are in the {currentCountryCode && countryCodeWithNames[currentCountryCode as keyof typeof countryCodeWithNames] || 'your current location'}. Update your location?
             </p>
             <button
               className={cn(
@@ -79,7 +81,7 @@ export const GeoAlert = () => {
                 websiteCountryCode === "US" ? router.push("/") : router.push("/" + websiteCountryCode.toLowerCase());
               }}
             >
-              {countryCodeWithNames[websiteCountryCode as keyof typeof countryCodeWithNames]}
+              {websiteCountryCode && countryCodeWithNames[websiteCountryCode as keyof typeof countryCodeWithNames] || websiteCountryCode}
             </button>
             <button
               className={cn(
@@ -91,7 +93,7 @@ export const GeoAlert = () => {
                 currentCountryCode === "US" ? router.push("/") : router.push("/" + currentCountryCode.toLowerCase());
               }}
             >
-              {countryCodeWithNames[currentCountryCode as keyof typeof countryCodeWithNames]}
+              {currentCountryCode && countryCodeWithNames[currentCountryCode as keyof typeof countryCodeWithNames] || currentCountryCode}
             </button>
           </div>
           <div className="fixed inset-0 z-0" onClick={closePopup}></div>

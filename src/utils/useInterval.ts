@@ -19,5 +19,5 @@ export const useInterval = (callback: () => void, delay: number, runOnce?: boole
       const id = setInterval(runCallback, delay);
       return () => clearInterval(id);
     }
-  }, []);
+  }, [delay, runOnce]);
 };
